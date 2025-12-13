@@ -4218,7 +4218,7 @@ function renderLogin(container) {
     </h1>
 </div>
                             <h2 class="text-5xl font-bold leading-tight mb-6">Tu tienda virtual de confianza y a un buen precio.</h2>
-                            <p class="text-lg text-slate-300 mb-8">Únete a nuestra comunidad premium y accede a ofertas exclusivas en audio, fotografía y computación.</p>
+                            <p class="text-lg text-slate-300 mb-8">Únete a nuestra comunidad y accede a ofertas, puntos para canjear y mucho más.</p>
                         </div>
                     </div>
                     <div class="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16 relative bg-white">
