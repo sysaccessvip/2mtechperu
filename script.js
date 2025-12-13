@@ -3608,10 +3608,18 @@ async function renderProduct(container, slug) {
 
     // Pantalla de carga (Igual que antes)
     container.innerHTML = `
-    <div class="w-full min-h-[80vh] flex flex-col items-center justify-center bg-white fade-in">
+<div class="w-full min-h-[80vh] flex flex-col items-center justify-center bg-white fade-in">
         <div class="animate-pulse flex flex-col items-center">
-            <i class="ph-fill ph-circuitry text-[#00979D] text-6xl mb-4"></i>
-            <h1 class="text-4xl font-extrabold text-slate-900 tracking-tighter">Tech<span class="text-[#00979D]">Perú</span></h1>
+            <img src="https://qeoojbsrqlroajvdgrju.supabase.co/storage/v1/object/public/productos/2MTECHPERU%20logo.png" 
+                 class="h-24 w-auto object-contain mb-4 drop-shadow-sm" 
+                 alt="Cargando 2MTechPerú">
+            
+            <h1 class="text-4xl font-extrabold tracking-tighter flex gap-2">
+                <span class="text-[#10c4c1]">2M</span>
+                <span class="text-[#0ae4da]">Tech</span>
+                <span class="text-slate-900">Perú</span>
+            </h1>
+            
             <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Cargando...</p>
         </div>
     </div>`;
