@@ -2543,12 +2543,15 @@ ${isNew ? `
                     </span>
                     
                     <div class="flex flex-col leading-none">
-                        <div class="flex items-end gap-0.5">
-                            <span class="text-[10px] font-bold mb-0.5 ${p.isOffer ? 'text-red-600' : 'text-slate-600'}">S/</span>
-                            <span class="text-lg font-black tracking-tighter ${p.isOffer ? 'text-red-600' : 'text-slate-900'}">
-                                ${finalPrice.toFixed(0)}<span class="text-xs font-bold opacity-70 align-top ml-px">.${finalPrice.toFixed(2).split('.')[1]}</span>
-                            </span>
-                        </div>
+
+
+<div class="flex items-end gap-0.5">
+    <span class="text-[10px] font-bold mb-0.5 ${p.isOffer ? 'text-red-600' : 'text-slate-600'}">S/</span>
+    <span class="text-lg font-black tracking-tighter ${p.isOffer ? 'text-red-600' : 'text-slate-900'}">
+        ${Math.floor(finalPrice)}<span class="text-xs font-bold opacity-70 align-top ml-px">.${finalPrice.toFixed(2).split('.')[1]}</span>
+    </span>
+</div>
+
                         
                         ${p.isOffer ? `
                             <span class="text-[8px] font-bold text-slate-400 line-through decoration-slate-300 -mt-0.5">
