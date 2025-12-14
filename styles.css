@@ -1,9 +1,7 @@
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        
         .fade-in { animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
@@ -26,8 +24,6 @@
         
         @keyframes loadingBar { 0% { width: 0%; } 50% { width: 60%; } 100% { width: 100%; } }
         .animate-load-bar { animation: loadingBar 2s ease-in-out infinite; }
-
-        /* Animación para el Carrusel de Ofertas */
         @keyframes scrollLeft {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -42,8 +38,6 @@
         .animate-infinite-scroll:hover {
             animation-play-state: paused;
         }
-
-        /* Estilos para el Zoom de Producto */
         .zoom-container {
             overflow: hidden;
             cursor: crosshair; 
@@ -59,7 +53,6 @@
             transition: transform 0.1s ease-out; 
         }
 
-        /* Animación de "Sacudida" para el carrito */
         @keyframes cart-tada {
             0% { transform: scale(1); }
             10%, 20% { transform: scale(0.9) rotate(-3deg); }
@@ -72,7 +65,6 @@
             animation: cart-tada 0.8s ease-in-out;
         }
 
-        /* Animación para los items del carrito */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -80,58 +72,38 @@
 .animate-fade-in-up {
     animation: fadeInUp 0.4s ease-out forwards;
 }
-
-/* --- AGREGAR ESTO AL FINAL DE TU ETIQUETA <STYLE> --- */
-
-/* Estado inicial: Invisible y desplazado hacia abajo */
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(40px) scale(0.95); /* Un poco más abajo y pequeño */
-    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); /* Curva de animación premium */
+    transform: translateY(40px) scale(0.95); 
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); 
     will-change: transform, opacity;
 }
-
-/* Estado final: Visible y en su lugar */
 .reveal-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
-
-/* Pequeño retraso para elementos pares para dar efecto cascada */
 .reveal-on-scroll:nth-child(even) {
     transition-delay: 0.1s;
 }
 
-
-/* --- ESTILO HÍBRIDO: SCROLL + MOUSE 3D (VERSIÓN ULTRA SUAVE) --- */
 .banner-3d-target {
-    /* Ajustamos el inicio para que flote bien */
     --scroll-y: 30px; 
     --scroll-scale: 1;
     --rotate-x: 0deg;
     --rotate-y: 0deg;
-    --drop-shadow-y: 25px; /* Sombra un poco más lejos */
-
-    /* !important asegura que Tailwind no interfiera */
+    --drop-shadow-y: 25px; 
     transform: 
         translateY(var(--scroll-y)) 
         scale(var(--scroll-scale)) 
         perspective(1000px) 
         rotateX(var(--rotate-x)) 
         rotateY(var(--rotate-y)) !important;
-    
-    /* TRUCO DE SOMBRA: 
-       - 60px de desenfoque (blur) para que no se note la forma cuadrada.
-       - Opacidad 0.35 para que sea sutil y elegante.
-    */
     filter: drop-shadow(0 var(--drop-shadow-y) 60px rgba(0,0,0,0.35));
 
     transition: transform 0.1s ease-out, filter 0.1s ease-out;
     will-change: transform;
     z-index: 50; 
 }
-
-/* --- EFECTO GLITCH TRANSICIÓN COMPLETA --- */
 @keyframes glitch-slide {
   0% { clip-path: inset(20% 0 80% 0); transform: translate(-5px, 2px); filter: hue-rotate(90deg) contrast(150%); }
   20% { clip-path: inset(60% 0 10% 0); transform: translate(5px, -2px); filter: hue-rotate(0deg) contrast(100%); }
@@ -141,80 +113,57 @@
   100% { clip-path: inset(0 0 0 0); transform: translate(0); filter: none; }
 }
 
-/* Esta clase se aplicará a TODO el slide (fondo + producto) */
 .glitch-active {
   animation: glitch-slide 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-  z-index: 60 !important; /* Asegura que se vea encima de todo durante el glitch */
+  z-index: 60 !important; 
   display: block !important;
   opacity: 1 !important;
 }
-
-
-/* --- ESTILO TECH PREMIUM (NUEVO) --- */
-
-/* 1. La línea brillante que separa (El borde de neón) */
 .tech-neon-line {
     position: absolute;
     top: 0; bottom: 0; right: 0;
-    width: 58%; /* Un poquito más ancho que el panel para asomarse */
-    background: #facc15; /* Amarillo TechPerú */
+    width: 58%; 
+    background: #facc15; 
     z-index: 4; 
-    
-    /* Diagonal futurista */
     clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-    
-    /* Efecto de resplandor */
     filter: blur(4px); 
     opacity: 0.8;
     transition: all 0.5s ease-out;
 }
-
-/* 2. El panel de fondo donde va el producto */
 .tech-bg-panel {
     position: absolute;
     top: 0; bottom: 0; right: 0;
     width: 58%; 
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); /* Gris azulado oscuro premium */
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); 
     z-index: 5;
-    
-    /* La misma diagonal, pero sólida */
     clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-    
-    /* Sutil borde interno simulado */
     box-shadow: inset 10px 0 20px rgba(0,0,0,0.5);
 }
 
-/* 3. La textura de "Circuito/Rejilla" (Cyber Grid) */
 .tech-grid-texture {
     position: absolute;
     inset: 0;
     z-index: 6;
-    opacity: 0.15; /* Muy sutil */
-    
-    /* Patrón de cuadrícula matemática */
+    opacity: 0.15;
+
     background-image: 
         linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
     background-size: 40px 40px;
-    
-    /* Se desvanece suavemente para no saturar */
     mask-image: linear-gradient(to right, transparent, black);
     -webkit-mask-image: linear-gradient(to right, transparent, black);
     pointer-events: none;
 }
 
-/* Ajuste Móvil: Corte horizontal */
 @media (max-width: 768px) {
     .tech-neon-line, .tech-bg-panel {
         width: 100%;
         height: 50%;
         top: auto; bottom: 0; right: 0;
-        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%); /* Diagonal suave arriba */
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%); 
     }
 }
 
-
-/* --- ESTILOS SLIDER SERVICIOS --- */
 .service-slider { position: relative; width: 100%; height: 100%; overflow: hidden; }
 .service-slide {
     position: absolute; inset: 0; width: 100%; height: 100%;
@@ -222,7 +171,7 @@
 }
 .service-slide.active { opacity: 1; z-index: 10; }
 
-/* Puntos de navegación */
+
 .slider-dots {
     position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%);
     display: flex; gap: 6px; z-index: 20;
@@ -233,28 +182,21 @@
 }
 .slider-dot.active { background: #fff; width: 18px; border-radius: 10px; }
 
-
-/* --- ANIMACIONES PORTADA "ROMPECABEZAS" --- */
-
-/* Fondo: Se abre como cortina */
 @keyframes curtainReveal {
     0% { clip-path: inset(0 100% 0 0); }
     100% { clip-path: inset(0 0 0 0); }
 }
 
-/* Título: Cae del cielo */
 @keyframes dropFromSky {
     0% { transform: translateY(-150%); opacity: 0; filter: blur(10px); }
     100% { transform: translateY(0); opacity: 1; filter: blur(0); }
 }
 
-/* Texto: Entra por la izquierda */
 @keyframes slideFromLeft {
     0% { transform: translateX(-100px); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }
 }
 
-/* Tarjetas: Entran por la derecha escalonadas */
 @keyframes cardEntry {
     0% { transform: translateX(100px) scale(0.8); opacity: 0; }
     100% { transform: translateX(0) scale(1); opacity: 1; }
@@ -265,49 +207,39 @@
 .anim-sky { opacity: 0; animation: dropFromSky 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 .anim-left { opacity: 0; animation: slideFromLeft 0.8s ease-out forwards; }
 .anim-card { opacity: 0; animation: cardEntry 0.6s ease-out forwards; }
-
-/* Efecto Hover para las tarjetas */
 .hover-card-effect:hover { transform: translateY(-5px); border-color: #00979D; box-shadow: 0 10px 30px -10px rgba(0, 151, 157, 0.5); }
 
-/* --- ANIMACIONES FLOTANTES (NUEVO) --- */
 @keyframes float-y {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     50% { transform: translateY(-20px) rotate(2deg); }
 }
 
 .floating-img {
-    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5)); /* Sombra para dar profundidad */
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
     transition: transform 0.3s ease, filter 0.3s ease;
-    cursor: zoom-in; /* El cursor cambia a lupa */
+    cursor: zoom-in; 
 }
 
-/* Efecto al pasar el mouse (se detiene y brilla) */
 .floating-img:hover {
     filter: drop-shadow(0 0 20px rgba(0, 151, 157, 0.8));
-    transform: scale(1.1) !important; /* Se agranda un poquito al tocar */
-    animation-play-state: paused; /* Pausa la flotación */
+    transform: scale(1.1) !important; 
+    animation-play-state: paused; 
     z-index: 50;
 }
-
-/* Tiempos diferentes para que no se muevan igual */
 .float-delay-1 { animation: float-y 6s ease-in-out infinite; }
 .float-delay-2 { animation: float-y 7s ease-in-out infinite 1s; } /* Retraso de 1s */
 .float-delay-3 { animation: float-y 5s ease-in-out infinite 2s; } /* Retraso de 2s */
 
-
-
-
-/* --- ESTILOS PARA LA NUBE DE PENSAMIENTO (TYPEWRITER) --- */
 .thought-bubble {
     position: absolute;
-    bottom: 110%; /* Aparece encima de la imagen */
+    bottom: 110%;
     left: 50%;
     transform: translateX(-50%) scale(0.8);
     background: white;
     color: #0f172a;
     padding: 10px 15px;
     border-radius: 20px;
-    border-bottom-left-radius: 0; /* Efecto de globo de diálogo */
+    border-bottom-left-radius: 0; 
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     font-size: 11px;
     font-weight: 800;
@@ -319,7 +251,6 @@
     border: 2px solid #00979D;
 }
 
-/* La flechita de la nube */
 .thought-bubble::after {
     content: '';
     position: absolute;
@@ -330,14 +261,12 @@
     border-color: #00979D transparent transparent transparent;
 }
 
-/* Clase para mostrar la nube */
 .bubble-visible {
     opacity: 1;
     transform: translateX(-50%) scale(1);
-    bottom: 115%; /* Sube un poquito al aparecer */
+    bottom: 115%;
 }
 
-/* Cursor parpadeante estilo consola */
 .cursor-blink {
     display: inline-block;
     width: 2px;
