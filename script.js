@@ -1,1 +1,5231 @@
-const _0x6e00bc=_0x32b0;(function(_0x1ab74c,_0x4ba041){const _0x2e3ced=_0x32b0,_0x571703=_0x1ab74c();while(!![]){try{const _0xa32b35=-parseInt(_0x2e3ced(0x521))/(0x132b*0x1+-0x2666+0x4*0x4cf)+parseInt(_0x2e3ced(0x188))/(-0x201d+-0xd22+0x5*0x90d)*(parseInt(_0x2e3ced(0x252))/(-0x64d*-0x4+0x15ef+-0x2f20))+parseInt(_0x2e3ced(0x415))/(-0x105+-0x1e6a+0x1f73)+parseInt(_0x2e3ced(0x337))/(-0x10e8+-0x254*-0x5+0x549)*(parseInt(_0x2e3ced(0x501))/(0x428*-0x8+0x8*0x41e+0x56*0x1))+-parseInt(_0x2e3ced(0x22e))/(0x2f6*-0x5+-0x343+0x90c*0x2)*(parseInt(_0x2e3ced(0x47f))/(0x1ca*0x7+-0x49*-0x4d+-0x2273*0x1))+-parseInt(_0x2e3ced(0x511))/(0x710+0x1a*0xca+-0x1b8b)*(parseInt(_0x2e3ced(0x3bf))/(0x1c29+0x17c8+0x2b*-0x135))+-parseInt(_0x2e3ced(0x529))/(0x3dd+-0x12*0xd6+0xb3a)*(-parseInt(_0x2e3ced(0x2e7))/(0x1fe4+-0x1*-0x1e13+-0x3deb));if(_0xa32b35===_0x4ba041)break;else _0x571703['push'](_0x571703['shift']());}catch(_0x4418cd){_0x571703['push'](_0x571703['shift']());}}}(_0x34c8,0x497cd+0x11*0x553+0x6ae));const _0x250114=(function(){let _0x43fdf6=!![];return function(_0x4aca42,_0x46998a){const _0x3a856c=_0x43fdf6?function(){const _0x58f0ea=_0x32b0;if(_0x46998a){const _0x325e98=_0x46998a[_0x58f0ea(0x1bb)](_0x4aca42,arguments);return _0x46998a=null,_0x325e98;}}:function(){};return _0x43fdf6=![],_0x3a856c;};}());(function(){_0x250114(this,function(){const _0x34c4e5=_0x32b0,_0x5d267f=new RegExp('function\x20*\x5c(\x20*\x5c)'),_0x2d936e=new RegExp(_0x34c4e5(0x360),'i'),_0x2ce290=_0x33d0d7('init');!_0x5d267f[_0x34c4e5(0x1bf)](_0x2ce290+'chain')||!_0x2d936e[_0x34c4e5(0x1bf)](_0x2ce290+_0x34c4e5(0x24d))?_0x2ce290('0'):_0x33d0d7();})();}());import{initializeApp}from'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';import{getAuth,signInWithPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword,GoogleAuthProvider,onAuthStateChanged,signOut,updateProfile}from'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';import{getDatabase,ref,set,get,push,remove,onValue,update,runTransaction}from'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';const _0x258283={};_0x258283['initializeApp']=initializeApp,_0x258283['getAuth']=getAuth,_0x258283[_0x6e00bc(0x428)]=signInWithPopup,_0x258283['createUserWithEmailAndPassword']=createUserWithEmailAndPassword,_0x258283['signInWithEmailAndPassword']=signInWithEmailAndPassword,_0x258283['GoogleAuthProvider']=GoogleAuthProvider,_0x258283[_0x6e00bc(0x45c)]=onAuthStateChanged,_0x258283[_0x6e00bc(0x486)]=signOut,_0x258283[_0x6e00bc(0x546)]=updateProfile,_0x258283[_0x6e00bc(0x27f)]=getDatabase,_0x258283[_0x6e00bc(0x4ea)]=ref,_0x258283[_0x6e00bc(0x577)]=set,_0x258283['get']=get,_0x258283[_0x6e00bc(0x221)]=push,_0x258283[_0x6e00bc(0x22d)]=remove,_0x258283[_0x6e00bc(0x21d)]=onValue,_0x258283[_0x6e00bc(0x227)]=update,_0x258283['runTransaction']=runTransaction,window[_0x6e00bc(0x525)]=_0x258283;const _0x38e814={};_0x38e814[_0x6e00bc(0x4eb)]=_0x6e00bc(0x5b6),_0x38e814[_0x6e00bc(0x2cf)]=_0x6e00bc(0x562),_0x38e814[_0x6e00bc(0x3f8)]='https://data-client-3-2be69-default-rtdb.firebaseio.com',_0x38e814[_0x6e00bc(0x5f4)]=_0x6e00bc(0x3fc),_0x38e814[_0x6e00bc(0x2ec)]=_0x6e00bc(0x3e6),_0x38e814[_0x6e00bc(0x264)]='953517130591',_0x38e814['appId']='1:953517130591:web:e31f9755daaa255c92ecea',_0x38e814[_0x6e00bc(0x45a)]=_0x6e00bc(0x3ff);const firebaseConfig=_0x38e814;let app;try{app=initializeApp(firebaseConfig);}catch(_0x2f1bdd){app=firebase[_0x6e00bc(0x208)]();}const auth=getAuth(app),db=getDatabase(app);let PRODUCTS=[],CATEGORIES=[],BANNER_DATA=null,VACATION_SETTINGS=null,bannerInterval=null,POPUP_LINK='',SERVICES_DATA=null;onValue(ref(db,'content/services_page'),_0x54ea18=>{const _0x11eeaf=_0x6e00bc;if(_0x54ea18[_0x11eeaf(0x23d)]()){const _0x37ea26=_0x54ea18[_0x11eeaf(0x165)]();SERVICES_DATA=_0x37ea26;const _0x3d00d7=document['getElementById'](_0x11eeaf(0x158)),_0x3e5f37=document[_0x11eeaf(0x20b)](_0x11eeaf(0x4c6));if(_0x37ea26[_0x11eeaf(0x322)]){if(_0x3d00d7)_0x3d00d7[_0x11eeaf(0x233)][_0x11eeaf(0x22d)](_0x11eeaf(0x1e5));if(_0x3e5f37)_0x3e5f37[_0x11eeaf(0x233)][_0x11eeaf(0x22d)](_0x11eeaf(0x1e5),_0x11eeaf(0x358));if(_0x3e5f37)_0x3e5f37['classList'][_0x11eeaf(0x561)](_0x11eeaf(0x358));}else{if(_0x3d00d7)_0x3d00d7[_0x11eeaf(0x233)]['add'](_0x11eeaf(0x1e5));if(_0x3e5f37)_0x3e5f37[_0x11eeaf(0x233)][_0x11eeaf(0x561)](_0x11eeaf(0x1e5));const _0x183148=new URLSearchParams(window['location'][_0x11eeaf(0x5d6)]);if(_0x183148[_0x11eeaf(0x585)](_0x11eeaf(0x333))===_0x11eeaf(0x32d))router['navigate']('/');}const _0x26ee80=new URLSearchParams(window[_0x11eeaf(0x2d7)][_0x11eeaf(0x5d6)]);_0x26ee80[_0x11eeaf(0x585)](_0x11eeaf(0x333))===_0x11eeaf(0x32d)&&router[_0x11eeaf(0x265)](![]);}}),onValue(ref(db,_0x6e00bc(0x61b)),_0x269467=>{const _0x1716e0=_0x6e00bc;if(_0x269467[_0x1716e0(0x23d)]()){const _0x2e231c=Object['values'](_0x269467[_0x1716e0(0x165)]());PRODUCTS=_0x2e231c['filter'](_0x32a293=>_0x32a293&&_0x32a293['id']&&_0x32a293[_0x1716e0(0x60a)]&&_0x32a293['isVisible']!==![]),router[_0x1716e0(0x265)](![]);}else PRODUCTS=[],router[_0x1716e0(0x265)](![]);}),onValue(ref(db,_0x6e00bc(0x377)),_0x2bed94=>{const _0x5e794e=_0x6e00bc;if(_0x2bed94[_0x5e794e(0x23d)]()){const _0x37fc72=Object[_0x5e794e(0x14f)](_0x2bed94[_0x5e794e(0x165)]());CATEGORIES=_0x37fc72[_0x5e794e(0x4f4)](_0x4f6ec0=>_0x4f6ec0&&_0x4f6ec0[_0x5e794e(0x60a)])[_0x5e794e(0x445)]((_0xd8d5fe,_0x5583a6)=>{const _0x3de7be=_0x5e794e;if(_0xd8d5fe[_0x3de7be(0x25c)]&&!_0x5583a6[_0x3de7be(0x25c)])return-(0x2c8+-0x2*0x772+-0x1*-0xc1d);if(!_0xd8d5fe[_0x3de7be(0x25c)]&&_0x5583a6[_0x3de7be(0x25c)])return 0x205f+-0x2571*0x1+0x513;return _0xd8d5fe[_0x3de7be(0x60a)][_0x3de7be(0x3f3)](_0x5583a6[_0x3de7be(0x60a)]);}),window[_0x5e794e(0x48b)]&&typeof window['megaMenuManager'][_0x5e794e(0x1e4)]===_0x5e794e(0x331)&&window[_0x5e794e(0x48b)]['refresh'](),router[_0x5e794e(0x265)](![]);}else CATEGORIES=[],window['megaMenuManager']&&typeof window['megaMenuManager'][_0x5e794e(0x1e4)]===_0x5e794e(0x331)&&window[_0x5e794e(0x48b)]['refresh'](),router['handle'](![]);}),onValue(ref(db,_0x6e00bc(0x2ea)),_0x33d81b=>{const _0x2d006b=_0x6e00bc;if(_0x33d81b[_0x2d006b(0x23d)]()){const _0x335278=_0x33d81b[_0x2d006b(0x165)]();if(!_0x335278['isActive']||!_0x335278[_0x2d006b(0x1f8)])return;const _0x42993d=new Date();_0x42993d[_0x2d006b(0x4ce)](0x61*-0x8+-0x36+0x1*0x33e,0x1*0x1d1+0x8fb+0x2b3*-0x4,0x24ff+-0x190d+-0x5f9*0x2,0x21d7+0x229e+0x19*-0x2bd);const _0x46a87b=_0x335278[_0x2d006b(0x5d4)][_0x2d006b(0x4bd)]('-'),_0x4d3881=_0x335278['endDate'][_0x2d006b(0x4bd)]('-'),_0xb0a5ed=new Date(_0x46a87b[0x2*0x132f+-0x8*-0x34+-0x27fe],_0x46a87b[-0xd*0x159+0x1a70+-0x8ea]-(-0x1939+-0x1288+0x15e1*0x2),_0x46a87b[-0x7*0x239+-0x15b0+0x2541]),_0x277a69=new Date(_0x4d3881[0x4*0xc5+-0xc94+0x130*0x8],_0x4d3881[0x1d01+-0x1873+-0x48d]-(-0x1f02+0xfd*-0x7+0x25ee),_0x4d3881[0x1fc6+0x31f*-0x2+-0x1986]);_0x42993d>=_0xb0a5ed&&_0x42993d<=_0x277a69&&setTimeout(()=>{const _0x4d425=_0x2d006b;window[_0x4d425(0x478)](_0x335278[_0x4d425(0x1f8)],_0x335278['link'],_0x335278[_0x4d425(0x41a)],_0x335278[_0x4d425(0x4bc)],_0x335278[_0x4d425(0x2f4)]);},-0x38*0x9+-0x1fd1+-0x1*-0x2b8d);}}),onValue(ref(db,'categories'),_0x23e606=>{const _0x4aee6a=_0x6e00bc;if(_0x23e606['exists']()){const _0x2392e7=Object[_0x4aee6a(0x14f)](_0x23e606[_0x4aee6a(0x165)]());CATEGORIES=_0x2392e7[_0x4aee6a(0x445)]((_0x257f55,_0x8da99a)=>{const _0x1aad49=_0x4aee6a;if(_0x257f55[_0x1aad49(0x25c)]&&!_0x8da99a[_0x1aad49(0x25c)])return-(0x64e*0x3+-0x25b5+0x12cc);if(!_0x257f55['isPinned']&&_0x8da99a[_0x1aad49(0x25c)])return-0x22c8+-0x61d*0x3+-0x1a9*-0x20;return _0x257f55[_0x1aad49(0x60a)][_0x1aad49(0x3f3)](_0x8da99a[_0x1aad49(0x60a)]);}),window[_0x4aee6a(0x48b)]&&typeof window[_0x4aee6a(0x48b)][_0x4aee6a(0x1e4)]===_0x4aee6a(0x331)&&window['megaMenuManager'][_0x4aee6a(0x1e4)](),router[_0x4aee6a(0x265)]();}else CATEGORIES=[],window['megaMenuManager']&&typeof window[_0x4aee6a(0x48b)]['refresh']===_0x4aee6a(0x331)&&window[_0x4aee6a(0x48b)][_0x4aee6a(0x1e4)](),router[_0x4aee6a(0x265)]();}),onValue(ref(db,_0x6e00bc(0x604)),_0x300f1c=>{const _0x5163af=_0x6e00bc;_0x300f1c['exists']()?(VACATION_SETTINGS=_0x300f1c[_0x5163af(0x165)](),checkVacationPopup()):VACATION_SETTINGS=null;}),onValue(ref(db,_0x6e00bc(0x38d)),_0x447f61=>{const _0x9f4217=_0x6e00bc;if(_0x447f61['exists']()){BANNER_DATA=_0x447f61['val']();const _0x171f9d=new URLSearchParams(window[_0x9f4217(0x2d7)][_0x9f4217(0x5d6)]),_0x5a43a3=_0x171f9d['get'](_0x9f4217(0x333))||_0x9f4217(0x5db);if(_0x5a43a3==='home'){const _0x9ca27f=document[_0x9f4217(0x20b)](_0x9f4217(0x208));renderHome(_0x9ca27f);}}});const _0x15c216={};_0x15c216['q']='¿Realizan\x20envíos\x20a\x20provincias?',_0x15c216['a']=_0x6e00bc(0x32f);const _0x11ba48={};_0x11ba48['q']=_0x6e00bc(0x219),_0x11ba48['a']=_0x6e00bc(0x5ca);const _0x366253={};_0x366253['q']=_0x6e00bc(0x357),_0x366253['a']=_0x6e00bc(0x61d);const _0xe16ff2={};_0xe16ff2['q']=_0x6e00bc(0x235),_0xe16ff2['a']=_0x6e00bc(0x270);const FAQS=[_0x15c216,_0x11ba48,_0x366253,_0xe16ff2],state={'cart':JSON[_0x6e00bc(0x31d)](localStorage[_0x6e00bc(0x1d6)](_0x6e00bc(0x5a2)))||[],'user':null,'favorites':new Set(),'orders':[],'points':0x0,'wallet':0x0};window[_0x6e00bc(0x2fe)]=()=>{const _0x160be3=_0x6e00bc;if(!VACATION_SETTINGS||!VACATION_SETTINGS[_0x160be3(0x216)])return![];const _0x2d65c5=new Date();_0x2d65c5[_0x160be3(0x4ce)](0x12*0x170+0x18af+-0x328f,-0x25f4*0x1+0x5*0xf1+0x213f*0x1,-0x1769+-0x12*-0x199+-0x559,-0x15ba+-0x1fd8+0x3592);const _0x23cfa4=VACATION_SETTINGS[_0x160be3(0x5d4)][_0x160be3(0x4bd)]('-'),_0x784c9=VACATION_SETTINGS[_0x160be3(0x477)][_0x160be3(0x4bd)]('-'),_0x1c4876=new Date(_0x23cfa4[-0x1fef+0x1894+0x75b*0x1],_0x23cfa4[0x217d+0x10a8+-0xc89*0x4]-(-0x44b+-0xb*-0x7+0x3ff),_0x23cfa4[-0xb69+0xa00+0x21*0xb]),_0x223494=new Date(_0x784c9[0x170*-0x11+-0x2*-0x12a4+-0xcd8],_0x784c9[-0x25f5+0x297*0xf+-0xe3]-(-0xc*0x26b+-0xfec*0x1+0x2cf1),_0x784c9[-0x522+-0xd4a+-0x937*-0x2]);return _0x2d65c5>=_0x1c4876&&_0x2d65c5<=_0x223494;},window[_0x6e00bc(0x3d4)]=()=>{const _0x470f3b=_0x6e00bc;if(!VACATION_SETTINGS||!VACATION_SETTINGS[_0x470f3b(0x216)])return;const _0x47bbde=new Date();_0x47bbde[_0x470f3b(0x4ce)](0xb59+-0xc04+0xab,-0x25d5+-0x2489+-0x252f*-0x2,-0x1f*0x4c+0xa9*0x7+0x495,0x6b*0x1b+-0xaa2+-0xa7);const _0x335a3c=VACATION_SETTINGS[_0x470f3b(0x5d4)][_0x470f3b(0x4bd)]('-'),_0x532642=VACATION_SETTINGS[_0x470f3b(0x477)][_0x470f3b(0x4bd)]('-'),_0x26f966=new Date(_0x335a3c[-0x73*0x2f+-0x2201+-0x2*-0x1b8f],_0x335a3c[-0x1880*-0x1+-0x632+-0x3a9*0x5]-(-0x665*-0x4+-0x4b*0xd+0xae2*-0x2),_0x335a3c[-0x2b*-0x4f+0x1*0x17f5+-0x2538]),_0x13f46a=new Date(_0x532642[-0x17*-0x3+0xf4+0x139*-0x1],_0x532642[-0xd0b*-0x2+-0x2*0x11fd+-0x9e5*-0x1]-(0x7*-0x505+0x17de+-0x25*-0x4e),_0x532642[-0x98+0x5ae*-0x5+0x1d*0x100]),_0x3df399=_0x26f966-_0x47bbde,_0x70d3cd=Math[_0x470f3b(0x2b9)](_0x3df399/((-0x1c6f*0x1+0x1e23*-0x1+0x3e7a)*(0x21cd+0x1*0xb20+-0x11*0x2a1)*(0xa06*0x3+0x1f*0xd3+0x1*-0x3763)*(0xee9+0x2a6+-0x1177)));if(_0x47bbde>=_0x26f966&&_0x47bbde<=_0x13f46a)Swal['fire']({'title':_0x470f3b(0x57f),'html':'<div\x20class=\x22text-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-calendar-x\x20text-5xl\x20text-orange-500\x20mb-3\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-lg\x20font-bold\x20text-slate-700\x22>'+VACATION_SETTINGS[_0x470f3b(0x4bc)]+_0x470f3b(0x3d1)+new Date(_0x13f46a)[_0x470f3b(0x53d)]()+_0x470f3b(0x239),'icon':_0x470f3b(0x587),'confirmButtonText':_0x470f3b(0x238),'confirmButtonColor':'#0f172a','allowOutsideClick':![],'allowEscapeKey':![],'backdrop':_0x470f3b(0x314)});else _0x70d3cd>0x1*0x1cd6+-0x10d3*-0x1+-0x2da9&&_0x70d3cd<=0x24dd*0x1+-0x81+0xc1d*-0x3&&Swal[_0x470f3b(0x48f)]({'title':_0x470f3b(0x325),'html':'<div\x20class=\x22text-left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sm\x20font-bold\x20text-slate-700\x20mb-2\x22>¡Anticipa\x20tus\x20compras!</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-xs\x20text-slate-600\x22>Nuestra\x20tienda\x20entrará\x20en\x20pausa\x20por\x20vacaciones\x20en\x20<b>'+_0x70d3cd+_0x470f3b(0x201)+_0x26f966['toLocaleDateString']()+_0x470f3b(0x54c)+_0x13f46a[_0x470f3b(0x53d)]()+'</b></li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-xs\x20font-bold\x20text-green-600\x20mt-2\x22>✅\x20Aún\x20puedes\x20comprar\x20hoy\x20con\x20normalidad.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','toast':!![],'position':_0x470f3b(0x35d),'showConfirmButton':![],'showCloseButton':!![],'timer':0x2710,'timerProgressBar':!![],'didOpen':_0x317798=>{const _0xc95b2b=_0x470f3b;_0x317798[_0xc95b2b(0x491)]('mouseenter',Swal[_0xc95b2b(0x189)]),_0x317798[_0xc95b2b(0x491)](_0xc95b2b(0x5fb),Swal[_0xc95b2b(0x35a)]);}});},window[_0x6e00bc(0x558)]={'toggleMobileMenu':()=>{const _0x2fa29a=_0x6e00bc,_0x8e99a0=document[_0x2fa29a(0x20b)]('mobile-menu'),_0x514a08=document[_0x2fa29a(0x20b)](_0x2fa29a(0x35c));_0x8e99a0[_0x2fa29a(0x233)][_0x2fa29a(0x1cd)](_0x2fa29a(0x1e5))?(_0x8e99a0['classList'][_0x2fa29a(0x22d)](_0x2fa29a(0x1e5)),setTimeout(()=>_0x514a08[_0x2fa29a(0x233)][_0x2fa29a(0x22d)](_0x2fa29a(0x46f)),0x7dd+-0xdd5+-0x1*-0x602)):(_0x514a08[_0x2fa29a(0x233)][_0x2fa29a(0x561)]('-translate-x-full'),setTimeout(()=>_0x8e99a0['classList'][_0x2fa29a(0x561)]('hidden'),-0x1a39*0x1+-0x47*0x3d+0x8*0x58a));},'mobileNavigate':(_0x14313c,_0x586b62)=>{const _0x74d31a=_0x6e00bc;uiManager['toggleMobileMenu'](),router[_0x74d31a(0x160)](_0x14313c,_0x586b62);}},window[_0x6e00bc(0x3f6)]={'handleProfileClick':()=>{const _0xb234d1=_0x6e00bc;if(state[_0xb234d1(0x1b0)])router[_0xb234d1(0x160)](_0xb234d1(0x540));else router[_0xb234d1(0x160)](_0xb234d1(0x373));},'handleAuthClick':()=>{const _0x73527c=_0x6e00bc;state['user']?router[_0x73527c(0x160)](_0x73527c(0x540)):router[_0x73527c(0x160)](_0x73527c(0x373));},'toggleFavorite':async _0xad2310=>{const _0x3e4b02=_0x6e00bc;if(!state[_0x3e4b02(0x1b0)])return Swal[_0x3e4b02(0x48f)](_0x3e4b02(0x223),_0x3e4b02(0x4f9),_0x3e4b02(0x363));const _0x4a3288=ref(db,'users/'+state[_0x3e4b02(0x1b0)][_0x3e4b02(0x1dd)]+_0x3e4b02(0x3a9)+_0xad2310);if(state['favorites']['has'](_0xad2310)){await remove(_0x4a3288);const _0x4feccf={};_0x4feccf['icon']=_0x3e4b02(0x5eb),_0x4feccf[_0x3e4b02(0x41a)]=_0x3e4b02(0x5ea),_0x4feccf[_0x3e4b02(0x42e)]=!![],_0x4feccf[_0x3e4b02(0x372)]=_0x3e4b02(0x1e0),_0x4feccf[_0x3e4b02(0x483)]=0x3e8,_0x4feccf[_0x3e4b02(0x4be)]=![],Swal[_0x3e4b02(0x48f)](_0x4feccf);}else{await set(_0x4a3288,!![]);const _0x43615e={};_0x43615e[_0x3e4b02(0x598)]=_0x3e4b02(0x5eb),_0x43615e[_0x3e4b02(0x41a)]='Añadido\x20a\x20favoritos',_0x43615e[_0x3e4b02(0x42e)]=!![],_0x43615e[_0x3e4b02(0x372)]=_0x3e4b02(0x1e0),_0x43615e['timer']=0x3e8,_0x43615e[_0x3e4b02(0x4be)]=![],Swal[_0x3e4b02(0x48f)](_0x43615e);}},'redeemPoints':async()=>{const _0x594ae5=_0x6e00bc;if(state[_0x594ae5(0x1d9)]<-0x25e1+0xd*-0x23d+0x21af*0x2)return Swal[_0x594ae5(0x48f)](_0x594ae5(0x1ef),_0x594ae5(0x340),_0x594ae5(0x363));const _0x23a0ba={};_0x23a0ba['title']='¿Canjear\x20Puntos?',_0x23a0ba[_0x594ae5(0x57b)]=_0x594ae5(0x3be),_0x23a0ba[_0x594ae5(0x598)]=_0x594ae5(0x59b),_0x23a0ba['showCancelButton']=!![],_0x23a0ba[_0x594ae5(0x2c7)]='Sí,\x20canjear',_0x23a0ba['confirmButtonColor']=_0x594ae5(0x446),_0x23a0ba[_0x594ae5(0x2d5)]=_0x594ae5(0x21a);const _0x14884d=await Swal[_0x594ae5(0x48f)](_0x23a0ba);if(_0x14884d[_0x594ae5(0x426)])try{Swal[_0x594ae5(0x4b7)]();const _0x5ccd53=0x7c3*0x5+-0x1d7a+-0x8f1,_0x4079e3=0x27e+0x1d52+-0x48a*0x7,_0x5ad87e=state[_0x594ae5(0x1d9)]-_0x5ccd53,_0x57d25e=state[_0x594ae5(0x22f)]+_0x4079e3,_0x59438c={};_0x59438c[_0x594ae5(0x5ed)+state[_0x594ae5(0x1b0)][_0x594ae5(0x1dd)]+_0x594ae5(0x54a)]=_0x5ad87e,_0x59438c[_0x594ae5(0x5ed)+state[_0x594ae5(0x1b0)][_0x594ae5(0x1dd)]+_0x594ae5(0x19a)]=_0x57d25e,await update(ref(db),_0x59438c),Swal['fire']('¡Canje\x20Exitoso!','Tienes\x20S/\x20'+_0x4079e3+'.00\x20más\x20en\x20tu\x20monedero.',_0x594ae5(0x5eb));}catch(_0x361341){console[_0x594ae5(0x3d3)](_0x361341),Swal[_0x594ae5(0x48f)](_0x594ae5(0x2be),_0x594ae5(0x434),_0x594ae5(0x3d3));}},'downloadVoucher':_0x450ffe=>{const _0x4a3795=_0x6e00bc,_0x3dd82f=state[_0x4a3795(0x1a0)][_0x4a3795(0x423)](_0xf29cce=>_0xf29cce['id']===_0x450ffe);_0x3dd82f?checkoutManager[_0x4a3795(0x5f0)](_0x3dd82f):Swal[_0x4a3795(0x48f)](_0x4a3795(0x2be),_0x4a3795(0x5f7),'error');},'checkout':()=>{const _0x54c21c=_0x6e00bc;if(isVacationActive())return cartManager[_0x54c21c(0x4c7)](),Swal['fire']({'title':_0x54c21c(0x1f0),'html':_0x54c21c(0x460)+VACATION_SETTINGS[_0x54c21c(0x4bc)]+_0x54c21c(0x41b)+new Date(VACATION_SETTINGS['endDate'])[_0x54c21c(0x53d)]()+_0x54c21c(0x28e),'confirmButtonText':_0x54c21c(0x238),'confirmButtonColor':_0x54c21c(0x328)});if(state[_0x54c21c(0x3f1)][_0x54c21c(0x602)]===-0x1e2d+0x15*0x17f+-0x13e)return Swal[_0x54c21c(0x48f)](_0x54c21c(0x51f),_0x54c21c(0x2df),'warning');if(!state[_0x54c21c(0x1b0)]){cartManager['toggleCart']();const _0x2e1cf4={};_0x2e1cf4[_0x54c21c(0x41a)]=_0x54c21c(0x223),_0x2e1cf4[_0x54c21c(0x57b)]='Necesitamos\x20tus\x20datos\x20para\x20el\x20pedido.',_0x2e1cf4[_0x54c21c(0x598)]=_0x54c21c(0x363),_0x2e1cf4[_0x54c21c(0x2c7)]='Ir\x20a\x20Login',_0x2e1cf4['confirmButtonColor']=_0x54c21c(0x328),Swal['fire'](_0x2e1cf4)[_0x54c21c(0x592)](()=>router['navigate'](_0x54c21c(0x373)));return;}cartManager[_0x54c21c(0x4c7)](),setTimeout(()=>{const _0x10e30e=_0x54c21c;checkoutManager[_0x10e30e(0x295)]();},-0x13f*0x16+-0x82f+0x24c5);},'showOrderDetails':_0x3f2f7b=>{const _0x1471d4=_0x6e00bc,_0x22e64d=state[_0x1471d4(0x1a0)][_0x1471d4(0x423)](_0x1553b7=>_0x1553b7['id']===_0x3f2f7b);if(!_0x22e64d)return Swal['fire'](_0x1471d4(0x2be),_0x1471d4(0x5f7),_0x1471d4(0x3d3));const _0x32df1e=document[_0x1471d4(0x20b)](_0x1471d4(0x431)),_0x235c8a=document['getElementById']('order-details-panel'),_0xca844c=document['getElementById']('order-details-content');if(!_0x32df1e||!_0x235c8a||!_0xca844c)return console[_0x1471d4(0x3d3)](_0x1471d4(0x2ce));document[_0x1471d4(0x20b)]('od-modal-id')[_0x1471d4(0x5a7)]=_0x1471d4(0x296)+_0x22e64d['id'][_0x1471d4(0x1fc)](-(0x11b9*-0x2+0x17bb+0xbbd*0x1));const _0x409bdc=_0x22e64d['status']===_0x1471d4(0x251),_0x66e623=(_0x22e64d[_0x1471d4(0x451)]||[])[_0x1471d4(0x419)](_0x515500=>{const _0x506c98=_0x1471d4;let _0x2ee418='';if(_0x515500['selectedResistance'])_0x2ee418=_0x506c98(0x42c)+_0x515500['selectedResistance']+_0x506c98(0x429);else _0x515500[_0x506c98(0x547)]&&(_0x2ee418=_0x506c98(0x4ba)+_0x515500[_0x506c98(0x547)]+_0x506c98(0x429));const _0x559047=_0x409bdc?'<button\x20onclick=\x22router.navigate(\x27product\x27,\x20{product:\x20\x27'+_0x515500[_0x506c98(0x3e1)]+_0x506c98(0x19b):'';return _0x506c98(0x2ed)+_0x515500[_0x506c98(0x1f8)]+_0x506c98(0x440)+_0x515500[_0x506c98(0x60a)]+_0x506c98(0x399)+_0x2ee418+_0x506c98(0x4f2)+_0x515500[_0x506c98(0x2ab)]+_0x506c98(0x3c5)+(_0x515500[_0x506c98(0x2ab)]*_0x515500[_0x506c98(0x39b)])[_0x506c98(0x3dc)](0x20e5+0x24eb+-0x45ce)+_0x506c98(0x2c2)+_0x559047+_0x506c98(0x4e9);})[_0x1471d4(0x217)]('');let _0x4fc811='';_0x22e64d[_0x1471d4(0x3bd)]&&_0x22e64d[_0x1471d4(0x3bd)]>0x5*-0x1e9+-0x1*0x1f93+-0x4*-0xa48&&(_0x4fc811='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-center\x20text-sm\x20mb-2\x20px-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-green-600\x20font-bold\x20flex\x20items-center\x20gap-1\x22><i\x20class=\x22ph-fill\x20ph-wallet\x22></i>\x20Desc.\x20Monedero</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-green-600\x20font-bold\x22>-\x20S/\x20'+_0x22e64d[_0x1471d4(0x3bd)][_0x1471d4(0x3dc)](0xd99+-0x5*0x417+0x6dc)+_0x1471d4(0x32a)),_0xca844c['innerHTML']=_0x1471d4(0x53a)+_0x22e64d['status']+_0x1471d4(0x171)+new Date(_0x22e64d['date'])[_0x1471d4(0x53d)]()+'\x20a\x20las\x20'+new Date(_0x22e64d[_0x1471d4(0x168)])[_0x1471d4(0x25e)]()+_0x1471d4(0x509)+_0x22e64d[_0x1471d4(0x4ed)]['address']+_0x1471d4(0x1a7)+_0x66e623+_0x1471d4(0x2c5)+(_0x22e64d[_0x1471d4(0x182)]||_0x22e64d[_0x1471d4(0x3d8)])['toFixed'](0xa4*0x21+-0x425*0x5+-0x69)+_0x1471d4(0x2c2)+_0x4fc811+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22border-t\x20border-slate-100\x20my-3\x20pt-3\x20flex\x20justify-between\x20items-center\x20px-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22font-extrabold\x20text-slate-900\x20text-lg\x22>Total\x20Pagado</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22font-extrabold\x20text-slate-900\x20text-lg\x22>S/\x20'+_0x22e64d[_0x1471d4(0x3d8)][_0x1471d4(0x3dc)](-0x127d*-0x1+0x60d*-0x1+0xc6e*-0x1)+_0x1471d4(0x3d6)+_0x22e64d[_0x1471d4(0x289)]['method']+_0x1471d4(0x339),_0x32df1e['classList']['remove'](_0x1471d4(0x1e5)),setTimeout(()=>_0x235c8a[_0x1471d4(0x233)][_0x1471d4(0x22d)]('translate-x-full'),-0x5*-0xee+0x18d3+-0x1d6f);},'closeOrderDetails':()=>{const _0x514697=_0x6e00bc,_0x3f1aa3=document[_0x514697(0x20b)]('order-details-modal'),_0x2cacd2=document[_0x514697(0x20b)](_0x514697(0x3c6));_0x3f1aa3&&_0x2cacd2&&(_0x2cacd2[_0x514697(0x233)][_0x514697(0x561)](_0x514697(0x5c9)),setTimeout(()=>_0x3f1aa3[_0x514697(0x233)][_0x514697(0x561)](_0x514697(0x1e5)),0x59*0xc+0x169a+-0x199a));}},window['checkoutManager']={'toggleWalletInput':()=>{const _0x3f0c84=_0x6e00bc,_0xe4fbe5=document[_0x3f0c84(0x2e6)](_0x3f0c84(0x2f5))['value'],_0x222fc3=document[_0x3f0c84(0x20b)](_0x3f0c84(0x5c6)),_0x4b221a=document[_0x3f0c84(0x20b)]('payment-code');_0x4b221a[_0x3f0c84(0x2a4)]='',_0xe4fbe5==='Yape'?(_0x222fc3[_0x3f0c84(0x5a7)]=_0x3f0c84(0x350),_0x4b221a['setAttribute'](_0x3f0c84(0x24a),'3'),_0x4b221a['placeholder']=_0x3f0c84(0x1c2),_0x4b221a[_0x3f0c84(0x233)][_0x3f0c84(0x561)](_0x3f0c84(0x275),'text-2xl'),_0x4b221a[_0x3f0c84(0x233)][_0x3f0c84(0x22d)](_0x3f0c84(0x301),_0x3f0c84(0x335))):(_0x222fc3['innerText']=_0x3f0c84(0x407),_0x4b221a[_0x3f0c84(0x5a4)](_0x3f0c84(0x24a),'12'),_0x4b221a[_0x3f0c84(0x397)]=_0x3f0c84(0x2ae),_0x4b221a[_0x3f0c84(0x233)][_0x3f0c84(0x22d)](_0x3f0c84(0x275),_0x3f0c84(0x5ce)),_0x4b221a[_0x3f0c84(0x233)][_0x3f0c84(0x561)](_0x3f0c84(0x301),_0x3f0c84(0x335)));},'backToCart':()=>{const _0x1c3f24=_0x6e00bc;checkoutManager[_0x1c3f24(0x1c6)](),setTimeout(()=>{const _0x5ab143=_0x1c3f24;cartManager[_0x5ab143(0x4c7)]();},0x2640+0x20c1+0x3b*-0x12f);},'goBack':()=>{const _0x180ebb=_0x6e00bc,_0x3e9393=document[_0x180ebb(0x20b)](_0x180ebb(0x179));!_0x3e9393[_0x180ebb(0x233)]['contains'](_0x180ebb(0x1e5))?checkoutManager[_0x180ebb(0x18f)]():checkoutManager['backToCart']();},'telegramToken':_0x6e00bc(0x456),'telegramChatId':_0x6e00bc(0x153),'sendTelegramAlert':async _0x2f7c41=>{const _0x34116a=_0x6e00bc,_0x51622a=_0x2f7c41['id']?_0x2f7c41['id'][_0x34116a(0x1fc)](-(0x800+0x2345+0x1*-0x2b3f)):_0x34116a(0x2f1),_0x36a75b=_0x2f7c41[_0x34116a(0x451)][_0x34116a(0x419)](_0xf1ee11=>{const _0x218fd5=_0x34116a;let _0x161255='';if(_0xf1ee11['selectedColor'])_0x161255=_0x218fd5(0x3ce)+_0xf1ee11['selectedColor']+')';else _0xf1ee11[_0x218fd5(0x162)]&&(_0x161255='\x20(Res:\x20'+_0xf1ee11[_0x218fd5(0x162)]+')');return _0x218fd5(0x1fe)+_0xf1ee11['qty']+_0x218fd5(0x3ef)+_0xf1ee11['name']+_0x161255;})[_0x34116a(0x217)]('\x0a'),_0x5e1f2f=_0x34116a(0x4a5)+('🆔\x20*Pedido:*\x20'+_0x51622a+'\x0a')+(_0x34116a(0x244)+_0x2f7c41[_0x34116a(0x4ed)][_0x34116a(0x60a)]+'\x0a')+(_0x34116a(0x329)+_0x2f7c41[_0x34116a(0x4ed)][_0x34116a(0x2ee)]+'\x0a')+(_0x34116a(0x564)+_0x2f7c41[_0x34116a(0x3d8)][_0x34116a(0x3dc)](-0x22b9+0xdf3*0x1+0x8c*0x26)+'\x0a')+('💳\x20*Pago:*\x20'+_0x2f7c41[_0x34116a(0x289)][_0x34116a(0x517)]+'\x0a')+(_0x34116a(0x567)+_0x2f7c41[_0x34116a(0x289)][_0x34116a(0x230)]+'\x0a\x0a')+(_0x34116a(0x489)+_0x36a75b),_0x159407=encodeURIComponent(_0x5e1f2f),_0x5e1e2a=_0x34116a(0x565)+window[_0x34116a(0x3e3)][_0x34116a(0x2ff)]+_0x34116a(0x1cc)+window[_0x34116a(0x3e3)][_0x34116a(0x17f)]+_0x34116a(0x2da)+_0x159407+_0x34116a(0x52b);try{await fetch(_0x5e1e2a);}catch(_0x1f37b0){console[_0x34116a(0x3d3)](_0x34116a(0x435),_0x1f37b0);}},'currentOrderId':null,'lastOrderData':null,'open':()=>{const _0x51c62c=_0x6e00bc,_0x4a612d=document[_0x51c62c(0x20b)](_0x51c62c(0x246)),_0x497b53=document['getElementById'](_0x51c62c(0x534));document[_0x51c62c(0x5d2)][_0x51c62c(0x233)]['add'](_0x51c62c(0x3dd)),document[_0x51c62c(0x20b)]('billing-form')[_0x51c62c(0x233)][_0x51c62c(0x22d)](_0x51c62c(0x1e5)),document[_0x51c62c(0x20b)](_0x51c62c(0x179))[_0x51c62c(0x233)][_0x51c62c(0x561)](_0x51c62c(0x1e5)),document['getElementById']('success-section')[_0x51c62c(0x233)][_0x51c62c(0x561)](_0x51c62c(0x1e5));const _0x1f4ccb=document['getElementById'](_0x51c62c(0x41c));state[_0x51c62c(0x1b0)]&&state['user'][_0x51c62c(0x40e)]&&!_0x1f4ccb[_0x51c62c(0x2a4)]&&(_0x1f4ccb[_0x51c62c(0x2a4)]=state[_0x51c62c(0x1b0)]['displayName']);document[_0x51c62c(0x20b)](_0x51c62c(0x500))[_0x51c62c(0x2a4)]='';const _0x17f2a0=document[_0x51c62c(0x20b)](_0x51c62c(0x60d));if(_0x17f2a0)_0x17f2a0[_0x51c62c(0x22d)]();if(state[_0x51c62c(0x22f)]>-0xc83+-0xced+0x1970){const _0x407c73=document['getElementById'](_0x51c62c(0x187)),_0xce5c9f=document[_0x51c62c(0x53b)]('div');_0xce5c9f['id']=_0x51c62c(0x60d),_0xce5c9f['className']=_0x51c62c(0x50a),_0xce5c9f[_0x51c62c(0x379)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-green-500\x20text-white\x20rounded-full\x20p-1\x22><i\x20class=\x22ph-bold\x20ph-wallet\x20text-xl\x22></i></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-sm\x20font-bold\x20text-green-800\x22>Usar\x20Saldo\x20Monedero</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-xs\x20text-green-600\x22>Disponible:\x20S/\x20'+state[_0x51c62c(0x22f)][_0x51c62c(0x3dc)](0xc41+-0x18*-0xae+-0x1c8f)+_0x51c62c(0x145);const _0x1d1a1b=_0x407c73[_0x51c62c(0x2e6)](_0x51c62c(0x2cb));_0x407c73[_0x51c62c(0x457)](_0xce5c9f,_0x1d1a1b);}_0x4a612d['classList']['remove'](_0x51c62c(0x1e5)),setTimeout(()=>_0x497b53[_0x51c62c(0x233)][_0x51c62c(0x22d)](_0x51c62c(0x5c9)),0x1d41+0x5bf*-0x3+0x3*-0x3fe);},'close':()=>{const _0x4bdfa6=_0x6e00bc,_0x2c22e5=document[_0x4bdfa6(0x20b)](_0x4bdfa6(0x246)),_0x532f91=document['getElementById'](_0x4bdfa6(0x534));document['body'][_0x4bdfa6(0x233)][_0x4bdfa6(0x22d)](_0x4bdfa6(0x3dd)),_0x532f91[_0x4bdfa6(0x233)][_0x4bdfa6(0x561)](_0x4bdfa6(0x5c9)),setTimeout(()=>_0x2c22e5[_0x4bdfa6(0x233)]['add'](_0x4bdfa6(0x1e5)),-0x7a+-0x6df*0x5+0xd*0x2c5);},'goToPayment':()=>{const _0x1e1323=_0x6e00bc,_0x1f03a4=[_0x1e1323(0x41c),'bill-dni',_0x1e1323(0x19f),_0x1e1323(0x605),_0x1e1323(0x47e),_0x1e1323(0x559)];for(let _0x5bd6d1 of _0x1f03a4){if(!document[_0x1e1323(0x20b)](_0x5bd6d1)[_0x1e1323(0x2a4)]['trim']())return Swal[_0x1e1323(0x48f)](_0x1e1323(0x3e5),_0x1e1323(0x43d),_0x1e1323(0x587));}if(!document[_0x1e1323(0x20b)]('terms-check')[_0x1e1323(0x391)])return Swal[_0x1e1323(0x48f)]('Términos',_0x1e1323(0x170),_0x1e1323(0x587));const _0x4fd801=state[_0x1e1323(0x3f1)][_0x1e1323(0x2d6)]((_0x16832d,_0x48ac53)=>_0x16832d+_0x48ac53[_0x1e1323(0x39b)]*_0x48ac53['qty'],-0x5b1*-0x5+0x2cc*0xd+-0x40d1);let _0x1b2081=_0x4fd801,_0x48c967=0x4*-0x430+0x77b+0x945;const _0x38edb1=document[_0x1e1323(0x20b)](_0x1e1323(0x4a1))?.[_0x1e1323(0x391)];_0x38edb1&&state[_0x1e1323(0x22f)]>-0x11e*-0x19+0x827*-0x1+-0x13c7&&(state[_0x1e1323(0x22f)]>=_0x1b2081?(_0x48c967=_0x1b2081,_0x1b2081=-0x240c+-0x1e*0x13a+0x48d8):(_0x48c967=state[_0x1e1323(0x22f)],_0x1b2081=_0x1b2081-_0x48c967));const _0x762768=document['getElementById'](_0x1e1323(0x1f3));_0x48c967>0xc77*0x1+-0x4*0x124+0x11*-0x77?_0x762768[_0x1e1323(0x379)]='<div\x20class=\x22flex\x20flex-col\x20items-center\x20leading-tight\x22><span\x20class=\x22text-sm\x20text-slate-400\x20line-through\x20font-medium\x22>Subtotal:\x20S/\x20'+_0x4fd801[_0x1e1323(0x3dc)](0x3fc+-0x1c7c+0x1882)+_0x1e1323(0x530)+_0x48c967[_0x1e1323(0x3dc)](0x1*0xc61+-0x2*-0x5bf+-0x17dd)+_0x1e1323(0x455)+_0x1b2081[_0x1e1323(0x3dc)](0x1ccb+-0x5*-0x4b2+0x11*-0x313)+_0x1e1323(0x4b5):_0x762768['innerHTML']='S/\x20'+_0x1b2081[_0x1e1323(0x3dc)](0x1bc4*-0x1+-0xf*0x1ee+-0x1e4*-0x1e),document[_0x1e1323(0x20b)](_0x1e1323(0x187))[_0x1e1323(0x233)][_0x1e1323(0x561)]('hidden'),document[_0x1e1323(0x20b)](_0x1e1323(0x179))[_0x1e1323(0x233)][_0x1e1323(0x22d)](_0x1e1323(0x1e5));},'backToBilling':()=>{const _0x195261=_0x6e00bc;document[_0x195261(0x20b)](_0x195261(0x179))[_0x195261(0x233)][_0x195261(0x561)]('hidden'),document[_0x195261(0x20b)](_0x195261(0x187))['classList'][_0x195261(0x22d)](_0x195261(0x1e5));},'confirmOrder':async()=>{const _0x1feadf=_0x6e00bc,_0x5c8fb6=document[_0x1feadf(0x2e6)](_0x1feadf(0x2f5))[_0x1feadf(0x2a4)],_0xe5c30b=document[_0x1feadf(0x20b)](_0x1feadf(0x500))[_0x1feadf(0x2a4)]['trim']();if(_0x5c8fb6===_0x1feadf(0x2f6)&&_0xe5c30b[_0x1feadf(0x602)]!==-0x1aa3+-0x110e+0x1*0x2bb4)return Swal[_0x1feadf(0x48f)]('Código\x20inválido','El\x20código\x20de\x20Yape\x20debe\x20tener\x203\x20dígitos\x20exactos.',_0x1feadf(0x587));if(_0x5c8fb6===_0x1feadf(0x32c)&&_0xe5c30b[_0x1feadf(0x602)]<0x351+0xc63+-0xfae)return Swal['fire'](_0x1feadf(0x22b),_0x1feadf(0x294),_0x1feadf(0x587));Swal['showLoading']();const _0x4d3434=Date['now']()+(0x6f1*-0x1+-0x1e5*-0xe+0x138b*-0x1)*(-0x198*0x8+-0x2a*-0xa8+-0x6*0x26e)*(0x1aff*0x1+0x1*0x13d9+-0x2af0),_0x11e860=document[_0x1feadf(0x20b)](_0x1feadf(0x4a1))?.[_0x1feadf(0x391)];let _0x5499ce=0x12*-0x175+-0xfc+0x1b36,_0x16137d=state[_0x1feadf(0x3f1)][_0x1feadf(0x2d6)]((_0x1e178a,_0x447083)=>_0x1e178a+_0x447083[_0x1feadf(0x39b)]*_0x447083[_0x1feadf(0x2ab)],0x274*0x1+0x15d6+0x184a*-0x1);const _0x5e7c58=_0x16137d;_0x11e860&&state['wallet']>0x1*0xd67+-0xbde*0x3+0x1633&&(state['wallet']>=_0x16137d?(_0x5499ce=_0x16137d,_0x16137d=0x1e5*0x1+-0x29f*-0x5+-0xf00):(_0x5499ce=state[_0x1feadf(0x22f)],_0x16137d=_0x16137d-_0x5499ce));const _0x2587be={};_0x2587be[_0x1feadf(0x517)]='QR/'+_0x5c8fb6,_0x2587be[_0x1feadf(0x230)]=_0xe5c30b;const _0x20075f={'userId':state[_0x1feadf(0x1b0)][_0x1feadf(0x1dd)],'customerName':document[_0x1feadf(0x20b)](_0x1feadf(0x41c))['value'],'billing':{'name':document[_0x1feadf(0x20b)](_0x1feadf(0x41c))[_0x1feadf(0x2a4)],'dni':document['getElementById'](_0x1feadf(0x507))[_0x1feadf(0x2a4)],'phone':document[_0x1feadf(0x20b)](_0x1feadf(0x19f))[_0x1feadf(0x2a4)],'ruc':document['getElementById'](_0x1feadf(0x36b))['value']||_0x1feadf(0x2f1),'address':document[_0x1feadf(0x20b)](_0x1feadf(0x605))[_0x1feadf(0x2a4)]+',\x20'+document['getElementById']('bill-prov')[_0x1feadf(0x2a4)]+',\x20'+document[_0x1feadf(0x20b)](_0x1feadf(0x559))['value']},'payment':_0x2587be,'items':[...state[_0x1feadf(0x3f1)]],'total':_0x16137d,'originalTotal':_0x5e7c58,'walletUsed':_0x5499ce,'date':new Date()[_0x1feadf(0x4f5)](),'status':'Pendiente\x20de\x20Validación','expireAt':_0x4d3434};try{const _0x5ea08c=push(ref(db,_0x1feadf(0x5ed)+state[_0x1feadf(0x1b0)][_0x1feadf(0x1dd)]+'/orders')),_0x38c5aa=_0x5ea08c[_0x1feadf(0x321)],_0x16f226={};_0x16f226[_0x1feadf(0x5ed)+state[_0x1feadf(0x1b0)][_0x1feadf(0x1dd)]+_0x1feadf(0x20d)+_0x38c5aa]=_0x20075f,_0x16f226['all_orders/'+_0x38c5aa]={..._0x20075f,'id':_0x38c5aa},state[_0x1feadf(0x3f1)]['forEach'](_0x201a90=>{const _0x41ad7c=_0x1feadf,_0x2866d9=PRODUCTS[_0x41ad7c(0x423)](_0xeb1a32=>_0xeb1a32['id']===_0x201a90['id']);if(_0x2866d9){const _0x3d8e19=(_0x2866d9['stock']||-0x2f9+0x17cb+-0x14d2)-_0x201a90['qty'];_0x16f226[_0x41ad7c(0x5c2)+_0x201a90['id']+'/stock']=_0x3d8e19>=-0x89*0x16+-0x4f9*0x4+0x3*0xa8e?_0x3d8e19:0x6*-0x101+0x5*-0x44d+0x1b87;if(_0x201a90['selectedColor']&&_0x2866d9['colors']){const _0x1fc15e=_0x2866d9[_0x41ad7c(0x30d)][_0x41ad7c(0x3fa)](_0x20c23d=>_0x20c23d[_0x41ad7c(0x60a)]===_0x201a90['selectedColor']);if(_0x1fc15e!==-(0xc5*-0xf+0x125*-0x19+0x2829)){const _0x166878=parseInt(_0x2866d9[_0x41ad7c(0x30d)][_0x1fc15e]['qty'])||-0x3*-0x949+-0x139a+-0x841,_0x355dd1=_0x166878-_0x201a90['qty'];_0x16f226['products/'+_0x201a90['id']+_0x41ad7c(0x29e)+_0x1fc15e+_0x41ad7c(0x1d2)]=_0x355dd1>=0x1*0xa0f+-0xab1+0xa2?_0x355dd1:-0xd*0x2c6+0x133+0x22db;}}if(_0x201a90['selectedResistance']&&_0x2866d9[_0x41ad7c(0x3f5)]){const _0xe78ddb=_0x2866d9['resistances'][_0x41ad7c(0x3fa)](_0x3f81ca=>_0x3f81ca[_0x41ad7c(0x2a4)]===_0x201a90['selectedResistance']);if(_0xe78ddb!==-(0xd81*-0x1+-0x17d6+-0x14*-0x1de)){const _0x93e7fd=parseInt(_0x2866d9[_0x41ad7c(0x3f5)][_0xe78ddb][_0x41ad7c(0x2ab)])||0x804+-0x1*-0x1814+0x4f*-0x68,_0x3cedb7=_0x93e7fd-_0x201a90['qty'];_0x16f226[_0x41ad7c(0x5c2)+_0x201a90['id']+_0x41ad7c(0x29b)+_0xe78ddb+_0x41ad7c(0x1d2)]=_0x3cedb7>=-0x2152+0x22b3+-0x1*0x161?_0x3cedb7:-0x383+0x23b5*-0x1+0x139c*0x2;}}}});if(_0x5499ce>0x5*0x643+0x26f0+-0x463f)_0x16f226[_0x1feadf(0x5ed)+state[_0x1feadf(0x1b0)][_0x1feadf(0x1dd)]+'/wallet']=state[_0x1feadf(0x22f)]-_0x5499ce;await update(ref(db),_0x16f226),checkoutManager[_0x1feadf(0x406)]=_0x38c5aa,checkoutManager[_0x1feadf(0x3d0)]=_0x20075f;const _0x558f61={..._0x20075f};_0x558f61['id']=_0x38c5aa,checkoutManager[_0x1feadf(0x1d8)](_0x558f61),state[_0x1feadf(0x3f1)]=[],cartManager[_0x1feadf(0x403)](),document[_0x1feadf(0x20b)]('payment-section')[_0x1feadf(0x233)][_0x1feadf(0x561)](_0x1feadf(0x1e5)),document[_0x1feadf(0x20b)](_0x1feadf(0x466))[_0x1feadf(0x233)][_0x1feadf(0x22d)]('hidden');const _0x4ac92d='Hola,\x20acabo\x20de\x20realizar\x20el\x20pedido\x20'+_0x38c5aa[_0x1feadf(0x1fc)](-(0x1*0xe47+-0x1*-0x692+-0x14d3))+_0x1feadf(0x3b7)+_0x5c8fb6+_0x1feadf(0x1e3);document[_0x1feadf(0x20b)](_0x1feadf(0x4f0))[_0x1feadf(0x59a)]=_0x1feadf(0x544)+encodeURIComponent(_0x4ac92d),Swal[_0x1feadf(0x1c6)]();}catch(_0x338298){console['error'](_0x338298),Swal[_0x1feadf(0x48f)](_0x1feadf(0x2be),_0x1feadf(0x311)+_0x338298['message'],_0x1feadf(0x3d3));}},'confirmWhatsAppOrder':async()=>{const _0x1d673a=_0x6e00bc;Swal[_0x1d673a(0x4b7)]();const _0x4f6b9b=Date[_0x1d673a(0x56e)]()+(0x42d*-0x1+0x162d+-0x11f6)*(0x245c+0xdbd*-0x1+0x209*-0xb)*(0x9*0x326+0x158f+0xc1*-0x3d),_0x2406b0=document[_0x1d673a(0x20b)](_0x1d673a(0x4a1))?.['checked'];let _0x7118df=0x7*0x29+-0x51b+-0x3*-0x154,_0x49d586=state[_0x1d673a(0x3f1)]['reduce']((_0x56a1b4,_0x52af43)=>_0x56a1b4+_0x52af43['price']*_0x52af43[_0x1d673a(0x2ab)],-0x950+-0x10a4+0x97*0x2c);const _0x1166e2=_0x49d586;_0x2406b0&&state[_0x1d673a(0x22f)]>0x2da+-0x1eed+0x1c13&&(state[_0x1d673a(0x22f)]>=_0x49d586?(_0x7118df=_0x49d586,_0x49d586=-0x129+-0x1a7c+0x1ba5):(_0x7118df=state['wallet'],_0x49d586=_0x49d586-_0x7118df));const _0x38f43b={};_0x38f43b[_0x1d673a(0x517)]=_0x1d673a(0x166),_0x38f43b[_0x1d673a(0x230)]='N/A';const _0x13a916={'userId':state[_0x1d673a(0x1b0)][_0x1d673a(0x1dd)],'customerName':document[_0x1d673a(0x20b)](_0x1d673a(0x41c))[_0x1d673a(0x2a4)],'billing':{'name':document[_0x1d673a(0x20b)](_0x1d673a(0x41c))['value'],'dni':document[_0x1d673a(0x20b)]('bill-dni')['value'],'phone':document['getElementById']('bill-phone')[_0x1d673a(0x2a4)],'ruc':document[_0x1d673a(0x20b)](_0x1d673a(0x36b))[_0x1d673a(0x2a4)]||_0x1d673a(0x2f1),'address':document[_0x1d673a(0x20b)]('bill-dept')['value']+',\x20'+document[_0x1d673a(0x20b)]('bill-prov')[_0x1d673a(0x2a4)]+',\x20'+document['getElementById'](_0x1d673a(0x559))[_0x1d673a(0x2a4)]},'payment':_0x38f43b,'items':[...state[_0x1d673a(0x3f1)]],'total':_0x49d586,'originalTotal':_0x1166e2,'walletUsed':_0x7118df,'date':new Date()['toISOString'](),'status':_0x1d673a(0x476),'expireAt':_0x4f6b9b};try{const _0x2ea035=push(ref(db,_0x1d673a(0x5ed)+state[_0x1d673a(0x1b0)][_0x1d673a(0x1dd)]+'/orders')),_0x41d77c=_0x2ea035[_0x1d673a(0x321)],_0x39397e={};_0x39397e[_0x1d673a(0x5ed)+state[_0x1d673a(0x1b0)][_0x1d673a(0x1dd)]+_0x1d673a(0x20d)+_0x41d77c]=_0x13a916,_0x39397e['all_orders/'+_0x41d77c]={..._0x13a916,'id':_0x41d77c},state[_0x1d673a(0x3f1)][_0x1d673a(0x16c)](_0x43ffa1=>{const _0x502802=_0x1d673a,_0xd347ee=PRODUCTS['find'](_0x49552b=>_0x49552b['id']===_0x43ffa1['id']);if(_0xd347ee){const _0x289cd5=(_0xd347ee[_0x502802(0x3a5)]||0x15e5+0xfbb+-0x7*0x560)-_0x43ffa1[_0x502802(0x2ab)];_0x39397e[_0x502802(0x5c2)+_0x43ffa1['id']+'/stock']=_0x289cd5>=-0xbed*-0x1+0x186c+-0x2459?_0x289cd5:-0x2f*-0xbb+0x1*-0x9fa+-0x185b;}});if(_0x7118df>-0x21f*0xb+-0x63c+0x1d91)_0x39397e[_0x1d673a(0x5ed)+state['user'][_0x1d673a(0x1dd)]+_0x1d673a(0x19a)]=state[_0x1d673a(0x22f)]-_0x7118df;await update(ref(db),_0x39397e),checkoutManager[_0x1d673a(0x406)]=_0x41d77c,checkoutManager[_0x1d673a(0x3d0)]=_0x13a916;const _0x4564bd={..._0x13a916};_0x4564bd['id']=_0x41d77c,checkoutManager[_0x1d673a(0x1d8)](_0x4564bd),state[_0x1d673a(0x3f1)]=[],cartManager[_0x1d673a(0x403)](),document['getElementById'](_0x1d673a(0x179))['classList'][_0x1d673a(0x561)](_0x1d673a(0x1e5)),document[_0x1d673a(0x20b)](_0x1d673a(0x466))[_0x1d673a(0x233)]['remove'](_0x1d673a(0x1e5));const _0x28d9db='Hola\x20TechPerú,\x20he\x20realizado\x20el\x20pedido\x20#'+_0x41d77c[_0x1d673a(0x1fc)](-(0x2*-0xef9+-0x1166+0x2f5e))+_0x1d673a(0x5f8),_0x39abc2=_0x1d673a(0x544)+encodeURIComponent(_0x28d9db);document['getElementById'](_0x1d673a(0x4f0))[_0x1d673a(0x59a)]=_0x39abc2,window['open'](_0x39abc2,'_blank'),Swal[_0x1d673a(0x1c6)]();}catch(_0x2d19be){console['error'](_0x2d19be),Swal[_0x1d673a(0x48f)](_0x1d673a(0x2be),_0x1d673a(0x5b1),'error');}},'downloadPDF':(_0x304925=null)=>{const _0x3251c9=_0x6e00bc,{jsPDF:_0x117319}=window[_0x3251c9(0x5ef)],_0xefd6b6=new _0x117319(),_0x468374=_0x304925||checkoutManager[_0x3251c9(0x3d0)];let _0x34fb2d=_0x3251c9(0x2f1);if(_0x304925&&_0x304925['id'])_0x34fb2d=_0x304925['id'][_0x3251c9(0x1fc)](-(0x1a43+-0x2*0x10ed+0x1*0x79d));else{if(checkoutManager['currentOrderId'])_0x34fb2d=checkoutManager[_0x3251c9(0x406)][_0x3251c9(0x1fc)](-(0x25*-0xf5+0x2084+-0x2eb*-0x1));}if(!_0x468374)return Swal['fire'](_0x3251c9(0x2be),_0x3251c9(0x300),'error');const _0x5937c4=_0x3251c9(0x30e),_0x3d63b9=0x835+0x1158+-0x2*0xcba,_0x397dae=-0x109*-0x3+0x62*0x17+-0x17b*0x8;_0xefd6b6[_0x3251c9(0x24c)](_0x5937c4,_0x3251c9(0x443),0x1*-0xab4+-0x1*-0x10d+0x9b5,0x2ed*0x2+-0x7*0xfc+0x5c*0x3,_0x3d63b9,_0x397dae),_0xefd6b6[_0x3251c9(0x58e)](0xe9*0x19+-0x100b+-0x4d*0x16),_0xefd6b6[_0x3251c9(0x38e)](_0x3251c9(0x515),'bold'),_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x371),-0x2632+-0x44d*-0x1+0xb51*0x3,-0x1*0x2501+-0x1e04+0x430f+_0x397dae+(-0x49*-0x17+-0xdc5+0x26a*0x3)),_0xefd6b6[_0x3251c9(0x58e)](0x1*0x162a+-0x9c0+0x12*-0xb0),_0xefd6b6[_0x3251c9(0x38e)](_0x3251c9(0x515),_0x3251c9(0x385));const _0x3a8760={};_0x3a8760[_0x3251c9(0x33b)]=_0x3251c9(0x405),_0xefd6b6[_0x3251c9(0x57b)]('Voucher\x20de\x20Compra',-0xe7b*-0x1+0x1ebe+-0x2c76,0x1f*-0x89+-0x255d+0x3606,_0x3a8760);const _0x28fd50={};_0x28fd50[_0x3251c9(0x33b)]='right',_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x3c2)+_0x34fb2d,0x15e6+-0x737+-0x12*0xc6,-0xb7c+-0x1b8+0x53*0x29,_0x28fd50);if(_0x468374['payment'][_0x3251c9(0x517)]==='WhatsApp/Otro'||_0x468374['payment'][_0x3251c9(0x230)]===_0x3251c9(0x464)){const _0x4ad37c={};_0x4ad37c[_0x3251c9(0x33b)]='right',_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x45b),-0x1277+-0x1ae7+-0xf1*-0x31,-0x61+0x9*0x271+-0x7d*0x2c,_0x4ad37c);}else{const _0x260090=_0x468374['payment'][_0x3251c9(0x517)][_0x3251c9(0x36a)](_0x3251c9(0x2f6)),_0x2d2643=_0x260090?'Cód.\x20Aprobación:':_0x3251c9(0x282),_0x74545a={};_0x74545a[_0x3251c9(0x33b)]=_0x3251c9(0x405),_0xefd6b6[_0x3251c9(0x57b)](_0x2d2643+'\x20'+_0x468374['payment'][_0x3251c9(0x230)],0x1598+-0xc08+-0x8cd,0xf29*-0x2+-0x150e+0x337c,_0x74545a);}const _0x2075d3=_0x468374[_0x3251c9(0x168)]?new Date(_0x468374[_0x3251c9(0x168)])[_0x3251c9(0x53d)]()+'\x20'+new Date(_0x468374[_0x3251c9(0x168)])[_0x3251c9(0x25e)]():new Date()[_0x3251c9(0x53d)](),_0x4344ce={};_0x4344ce[_0x3251c9(0x33b)]=_0x3251c9(0x405),_0xefd6b6['text'](_0x3251c9(0x47d)+_0x2075d3,0xc7d*-0x1+-0x8f5*-0x4+-0xb4a*0x2,-0x453*-0x1+-0x31*0x5e+0xdcc,_0x4344ce),_0xefd6b6[_0x3251c9(0x58e)](0x17fe+0x96*0x19+-0x2698),_0xefd6b6[_0x3251c9(0x38e)](_0x3251c9(0x515),_0x3251c9(0x461)),_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x1b8),0x1aab+0x1af+-0x1c4c,0x742*0x2+-0x660+0x1*-0x7f7),_0xefd6b6[_0x3251c9(0x58e)](-0x9*0x13f+-0x1b21+0x2662),_0xefd6b6[_0x3251c9(0x38e)](_0x3251c9(0x515),'normal');const _0x2a8783=-0x1e2*0xc+0x218f*-0x1+0x385b;_0xefd6b6['text'](_0x3251c9(0x5b0),0x63b+0x1a52+0x8d*-0x3b,_0x2a8783),_0xefd6b6[_0x3251c9(0x57b)](_0x468374[_0x3251c9(0x4ed)][_0x3251c9(0x60a)],-0x129a+-0x1*0xf8d+0x2254,_0x2a8783),_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x554),-0x9*-0x1f6+0x23b1+-0x3549,_0x2a8783+(0xeef+0x2*0xbd4+0x2692*-0x1)),_0xefd6b6['text'](_0x468374[_0x3251c9(0x4ed)][_0x3251c9(0x3bc)],-0xf56+0x157+-0xe2c*-0x1,_0x2a8783+(0x7aa+-0x16a1+0xefc)),_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x1d4),-0xe58+-0x626+0x148c,_0x2a8783+(0x9c2+-0x618+-0x3a0)),_0xefd6b6['text'](_0x468374[_0x3251c9(0x4ed)][_0x3251c9(0x2ee)],-0x3d*-0x19+0x3bb*-0x5+0x1*0xcdf,_0x2a8783+(-0x19a8+0x29*0x23+0x1417)),_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x2d3),-0x1673+-0x12f0+0x2971,_0x2a8783+(-0x6d9*0x1+-0x1*-0x19f9+-0x1311)),_0xefd6b6['text'](_0x468374[_0x3251c9(0x4ed)]['address'],0x1040+-0x18b7+0x8a4,_0x2a8783+(-0xf0f+0x13a5*0x1+-0x487));const _0x44814f=_0x468374[_0x3251c9(0x451)][_0x3251c9(0x419)](_0x588ac6=>{const _0x139e61=_0x3251c9;let _0x5ea288=_0x588ac6[_0x139e61(0x60a)];return _0x588ac6[_0x139e61(0x547)]&&(_0x5ea288+='\x20('+_0x588ac6['selectedColor']+')'),_0x588ac6[_0x139e61(0x162)]&&(_0x5ea288+=_0x139e61(0x4cb)+_0x588ac6[_0x139e61(0x162)]+')'),[_0x588ac6[_0x139e61(0x2ab)],_0x5ea288,_0x139e61(0x45d)+_0x588ac6['price'][_0x139e61(0x3dc)](-0x1fe1+0x22f7*-0x1+0x2*0x216d),_0x139e61(0x45d)+(_0x588ac6[_0x139e61(0x2ab)]*_0x588ac6[_0x139e61(0x39b)])[_0x139e61(0x3dc)](0xa8b*0x1+0x21d2+-0x2c5b)];}),_0x1cf599={};_0x1cf599[_0x3251c9(0x470)]=0xa,_0x1cf599[_0x3251c9(0x263)]=0x3;const _0xdf40f9={};_0xdf40f9[_0x3251c9(0x5a3)]=0.5;const _0x24fdc0={};_0x24fdc0[_0x3251c9(0x2ad)]=![],_0x24fdc0[_0x3251c9(0x57a)]=[0x1c3c+0xf10+-0x2b4c,0x80*-0x3a+0x4f*-0x23+0x27cd,0x1090+0x1b7*0xf+-0x2a49],_0x24fdc0[_0x3251c9(0x4bf)]=_0x3251c9(0x461),_0x24fdc0['lineWidth']=_0xdf40f9,_0x24fdc0['lineColor']=[0x21b2*-0x1+-0x6b*-0x13+0x1a89,-0x23fc+0x1ff0+0x4d4*0x1,0x4b5+-0x1948+0x155b*0x1];const _0x2faa7d={};_0x2faa7d[_0x3251c9(0x5a3)]=0.1;const _0x568993={};_0x568993[_0x3251c9(0x226)]=_0x2faa7d,_0x568993[_0x3251c9(0x2cd)]=[-0x56*-0x5c+0x1fd*0x1+-0x1fff,-0xd5*-0xf+0x59+-0x5f7*0x2,-0x4*0x3a9+0x2482+0x58*-0x3d];const _0x5af4b3={};_0x5af4b3[_0x3251c9(0x1ad)]=0x14;const _0x299c4d={};_0x299c4d['cellWidth']=0x1e,_0x299c4d['halign']=_0x3251c9(0x405);const _0xcb25eb={};_0xcb25eb[_0x3251c9(0x1ad)]=0x1e,_0xcb25eb[_0x3251c9(0x596)]=_0x3251c9(0x405);const _0x4864f3={};_0x4864f3['0']=_0x5af4b3,_0x4864f3['2']=_0x299c4d,_0x4864f3['3']=_0xcb25eb;const _0x2fbb16={};_0x2fbb16[_0x3251c9(0x1c3)]=0x50,_0x2fbb16[_0x3251c9(0x1a6)]=[[_0x3251c9(0x3d7),_0x3251c9(0x1dc),_0x3251c9(0x475),_0x3251c9(0x61c)]],_0x2fbb16[_0x3251c9(0x5d2)]=_0x44814f,_0x2fbb16[_0x3251c9(0x5e4)]='plain',_0x2fbb16[_0x3251c9(0x34d)]=_0x1cf599,_0x2fbb16[_0x3251c9(0x2e9)]=_0x24fdc0,_0x2fbb16[_0x3251c9(0x452)]=_0x568993,_0x2fbb16[_0x3251c9(0x26a)]=_0x4864f3,_0xefd6b6[_0x3251c9(0x16d)](_0x2fbb16);let _0x300bdd=_0xefd6b6[_0x3251c9(0x4ff)][_0x3251c9(0x17c)]+(0x1dd0+0x175c+-0x3522);const _0x2791e9={};_0x2791e9['align']=_0x3251c9(0x405),_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x3b6),0xce*-0x17+-0x20ff+-0x69*-0x7f,_0x300bdd,_0x2791e9);const _0x9d75f6={};_0x9d75f6[_0x3251c9(0x33b)]=_0x3251c9(0x405),_0xefd6b6[_0x3251c9(0x57b)]('S/\x20'+_0x468374[_0x3251c9(0x182)][_0x3251c9(0x3dc)](-0x1739*-0x1+0x9*0xc7+-0x1e36),-0x25cd+-0x1*0x1be1+0x4271,_0x300bdd,_0x9d75f6);if(_0x468374['walletUsed']>0xd1b+-0x565+0x8d*-0xe){_0x300bdd+=-0x20b1+-0x19*0x52+0x28b9;const _0xea6e3f={};_0xea6e3f['align']='right',_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x320),0x20ff*0x1+0x10de+-0x3147,_0x300bdd,_0xea6e3f);const _0x16b6c2={};_0x16b6c2['align']=_0x3251c9(0x405),_0xefd6b6[_0x3251c9(0x57b)]('-\x20S/\x20'+_0x468374['walletUsed'][_0x3251c9(0x3dc)](-0x1*0x26d5+0x1d56*-0x1+0x1*0x442d),0xedb+0x1399+-0xb3b*0x3,_0x300bdd,_0x16b6c2);}const _0x48deb8={};_0x48deb8['align']=_0x3251c9(0x405),_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x411),-0x740*-0x3+-0xa04+-0xb26,_0x300bdd+(-0x739*-0x3+0xd1b+-0x8*0x458),_0x48deb8);const _0x192953={};_0x192953[_0x3251c9(0x33b)]=_0x3251c9(0x405),_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x4ec),-0x16f7+0x3*-0x9b3+0x1*0x34d3,_0x300bdd+(0x1b11+-0x1514+0x1*-0x5f7),_0x192953),_0xefd6b6[_0x3251c9(0x588)](0xc84+0xd*0x25d+-0x1*0x2b3d),_0xefd6b6[_0x3251c9(0x32b)](-0x1210+-0x207*-0x2+0xe02+0.5),_0xefd6b6[_0x3251c9(0x16b)](0x2149+0x1*0x24bc+-0x4583,_0x300bdd+(0x17*0x14d+-0x24d+-0x1b94),-0x8b5+0x16a*0x7+-0x6e,_0x300bdd+(-0x2f5*-0x2+-0x841*0x3+0x12e3*0x1)),_0xefd6b6['setFont']('helvetica',_0x3251c9(0x461)),_0xefd6b6[_0x3251c9(0x58e)](0x1aa5+0x1bf7*0x1+-0x3690);const _0x4578eb={};_0x4578eb[_0x3251c9(0x33b)]=_0x3251c9(0x405),_0xefd6b6['text']('TOTAL\x20PAGADO:',-0x21f1+0x439+0x1e4e,_0x300bdd+(-0x19ff+0x1471*0x1+0x5a0),_0x4578eb);const _0x4b73a4={};_0x4b73a4[_0x3251c9(0x33b)]=_0x3251c9(0x405),_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x45d)+_0x468374[_0x3251c9(0x3d8)][_0x3251c9(0x3dc)](-0x1a*0x83+-0x48b*-0x5+-0x967),-0x2*-0x2a4+0x61b*-0x1+0x196,_0x300bdd+(-0x1*0x9da+0x16c7+-0xcdb),_0x4b73a4),_0xefd6b6['setFont'](_0x3251c9(0x515),_0x3251c9(0x2d8)),_0xefd6b6[_0x3251c9(0x58e)](0x99*-0x4+-0x69+0x2d6),_0xefd6b6[_0x3251c9(0x287)](-0x2*0x7b+0x25f6+-0x6*0x61a);const _0x157b73={};_0x157b73[_0x3251c9(0x33b)]='center',_0xefd6b6['text'](_0x3251c9(0x3cb),-0x16ec+-0xe8e+0x35*0xb7,_0x300bdd+(0x60b+0x5e4+-0xbcc),_0x157b73);const _0x683f72={};_0x683f72[_0x3251c9(0x33b)]='center',_0xefd6b6[_0x3251c9(0x57b)](_0x3251c9(0x1fd),-0x357+-0x4*-0x766+-0x19d8,_0x300bdd+(-0x1*-0x530+0x1*0x2523+0x11*-0x27b),_0x683f72),_0xefd6b6[_0x3251c9(0x403)](_0x3251c9(0x2a3)+_0x34fb2d+_0x3251c9(0x398));}},window[_0x6e00bc(0x51c)]={'isRegistering':![],'handleForm':async _0x486e8f=>{const _0x33fea5=_0x6e00bc;_0x486e8f[_0x33fea5(0x1cb)]();const _0x31cdd4=document[_0x33fea5(0x20b)](_0x33fea5(0x362))[_0x33fea5(0x2a4)],_0x2fca8d=document['getElementById'](_0x33fea5(0x58b))[_0x33fea5(0x2a4)],_0x2351b5=document[_0x33fea5(0x20b)](_0x33fea5(0x4fe));try{Swal['showLoading']();if(authManager[_0x33fea5(0x17b)]){const _0x4b3999=document['getElementById'](_0x33fea5(0x5e6))[_0x33fea5(0x2a4)];if(_0x2fca8d!==_0x4b3999)throw new Error(_0x33fea5(0x5b3));const _0x1991c9=await fetch(_0x33fea5(0x474)),_0x10d701=await _0x1991c9[_0x33fea5(0x16f)](),_0x2dae4f=_0x10d701['ip'][_0x33fea5(0x4cf)](/\./g,'-'),_0x4bc6d5=new Date()['toLocaleDateString'](),_0x48c5b6=ref(db,_0x33fea5(0x5ec)+_0x2dae4f),_0x175952=await get(_0x48c5b6);if(_0x175952[_0x33fea5(0x23d)]()){const _0x197099=_0x175952[_0x33fea5(0x165)]()[_0x33fea5(0x168)];if(_0x197099===_0x4bc6d5)throw new Error(_0x33fea5(0x40b));}if(!_0x2351b5[_0x33fea5(0x2a4)])throw new Error(_0x33fea5(0x144));const _0x54bb3a=await createUserWithEmailAndPassword(auth,_0x31cdd4,_0x2fca8d),_0x2a2210={};_0x2a2210[_0x33fea5(0x168)]=_0x4bc6d5,await set(_0x48c5b6,_0x2a2210);const _0x1497ee={};_0x1497ee[_0x33fea5(0x40e)]=_0x2351b5[_0x33fea5(0x2a4)],await updateProfile(_0x54bb3a[_0x33fea5(0x1b0)],_0x1497ee),await set(ref(db,'users/'+_0x54bb3a[_0x33fea5(0x1b0)][_0x33fea5(0x1dd)]),{'username':_0x2351b5['value'],'email':_0x31cdd4,'createdAt':new Date()['toISOString'](),'registeredIP':_0x10d701['ip'],'points':0x0,'wallet':0x0,'isBlocked':![]});}else{const _0x5062d0=await signInWithEmailAndPassword(auth,_0x31cdd4,_0x2fca8d),_0x28e2c2=ref(db,'users/'+_0x5062d0[_0x33fea5(0x1b0)][_0x33fea5(0x1dd)]),_0x290828=await get(_0x28e2c2),_0x50d1e8=_0x290828[_0x33fea5(0x165)]();if(_0x50d1e8&&_0x50d1e8[_0x33fea5(0x468)]===!![]){await signOut(auth);throw new Error(_0x33fea5(0x5cb));}}Swal[_0x33fea5(0x1c6)](),router['navigate']('/');}catch(_0x7ac223){console['error'](_0x7ac223);let _0x2886f9=_0x7ac223[_0x33fea5(0x4bc)][_0x33fea5(0x4cf)](_0x33fea5(0x4bb),'')['replace'](_0x33fea5(0x528),'');if(_0x7ac223[_0x33fea5(0x56a)]===_0x33fea5(0x1ff))_0x2886f9='Correo\x20o\x20contraseña\x20incorrectos.';if(_0x7ac223['code']===_0x33fea5(0x277))_0x2886f9='La\x20contraseña\x20debe\x20tener\x20al\x20menos\x206\x20caracteres.';if(_0x7ac223[_0x33fea5(0x56a)]===_0x33fea5(0x52e))_0x2886f9=_0x33fea5(0x32e);Swal['fire'](_0x33fea5(0x157),_0x2886f9,_0x33fea5(0x3d3));}},'logout':async()=>{const _0x1160ca=_0x6e00bc;try{await signOut(auth),state[_0x1160ca(0x1b0)]=null,state[_0x1160ca(0x3f1)]=[],state[_0x1160ca(0x1a0)]=[],state[_0x1160ca(0x5bf)][_0x1160ca(0x288)](),localStorage[_0x1160ca(0x3e7)](_0x1160ca(0x5a2));const _0x111635={};_0x111635[_0x1160ca(0x598)]='success',_0x111635[_0x1160ca(0x41a)]=_0x1160ca(0x560),_0x111635[_0x1160ca(0x42e)]=!![],_0x111635[_0x1160ca(0x372)]=_0x1160ca(0x35d),_0x111635[_0x1160ca(0x483)]=0x5dc,_0x111635['showConfirmButton']=![],Swal[_0x1160ca(0x48f)](_0x111635),router[_0x1160ca(0x160)]('/'),window[_0x1160ca(0x2d7)][_0x1160ca(0x5b2)]();}catch(_0x3aa494){console[_0x1160ca(0x3d3)](_0x3aa494);}}},onAuthStateChanged(auth,_0xe8e774=>{const _0x6802ab=_0x6e00bc;state[_0x6802ab(0x1b0)]=_0xe8e774;const _0x3532ed=document['getElementById'](_0x6802ab(0x5e2)),_0x592e09=document[_0x6802ab(0x20b)]('auth-arrow'),_0x3d80ef=document['getElementById'](_0x6802ab(0x42b)),_0x5e8f0c=document[_0x6802ab(0x20b)](_0x6802ab(0x245));if(_0xe8e774){update(ref(db,_0x6802ab(0x5ed)+_0xe8e774[_0x6802ab(0x1dd)]),{'lastLogin':new Date()[_0x6802ab(0x4f5)]()});if(_0x5e8f0c)_0x5e8f0c[_0x6802ab(0x233)][_0x6802ab(0x22d)](_0x6802ab(0x1e5));const _0x5a1309=_0xe8e774[_0x6802ab(0x40e)]?_0xe8e774[_0x6802ab(0x40e)][_0x6802ab(0x4bd)]('\x20')[-0x5*0x35f+-0x638+0x1713]:_0x6802ab(0x418);if(_0x3532ed)_0x3532ed['innerHTML']='Hola,\x20'+_0x5a1309+_0x6802ab(0x49d);if(_0x592e09)_0x592e09[_0x6802ab(0x233)][_0x6802ab(0x22d)](_0x6802ab(0x1e5));_0x3d80ef&&(_0x3d80ef['innerHTML']=_0x6802ab(0x35f)+_0xe8e774['email']+_0x6802ab(0x16e));onValue(ref(db,_0x6802ab(0x5ed)+_0xe8e774[_0x6802ab(0x1dd)]+_0x6802ab(0x1a8)),async _0x310827=>{const _0x249f8c=_0x6802ab,_0x589109=_0x310827['val']();if(_0x589109===!![]){await signOut(auth),state['user']=null,router[_0x249f8c(0x160)]('/');const _0x279136={};_0x279136[_0x249f8c(0x41a)]=_0x249f8c(0x44d),_0x279136[_0x249f8c(0x424)]=_0x249f8c(0x499),_0x279136['icon']=_0x249f8c(0x3d3),_0x279136[_0x249f8c(0x2c7)]='Entendido',_0x279136[_0x249f8c(0x618)]=_0x249f8c(0x328),_0x279136[_0x249f8c(0x212)]=![],_0x279136[_0x249f8c(0x523)]=![],Swal[_0x249f8c(0x48f)](_0x279136)['then'](()=>{const _0x4fc173=_0x249f8c;window[_0x4fc173(0x2d7)]['reload']();});}});if(_0x3532ed)_0x3532ed[_0x6802ab(0x379)]=_0x6802ab(0x155)+_0x5a1309+'<br><span\x20class=\x22text-[#00979d]\x20font-normal\x22>Mi\x20Perfil</span>';const _0x5d4d63=ref(db,_0x6802ab(0x5ed)+_0xe8e774[_0x6802ab(0x1dd)]+_0x6802ab(0x4aa));get(_0x5d4d63)[_0x6802ab(0x592)](_0x42cd95=>{const _0x5b94f0=_0x6802ab,_0x38da4a=_0x42cd95[_0x5b94f0(0x165)]()||[],_0x3ab39a=state[_0x5b94f0(0x3f1)];if(_0x3ab39a['length']>0x5*0x713+-0x193d+-0xa22){const _0x4c363a=new Map();_0x38da4a[_0x5b94f0(0x16c)](_0x39d2a4=>_0x4c363a[_0x5b94f0(0x577)](_0x39d2a4['id'],_0x39d2a4)),_0x3ab39a[_0x5b94f0(0x16c)](_0x437a1f=>{const _0x5db67e=_0x5b94f0;if(_0x4c363a['has'](_0x437a1f['id'])){const _0x51d5b9=_0x4c363a[_0x5db67e(0x585)](_0x437a1f['id']);_0x51d5b9[_0x5db67e(0x2ab)]=Math[_0x5db67e(0x381)](_0x51d5b9['qty'],_0x437a1f[_0x5db67e(0x2ab)]),_0x4c363a[_0x5db67e(0x577)](_0x437a1f['id'],_0x51d5b9);}else _0x4c363a[_0x5db67e(0x577)](_0x437a1f['id'],_0x437a1f);}),set(_0x5d4d63,Array[_0x5b94f0(0x5a9)](_0x4c363a[_0x5b94f0(0x14f)]()));}}),onValue(_0x5d4d63,_0x14f7ea=>{const _0x5e4a46=_0x6802ab,_0x1450e7=_0x14f7ea[_0x5e4a46(0x165)]();state['cart']=_0x1450e7||[],localStorage[_0x5e4a46(0x37d)](_0x5e4a46(0x5a2),JSON[_0x5e4a46(0x1e9)](state[_0x5e4a46(0x3f1)]));const _0x227180=state['cart'][_0x5e4a46(0x2d6)]((_0x2ac6e5,_0x1f77f3)=>_0x2ac6e5+_0x1f77f3[_0x5e4a46(0x2ab)],-0x8b*0x2f+-0x17cb*-0x1+-0x1*-0x1ba),_0x412055=document[_0x5e4a46(0x20b)]('cart-count');_0x412055&&(_0x412055[_0x5e4a46(0x5a7)]=_0x227180,_0x412055['classList'][_0x5e4a46(0x299)](_0x5e4a46(0x222),_0x227180===0x1*-0x1721+-0x173+0x1894)),cartManager['render']();}),onValue(ref(db,_0x6802ab(0x5ed)+_0xe8e774[_0x6802ab(0x1dd)]+_0x6802ab(0x569)),_0x4662ef=>{const _0x2dd485=_0x6802ab;state['favorites'][_0x2dd485(0x288)]();const _0x448b9f=_0x4662ef['val']();if(_0x448b9f)Object[_0x2dd485(0x532)](_0x448b9f)[_0x2dd485(0x16c)](_0x45451c=>state[_0x2dd485(0x5bf)]['add'](_0x45451c));if(window[_0x2dd485(0x2d7)]['search'][_0x2dd485(0x36a)](_0x2dd485(0x341)))router[_0x2dd485(0x265)](![]);const _0xdc5915=document[_0x2dd485(0x20b)](_0x2dd485(0x208));if(_0xdc5915&&!window[_0x2dd485(0x2d7)][_0x2dd485(0x5d6)][_0x2dd485(0x36a)](_0x2dd485(0x341)))router['handle'](![]);}),onValue(ref(db,_0x6802ab(0x5ed)+_0xe8e774['uid']+_0x6802ab(0x38c)),_0x38c791=>{const _0x29e8f8=_0x6802ab,_0xac3f7e=_0x38c791[_0x29e8f8(0x165)](),_0x752083=_0xac3f7e?Object[_0x29e8f8(0x278)](_0xac3f7e)[_0x29e8f8(0x419)](([_0x1b1caa,_0x525c23])=>({..._0x525c23,'id':_0x1b1caa}))[_0x29e8f8(0x2ac)]():[];state['orders'][_0x29e8f8(0x602)]>-0x264a*-0x1+0xb1*-0x29+-0x9f1&&_0x752083[_0x29e8f8(0x16c)](_0x5b6365=>{const _0x58b655=_0x29e8f8,_0x1dba4a=state[_0x58b655(0x1a0)][_0x58b655(0x423)](_0x4f10b2=>_0x4f10b2['id']===_0x5b6365['id']);_0x1dba4a&&_0x1dba4a[_0x58b655(0x4e3)]!=='Aprobado'&&_0x5b6365['status']===_0x58b655(0x251)&&Swal[_0x58b655(0x48f)]({'title':_0x58b655(0x620),'html':'<div\x20class=\x22text-left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sm\x20text-slate-600\x20mb-1\x22>Tu\x20pedido\x20<b>#'+_0x5b6365['id']['slice'](-(-0x2159*-0x1+-0x2472+-0x11*-0x2f))+_0x58b655(0x55b),'icon':'success','toast':!![],'position':_0x58b655(0x35d),'showCloseButton':!![],'timer':0x2710,'timerProgressBar':!![],'showConfirmButton':!![],'confirmButtonText':_0x58b655(0x54e),'confirmButtonColor':_0x58b655(0x328),'didOpen':_0x491941=>{const _0x3290bb=_0x58b655;_0x491941['onmouseenter']=Swal[_0x3290bb(0x189)],_0x491941['onmouseleave']=Swal[_0x3290bb(0x35a)];}})[_0x58b655(0x592)](_0x5f800d=>{const _0x38ccf6=_0x58b655,_0x420baa={};_0x420baa[_0x38ccf6(0x484)]=_0x38ccf6(0x1a0);if(_0x5f800d[_0x38ccf6(0x426)])router['navigate'](_0x38ccf6(0x540),_0x420baa);});});state[_0x29e8f8(0x1a0)]=_0x752083;if(window[_0x29e8f8(0x2d7)]['search'][_0x29e8f8(0x36a)](_0x29e8f8(0x341)))router[_0x29e8f8(0x265)](![]);}),onValue(ref(db,'users/'+_0xe8e774[_0x6802ab(0x1dd)]),_0x3693c0=>{const _0x1f2a9f=_0x6802ab,_0x480f17=_0x3693c0[_0x1f2a9f(0x165)]();_0x480f17&&(state[_0x1f2a9f(0x1d9)]=parseInt(_0x480f17[_0x1f2a9f(0x1d9)])||0xa5*-0x7+0x3*0x2b+0x402,state[_0x1f2a9f(0x22f)]=parseFloat(_0x480f17['wallet'])||0x1*0x201b+0x2209+-0x4224,window[_0x1f2a9f(0x2d7)][_0x1f2a9f(0x5d6)][_0x1f2a9f(0x36a)](_0x1f2a9f(0x341))&&router[_0x1f2a9f(0x265)](![]));});}else{if(_0x5e8f0c)_0x5e8f0c[_0x6802ab(0x233)]['add'](_0x6802ab(0x1e5));if(_0x3532ed)_0x3532ed['innerHTML']='Mi\x20Cuenta<br><span\x20class=\x22text-slate-400\x20font-normal\x22>Entrar\x20/\x20Registro</span>';if(_0x592e09)_0x592e09[_0x6802ab(0x233)]['add'](_0x6802ab(0x1e5));if(_0x3d80ef)_0x3d80ef[_0x6802ab(0x379)]='';state[_0x6802ab(0x5bf)][_0x6802ab(0x288)](),state[_0x6802ab(0x1a0)]=[],state[_0x6802ab(0x3f1)]=[],localStorage[_0x6802ab(0x3e7)](_0x6802ab(0x5a2)),cartManager['render']();const _0x186797=document[_0x6802ab(0x20b)]('cart-count');if(_0x186797)_0x186797[_0x6802ab(0x233)][_0x6802ab(0x561)](_0x6802ab(0x222));router[_0x6802ab(0x265)]();}}),window[_0x6e00bc(0x19c)]={'isOpen':![],'toggle':()=>{const _0x1cdbfe=_0x6e00bc,_0x5654df=document[_0x1cdbfe(0x20b)](_0x1cdbfe(0x3e0)),_0x559769=document[_0x1cdbfe(0x20b)](_0x1cdbfe(0x51b)),_0x5ccc7d=document[_0x1cdbfe(0x20b)](_0x1cdbfe(0x3e2));waManager[_0x1cdbfe(0x323)]=!waManager[_0x1cdbfe(0x323)],waManager[_0x1cdbfe(0x323)]?(_0x5654df[_0x1cdbfe(0x233)]['remove'](_0x1cdbfe(0x572),_0x1cdbfe(0x222)),_0x559769[_0x1cdbfe(0x233)][_0x1cdbfe(0x561)](_0x1cdbfe(0x222),_0x1cdbfe(0x29f)),_0x5ccc7d[_0x1cdbfe(0x233)][_0x1cdbfe(0x22d)](_0x1cdbfe(0x222),_0x1cdbfe(0x29f)),setTimeout(()=>document[_0x1cdbfe(0x20b)](_0x1cdbfe(0x506))[_0x1cdbfe(0x205)](),0x37f+0x1*-0xd9e+0xb4b)):(_0x5654df['classList'][_0x1cdbfe(0x561)](_0x1cdbfe(0x572),_0x1cdbfe(0x222)),_0x559769[_0x1cdbfe(0x233)][_0x1cdbfe(0x22d)]('opacity-0',_0x1cdbfe(0x29f)),_0x5ccc7d[_0x1cdbfe(0x233)][_0x1cdbfe(0x561)](_0x1cdbfe(0x222),'scale-50'));},'send':()=>{const _0x4e5f87=_0x6e00bc,_0x361994=document[_0x4e5f87(0x20b)](_0x4e5f87(0x506)),_0x166c30=_0x361994[_0x4e5f87(0x2a4)][_0x4e5f87(0x1ae)]();if(!_0x166c30)return;const _0x5bfec5=_0x4e5f87(0x2f2),_0x464b12=_0x4e5f87(0x18e)+_0x166c30;window[_0x4e5f87(0x295)](_0x4e5f87(0x174)+_0x5bfec5+_0x4e5f87(0x4e4)+encodeURIComponent(_0x464b12),_0x4e5f87(0x240)),_0x361994[_0x4e5f87(0x2a4)]='',waManager['toggle']();}},window[_0x6e00bc(0x4e1)]=null,window[_0x6e00bc(0x259)]=(_0x5ee348,_0x34c255)=>{const _0x2def78=_0x6e00bc,_0xe23fba=PRODUCTS[_0x2def78(0x423)](_0x12c69f=>_0x12c69f['id']===_0x34c255);if(!_0xe23fba||!_0xe23fba[_0x2def78(0x3f5)])return;const _0x44323b=_0xe23fba['resistances'][_0x5ee348];window['selectedResistanceData']=_0x44323b,window[_0x2def78(0x4e1)]=null,document[_0x2def78(0x1f7)](_0x2def78(0x312))[_0x2def78(0x16c)](_0x4d7022=>{const _0x3efc5d=_0x2def78;_0x4d7022[_0x3efc5d(0x233)][_0x3efc5d(0x22d)](_0x3efc5d(0x4af),'text-white',_0x3efc5d(0x267)),_0x4d7022[_0x3efc5d(0x233)][_0x3efc5d(0x561)]('bg-white',_0x3efc5d(0x313),_0x3efc5d(0x56b));});const _0x30f622=document[_0x2def78(0x20b)](_0x2def78(0x1f2)+_0x5ee348);_0x30f622&&(_0x30f622[_0x2def78(0x233)][_0x2def78(0x22d)](_0x2def78(0x1a1),_0x2def78(0x313),_0x2def78(0x56b)),_0x30f622[_0x2def78(0x233)]['add'](_0x2def78(0x4af),'text-white',_0x2def78(0x267)));const _0x16dd26=document['getElementById']('dynamic-stock-label');_0x16dd26&&(_0x16dd26[_0x2def78(0x379)]='<span\x20class=\x22text-slate-900\x20font-bold\x22>Stock\x20de\x20'+_0x44323b[_0x2def78(0x2a4)]+_0x2def78(0x14c)+_0x44323b[_0x2def78(0x2ab)]+_0x2def78(0x5e0));const _0x1effa5=document['getElementById']('detail-qty-input');_0x1effa5&&(_0x1effa5[_0x2def78(0x2a4)]=-0x16c7+0x82*0x2f+-0x8b*0x2,window['currentMaxStock']=_0x44323b[_0x2def78(0x2ab)]);const _0x1356a5=document[_0x2def78(0x20b)]('variant-warning-msg');if(_0x1356a5)_0x1356a5[_0x2def78(0x233)][_0x2def78(0x561)](_0x2def78(0x1e5));},window[_0x6e00bc(0x3d9)]=(_0x3f87cb,_0x6e251d)=>{const _0x3a0463=_0x6e00bc,_0x293eb4=PRODUCTS[_0x3a0463(0x423)](_0x3d82ef=>_0x3d82ef['id']===_0x6e251d);if(!_0x293eb4||!_0x293eb4[_0x3a0463(0x30d)])return;const _0x37da53=_0x293eb4[_0x3a0463(0x30d)][_0x3f87cb];window[_0x3a0463(0x4e1)]=_0x37da53,document[_0x3a0463(0x1f7)](_0x3a0463(0x3bb))['forEach'](_0x25e488=>{const _0x4a4f77=_0x3a0463;_0x25e488[_0x4a4f77(0x233)][_0x4a4f77(0x22d)](_0x4a4f77(0x30a),_0x4a4f77(0x2b2),_0x4a4f77(0x5bd),_0x4a4f77(0x34a));const _0x443f91=_0x25e488[_0x4a4f77(0x2e6)](_0x4a4f77(0x555));if(_0x443f91)_0x443f91['classList'][_0x4a4f77(0x561)]('hidden');});const _0x2a9b3a=document['getElementById'](_0x3a0463(0x2c3)+_0x3f87cb);if(_0x2a9b3a){_0x2a9b3a['classList']['add'](_0x3a0463(0x30a),_0x3a0463(0x2b2),_0x3a0463(0x5bd),_0x3a0463(0x34a));const _0x1ab901=_0x2a9b3a[_0x3a0463(0x2e6)]('.check-icon');if(_0x1ab901)_0x1ab901['classList'][_0x3a0463(0x22d)](_0x3a0463(0x1e5));}const _0x240ff5=document['getElementById'](_0x3a0463(0x488));_0x240ff5&&(_0x240ff5[_0x3a0463(0x379)]=_0x3a0463(0x4d7)+_0x37da53['name']+_0x3a0463(0x14c)+_0x37da53[_0x3a0463(0x2ab)]+'\x20unid.');const _0x426965=document[_0x3a0463(0x20b)]('detail-qty-input');_0x426965&&(_0x426965[_0x3a0463(0x2a4)]=0x19be+-0x158a*-0x1+-0x85*0x5b,window[_0x3a0463(0x173)]=_0x37da53[_0x3a0463(0x2ab)]);const _0xb56c92=document[_0x3a0463(0x20b)]('color-warning-msg');if(_0xb56c92)_0xb56c92['classList'][_0x3a0463(0x561)]('hidden');},window[_0x6e00bc(0x5d3)]=(_0x165598,_0x356bc2)=>{const _0x51b8c0=_0x6e00bc,_0x8ac3c9=_0x165598['value'];if(_0x8ac3c9==='')return;const _0x425299=PRODUCTS[_0x51b8c0(0x423)](_0x3ba9df=>_0x3ba9df['id']===_0x356bc2);if(!_0x425299||!_0x425299['resistances'])return;const _0x5dba15=_0x425299[_0x51b8c0(0x3f5)][_0x8ac3c9];window[_0x51b8c0(0x5a1)]=_0x5dba15,window['selectedColorData']=null;const _0x3f1984=document[_0x51b8c0(0x20b)](_0x51b8c0(0x488));_0x3f1984&&(_0x5dba15[_0x51b8c0(0x2ab)]>-0x217f+0x2533+0xc*-0x4f?(_0x3f1984[_0x51b8c0(0x379)]=_0x51b8c0(0x257)+_0x5dba15[_0x51b8c0(0x2ab)]+_0x51b8c0(0x5e0),_0x3f1984['className']=_0x51b8c0(0x614)):(_0x3f1984[_0x51b8c0(0x379)]=_0x51b8c0(0x392),_0x3f1984['className']=_0x51b8c0(0x2f9)));const _0x16e7d5=document['getElementById'](_0x51b8c0(0x161));_0x16e7d5&&(_0x16e7d5['value']=-0x1*-0x1511+-0xf50+-0x2e*0x20,window[_0x51b8c0(0x173)]=_0x5dba15[_0x51b8c0(0x2ab)]);const _0x48cc1c=document[_0x51b8c0(0x20b)](_0x51b8c0(0x191));if(_0x48cc1c)_0x48cc1c['classList'][_0x51b8c0(0x561)]('hidden');},window['imageModalManager']={'panzoomInstance':null,'currentIndex':0x0,'open':_0x204b71=>{const _0x4ab90b=_0x6e00bc,_0x5c29d5=document[_0x4ab90b(0x20b)](_0x4ab90b(0x579)),_0x1e5847=document['getElementById'](_0x4ab90b(0x46a)),_0xe821df=document[_0x4ab90b(0x20b)]('zoom-pan-container');if(!_0x5c29d5||!_0x1e5847||!_0xe821df)return;window[_0x4ab90b(0x27b)]!==undefined&&(window[_0x4ab90b(0x241)][_0x4ab90b(0x1f4)]=window[_0x4ab90b(0x27b)]),_0x5c29d5[_0x4ab90b(0x233)]['remove'](_0x4ab90b(0x1e5)),setTimeout(()=>{const _0x57fada=_0x4ab90b;_0x5c29d5[_0x57fada(0x233)][_0x57fada(0x22d)](_0x57fada(0x222)),_0x5c29d5[_0x57fada(0x233)][_0x57fada(0x561)](_0x57fada(0x20e));},0x26f9+0xc53*0x1+-0x5b2*0x9),document[_0x4ab90b(0x5d2)]['classList'][_0x4ab90b(0x561)](_0x4ab90b(0x3dd)),_0x1e5847[_0x4ab90b(0x2b6)]=()=>{const _0x5843b9=_0x4ab90b;window['imageModalManager'][_0x5843b9(0x388)]&&window[_0x5843b9(0x241)][_0x5843b9(0x388)]['destroy']();const _0x1026d3={};_0x1026d3[_0x5843b9(0x56c)]=0x4,_0x1026d3[_0x5843b9(0x599)]=0.8,_0x1026d3[_0x5843b9(0x52f)]=0x1,_0x1026d3[_0x5843b9(0x214)]=_0x5843b9(0x3a2),window[_0x5843b9(0x241)]['panzoomInstance']=Panzoom(_0x1e5847,_0x1026d3),setTimeout(()=>window[_0x5843b9(0x241)]['panzoomInstance'][_0x5843b9(0x24f)](),-0x25d4+-0x1b4*-0x6+0xde7*0x2),_0xe821df[_0x5843b9(0x491)](_0x5843b9(0x308),window[_0x5843b9(0x241)]['panzoomInstance'][_0x5843b9(0x4de)]);},_0x1e5847['src']=_0x204b71;},'close':()=>{const _0xb34e3e=_0x6e00bc,_0x5ac227=document['getElementById'](_0xb34e3e(0x579)),_0x59dcfd=document[_0xb34e3e(0x20b)]('zoom-pan-container');if(!_0x5ac227)return;_0x5ac227[_0xb34e3e(0x233)]['remove'](_0xb34e3e(0x20e)),_0x5ac227[_0xb34e3e(0x233)][_0xb34e3e(0x561)](_0xb34e3e(0x222)),document['body'][_0xb34e3e(0x233)][_0xb34e3e(0x22d)](_0xb34e3e(0x3dd)),setTimeout(()=>{const _0x3ad27c=_0xb34e3e;_0x5ac227['classList']['add'](_0x3ad27c(0x1e5)),document[_0x3ad27c(0x20b)](_0x3ad27c(0x46a))[_0x3ad27c(0x449)]='';},0x5fe+0x1*0x26b1+-0x2b83),window[_0xb34e3e(0x241)][_0xb34e3e(0x388)]&&_0x59dcfd&&_0x59dcfd[_0xb34e3e(0x17d)](_0xb34e3e(0x308),window['imageModalManager'][_0xb34e3e(0x388)][_0xb34e3e(0x4de)]);},'changeImage':_0x346693=>{const _0x6122e7=_0x6e00bc;if(!window[_0x6122e7(0x309)]||window['currentProdImages']['length']<=0x3*0x5d9+0x240+-0x11*0x12a)return;let _0x2acde6=window[_0x6122e7(0x241)][_0x6122e7(0x1f4)]+_0x346693;if(_0x2acde6>=window[_0x6122e7(0x309)][_0x6122e7(0x602)])_0x2acde6=-0xdd8+-0xe03+0x1bdb;if(_0x2acde6<0x1*-0xb19+0xb*-0x239+0x238c)_0x2acde6=window[_0x6122e7(0x309)][_0x6122e7(0x602)]-(0x471*-0x3+-0x2*-0x116d+-0x1586);window[_0x6122e7(0x241)][_0x6122e7(0x1f4)]=_0x2acde6;const _0x162c49=document[_0x6122e7(0x20b)](_0x6122e7(0x46a));_0x162c49[_0x6122e7(0x28f)][_0x6122e7(0x48c)]=_0x6122e7(0x5a5),setTimeout(()=>{const _0x5a73fc=_0x6122e7;_0x162c49[_0x5a73fc(0x449)]=window[_0x5a73fc(0x309)][_0x2acde6],_0x162c49['onload']=()=>{const _0x2cdefb=_0x5a73fc;_0x162c49[_0x2cdefb(0x28f)][_0x2cdefb(0x48c)]='1',window[_0x2cdefb(0x241)][_0x2cdefb(0x388)]&&window['imageModalManager'][_0x2cdefb(0x388)]['reset']();};},0x7*-0x2e7+0x7b*0x1d+0x4*0x1be);},'next':()=>window[_0x6e00bc(0x241)][_0x6e00bc(0x147)](0x2464+-0x5*-0x24b+-0x2fda),'prev':()=>window[_0x6e00bc(0x241)]['changeImage'](-(-0x981+-0x7f2*0x3+0x2158)),'zoomIn':()=>window[_0x6e00bc(0x241)][_0x6e00bc(0x388)]&&window['imageModalManager'][_0x6e00bc(0x388)][_0x6e00bc(0x5d0)](),'zoomOut':()=>window['imageModalManager']['panzoomInstance']&&window[_0x6e00bc(0x241)][_0x6e00bc(0x388)][_0x6e00bc(0x356)](),'reset':()=>window[_0x6e00bc(0x241)][_0x6e00bc(0x388)]&&window[_0x6e00bc(0x241)][_0x6e00bc(0x388)][_0x6e00bc(0x24f)]()},window[_0x6e00bc(0x15c)]={'toggleCart':()=>{const _0x44d57f=_0x6e00bc,_0x23f5ee=document[_0x44d57f(0x20b)](_0x44d57f(0x4d8)),_0x482c51=document[_0x44d57f(0x20b)](_0x44d57f(0x5f3)),_0x371419=document[_0x44d57f(0x20b)](_0x44d57f(0x43e));_0x23f5ee[_0x44d57f(0x233)][_0x44d57f(0x1cd)](_0x44d57f(0x1e5))?(_0x23f5ee['classList'][_0x44d57f(0x22d)](_0x44d57f(0x1e5)),document['body']['classList']['add'](_0x44d57f(0x3dd)),setTimeout(()=>{const _0x28cca2=_0x44d57f;_0x371419[_0x28cca2(0x233)][_0x28cca2(0x22d)](_0x28cca2(0x222)),_0x482c51[_0x28cca2(0x233)][_0x28cca2(0x22d)](_0x28cca2(0x5c9));},0x127*-0x11+0x179e*-0x1+0x2b3f*0x1)):(_0x371419['classList']['add'](_0x44d57f(0x222)),_0x482c51[_0x44d57f(0x233)][_0x44d57f(0x561)]('translate-x-full'),document[_0x44d57f(0x5d2)][_0x44d57f(0x233)][_0x44d57f(0x22d)](_0x44d57f(0x3dd)),setTimeout(()=>_0x23f5ee[_0x44d57f(0x233)][_0x44d57f(0x561)](_0x44d57f(0x1e5)),-0x1f6+-0x2279+-0x1f*-0x13d));},'add':(_0x5d27c0,_0x9f8e39=-0x15a1+-0x5*0xb2+0xc8e*0x2)=>{const _0x521f6e=_0x6e00bc,_0x11c276=PRODUCTS[_0x521f6e(0x423)](_0x1e80df=>_0x1e80df['id']===_0x5d27c0);if(!_0x11c276)return Swal[_0x521f6e(0x48f)](_0x521f6e(0x2be),'Producto\x20no\x20disponible',_0x521f6e(0x3d3));let _0x45949a=_0x11c276['id'],_0x281ac5=null,_0x3dd2bd=null;if(_0x11c276[_0x521f6e(0x27d)]&&_0x11c276['colors']&&_0x11c276['colors'][_0x521f6e(0x602)]>0x19f0+0x6*0x413+-0x1*0x3262){if(!window[_0x521f6e(0x4e1)]){const _0x5bbf0d=document[_0x521f6e(0x20b)](_0x521f6e(0x191))||document[_0x521f6e(0x20b)](_0x521f6e(0x3de));if(_0x5bbf0d)_0x5bbf0d['classList'][_0x521f6e(0x22d)](_0x521f6e(0x1e5));return Swal['fire']('Atención',_0x521f6e(0x4b2),_0x521f6e(0x587));}_0x3dd2bd=window[_0x521f6e(0x4e1)],_0x45949a=_0x11c276['id']+'-'+_0x3dd2bd[_0x521f6e(0x60a)];if(_0x9f8e39>_0x3dd2bd[_0x521f6e(0x2ab)])return Swal[_0x521f6e(0x48f)](_0x521f6e(0x17a),_0x521f6e(0x4a8)+_0x3dd2bd[_0x521f6e(0x2ab)]+_0x521f6e(0x193)+_0x3dd2bd[_0x521f6e(0x60a)]+'.',_0x521f6e(0x587));}else{if(_0x11c276[_0x521f6e(0x177)]&&_0x11c276['resistances']&&_0x11c276['resistances'][_0x521f6e(0x602)]>0x4e*-0x3+-0x1905+-0x19ef*-0x1){if(!window['selectedResistanceData']){const _0x2a00cd=document[_0x521f6e(0x20b)](_0x521f6e(0x191));if(_0x2a00cd)_0x2a00cd[_0x521f6e(0x233)][_0x521f6e(0x22d)]('hidden');return Swal[_0x521f6e(0x48f)](_0x521f6e(0x157),_0x521f6e(0x5e5),_0x521f6e(0x587));}_0x281ac5=window[_0x521f6e(0x5a1)],_0x45949a=_0x11c276['id']+'-'+_0x281ac5['value'];if(_0x9f8e39>_0x281ac5[_0x521f6e(0x2ab)])return Swal[_0x521f6e(0x48f)](_0x521f6e(0x17a),_0x521f6e(0x4a8)+_0x281ac5[_0x521f6e(0x2ab)]+'\x20de\x20'+_0x281ac5[_0x521f6e(0x2a4)]+'.',_0x521f6e(0x587));}else{const _0x393976=parseInt(_0x11c276[_0x521f6e(0x3a5)]||0x1a19+-0x25e5+0xbcc);if(_0x9f8e39>_0x393976)return Swal[_0x521f6e(0x48f)]('Stock','No\x20hay\x20suficiente\x20stock.',_0x521f6e(0x587));}}const _0x98d40d=state[_0x521f6e(0x3f1)][_0x521f6e(0x423)](_0x3fcbdb=>_0x3fcbdb['cartItemId']===_0x45949a);if(_0x98d40d)_0x98d40d['qty']+=_0x9f8e39;else{const _0xb4484c={..._0x11c276};_0xb4484c[_0x521f6e(0x26f)]=_0x45949a,_0xb4484c['qty']=_0x9f8e39,_0xb4484c[_0x521f6e(0x547)]=_0x3dd2bd?_0x3dd2bd['name']:null,_0xb4484c['selectedHex']=_0x3dd2bd?_0x3dd2bd['hex']:null,_0xb4484c[_0x521f6e(0x162)]=_0x281ac5?_0x281ac5[_0x521f6e(0x2a4)]:null,state[_0x521f6e(0x3f1)]['push'](_0xb4484c);}cartManager[_0x521f6e(0x403)]();const _0x302b17=_0x281ac5?'('+_0x281ac5[_0x521f6e(0x2a4)]+')':_0x3dd2bd?'('+_0x3dd2bd[_0x521f6e(0x60a)]+')':'',_0x58cbb7={};_0x58cbb7['icon']='success',_0x58cbb7[_0x521f6e(0x41a)]='¡Añadido!',_0x58cbb7['text']=_0x9f8e39+'x\x20'+_0x11c276[_0x521f6e(0x60a)]+'\x20'+_0x302b17,_0x58cbb7[_0x521f6e(0x42e)]=!![],_0x58cbb7[_0x521f6e(0x372)]=_0x521f6e(0x1e0),_0x58cbb7[_0x521f6e(0x483)]=0x5dc,_0x58cbb7[_0x521f6e(0x4be)]=![],Swal[_0x521f6e(0x48f)](_0x58cbb7);},'changeQty':(_0x358048,_0x214be2)=>{const _0x4aa27a=_0x6e00bc,_0x58ef9f=state[_0x4aa27a(0x3f1)][_0x4aa27a(0x423)](_0x5e0b5d=>_0x5e0b5d[_0x4aa27a(0x26f)]===_0x358048);if(!_0x58ef9f)return;let _0x120fde=parseInt(_0x58ef9f[_0x4aa27a(0x3a5)]||0x16*-0x182+-0x117*-0x13+-0xc77*-0x1);if(_0x58ef9f[_0x4aa27a(0x547)]){const _0x32796e=PRODUCTS[_0x4aa27a(0x423)](_0x13f7ec=>_0x13f7ec['id']===_0x58ef9f['id']);if(_0x32796e&&_0x32796e['colors']){const _0x287d3c=_0x32796e[_0x4aa27a(0x30d)][_0x4aa27a(0x423)](_0x357c51=>_0x357c51[_0x4aa27a(0x60a)]===_0x58ef9f[_0x4aa27a(0x547)]);if(_0x287d3c)_0x120fde=_0x287d3c[_0x4aa27a(0x2ab)];}}else{if(_0x58ef9f[_0x4aa27a(0x162)]){const _0x5aa3ab=PRODUCTS['find'](_0x4711b3=>_0x4711b3['id']===_0x58ef9f['id']);if(_0x5aa3ab&&_0x5aa3ab[_0x4aa27a(0x3f5)]){const _0x4925f3=_0x5aa3ab['resistances'][_0x4aa27a(0x423)](_0x1082eb=>_0x1082eb['value']===_0x58ef9f['selectedResistance']);if(_0x4925f3)_0x120fde=_0x4925f3[_0x4aa27a(0x2ab)];}}}let _0x19baad=parseInt(_0x58ef9f[_0x4aa27a(0x2ab)])+_0x214be2;if(_0x19baad<-0x1*-0x5f8+-0x1*-0x49+0x28*-0x28)_0x19baad=-0x3f8+0x192+-0x1*-0x267;if(_0x19baad>_0x120fde)return Swal[_0x4aa27a(0x48f)](_0x4aa27a(0x37b),_0x4aa27a(0x549)+_0x120fde+_0x4aa27a(0x53e),_0x4aa27a(0x587));_0x58ef9f[_0x4aa27a(0x2ab)]=_0x19baad,cartManager[_0x4aa27a(0x403)]();},'remove':_0x124df8=>{const _0x4fe2ed=_0x6e00bc;state[_0x4fe2ed(0x3f1)]=state['cart'][_0x4fe2ed(0x4f4)](_0x49d5d2=>_0x49d5d2[_0x4fe2ed(0x26f)]!==_0x124df8),cartManager[_0x4fe2ed(0x403)]();},'save':()=>{const _0x2c70f9=_0x6e00bc;localStorage[_0x2c70f9(0x37d)](_0x2c70f9(0x5a2),JSON[_0x2c70f9(0x1e9)](state[_0x2c70f9(0x3f1)]));const _0x8b66f4=state[_0x2c70f9(0x3f1)][_0x2c70f9(0x2d6)]((_0x504510,_0x5e0c75)=>_0x504510+parseInt(_0x5e0c75[_0x2c70f9(0x2ab)]),-0x11*-0x16f+0x1*0x955+-0x21b4*0x1),_0x116336=document[_0x2c70f9(0x20b)](_0x2c70f9(0x151));_0x116336&&(_0x116336[_0x2c70f9(0x5a7)]=_0x8b66f4,_0x116336['classList'][_0x2c70f9(0x299)]('opacity-0',_0x8b66f4===0x1*-0x10d9+0x1619*-0x1+-0x7ca*-0x5));cartManager[_0x2c70f9(0x387)]();if(state[_0x2c70f9(0x1b0)]){const _0x4be63e=ref(db,_0x2c70f9(0x5ed)+state[_0x2c70f9(0x1b0)][_0x2c70f9(0x1dd)]+_0x2c70f9(0x4aa));set(_0x4be63e,state[_0x2c70f9(0x3f1)])[_0x2c70f9(0x256)](_0x5ef00a=>console[_0x2c70f9(0x3d3)](_0x5ef00a));}},'render':()=>{const _0x51a269=_0x6e00bc,_0x2fca51=document[_0x51a269(0x20b)]('cart-items-container'),_0x44596c=document[_0x51a269(0x20b)]('cart-subtotal');let _0x165946=-0x1295*0x1+0x1*-0xee1+0x2176;if(state[_0x51a269(0x3f1)][_0x51a269(0x602)]===-0x15*0x98+0x1331+-0x6b9*0x1){_0x2fca51['className']=_0x51a269(0x617),_0x2fca51[_0x51a269(0x379)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-center\x20fade-in\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-24\x20h-24\x20bg-slate-100\x20rounded-full\x20flex\x20items-center\x20justify-center\x20mb-4\x20mx-auto\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-shopping-bag\x20text-4xl\x20text-slate-300\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-lg\x20font-extrabold\x20text-slate-900\x20mb-2\x22>Tu\x20carrito\x20está\x20vacío</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sm\x20text-slate-400\x20mb-6\x20max-w-[200px]\x20mx-auto\x20leading-relaxed\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Parece\x20que\x20aún\x20no\x20has\x20agregado\x20nada.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22cartManager.toggleCart()\x22\x20class=\x22text-sm\x20font-bold\x20text-[#26E4ED]\x20hover:text-yellow-600\x20underline\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Seguir\x20comprando\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>',document[_0x51a269(0x20b)](_0x51a269(0x319))[_0x51a269(0x5a7)]=_0x51a269(0x266);if(_0x44596c)_0x44596c['innerText']=_0x51a269(0x266);return;}_0x2fca51[_0x51a269(0x5f2)]='space-y-4',_0x2fca51[_0x51a269(0x379)]=state[_0x51a269(0x3f1)][_0x51a269(0x419)](_0x4de898=>{const _0x562545=_0x51a269,_0x151aa3=_0x4de898[_0x562545(0x39b)]*_0x4de898['qty'];_0x165946+=_0x151aa3;const _0x219f70=_0x4de898['selectedResistance']?'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-1\x20bg-orange-50\x20text-orange-700\x20w-fit\x20px-2\x20py-0.5\x20rounded\x20border\x20border-orange-100\x20text-[10px]\x20font-bold\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Resistencia:\x20'+_0x4de898[_0x562545(0x162)]+_0x562545(0x23a):_0x4de898[_0x562545(0x547)]?_0x562545(0x482)+_0x4de898[_0x562545(0x3fe)]+_0x562545(0x537)+_0x4de898[_0x562545(0x547)]+_0x562545(0x578):'';return _0x562545(0x344)+_0x4de898[_0x562545(0x1f8)]+_0x562545(0x5af)+_0x4de898['name']+_0x562545(0x2cc)+_0x4de898[_0x562545(0x26f)]+_0x562545(0x2f3)+_0x219f70+_0x562545(0x4e8)+_0x4de898['cartItemId']+_0x562545(0x414)+_0x4de898[_0x562545(0x2ab)]+_0x562545(0x400)+_0x4de898[_0x562545(0x26f)]+_0x562545(0x5d5)+_0x151aa3[_0x562545(0x3dc)](0xabb+0x1c00+-0x26b9)+_0x562545(0x276);})[_0x51a269(0x217)](''),document['getElementById']('cart-total')[_0x51a269(0x5a7)]=_0x51a269(0x45d)+_0x165946[_0x51a269(0x3dc)](-0x11c9+-0x19d7+0x2ba2*0x1);if(_0x44596c)_0x44596c[_0x51a269(0x5a7)]=_0x51a269(0x45d)+_0x165946[_0x51a269(0x3dc)](0x60a*-0x2+-0x258f*0x1+0x31a5);}},cartManager['save'](),window[_0x6e00bc(0x570)]={'update':(_0x313365,_0x55fb27)=>{const _0x2e3fdb=_0x6e00bc,_0x3d6ae3=document[_0x2e3fdb(0x20b)](_0x2e3fdb(0x161));let _0x172673=parseInt(_0x3d6ae3[_0x2e3fdb(0x2a4)])||-0xde3+0x12*0x114+-0x584,_0x32960b=_0x172673+_0x313365;if(_0x32960b<-0x1978+-0x5*-0x25a+-0xdb7*-0x1)_0x32960b=0xb2b*-0x1+-0xc7*0x2+0x21f*0x6;_0x32960b>_0x55fb27&&(_0x32960b=_0x55fb27,Swal[_0x2e3fdb(0x48f)](_0x2e3fdb(0x49a),_0x2e3fdb(0x549)+_0x55fb27+_0x2e3fdb(0x53e),_0x2e3fdb(0x363))),_0x3d6ae3[_0x2e3fdb(0x2a4)]=_0x32960b;},'handleInput':(_0x1bfe3b,_0x3c16c1)=>{const _0x27160e=_0x6e00bc;let _0x512b3b=parseInt(_0x1bfe3b[_0x27160e(0x2a4)]);if(isNaN(_0x512b3b)||_0x512b3b<0x10db+0x19b8+-0x2a92)_0x512b3b=-0x551+-0x167*-0x5+-0x1*0x1b1;_0x512b3b>_0x3c16c1&&(_0x512b3b=_0x3c16c1,Swal['fire'](_0x27160e(0x49a),_0x27160e(0x549)+_0x3c16c1+_0x27160e(0x53e),_0x27160e(0x363))),_0x1bfe3b[_0x27160e(0x2a4)]=_0x512b3b;}},window[_0x6e00bc(0x4fa)]=_0x321670=>{const _0x155943=_0x6e00bc;if(!_0x321670)return null;const _0x31bcd8=/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/,_0x195d3b=_0x321670[_0x155943(0x163)](_0x31bcd8);return _0x195d3b&&_0x195d3b[-0x1096+0x26a6+0xb07*-0x2]['length']===0x1*0x18c9+0x20bd+-0x397b?_0x195d3b[0xd*0x4d+-0x14c2+-0x5*-0x35f]:null;},(function(){let _0x431e20;try{const _0x1980ac=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');');_0x431e20=_0x1980ac();}catch(_0x4165fd){_0x431e20=window;}_0x431e20['setInterval'](_0x33d0d7,0x1e4*-0xc+-0x28f+-0x1d27*-0x1);}()),window[_0x6e00bc(0x1be)]=_0x1dbe10=>{const _0x5dfb64=_0x6e00bc,_0x5014e8=getYoutubeId(_0x1dbe10);if(!_0x5014e8)return Swal['fire']('Error','Link\x20no\x20válido',_0x5dfb64(0x3d3));const _0x5f5208=document[_0x5dfb64(0x20b)](_0x5dfb64(0x1ea));document[_0x5dfb64(0x20b)](_0x5dfb64(0x59f))[_0x5dfb64(0x449)]=_0x5dfb64(0x199)+_0x5014e8+_0x5dfb64(0x50e),_0x5f5208[_0x5dfb64(0x233)]['remove'](_0x5dfb64(0x1e5)),setTimeout(()=>_0x5f5208[_0x5dfb64(0x233)]['remove'](_0x5dfb64(0x222)),0x1*0x169a+-0x18a3+0x3b*0x9);},window[_0x6e00bc(0x2b0)]=()=>{const _0x79f962=_0x6e00bc,_0x1f0602=document['getElementById']('video-modal');_0x1f0602[_0x79f962(0x233)][_0x79f962(0x561)]('opacity-0'),setTimeout(()=>{const _0x3841c5=_0x79f962;_0x1f0602['classList'][_0x3841c5(0x561)](_0x3841c5(0x1e5)),document[_0x3841c5(0x20b)]('video-iframe')['src']='';},0x1791+0xad*0x35+-0x1d1b*0x2);},window[_0x6e00bc(0x37e)]={'currentRating':0x0,'setRating':_0xb977b2=>{const _0x50a774=_0x6e00bc;reviewManager[_0x50a774(0x603)]=_0xb977b2;for(let _0x30854c=-0x2c*0xa1+0x55*0x2a+-0xdbb*-0x1;_0x30854c<=0x2339+0x28*0x10+0x13*-0x1fc;_0x30854c++){const _0x382f1c=document[_0x50a774(0x20b)]('star-form-'+_0x30854c);if(_0x382f1c){_0x382f1c['classList'][_0x50a774(0x22d)]('ph-bold',_0x50a774(0x2a0),_0x50a774(0x2aa),_0x50a774(0x1d5));if(_0x30854c<=_0xb977b2)_0x382f1c['classList']['add'](_0x50a774(0x2a0),_0x50a774(0x2aa));else _0x382f1c[_0x50a774(0x233)]['add'](_0x50a774(0x190),'text-slate-300');}}},'submitReview':async _0xb08fde=>{const _0x310d79=_0x6e00bc;if(!state[_0x310d79(0x1b0)])return Swal[_0x310d79(0x48f)](_0x310d79(0x619),_0x310d79(0x5cd),_0x310d79(0x587));const _0x3f5f79=state[_0x310d79(0x1a0)][_0x310d79(0x586)](_0x357fe6=>_0x357fe6['status']===_0x310d79(0x251)&&_0x357fe6['items']&&_0x357fe6[_0x310d79(0x451)][_0x310d79(0x586)](_0x4523d5=>_0x4523d5['id']===_0xb08fde));if(!_0x3f5f79)return Swal[_0x310d79(0x48f)]('Acceso\x20denegado',_0x310d79(0x4d3),'error');if(reviewManager['currentRating']===0x1*0x1f75+0x43*0x2b+-0x2ab6)return Swal[_0x310d79(0x48f)](_0x310d79(0x1c4),_0x310d79(0x1b5),_0x310d79(0x587));const _0x3dd3ce=document['getElementById'](_0x310d79(0x310))[_0x310d79(0x2a4)];if(!_0x3dd3ce['trim']())return Swal[_0x310d79(0x48f)](_0x310d79(0x4c5),_0x310d79(0x39e),_0x310d79(0x587));const _0x1d6b9a={'userId':state[_0x310d79(0x1b0)]['uid'],'userName':state[_0x310d79(0x1b0)]['displayName']||_0x310d79(0x418),'rating':reviewManager[_0x310d79(0x603)],'comment':_0x3dd3ce,'date':new Date()[_0x310d79(0x4f5)]()};try{Swal[_0x310d79(0x4b7)](),await push(ref(db,_0x310d79(0x450)+_0xb08fde),_0x1d6b9a);const _0x3887a1=await get(ref(db,_0x310d79(0x450)+_0xb08fde));let _0x48b7d4=0x90*-0x1+-0x24b*0x7+0x109d,_0x19d6af=0x8f0+-0x1*0x1ae3+0x5*0x397;if(_0x3887a1[_0x310d79(0x23d)]()){const _0x5e036b=Object[_0x310d79(0x14f)](_0x3887a1['val']());_0x19d6af=_0x5e036b[_0x310d79(0x602)],_0x48b7d4=_0x5e036b['reduce']((_0x7e8797,_0x211464)=>_0x7e8797+_0x211464[_0x310d79(0x5a8)],0x1987+-0x1c69*-0x1+-0x35f0);}const _0x4c1c8f=_0x19d6af>-0xc7*0x4+-0xe*-0x102+0x160*-0x8?_0x48b7d4/_0x19d6af:-0xfcb+-0x234a+0x3315;await set(ref(db,'products/'+_0xb08fde+_0x310d79(0x178)),_0x4c1c8f),await set(ref(db,'products/'+_0xb08fde+_0x310d79(0x283)),_0x19d6af),Swal['fire'](_0x310d79(0x154),'Tu\x20opinión\x20ha\x20sido\x20publicada.','success'),router['navigate'](_0x310d79(0x390),{'product':PRODUCTS[_0x310d79(0x423)](_0x41eea2=>_0x41eea2['id']===_0xb08fde)[_0x310d79(0x3e1)]});}catch(_0x20d6ca){console[_0x310d79(0x3d3)](_0x20d6ca),Swal[_0x310d79(0x48f)](_0x310d79(0x2be),_0x310d79(0x436),_0x310d79(0x3d3));}}},window[_0x6e00bc(0x48b)]={'isInitialized':![],'refresh':()=>{const _0x723c83=_0x6e00bc,_0x28f181=document['getElementById'](_0x723c83(0x1ac));if(!_0x28f181)return;_0x28f181[_0x723c83(0x379)]='',megaMenuManager[_0x723c83(0x45e)]=![],megaMenuManager[_0x723c83(0x3b4)]();},'init':()=>{const _0x184acb=_0x6e00bc;if(CATEGORIES['length']===-0x8db+0x1*0x23d+0x7*0xf2||megaMenuManager[_0x184acb(0x45e)])return;const _0x39c2b7=document['getElementById'](_0x184acb(0x1ac));if(!_0x39c2b7)return;_0x39c2b7[_0x184acb(0x379)]=CATEGORIES['map']((_0x1617d2,_0x255b32)=>{const _0x2532ba=_0x184acb,_0x2a40b2=_0x255b32===-0x27a+-0x5*-0x1bd+0x2b*-0x25;if(_0x2a40b2)setTimeout(()=>megaMenuManager[_0x2532ba(0x1cf)](_0x1617d2[_0x2532ba(0x60a)]),-0x1532*0x1+-0x246b+-0x1*-0x39cf);return _0x2532ba(0x3d2)+_0x1617d2[_0x2532ba(0x60a)]+'\x27)\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22mm-cat-item\x20px-6\x20py-3\x20cursor-pointer\x20flex\x20justify-between\x20items-center\x20text-sm\x20font-bold\x20transition-all\x20duration-200\x20hover:bg-white\x20hover:text-[#26E4ED]\x20hover:border-l-4\x20hover:border-[#00979D]\x20'+(_0x2a40b2?_0x2532ba(0x50f):_0x2532ba(0x43a))+_0x2532ba(0x50b)+_0x1617d2[_0x2532ba(0x60a)]+_0x2532ba(0x272);})[_0x184acb(0x217)](''),_0x39c2b7[_0x184acb(0x379)]+=_0x184acb(0x33e),megaMenuManager['isInitialized']=!![];},'showPreview':_0x1a62ae=>{const _0x2ca178=_0x6e00bc,_0x232830=document[_0x2ca178(0x1f7)]('.mm-cat-item');_0x232830[_0x2ca178(0x16c)](_0x1988e6=>{const _0x41964e=_0x2ca178;_0x1988e6[_0x41964e(0x2a8)]['trim']()[_0x41964e(0x36a)](_0x1a62ae)?(_0x1988e6[_0x41964e(0x233)][_0x41964e(0x22d)]('text-slate-500',_0x41964e(0x31a)),_0x1988e6[_0x41964e(0x233)][_0x41964e(0x561)]('bg-white','text-slate-900',_0x41964e(0x3a4))):(_0x1988e6[_0x41964e(0x233)][_0x41964e(0x561)](_0x41964e(0x1c0),_0x41964e(0x31a)),_0x1988e6[_0x41964e(0x233)]['remove'](_0x41964e(0x1a1),_0x41964e(0x4ac),'border-[#00979D]'));});const _0x276bc6=PRODUCTS[_0x2ca178(0x4f4)](_0x496d5b=>_0x496d5b[_0x2ca178(0x1e7)]===_0x1a62ae)[_0x2ca178(0x1fc)](-0x1e90+-0x7e6+0x2676,0xf67*-0x1+0x8*0x3ab+0xdeb*-0x1),_0x49b35f=document[_0x2ca178(0x20b)](_0x2ca178(0x18c)),_0x5b3dee=document[_0x2ca178(0x20b)](_0x2ca178(0x146)),_0x1665cc={};_0x1665cc[_0x2ca178(0x1e7)]=_0x1a62ae,_0x1665cc[_0x2ca178(0x2d4)]=0x1;if(_0x5b3dee)_0x5b3dee[_0x2ca178(0x4f1)]=()=>router[_0x2ca178(0x160)](_0x2ca178(0x15f),_0x1665cc);if(!_0x49b35f)return;if(_0x276bc6['length']===-0x718*0x1+-0x1650+0x1d68){_0x49b35f[_0x2ca178(0x379)]=_0x2ca178(0x231);return;}_0x49b35f['innerHTML']=_0x276bc6[_0x2ca178(0x419)](_0x59b66f=>_0x2ca178(0x3ab)+_0x59b66f[_0x2ca178(0x3e1)]+'\x27})\x22\x20class=\x22group\x20cursor-pointer\x20bg-slate-50\x20rounded-xl\x20p-3\x20border\x20border-slate-100\x20hover:border-[#00979D]\x20hover:shadow-md\x20transition-all\x20duration-300\x20flex\x20flex-col\x20h-[140px]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex-1\x20w-full\x20flex\x20items-center\x20justify-center\x20overflow-hidden\x20mb-2\x20bg-white\x20rounded-lg\x20p-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22'+_0x59b66f[_0x2ca178(0x1f8)]+_0x2ca178(0x30b)+_0x59b66f[_0x2ca178(0x60a)]+_0x2ca178(0x343)+(_0x59b66f[_0x2ca178(0x2e8)]?_0x59b66f[_0x2ca178(0x347)]:_0x59b66f[_0x2ca178(0x39b)])+_0x2ca178(0x5cf)+(_0x59b66f['isOffer']?_0x2ca178(0x487):'')+_0x2ca178(0x4d1))[_0x2ca178(0x217)](''),_0x49b35f[_0x2ca178(0x233)]['remove'](_0x2ca178(0x1c8)),void _0x49b35f['offsetWidth'],_0x49b35f[_0x2ca178(0x233)][_0x2ca178(0x561)](_0x2ca178(0x1c8));}},window[_0x6e00bc(0x303)]=()=>{const _0x3ac8c4=_0x6e00bc,_0x5085ea={};_0x5085ea[_0x3ac8c4(0x2b3)]=0.1,_0x5085ea['rootMargin']=_0x3ac8c4(0x5ac);const _0x3b1097=new IntersectionObserver(_0x523367=>{_0x523367['forEach'](_0x258780=>{const _0x1ac4a5=_0x32b0;_0x258780[_0x1ac4a5(0x3c0)]&&(_0x258780[_0x1ac4a5(0x41e)][_0x1ac4a5(0x233)][_0x1ac4a5(0x561)](_0x1ac4a5(0x2ef)),_0x3b1097[_0x1ac4a5(0x539)](_0x258780[_0x1ac4a5(0x41e)]));});},_0x5085ea);document['querySelectorAll'](_0x3ac8c4(0x180))[_0x3ac8c4(0x16c)](_0x31a604=>{const _0x44cb77=_0x3ac8c4;_0x3b1097[_0x44cb77(0x55c)](_0x31a604);});},window[_0x6e00bc(0x1d1)]=()=>{const _0x274ca0=_0x6e00bc;if(POPUP_LINK&&POPUP_LINK!=='#'){closeAdPopup();if(POPUP_LINK['startsWith']('/')||POPUP_LINK[_0x274ca0(0x383)]('?')){if(POPUP_LINK[_0x274ca0(0x36a)](_0x274ca0(0x615))){const _0x315c30=new URLSearchParams(POPUP_LINK[_0x274ca0(0x4bd)]('?')[-0x999*0x1+0x2be+0x1*0x6dc]);router[_0x274ca0(0x160)](_0x274ca0(0x390),{'product':_0x315c30[_0x274ca0(0x585)]('product')});}else POPUP_LINK[_0x274ca0(0x36a)](_0x274ca0(0x15f))?router['navigate']('/shop'):window[_0x274ca0(0x2d7)][_0x274ca0(0x59a)]=POPUP_LINK;}else window[_0x274ca0(0x295)](POPUP_LINK,_0x274ca0(0x240));}else closeAdPopup();},window['showAdPopup']=(_0x66e5da,_0x28e3e5,_0x4520ec,_0x3977bb,_0x5bb85e)=>{const _0x587cc8=_0x6e00bc,_0x518ede=document['getElementById'](_0x587cc8(0x228)),_0x57982c=document['getElementById'](_0x587cc8(0x370)),_0x2f4540=document[_0x587cc8(0x20b)](_0x587cc8(0x18d)),_0x31beda=document[_0x587cc8(0x20b)]('ad-popup-backdrop'),_0x416138=document[_0x587cc8(0x20b)](_0x587cc8(0x16a)),_0xbc9cd3=document[_0x587cc8(0x20b)](_0x587cc8(0x18a)),_0x3b0b66=document[_0x587cc8(0x20b)](_0x587cc8(0x43b)),_0x46a12b=document['getElementById'](_0x587cc8(0x49f)),_0x878fef=document['getElementById'](_0x587cc8(0x14b));_0x57982c[_0x587cc8(0x449)]=_0x66e5da,POPUP_LINK=_0x28e3e5;const _0x22772f=_0x4520ec&&_0x4520ec[_0x587cc8(0x1ae)]()!==''||_0x3977bb&&_0x3977bb[_0x587cc8(0x1ae)]()!=='';_0x22772f?(_0x416138['classList'][_0x587cc8(0x22d)](_0x587cc8(0x1e5)),_0xbc9cd3[_0x587cc8(0x5a7)]=_0x4520ec||'',_0x3b0b66[_0x587cc8(0x5a7)]=_0x3977bb||'',_0x46a12b['innerText']=_0x5bb85e||'Ver\x20Detalles',_0x57982c[_0x587cc8(0x5f2)]='w-full\x20h-48\x20md:h-64\x20object-cover\x20transition-transform\x20duration-700\x20group-hover:scale-105',_0x2f4540[_0x587cc8(0x233)][_0x587cc8(0x4cf)](_0x587cc8(0x215),'max-w-md')):(_0x416138[_0x587cc8(0x233)]['add'](_0x587cc8(0x1e5)),_0x57982c[_0x587cc8(0x5f2)]=_0x587cc8(0x307),_0x2f4540['classList'][_0x587cc8(0x22d)](_0x587cc8(0x1a1),_0x587cc8(0x332)),_0x2f4540[_0x587cc8(0x233)][_0x587cc8(0x561)](_0x587cc8(0x1c1),_0x587cc8(0x2e3)),_0x878fef['classList']['add'](_0x587cc8(0x20c),_0x587cc8(0x332),'overflow-hidden')),_0x518ede[_0x587cc8(0x233)][_0x587cc8(0x22d)]('hidden'),void _0x518ede[_0x587cc8(0x4c9)],setTimeout(()=>{const _0x1db2b5=_0x587cc8;_0x31beda[_0x1db2b5(0x233)][_0x1db2b5(0x22d)]('opacity-0'),_0x31beda['classList'][_0x1db2b5(0x561)](_0x1db2b5(0x20e)),_0x2f4540[_0x1db2b5(0x233)][_0x1db2b5(0x22d)]('scale-95',_0x1db2b5(0x222)),_0x2f4540[_0x1db2b5(0x233)]['add'](_0x1db2b5(0x394),_0x1db2b5(0x20e));},-0x9df+0x1f3c+-0x1553);},window[_0x6e00bc(0x52a)]=()=>{const _0x5cfae7=_0x6e00bc,_0x5f0427=document[_0x5cfae7(0x20b)]('ad-popup-modal'),_0x130e28=document[_0x5cfae7(0x20b)](_0x5cfae7(0x18d)),_0x4f160d=document['getElementById']('ad-popup-backdrop');_0x130e28[_0x5cfae7(0x233)][_0x5cfae7(0x22d)]('scale-100',_0x5cfae7(0x20e)),_0x130e28[_0x5cfae7(0x233)][_0x5cfae7(0x561)]('scale-95',_0x5cfae7(0x222)),_0x4f160d[_0x5cfae7(0x233)][_0x5cfae7(0x22d)](_0x5cfae7(0x20e)),_0x4f160d[_0x5cfae7(0x233)]['add'](_0x5cfae7(0x222)),setTimeout(()=>{const _0x45d78c=_0x5cfae7;_0x5f0427['classList']['add'](_0x45d78c(0x1e5)),document[_0x45d78c(0x20b)](_0x45d78c(0x370))['src']='';},0x2649+-0xc90+-0x5*0x4c1);},window['initBannerEffects']=()=>{const _0x18ff1f=_0x6e00bc,_0x81168a=document['querySelector'](_0x18ff1f(0x2b1));if(!_0x81168a)return;window['isBannerHovered']=![];let _0x3afb79=![];_0x81168a[_0x18ff1f(0x491)](_0x18ff1f(0x5ba),()=>{const _0x11899d=_0x18ff1f;window[_0x11899d(0x1b9)]=!![];if(window[_0x11899d(0x413)])clearInterval(window['bannerInterval']);}),_0x81168a[_0x18ff1f(0x491)]('mouseleave',()=>{const _0x3101c5=_0x18ff1f;window['isBannerHovered']=![];if(window[_0x3101c5(0x413)])clearInterval(window[_0x3101c5(0x413)]);window['bannerInterval']=setInterval(()=>window[_0x3101c5(0x348)](-0x8f5+0x2083+-0x1*0x178d),0x1a03+0x1f42+-0x21d5);const _0x4f93e0=document[_0x3101c5(0x20b)]('banner-slide-'+window[_0x3101c5(0x514)]);if(_0x4f93e0){const _0xe8e778=_0x4f93e0[_0x3101c5(0x2e6)](_0x3101c5(0x5f9));_0xe8e778&&(_0xe8e778[_0x3101c5(0x28f)]['transform']=_0x3101c5(0x404));}}),_0x81168a[_0x18ff1f(0x491)](_0x18ff1f(0x5f6),_0x6a76d0=>{!_0x3afb79&&(window['requestAnimationFrame'](()=>{const _0x2145be=_0x32b0,_0x1c32ef=document['getElementById']('banner-slide-'+window['currentBannerIndex']);if(_0x1c32ef){const _0x3cc04d=_0x1c32ef['querySelector'](_0x2145be(0x5f9));if(_0x3cc04d){const _0x1057b1=_0x81168a['getBoundingClientRect'](),_0x388ff2=_0x6a76d0[_0x2145be(0x582)]-_0x1057b1[_0x2145be(0x184)],_0x38dccd=_0x6a76d0[_0x2145be(0x2a2)]-_0x1057b1[_0x2145be(0x2c9)],_0x28499e=(_0x388ff2/_0x1057b1[_0x2145be(0x34f)]-(-0x1*0x867+-0x134c+0x1bb3+0.5))*(-0x2de*0x6+0xf6*-0x6+0x16fa),_0x174309=(_0x38dccd/_0x1057b1[_0x2145be(0x36e)]-(-0xda*0xf+-0x17*-0x83+-0x1*-0x101+0.5))*(0x7*-0x101+-0x3*0x94f+0x22f6),_0xef4340=_0x174309*-(0x1*-0x1b35+0x262d+-0xaee),_0x4dcc8f=_0x28499e*(-0x18a1+-0x649*0x2+0x253d*0x1);_0x3cc04d[_0x2145be(0x28f)][_0x2145be(0x386)]=_0x2145be(0x3f4)+_0xef4340+'deg)\x20rotateY('+_0x4dcc8f+_0x2145be(0x5c7);}}_0x3afb79=![];}),_0x3afb79=!![]);});let _0x30999c=![];const _0x27bc2f={};_0x27bc2f['passive']=!![],window['addEventListener'](_0x18ff1f(0x305),()=>{const _0x55147a=_0x18ff1f;!_0x30999c&&(window[_0x55147a(0x248)](()=>{const _0x33c38a=_0x55147a,_0x5d8693=document[_0x33c38a(0x20b)](_0x33c38a(0x376)+window[_0x33c38a(0x514)]);if(_0x5d8693){const _0x143986=_0x5d8693[_0x33c38a(0x2e6)]('.banner-3d-target');if(_0x143986){const _0x875c58=window['scrollY'];if(_0x875c58<0x107d+-0x1cd+-0xb90){const _0x5215ad=_0x875c58*(0xd*0x12f+0x1df4+-0xdb*0x35+0.15),_0x358fe6=-0x1*-0x2667+0xc89*-0x1+0x19dd*-0x1+_0x875c58/(0x826+-0x134c+-0x2e*-0x95);_0x143986[_0x33c38a(0x28f)]['setProperty'](_0x33c38a(0x2d2),_0x5215ad+'px'),_0x143986[_0x33c38a(0x28f)][_0x33c38a(0x359)](_0x33c38a(0x444),''+_0x358fe6);}}}_0x30999c=![];}),_0x30999c=!![]);},_0x27bc2f);},window[_0x6e00bc(0x552)]={'navigate':(_0x3fa1b9,_0x19d063={})=>{const _0x3de58b=_0x6e00bc;let _0x3ed3f5='?page='+(_0x3fa1b9[_0x3de58b(0x4cf)]('/','')||_0x3de58b(0x5db));Object[_0x3de58b(0x532)](_0x19d063)['forEach'](_0x2f95e7=>_0x3ed3f5+='&'+_0x2f95e7+'='+_0x19d063[_0x2f95e7]),window[_0x3de58b(0x5ab)][_0x3de58b(0x520)]({},'',_0x3ed3f5),router[_0x3de58b(0x265)](!![]);},'handle':(_0x14eced=!![])=>{const _0x3859cb=_0x6e00bc,_0x34dd3d=new URLSearchParams(window[_0x3859cb(0x2d7)][_0x3859cb(0x5d6)]),_0x3d2e4d=_0x34dd3d['get'](_0x3859cb(0x333))||'home',_0x4c4dfa=document[_0x3859cb(0x20b)](_0x3859cb(0x208)),_0x4d86a5=document['getElementById'](_0x3859cb(0x351)),_0x3e395a=document[_0x3859cb(0x20b)](_0x3859cb(0x51a));if(_0x14eced)window[_0x3859cb(0x566)](0x23d4*0x1+-0x4*0x373+-0x2*0xb04,0x20d1+-0x1bcf+0x2*-0x281);const _0x2955c4=()=>{const _0x309f46=_0x3859cb,_0x1a707c={};_0x1a707c[_0x309f46(0x5db)]=_0x309f46(0x19d),_0x1a707c[_0x309f46(0x274)]=_0x309f46(0x181),_0x1a707c[_0x309f46(0x390)]=_0x309f46(0x181),_0x1a707c[_0x309f46(0x485)]=_0x309f46(0x374),_0x1a707c[_0x309f46(0x54f)]=_0x309f46(0x22a),_0x1a707c['about']=_0x309f46(0x33a),_0x1a707c[_0x309f46(0x32d)]=_0x309f46(0x2a7);const _0x416e2c=_0x1a707c,_0x374ef7=new URLSearchParams(window[_0x309f46(0x2d7)][_0x309f46(0x5d6)]),_0x46fdbf=_0x374ef7['get'](_0x309f46(0x333))||'home',_0x660f03=_0x416e2c[_0x46fdbf]||'nav-home';Object[_0x309f46(0x14f)](_0x416e2c)['forEach'](_0x20cf44=>{const _0x148002=_0x309f46,_0x37996e=document[_0x148002(0x20b)](_0x20cf44);if(!_0x37996e)return;const _0x21e830=_0x37996e[_0x148002(0x2e6)](_0x148002(0x4fb)),_0x2b6076=_0x37996e['querySelector'](_0x148002(0x26d));_0x20cf44===_0x660f03?(_0x21e830[_0x148002(0x233)]['remove'](_0x148002(0x584),_0x148002(0x301)),_0x21e830['classList'][_0x148002(0x561)](_0x148002(0x4ae),_0x148002(0x4f7),_0x148002(0x5e3)),_0x2b6076[_0x148002(0x233)]['remove'](_0x148002(0x5c8),'opacity-0'),_0x2b6076['classList'][_0x148002(0x561)]('w-full',_0x148002(0x20e))):(_0x21e830[_0x148002(0x233)]['add'](_0x148002(0x584),_0x148002(0x301)),_0x21e830['classList'][_0x148002(0x22d)](_0x148002(0x4ae),_0x148002(0x4f7),_0x148002(0x5e3)),_0x2b6076[_0x148002(0x233)][_0x148002(0x561)](_0x148002(0x5c8),_0x148002(0x222)),_0x2b6076[_0x148002(0x233)][_0x148002(0x22d)](_0x148002(0x5a0),_0x148002(0x20e)));});};_0x2955c4();_0x3d2e4d==='login'?(_0x4d86a5[_0x3859cb(0x28f)][_0x3859cb(0x4e0)]='none',_0x3e395a[_0x3859cb(0x28f)][_0x3859cb(0x4e0)]=_0x3859cb(0x355),_0x4c4dfa[_0x3859cb(0x5f2)]=_0x3859cb(0x504)):(_0x4d86a5[_0x3859cb(0x28f)][_0x3859cb(0x4e0)]='block',_0x3e395a['style'][_0x3859cb(0x4e0)]=_0x3859cb(0x3fb),_0x3d2e4d==='home'||_0x3d2e4d===_0x3859cb(0x32d)?_0x4c4dfa[_0x3859cb(0x5f2)]=_0x3859cb(0x164):_0x4c4dfa[_0x3859cb(0x5f2)]=_0x3859cb(0x2c4));if(_0x3d2e4d===_0x3859cb(0x5db))renderHome(_0x4c4dfa);else{if(_0x3d2e4d==='shop')renderShop(_0x4c4dfa,_0x34dd3d[_0x3859cb(0x585)](_0x3859cb(0x1e7)),parseInt(_0x34dd3d[_0x3859cb(0x585)](_0x3859cb(0x2d4))||-0x2426+-0x13ae*-0x1+-0x1079*-0x1),_0x34dd3d[_0x3859cb(0x585)]('filter'),_0x34dd3d[_0x3859cb(0x585)](_0x3859cb(0x5d6)));else{if(_0x3d2e4d===_0x3859cb(0x390))renderProduct(_0x4c4dfa,_0x34dd3d[_0x3859cb(0x585)](_0x3859cb(0x390)));else{if(_0x3d2e4d===_0x3859cb(0x327))renderLogin(_0x4c4dfa);else{if(_0x3d2e4d===_0x3859cb(0x485))renderFAQ(_0x4c4dfa);else{if(_0x3d2e4d==='how-to-buy')renderHowToBuy(_0x4c4dfa);else{if(_0x3d2e4d===_0x3859cb(0x5d7))renderAbout(_0x4c4dfa);else{if(_0x3d2e4d==='services')renderServices(_0x4c4dfa);else{if(_0x3d2e4d===_0x3859cb(0x341)){if(!state['user']&&!auth['currentUser']){router[_0x3859cb(0x160)](_0x3859cb(0x373));return;}renderProfile(_0x4c4dfa,_0x34dd3d[_0x3859cb(0x585)]('tab')||_0x3859cb(0x410));}}}}}}}}}}};function ProductCard(_0x29aca9){const _0x577265=_0x6e00bc;let _0x2828c2=null;if(_0x29aca9[_0x577265(0x3a5)]<=-0x18*-0xe2+-0x21cc+0xc9c&&_0x29aca9[_0x577265(0x606)]){const _0x2a8e49=new Date();_0x2a8e49[_0x577265(0x4ce)](-0x1cea+0x26a5+0x9bb*-0x1,-0x224+0x149a+-0x11*0x116,-0x2358*0x1+0x110a+0x124e,0x1953+0x16e*0x16+-0x5*0xb5b);const _0x315aa1=_0x29aca9[_0x577265(0x606)]['split']('-'),_0x2147e1=new Date(_0x315aa1[-0x2665*-0x1+-0x16f5+0x68*-0x26],_0x315aa1[0x8bd*-0x2+0x418+-0x17*-0x95]-(0x43*-0x94+0x18f8+0x2f*0x4b),_0x315aa1[0x7dc+-0x103d*0x2+-0x20*-0xc5]),_0x58fcf3=_0x2147e1-_0x2a8e49,_0xeb9250=Math[_0x577265(0x2b9)](_0x58fcf3/((0x1*-0x15c7+0xc1d*0x1+0x1*0xd92)*(-0x1e2b+0x924+0x1543*0x1)*(-0x20c*0x2+0xac0+0x89*-0xc)*(0x2422+-0x12be*-0x2+-0x4986)));if(_0xeb9250>0x1b0*-0x16+-0x31f*-0x2+0x1ee2)_0x2828c2=_0x577265(0x479)+_0xeb9250+'\x20día'+(_0xeb9250>-0xb3e*0x1+-0x2347+0x2e86?'s':'');else _0xeb9250===0x19e0+-0x1aa*0x16+0x1*0xabc&&(_0x2828c2=_0x577265(0x4f8));}let _0x449192=![];if(_0x29aca9[_0x577265(0x2ba)]==='forced_on')_0x449192=!![];else{if(_0x29aca9['newMode']==='forced_off')_0x449192=![];else{if(_0x29aca9[_0x577265(0x168)]){const _0x2cd8b=Math['abs'](new Date()-new Date(_0x29aca9['date']))/((-0x270e+-0x1523*0x1+0x4019)*(-0x7*0xf4+-0x1979+0x2061)*(-0x1d43+-0x2*0x7ff+0x2d7d)*(0x13*0x1f3+-0x2*-0x92f+-0x374f));if(_0x2cd8b<=0xe65+-0x102a+-0x13*-0x18)_0x449192=!![];}}}const _0xb423c5=state[_0x577265(0x5bf)][_0x577265(0x3a7)](_0x29aca9['id']),_0x57bc6c=_0x29aca9['isOffer']&&_0x29aca9[_0x577265(0x347)]?_0x29aca9[_0x577265(0x347)]:_0x29aca9[_0x577265(0x39b)],_0x1e6137=_0x29aca9[_0x577265(0x2e8)]&&_0x29aca9[_0x577265(0x347)]?_0x29aca9[_0x577265(0x39b)]:_0x29aca9[_0x577265(0x39b)]*(0xff6+0x176d+-0x2762+0.19999999999999996),_0x70639c=_0x29aca9[_0x577265(0x3a5)]||0x3d*0x19+-0x19fb+0x1406,_0x2a60f6=_0x70639c>-0x24b*0x6+0x5*0x502+-0xb48,_0x11c355=_0x70639c>0x22b1+-0x493+-0x1e1e&&_0x70639c<=-0x21dc+-0x1512*-0x1+0x1*0xccf,_0x3fee79=_0x11c355?_0x577265(0x2bb):'bg-emerald-500';return _0x577265(0x395)+_0x29aca9[_0x577265(0x3e1)]+_0x577265(0x51e)+(_0x29aca9[_0x577265(0x2e8)]?_0x577265(0x5ee)+Math[_0x577265(0x465)](-0xc*-0x2e3+0x1*0x1a29+0x1*-0x3c69-_0x57bc6c*(0x3*0x3c1+0x138c+-0x1e6b)/_0x1e6137)+_0x577265(0x2bd):'')+'\x0a\x0a'+(_0x449192?_0x577265(0x273):'')+'\x0a\x0a\x20\x20'+(_0x29aca9[_0x577265(0x1d9)]?_0x577265(0x616)+_0x29aca9[_0x577265(0x1d9)]+'\x0a\x20\x20\x20\x20</span>\x0a':'')+_0x577265(0x183)+_0x29aca9['id']+_0x577265(0x271)+(_0xb423c5?_0x577265(0x505):'bg-white\x20border-slate-200\x20text-slate-400\x20hover:text-red-500\x20hover:border-red-200\x20hover:shadow-md')+_0x577265(0x4ef)+(_0xb423c5?'ph-fill':_0x577265(0x190))+_0x577265(0x597)+_0x29aca9[_0x577265(0x1f8)]+_0x577265(0x40f)+(!_0x2a60f6?_0x577265(0x41d):'')+_0x577265(0x3b0)+_0x29aca9[_0x577265(0x60a)]+_0x577265(0x34c)+(!_0x2a60f6?_0x577265(0x44b)+(_0x2828c2?_0x577265(0x55a)+_0x2828c2+_0x577265(0x5d9):_0x577265(0x5fd))+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20':'')+_0x577265(0x3ca)+_0x29aca9['category']+_0x577265(0x3a1)+(_0x2a60f6?_0x577265(0x433)+_0x3fee79+_0x577265(0x206)+_0x3fee79+_0x577265(0x149)+(_0x11c355?_0x577265(0x3f0):_0x577265(0x3ea))+_0x577265(0x3b1)+(_0x11c355?_0x577265(0x5f1)+_0x70639c:_0x577265(0x396))+_0x577265(0x2d0):'')+_0x577265(0x211)+_0x29aca9['slug']+_0x577265(0x26b)+_0x29aca9['name']+_0x577265(0x4ee)+_0x29aca9['name']+_0x577265(0x4cc)+(_0x29aca9[_0x577265(0x2e8)]?_0x577265(0x3f0):_0x577265(0x1c0))+_0x577265(0x44f)+(_0x29aca9[_0x577265(0x2e8)]?_0x577265(0x4d4):_0x577265(0x37f))+_0x577265(0x4b9)+(_0x29aca9[_0x577265(0x2e8)]?_0x577265(0x3f0):_0x577265(0x3b9))+'\x22>S/</span>\x0a\x20\x20\x20\x20<span\x20class=\x22text-lg\x20font-black\x20tracking-tighter\x20'+(_0x29aca9[_0x577265(0x2e8)]?_0x577265(0x3f0):_0x577265(0x4ac))+_0x577265(0x1e1)+Math['floor'](_0x57bc6c)+_0x577265(0x5c5)+_0x57bc6c[_0x577265(0x3dc)](-0xbc4+-0xd*0x2d7+0x30b1)[_0x577265(0x4bd)]('.')[0x25ad+0x107b*-0x1+-0x1531]+_0x577265(0x172)+(_0x29aca9['isOffer']?_0x577265(0x535)+_0x1e6137['toFixed'](0x60b+0x1d4*0x4+-0x33*0x43)+_0x577265(0x4a0):'')+_0x577265(0x1fb)+(_0x2a60f6?_0x577265(0x31c)+_0x29aca9['id']+'\x27)':'')+_0x577265(0x2c0)+(_0x2a60f6?'bg-slate-900\x20text-white':_0x577265(0x60f))+_0x577265(0x442)+(_0x2a60f6?_0x577265(0x3eb):_0x577265(0x30f))+'\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x2a60f6?_0x577265(0x3df):'<i\x20class=\x22ph-bold\x20ph-prohibit\x20text-base\x22></i>')+_0x577265(0x1ce);}window['currentBannerIndex']=-0x1b56*-0x1+0x153d+-0x3093,window[_0x6e00bc(0x3da)]=0x1a10+-0xc5*0x9+0x47*-0x45,window[_0x6e00bc(0x348)]=_0x5879e5=>{const _0x28f8d7=_0x6e00bc;if(window[_0x28f8d7(0x3da)]<=-0x6fd+0x1e7+0x517)return;const _0x1949f0=document[_0x28f8d7(0x20b)](_0x28f8d7(0x376)+window[_0x28f8d7(0x514)]),_0xa36497=document[_0x28f8d7(0x20b)](_0x28f8d7(0x41f)+window[_0x28f8d7(0x514)]),_0x27f1e1=document[_0x28f8d7(0x20b)](_0x28f8d7(0x196)+window[_0x28f8d7(0x514)]);_0x1949f0&&(_0x1949f0['classList'][_0x28f8d7(0x4cf)]('opacity-100','opacity-0'),_0x1949f0[_0x28f8d7(0x233)]['remove'](_0x28f8d7(0x508)));_0xa36497&&(_0xa36497[_0x28f8d7(0x233)][_0x28f8d7(0x22d)]('opacity-100',_0x28f8d7(0x50d),_0x28f8d7(0x416)),_0xa36497[_0x28f8d7(0x233)][_0x28f8d7(0x561)](_0x28f8d7(0x222),_0x28f8d7(0x197),_0x28f8d7(0x538)));_0x27f1e1&&(_0x27f1e1[_0x28f8d7(0x233)]['remove'](_0x28f8d7(0x220),_0x28f8d7(0x48e)),_0x27f1e1[_0x28f8d7(0x233)][_0x28f8d7(0x561)](_0x28f8d7(0x338),_0x28f8d7(0x591)));window[_0x28f8d7(0x514)]=(window[_0x28f8d7(0x514)]+_0x5879e5+window[_0x28f8d7(0x3da)])%window[_0x28f8d7(0x3da)];const _0x4e7b5d=document['getElementById']('banner-slide-'+window['currentBannerIndex']),_0x244840=document['getElementById'](_0x28f8d7(0x41f)+window[_0x28f8d7(0x514)]),_0x287d22=document['getElementById'](_0x28f8d7(0x196)+window[_0x28f8d7(0x514)]);_0x4e7b5d&&(_0x4e7b5d[_0x28f8d7(0x233)][_0x28f8d7(0x4cf)](_0x28f8d7(0x222),_0x28f8d7(0x20e)),_0x4e7b5d[_0x28f8d7(0x233)][_0x28f8d7(0x561)]('glitch-active'),setTimeout(()=>{const _0xaf09af=_0x28f8d7;if(_0x4e7b5d)_0x4e7b5d['classList'][_0xaf09af(0x22d)]('glitch-active');},-0xb*0x2b2+-0x161f*-0x1+0x1*0x97b));_0x244840&&setTimeout(()=>{const _0x4fcda4=_0x28f8d7;_0x244840[_0x4fcda4(0x233)][_0x4fcda4(0x22d)](_0x4fcda4(0x222),_0x4fcda4(0x197),_0x4fcda4(0x538)),_0x244840[_0x4fcda4(0x233)][_0x4fcda4(0x561)](_0x4fcda4(0x20e),_0x4fcda4(0x50d),_0x4fcda4(0x416));},0x19ac+-0xca6*-0x3+-0x3e72);_0x287d22&&(_0x287d22[_0x28f8d7(0x233)][_0x28f8d7(0x22d)]('bg-slate-500',_0x28f8d7(0x591)),_0x287d22['classList'][_0x28f8d7(0x561)](_0x28f8d7(0x220),_0x28f8d7(0x48e)));if(window[_0x28f8d7(0x413)])clearInterval(window[_0x28f8d7(0x413)]);!window['isBannerHovered']&&(window['bannerInterval']=setInterval(()=>window['moveBanner'](0x6*-0x4cf+0xa4+0x1c37*0x1),-0x109*-0x5+0x146b+-0x228));},window[_0x6e00bc(0x1db)]=null,window[_0x6e00bc(0x1b1)]=(_0x31d3fa,_0x43fc87)=>{const _0x289161=_0x6e00bc,_0x9d1689=document[_0x289161(0x20b)](_0x31d3fa),_0x5b4e2f=_0x9d1689['querySelector'](_0x289161(0x3db));if(!_0x9d1689||!_0x5b4e2f)return;_0x9d1689['classList'][_0x289161(0x561)](_0x289161(0x1a3)),_0x5b4e2f[_0x289161(0x5a7)]='';let _0x42498c=-0x13ef+-0x15ba+0x29a9;if(window[_0x289161(0x1db)])clearInterval(window['bubbleInterval']);window['bubbleInterval']=setInterval(()=>{const _0x3d0d13=_0x289161;_0x42498c<_0x43fc87[_0x3d0d13(0x602)]?(_0x5b4e2f[_0x3d0d13(0x5a7)]+=_0x43fc87['charAt'](_0x42498c),_0x42498c++):clearInterval(window[_0x3d0d13(0x1db)]);},-0xb61+-0x1*0x1d9b+0xdba*0x3);},window[_0x6e00bc(0x242)]=_0x1b2267=>{const _0x5f5dc9=_0x6e00bc,_0x101068=document['getElementById'](_0x1b2267);if(window['bubbleInterval'])clearInterval(window[_0x5f5dc9(0x1db)]);if(_0x101068)_0x101068[_0x5f5dc9(0x233)][_0x5f5dc9(0x22d)]('bubble-visible');};function renderHome(_0x4a74a5){const _0x1a7660=_0x6e00bc,_0x4c960c=PRODUCTS[_0x1a7660(0x4f4)](_0x1042c7=>_0x1042c7[_0x1a7660(0x2e8)]),_0x595ad1=_0x4c960c[_0x1a7660(0x602)]>-0x2a5*-0xd+-0x1a1e+0x1*-0x843?[..._0x4c960c,..._0x4c960c,..._0x4c960c,..._0x4c960c]:[],_0x1f68fc=_0x595ad1['slice'](0x62d+-0xeed+0x5*0x1c0,0x61f+-0x4f3+0x2*-0x8c),_0x20e8f3=PRODUCTS[_0x1a7660(0x4f4)](_0x25df16=>{const _0x51cb77=_0x1a7660;if(_0x25df16[_0x51cb77(0x2ba)]==='forced_off')return![];if(_0x25df16['newMode']==='forced_on')return!![];if(_0x25df16['date']){const _0x11a9a3=Math[_0x51cb77(0x243)](new Date()-new Date(_0x25df16[_0x51cb77(0x168)]))/((0x2*0x1139+-0x1821+-0x669)*(-0x133f+0x1*0xa81+0x8fa)*(-0x886*0x4+0x3*-0x94b+0x27d*0x19)*(0x173c+0x2a2*-0x1+-0x1482));return _0x11a9a3<=0x1474+-0xe*0x2c7+-0x1271*-0x1;}return![];});if(window['bannerInterval'])clearInterval(window['bannerInterval']);const _0xc19962=[...PRODUCTS][_0x1a7660(0x445)]((_0x1f539a,_0x3992f3)=>{const _0x534528=_0x1a7660,_0x19853d=parseInt(_0x1f539a[_0x534528(0x548)]||0x1cb+0x6*0x332+-0x3*0x6fd),_0x2976d1=parseInt(_0x3992f3[_0x534528(0x548)]||0x35e+0x11*0x105+-0x14b3);if(_0x2976d1!==_0x19853d)return _0x2976d1-_0x19853d;const _0x613afa=new Date(_0x1f539a['date']||-0xb13*-0x1+-0x22f8+0x17e5),_0x77075c=new Date(_0x3992f3['date']||-0x1526+0x1a*-0xc4+0x290e);return _0x77075c-_0x613afa;}),_0x26b0a4=_0xc19962[_0x1a7660(0x602)]?_0xc19962[_0x1a7660(0x1fc)](-0x346*0x1+0x4e4+0x2e*-0x9,0x9f7*-0x3+-0xed4+0x17*0x1f2)[_0x1a7660(0x419)](ProductCard)[_0x1a7660(0x217)](''):_0x1a7660(0x1fa),_0x5ceb51={};_0x5ceb51[_0x1a7660(0x60a)]='Servicios',_0x5ceb51[_0x1a7660(0x496)]=_0x1a7660(0x550),_0x5ceb51['link']='/services',_0x5ceb51[_0x1a7660(0x47b)]=_0x1a7660(0x4d9);const _0x2738be={};_0x2738be[_0x1a7660(0x60a)]=_0x1a7660(0x55e),_0x2738be[_0x1a7660(0x496)]=_0x1a7660(0x304),_0x2738be[_0x1a7660(0x349)]=_0x1a7660(0x4da),_0x2738be[_0x1a7660(0x47b)]=_0x1a7660(0x4a4);const _0x32171c={};_0x32171c['name']=_0x1a7660(0x297),_0x32171c[_0x1a7660(0x496)]=_0x1a7660(0x497),_0x32171c[_0x1a7660(0x349)]=_0x1a7660(0x15f),_0x32171c['msg']=_0x1a7660(0x516);const _0x541b2b={};_0x541b2b[_0x1a7660(0x352)]='fixed-split',_0x541b2b[_0x1a7660(0x41a)]=_0x1a7660(0x50c),_0x541b2b[_0x1a7660(0x5ad)]=_0x1a7660(0x2e2),_0x541b2b[_0x1a7660(0x279)]='Encuentra\x20los\x20mejores\x20componentes,\x20solicita\x20nuestro\x20servicio\x20técnico\x20especializado\x20o\x20cotiza\x20el\x20desarrollo\x20integral\x20de\x20tus\x20proyectos.\x20¡Haz\x20realidad\x20tus\x20ideas\x20hoy!',_0x541b2b['products']=[_0x5ceb51,_0x2738be,_0x32171c];const _0x2e1645=_0x541b2b;let _0x45615e=[_0x2e1645];if(BANNER_DATA){let _0x397666=[];if(Array['isArray'](BANNER_DATA))_0x397666=BANNER_DATA;else BANNER_DATA[_0x1a7660(0x1f8)]&&(_0x397666=[BANNER_DATA]);const _0x212f84=_0x397666[_0x1a7660(0x4f4)](_0x5fbc35=>_0x5fbc35[_0x1a7660(0x4ca)]!==![]);_0x45615e=_0x45615e[_0x1a7660(0x40d)](_0x212f84);}window[_0x1a7660(0x3da)]=_0x45615e[_0x1a7660(0x602)],window[_0x1a7660(0x514)]=0x6a3*0x1+-0x47f*-0x8+-0x1*0x2a9b;const _0x55c223=_0x45615e[_0x1a7660(0x419)]((_0x99cc30,_0x190c80)=>{const _0x252fac=_0x1a7660,_0x22f578=_0x190c80===0x15e0+0x4b4*-0x1+-0x896*0x2?_0x252fac(0x613):_0x252fac(0x4b3);if(_0x99cc30[_0x252fac(0x352)]==='fixed-split')return _0x252fac(0x60b)+_0x190c80+_0x252fac(0x3a8)+_0x22f578+_0x252fac(0x49b)+_0x190c80+'\x22\x20class=\x22w-full\x20md:w-5/12\x20flex\x20flex-col\x20justify-start\x20md:justify-center\x20text-center\x20md:text-left\x20pt-24\x20md:pt-0\x20z-20\x20pointer-events-auto\x20h-full\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22anim-left\x22\x20style=\x22animation-delay:\x200.3s\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22inline-flex\x20items-center\x20gap-2\x20px-3\x20py-1\x20rounded-full\x20border\x20border-[#00979D]\x20bg-[#00979D]/10\x20text-[#26E4ED]\x20font-bold\x20tracking-[0.2em]\x20uppercase\x20text-[10px]\x20mb-4\x20shadow-[0_0_15px_rgba(0,151,157,0.5)]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22w-2\x20h-2\x20rounded-full\x20bg-[#00979D]\x20animate-pulse\x22></span>\x20'+_0x99cc30[_0x252fac(0x5ad)]+_0x252fac(0x3c3)+_0x99cc30['title'][_0x252fac(0x4bd)]('\x20')[-0x3*0x9f7+-0x7*0x403+0x39fa]+_0x252fac(0x46b)+_0x99cc30['title']['split']('\x20')[_0x252fac(0x1fc)](-0x25*0x7f+-0xac6+0x71*0x42)[_0x252fac(0x217)]('\x20')+_0x252fac(0x29c)+_0x99cc30[_0x252fac(0x279)]+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20md:w-7/12\x20h-full\x20relative\x20flex\x20items-center\x20justify-center\x20pointer-events-none\x20mt-10\x20md:mt-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-1/2\x20left-1/2\x20-translate-x-1/2\x20-translate-y-1/2\x20w-[500px]\x20h-[500px]\x20bg-[#00979D]\x20rounded-full\x20mix-blend-screen\x20filter\x20blur-[120px]\x20opacity-20\x20animate-pulse\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20left-0\x20md:left-10\x20top-1/2\x20-translate-y-1/2\x20z-10\x20w-32\x20md:w-48\x20pointer-events-auto\x20float-delay-2\x20group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22bubble-left\x22\x20class=\x22thought-bubble\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22bubble-text\x22></span><span\x20class=\x22cursor-blink\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22'+_0x99cc30[_0x252fac(0x61b)][-0x77*-0x2f+0x23f1+-0x1ce5*0x2][_0x252fac(0x496)]+_0x252fac(0x536)+_0x99cc30['products'][-0x208*-0xa+-0x1c2e+0x35*0x26][_0x252fac(0x47b)]+_0x252fac(0x25d)+_0x99cc30[_0x252fac(0x61b)][-0x1e8+0x13b9+-0x11d1*0x1][_0x252fac(0x60a)]+_0x252fac(0x2e4)+_0x99cc30[_0x252fac(0x61b)][-0x3f*0xc+0x400*0x2+-0x6*0xd7][_0x252fac(0x496)]+_0x252fac(0x1b3)+_0x99cc30[_0x252fac(0x61b)][-0x2015+0x205d+-0x46][_0x252fac(0x47b)]+'\x27)\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onmouseleave=\x22stopTypewriter(\x27bubble-right\x27)\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onclick=\x22imageModalManager.open(this.src)\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22floating-img\x20w-full\x20object-contain\x20hover:rotate-[10deg]\x20cursor-pointer\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-bottom-6\x20left-1/2\x20-translate-x-1/2\x20bg-white/10\x20backdrop-blur-md\x20border\x20border-white/20\x20text-white\x20px-4\x20py-2\x20rounded-xl\x20text-xs\x20font-bold\x20whitespace-nowrap\x20opacity-0\x20group-hover:opacity-100\x20transition-opacity\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x99cc30[_0x252fac(0x61b)][0x1392+0x258a+-0x391a][_0x252fac(0x60a)]+_0x252fac(0x345)+_0x99cc30[_0x252fac(0x61b)][0x132f+0x3fb+0x1*-0x1729][_0x252fac(0x496)]+_0x252fac(0x353)+_0x99cc30['products'][-0x254*-0x10+0x32f*-0x5+0xe*-0x186][_0x252fac(0x47b)]+_0x252fac(0x30c)+_0x99cc30['products'][-0x5*-0x131+-0x1d5d+-0x1cd*-0xd]['name']+_0x252fac(0x5b5);const _0x20ca2e=_0x190c80===0x1010+0x349+-0x1359*0x1?'opacity-100\x20pointer-events-auto':'opacity-0\x20pointer-events-none',_0x287df7=_0x99cc30[_0x252fac(0x2f4)]&&_0x99cc30['btnText'][_0x252fac(0x1ae)]()!=='';if(_0x99cc30[_0x252fac(0x469)])return _0x252fac(0x192)+_0x190c80+_0x252fac(0x1eb)+_0x20ca2e+_0x252fac(0x156)+_0x190c80+_0x252fac(0x533)+(_0x190c80===0x20a8+0xa77+-0x2b1f?'translate-y-0\x20opacity-100':_0x252fac(0x4b6))+_0x252fac(0x5ff)+(_0x99cc30[_0x252fac(0x1d3)]||_0x252fac(0x502))+_0x252fac(0x35e)+(_0x99cc30[_0x252fac(0x41a)]||'TechPerú')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-base\x20md:text-lg\x20text-slate-600\x20mb-8\x20font-medium\x20leading-relaxed\x20border-l-4\x20border-[#00979D]\x20pl-4\x20max-w-md\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x99cc30['subtitle']||'')+_0x252fac(0x48a)+(_0x287df7?_0x252fac(0x447)+(_0x99cc30[_0x252fac(0x3c4)]||'?page=shop')+_0x252fac(0x58d)+_0x99cc30['btnText']+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-arrow-right\x20group-hover:translate-x-1\x20transition-transform\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>':'')+_0x252fac(0x3a0)+_0x99cc30[_0x252fac(0x1f8)]+'\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22banner-3d-target\x20relative\x20z-30\x20w-[85%]\x20max-w-[500px]\x20object-contain\x20drop-shadow-2xl\x20transform\x20transition-transform\x20will-change-transform\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>';else{const _0x4e1095=_0x99cc30[_0x252fac(0x41a)]&&_0x99cc30[_0x252fac(0x41a)][_0x252fac(0x1ae)]()!==''||_0x99cc30['subtitle']&&_0x99cc30['subtitle']['trim']()!==''||_0x99cc30[_0x252fac(0x2f4)]&&_0x99cc30[_0x252fac(0x2f4)][_0x252fac(0x1ae)]()!=='';return _0x252fac(0x192)+_0x190c80+_0x252fac(0x1c7)+_0x20ca2e+_0x252fac(0x1c9)+_0x99cc30[_0x252fac(0x1f8)]+_0x252fac(0x5e8)+(_0x4e1095?_0x252fac(0x2e1):'')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x4e1095?_0x252fac(0x152)+_0x190c80+_0x252fac(0x439)+(_0x190c80===-0x4e6+-0x107*0xd+0x1241?'translate-y-0':_0x252fac(0x197))+_0x252fac(0x175)+(_0x99cc30[_0x252fac(0x1d3)]||_0x252fac(0x369))+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-4xl\x20md:text-6xl\x20xl:text-7xl\x20font-extrabold\x20text-white\x20mb-6\x20leading-tight\x20drop-shadow-lg\x22>'+(_0x99cc30[_0x252fac(0x41a)]||'')+_0x252fac(0x346)+(_0x99cc30[_0x252fac(0x5ad)]||'')+_0x252fac(0x5fa)+(_0x287df7?_0x252fac(0x26c)+(_0x99cc30[_0x252fac(0x3c4)]||'?page=shop')+'\x27);\x20router.handle(true);\x22\x20class=\x22bg-[#00979D]\x20text-slate-900\x20px-8\x20py-4\x20rounded-full\x20font-bold\x20hover:bg-[#09BFED]\x20transition\x20shadow-lg\x20shadow-[#00979D]/20\x20flex\x20items-center\x20justify-center\x20gap-2\x20transform\x20hover:scale-105\x20active:scale-95\x20group\x22>'+_0x99cc30[_0x252fac(0x2f4)]+_0x252fac(0x557):'')+_0x252fac(0x46d):'')+_0x252fac(0x409);}})['join'](''),_0x1d5477=_0x45615e[_0x1a7660(0x602)]>0x192b+0x1*0xff9+0x1*-0x2923?_0x1a7660(0x249):'',_0x155c7c=_0x1a7660(0x23f),_0x6d3556={};PRODUCTS[_0x1a7660(0x16c)](_0x57be0f=>{const _0x135125=_0x1a7660;_0x57be0f[_0x135125(0x1e7)]&&(_0x6d3556[_0x57be0f['category']]=(_0x6d3556[_0x57be0f[_0x135125(0x1e7)]]||-0x38b*-0xb+-0x1*-0x8f+-0xb8*0x37)+(0x5*0x455+0x471+-0x1a19));});const _0x5459e9=CATEGORIES[_0x1a7660(0x419)](_0xe504ee=>{const _0x2a5147=_0x1a7660,_0x2bebe9=PRODUCTS[_0x2a5147(0x423)](_0x58ecf5=>_0x58ecf5['category']===_0xe504ee['name']),_0x1b7260={};return _0x1b7260[_0x2a5147(0x60a)]=_0xe504ee[_0x2a5147(0x60a)],_0x1b7260[_0x2a5147(0x27e)]=_0x6d3556[_0xe504ee[_0x2a5147(0x60a)]]||0x2c*-0xd5+0x11fe*0x2+-0xa*-0x10,_0x1b7260[_0x2a5147(0x1f8)]=_0x2bebe9?_0x2bebe9[_0x2a5147(0x1f8)]:_0x2a5147(0x17e),_0x1b7260;})['filter'](_0x26e59a=>_0x26e59a[_0x1a7660(0x27e)]>-0x19b+-0x3d8+0x573)['sort']((_0x1fdb0f,_0x5b51a6)=>_0x5b51a6[_0x1a7660(0x27e)]-_0x1fdb0f['count'])[_0x1a7660(0x1fc)](-0x1fe9+-0x1cf7*-0x1+-0xd*-0x3a,0x971*0x1+-0x20c3*-0x1+-0x607*0x7),_0x54dfd8=_0x1a7660(0x2fb)+_0x5459e9[_0x1a7660(0x419)](_0x133ca9=>'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20onclick=\x22router.navigate(\x27/shop\x27,\x20{category:\x20\x27'+_0x133ca9[_0x1a7660(0x60a)]+_0x1a7660(0x524)+_0x133ca9[_0x1a7660(0x1f8)]+_0x1a7660(0x473)+_0x133ca9['name']+_0x1a7660(0x432)+_0x133ca9[_0x1a7660(0x27e)]+_0x1a7660(0x472))[_0x1a7660(0x217)]('')+_0x1a7660(0x55f),_0x489945=_0x1a7660(0x281);_0x4a74a5[_0x1a7660(0x379)]='\x0a\x20\x20\x20\x20<div\x20class=\x22relative\x20w-full\x20h-[620px]\x20md:h-[600px]\x20lg:h-[650px]\x20group/banner\x20bg-slate-900\x20mb-12\x20overflow-hidden\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20'+_0x55c223+_0x1a7660(0x27c)+_0x1d5477+_0x1a7660(0x27c)+(_0x45615e['length']>-0x1c08+0x1bbc*-0x1+0x3*0x1297?'<div\x20class=\x22absolute\x20bottom-6\x20left-1/2\x20transform\x20-translate-x-1/2\x20z-40\x20flex\x20gap-3\x22>'+_0x45615e['map']((_0x2f6b5d,_0x4787c9)=>'<button\x20onclick=\x22window.currentBannerIndex\x20=\x20'+_0x4787c9+_0x1a7660(0x5e7)+_0x4787c9+'\x22\x20class=\x22h-1.5\x20rounded-full\x20transition-all\x20duration-300\x20hover:bg-[#00979D]\x20shadow-sm\x20'+(_0x4787c9===0x1e30+0x1158+-0x2f88?_0x1a7660(0x261):_0x1a7660(0x2c8))+_0x1a7660(0x421))[_0x1a7660(0x217)]('')+_0x1a7660(0x429):'')+'\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20'+_0x155c7c+'\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22w-full\x20max-w-[1440px]\x20mx-auto\x20px-4\x20md:px-6\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20'+_0x54dfd8+'\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-end\x20mb-6\x20px-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-2xl\x20md:text-3xl\x20font-bold\x20text-slate-900\x22>Más\x20Vistos</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-sm\x20mt-1\x22>Lo\x20que\x20todos\x20están\x20buscando\x20hoy.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22#\x22\x20onclick=\x22event.preventDefault();\x20router.navigate(\x27/shop\x27)\x22\x20class=\x22text-blue-600\x20font-bold\x20hover:text-blue-700\x20text-sm\x20md:text-base\x20flex\x20items-center\x20gap-1\x22>Ver\x20todo\x20<i\x20class=\x22ph-bold\x20ph-arrow-right\x22></i></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-1\x20sm:grid-cols-2\x20md:grid-cols-3\x20lg:grid-cols-4\x20xl:grid-cols-5\x20gap-4\x20md:gap-6\x20pb-12\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x26b0a4+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20'+_0x489945+_0x1a7660(0x284)+(_0x4c960c[_0x1a7660(0x602)]>0x4c*0x1d+0x206d+-0x2909?_0x1a7660(0x33d)+_0x4c960c['map'](_0x3d9301=>_0x1a7660(0x1da)+ProductCard(_0x3d9301)+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20')['join']('')+_0x1a7660(0x2b8):'')+_0x1a7660(0x284)+(_0x20e8f3[_0x1a7660(0x602)]>-0x1d2d+-0x1*-0x2708+0x57*-0x1d?_0x1a7660(0x218)+_0x20e8f3[_0x1a7660(0x419)](_0xd96cbc=>_0x1a7660(0x1da)+ProductCard(_0xd96cbc)+_0x1a7660(0x43c))[_0x1a7660(0x217)]('')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>':'')+_0x1a7660(0x512),setTimeout(()=>window[_0x1a7660(0x382)](),0x217d+0x2*-0x995+-0xdef),_0x45615e[_0x1a7660(0x602)]>0x1fd*-0x5+0x19*0x6d+-0xb3*0x1&&(window['bannerInterval']=setInterval(()=>window['moveBanner'](-0xaf0*0x1+-0xe0c+0x18fd),-0x118e+-0xb*-0x1bd+0x15df*0x1));}function renderShop(_0x15fc16,_0x55ff03,_0x173f30=-0x125b+0x57*0x5b+0xc91*-0x1,_0x31e24a=null,_0xf1cfa0=''){const _0x1ac2d3=_0x6e00bc;let _0x140393=_0x55ff03?PRODUCTS['filter'](_0x10ab6f=>_0x10ab6f[_0x1ac2d3(0x1e7)]===_0x55ff03):PRODUCTS;if(_0x31e24a===_0x1ac2d3(0x375))_0x140393=_0x140393[_0x1ac2d3(0x4f4)](_0x575584=>_0x575584[_0x1ac2d3(0x2e8)]===!![]);const _0x393b52=_0xf1cfa0||document['getElementById'](_0x1ac2d3(0x5c3))?.[_0x1ac2d3(0x2a4)]||document[_0x1ac2d3(0x20b)](_0x1ac2d3(0x237))?.[_0x1ac2d3(0x2a4)]||'',_0xcdf84b=_0x393b52['toLowerCase']()[_0x1ac2d3(0x315)](_0x1ac2d3(0x3af))[_0x1ac2d3(0x4cf)](/[\u0300-\u036f]/g,'');_0xcdf84b&&(_0x140393=_0x140393[_0x1ac2d3(0x4f4)](_0x4ee304=>{const _0x327577=_0x1ac2d3,_0xe5de3d=(_0x4ee304['name']||'')['toLowerCase']()[_0x327577(0x315)](_0x327577(0x3af))[_0x327577(0x4cf)](/[\u0300-\u036f]/g,''),_0x194709=(_0x4ee304[_0x327577(0x1e7)]||'')[_0x327577(0x5dc)]()[_0x327577(0x315)](_0x327577(0x3af))['replace'](/[\u0300-\u036f]/g,'');return _0xe5de3d[_0x327577(0x36a)](_0xcdf84b)||_0x194709[_0x327577(0x36a)](_0xcdf84b);}));_0xcdf84b||_0x31e24a==='offers'?_0x140393[_0x1ac2d3(0x445)]((_0x1553be,_0x38dd9d)=>{const _0x3aea41=_0x1ac2d3;if(_0x31e24a==='offers')return _0x38dd9d[_0x3aea41(0x39b)]-(_0x38dd9d['offerPrice']||-0x1c0f+0x151*-0x1+0x1d60)-(_0x1553be[_0x3aea41(0x39b)]-(_0x1553be['offerPrice']||0x845*-0x3+-0x63e+0x1f0d));return-0x1ae9+-0x354+0x1e3d*0x1;}):_0x140393['sort'](()=>Math[_0x1ac2d3(0x607)]()-(0x1a83+0x1c9f+-0x3722+0.5));const _0x5e9b13=0x188c+0x43b+0x1*-0x1cb3,_0x1d7d5f=_0x140393['length'],_0x21cdac=Math[_0x1ac2d3(0x2b9)](_0x1d7d5f/_0x5e9b13);if(_0x173f30<0x767*0x4+0x2086+-0x1*0x3e21)_0x173f30=-0x21e1+-0x1*0xd2d+-0x2f0f*-0x1;if(_0x173f30>_0x21cdac&&_0x21cdac>0x163*0x10+0x1552+-0x2b82*0x1)_0x173f30=_0x21cdac;const _0x5cf02a=(_0x173f30-(0xd9*-0x1b+-0xebd+0x13*0x1fb))*_0x5e9b13,_0x2586c3=_0x5cf02a+_0x5e9b13,_0x4528a7=_0x140393[_0x1ac2d3(0x1fc)](_0x5cf02a,_0x2586c3);let _0x28e7c7='';if(_0x21cdac>0x1*-0x13ff+0x607*0x1+-0x7*-0x1ff){_0x28e7c7=_0x1ac2d3(0x492)+(_0x55ff03||'')+_0x1ac2d3(0x59d)+(_0x173f30-(0x109*-0x2+-0xc51+-0xc*-0x133))+_0x1ac2d3(0x583)+_0xcdf84b+'\x27})\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22w-10\x20h-10\x20flex\x20items-center\x20justify-center\x20rounded-full\x20transition-all\x20duration-300\x20'+(_0x173f30>0x277*0xf+0xf79+-0x3471?_0x1ac2d3(0x39a):_0x1ac2d3(0x2bc))+_0x1ac2d3(0x608)+(_0x173f30===0x1c87+0x42c*-0x3+-0x1002?_0x1ac2d3(0x531):'')+_0x1ac2d3(0x36f);let _0x99aa0b=Math[_0x1ac2d3(0x381)](0x8*-0x59+-0x1691+0x2*0xcad,_0x173f30-(-0x89*-0x1f+0x20e6*0x1+0x317b*-0x1)),_0x373a02=Math['min'](_0x21cdac,_0x173f30+(0xeda+0x1f5*-0x3+-0x8f9));if(_0x99aa0b>0x3b2*-0x9+0x1f*0x10f+0x72*0x1){_0x28e7c7+=_0x1ac2d3(0x593)+(_0x55ff03||'')+_0x1ac2d3(0x378)+_0xcdf84b+_0x1ac2d3(0x292);if(_0x99aa0b>0x987*0x2+-0x1f52+-0x2*-0x623)_0x28e7c7+=_0x1ac2d3(0x522);}for(let _0x4df20a=_0x99aa0b;_0x4df20a<=_0x373a02;_0x4df20a++){const _0x55e7d0=_0x4df20a===_0x173f30;_0x28e7c7+=_0x1ac2d3(0x2b5)+(_0x55ff03||'')+_0x1ac2d3(0x59d)+_0x4df20a+_0x1ac2d3(0x583)+_0xcdf84b+'\x27})\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22w-10\x20h-10\x20rounded-full\x20text-sm\x20font-bold\x20transition-all\x20duration-300\x20flex\x20items-center\x20justify-center\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x55e7d0?'bg-[#00979D]\x20text-white\x20shadow-md\x20shadow-[#00979D]/30\x20scale-110':'bg-transparent\x20text-slate-600\x20hover:bg-slate-100')+'\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x4df20a+_0x1ac2d3(0x5e9);}if(_0x373a02<_0x21cdac){if(_0x373a02<_0x21cdac-(0x2671*-0x1+-0x7b7*-0x2+0x1704))_0x28e7c7+=_0x1ac2d3(0x522);_0x28e7c7+=_0x1ac2d3(0x593)+(_0x55ff03||'')+_0x1ac2d3(0x59d)+_0x21cdac+_0x1ac2d3(0x583)+_0xcdf84b+_0x1ac2d3(0x3c8)+_0x21cdac+_0x1ac2d3(0x55d);}_0x28e7c7+=_0x1ac2d3(0x3b3)+(_0x55ff03||'')+_0x1ac2d3(0x59d)+(_0x173f30+(-0x100c+0x1*0x220c+-0x11ff))+',\x20search:\x20\x27'+_0xcdf84b+'\x27})\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22w-10\x20h-10\x20flex\x20items-center\x20justify-center\x20rounded-full\x20transition-all\x20duration-300\x20'+(_0x173f30<_0x21cdac?'bg-slate-50\x20text-slate-600\x20hover:bg-slate-900\x20hover:text-white':_0x1ac2d3(0x2bc))+_0x1ac2d3(0x608)+(_0x173f30===_0x21cdac?_0x1ac2d3(0x531):'')+_0x1ac2d3(0x2bf)+_0x173f30+'\x20de\x20'+_0x21cdac+_0x1ac2d3(0x334);}const _0x347637=PRODUCTS[_0x1ac2d3(0x602)],_0x13c559=CATEGORIES[_0x1ac2d3(0x419)](_0x135171=>{const _0x39da27=_0x1ac2d3,_0x1b18c6=_0x55ff03===_0x135171[_0x39da27(0x60a)],_0x425c75=_0x135171[_0x39da27(0x25c)],_0x2f8410=PRODUCTS[_0x39da27(0x4f4)](_0x3f11ad=>_0x3f11ad[_0x39da27(0x1e7)]===_0x135171['name'])['length'],_0x108be0=_0x1b18c6?_0x39da27(0x481):_0x39da27(0x290),_0x1cd879=_0x1b18c6?_0x39da27(0x366):_0x39da27(0x43f),_0x17c655=_0x425c75?'<i\x20class=\x22ph-fill\x20ph-star\x20text-amber-400\x20text-xs\x20mr-2\x20animate-pulse\x22></i>':'';return _0x39da27(0x1de)+_0x135171['name']+_0x39da27(0x200)+_0x108be0+_0x39da27(0x21c)+_0x17c655+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>'+_0x135171[_0x39da27(0x60a)]+_0x39da27(0x260)+_0x1cd879+_0x39da27(0x21f)+_0x2f8410+_0x39da27(0x255);})[_0x1ac2d3(0x217)](''),_0x32eeb8=CATEGORIES[_0x1ac2d3(0x419)](_0x4c3858=>{const _0x508cfc=_0x1ac2d3,_0x5f3f42=_0x55ff03===_0x4c3858[_0x508cfc(0x60a)];return _0x508cfc(0x1de)+_0x4c3858[_0x508cfc(0x60a)]+'\x27,\x20pageNum:\x201})\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22whitespace-nowrap\x20px-5\x20py-2.5\x20rounded-full\x20text-sm\x20font-bold\x20transition\x20flex-shrink-0\x20border\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x5f3f42?_0x508cfc(0x3a6):_0x508cfc(0x4dd))+_0x508cfc(0x551)+_0x4c3858[_0x508cfc(0x60a)]+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20</button>';})[_0x1ac2d3(0x217)]('');_0x15fc16[_0x1ac2d3(0x379)]=_0x1ac2d3(0x3e9)+(_0x55ff03?_0x1ac2d3(0x1f6):'Catálogo\x20Completo')+_0x1ac2d3(0x5dd)+(_0x55ff03?_0x55ff03:_0x31e24a==='offers'?_0x1ac2d3(0x518):_0x1ac2d3(0x293))+'\x0a</h1>\x0a\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-lg\x20text-slate-500\x20font-medium\x20max-w-xl\x20mx-auto\x20md:mx-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x55ff03?_0x1ac2d3(0x5df)+_0x55ff03+_0x1ac2d3(0x56d):_0x1ac2d3(0x258))+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hidden\x20md:flex\x20items-center\x20justify-center\x20relative\x20z-10\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-20\x20h-20\x20rounded-full\x20border-[4px]\x20border-white\x20shadow-lg\x20flex\x20items-center\x20justify-center\x20bg-slate-50\x20group-hover:bg-white\x20transition-colors\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-12\x20h-12\x20rounded-full\x20bg-slate-100\x20text-[#00979D]\x20flex\x20items-center\x20justify-center\x20text-2xl\x20group-hover:scale-110\x20transition-transform\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-arrow-down-right\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x0a\x0a\x0a<style>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20#main-header\x20{\x20position:\x20relative\x20!important;\x20transform:\x20none\x20!important;\x20top:\x20auto\x20!important;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20#mobile-search-bar\x20{\x20display:\x20none\x20!important;\x20}\x20/*\x20Opcional:\x20limpia\x20la\x20vista\x20móvil\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20</style>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20gap-8\x20mb-12\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22sticky\x20top-0\x20z-50\x20bg-white/95\x20backdrop-blur-md\x20border-b\x20border-slate-200\x20shadow-sm\x20transition-all\x22\x20id=\x22category-sticky-bar\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20w-full\x20max-w-[1440px]\x20mx-auto\x20px-4\x20md:px-0\x20group/cat-nav\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22document.getElementById(\x27cat-scroll-container\x27).scrollBy({left:\x20-200,\x20behavior:\x20\x27smooth\x27})\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22absolute\x20left-0\x20top-0\x20bottom-0\x20z-20\x20w-16\x20bg-gradient-to-r\x20from-white\x20via-white/90\x20to-transparent\x20flex\x20items-center\x20justify-start\x20pl-4\x20text-slate-400\x20hover:text-[#00979D]\x20transition-colors\x20md:opacity-0\x20md:group-hover/cat-nav:opacity-100\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-left\x20text-2xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22cat-scroll-container\x22\x20class=\x22flex\x20items-center\x20gap-3\x20overflow-x-auto\x20no-scrollbar\x20py-4\x20px-2\x20scroll-smooth\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/shop\x27,\x20{pageNum:\x201})\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22flex-shrink-0\x20flex\x20items-center\x20gap-2\x20px-5\x20py-2.5\x20rounded-full\x20text-sm\x20font-bold\x20transition-all\x20duration-300\x20shadow-sm\x20border\x20select-none\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(!_0x55ff03?_0x1ac2d3(0x49e):_0x1ac2d3(0x40c))+_0x1ac2d3(0x25a)+_0x347637+_0x1ac2d3(0x5a6)+CATEGORIES[_0x1ac2d3(0x419)](_0x36e46c=>{const _0x1a1e6b=_0x1ac2d3,_0x526523=_0x55ff03===_0x36e46c['name'],_0x5cb248=PRODUCTS[_0x1a1e6b(0x4f4)](_0x5ecc4c=>_0x5ecc4c[_0x1a1e6b(0x1e7)]===_0x36e46c[_0x1a1e6b(0x60a)])[_0x1a1e6b(0x602)];return _0x1a1e6b(0x60e)+_0x36e46c[_0x1a1e6b(0x60a)]+_0x1a1e6b(0x2db)+(_0x526523?_0x1a1e6b(0x207):_0x1a1e6b(0x4fc))+_0x1a1e6b(0x526)+_0x36e46c[_0x1a1e6b(0x60a)]+_0x1a1e6b(0x4e5)+(_0x526523?'<i\x20class=\x22ph-bold\x20ph-check\x20bg-white/20\x20rounded-full\x20p-0.5\x20text-xs\x22></i>':_0x1a1e6b(0x4f3)+_0x5cb248+_0x1a1e6b(0x57c))+_0x1a1e6b(0x204);})[_0x1ac2d3(0x217)]('')+_0x1ac2d3(0x51d)+(_0x4528a7['length']?_0x4528a7[_0x1ac2d3(0x419)](_0x114f34=>_0x1ac2d3(0x437)+ProductCard(_0x114f34)+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20')[_0x1ac2d3(0x217)](''):_0x1ac2d3(0x389))+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x28e7c7+_0x1ac2d3(0x5c1),setTimeout(()=>window[_0x1ac2d3(0x303)](),-0x1*-0x1b73+-0xc25+-0xa6*0x17);}function _0x34c8(){const _0x5a0ac7=['lastAutoTable','payment-code','12zfTmkf','DESTACADO','\x20<span\x20class=\x22text-xl\x20font-medium\x20text-slate-400\x22>Pts</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-sm\x20text-slate-500\x20mb-4\x22>Equivale\x20a\x20progreso\x20para\x20tu\x20siguiente\x20recompensa.</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20md:w-64\x20h-3\x20bg-slate-100\x20rounded-full\x20overflow-hidden\x20mb-2\x20border\x20border-slate-200\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22h-full\x20bg-gradient-to-r\x20from-orange-300\x20to-[#FFA500]\x20transition-all\x20duration-1000\x20shadow-[0_0_10px_#FFA500]\x22\x20style=\x22width:\x20','w-full\x20fade-in','bg-red-50\x20border-red-100\x20text-red-500','wa-message-input','bill-dni','glitch-active','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22mt-1\x20opacity-75\x22>Entrega\x20en:\x20','bg-green-50\x20border\x20border-green-200\x20p-4\x20rounded-xl\x20flex\x20items-center\x20justify-between\x20mb-4','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>','2M\x20Tech\x20Perú','translate-y-0','?autoplay=1','bg-white\x20text-slate-900\x20border-l-4\x20border-[#00979D]','<div\x20class=\x22text-center\x20transform\x20-rotate-6\x20bg-white/90\x20p-3\x20rounded-2xl\x20shadow-2xl\x20border\x20border-orange-200\x20backdrop-blur-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22block\x20bg-orange-500\x20text-white\x20text-lg\x20font-black\x20px-4\x20py-1\x20rounded-lg\x20uppercase\x20tracking-widest\x20shadow-md\x20mb-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20AGOTADO\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22block\x20text-xs\x20font-bold\x20text-orange-800\x20uppercase\x20tracking-wider\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','213183KvLDjk','\x0a\x20\x0a\x20\x20\x20\x20</div>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20bg-white\x20min-h-screen\x20font-sans\x20selection:bg-[#00979D]\x20selection:text-slate-900\x20pb-20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22pt-32\x20pb-20\x20px-6\x20max-w-5xl\x20mx-auto\x20text-center\x20fade-in\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[#26E4ED]\x20font-bold\x20tracking-[0.2em]\x20text-xs\x20uppercase\x20mb-6\x20block\x22>Nuestra\x20Filosofía</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1\x20class=\x22text-5xl\x20md:text-7xl\x20font-black\x20text-slate-900\x20mb-8\x20leading-tight\x20tracking-tighter\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Tecnología\x20con\x20<br><span\x20class=\x22text-slate-400\x22>trato\x20humano.</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-xl\x20text-slate-500\x20max-w-2xl\x20mx-auto\x20leading-relaxed\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20En\x20un\x20mundo\x20lleno\x20de\x20bots\x20y\x20respuestas\x20automáticas,\x20apostamos\x20por\x20volver\x20a\x20lo\x20básico:\x20escucharte,\x20asesorarte\x20y\x20cumplir\x20lo\x20que\x20prometemos.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20w-full\x20bg-slate-50\x20py-24\x20px-4\x20md:px-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-0\x20left-0\x20w-full\x20h-full\x20overflow-hidden\x20pointer-events-none\x20opacity-50\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-10\x20right-10\x20w-64\x20h-64\x20bg-[#00979D]/10\x20rounded-full\x20blur-3xl\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20bottom-10\x20left-10\x20w-64\x20h-64\x20bg-blue-400/10\x20rounded-full\x20blur-3xl\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20max-w-3xl\x20mx-auto\x20bg-white\x20p-10\x20md:p-16\x20rounded-[2rem]\x20shadow-xl\x20shadow-slate-200/50\x20border\x20border-slate-100\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20items-center\x20text-center\x20mb-10\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-20\x20h-20\x20bg-slate-900\x20rounded-full\x20flex\x20items-center\x20justify-center\x20text-[#00979D]\x20text-3xl\x20mb-6\x20shadow-lg\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-quotes\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-3xl\x20font-bold\x20text-slate-900\x22>¿Por\x20qué\x202MTechPerú?</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-slate-400\x20text-sm\x20font-medium\x20mt-2\x20uppercase\x20tracking-widest\x22>Nota\x20del\x20Fundador</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22prose\x20prose-lg\x20prose-slate\x20mx-auto\x20text-slate-600\x20leading-loose\x20text-lg\x20text-center\x20md:text-left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22mb-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22font-bold\x20text-slate-900\x20text-2xl\x20block\x20mb-2\x22>Hola,\x20somos\x202MTechPerú.</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Como\x20tú,\x20soy\x20un\x20apasionado\x20de\x20la\x20tecnología.\x20Y\x20como\x20tú,\x20me\x20cansé\x20de\x20comprar\x20online\x20y\x20recibir\x20mala\x20atención,\x20demoras\x20o\x20productos\x20que\x20no\x20eran\x20lo\x20que\x20prometían.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22mb-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Decidí\x20dejar\x20de\x20quejarme\x20y\x20empezar\x20a\x20construir\x20la\x20solución.\x20<strong\x20class=\x22text-slate-900\x20bg-yellow-100\x20px-1\x22>2MTechPerú\x20nace\x20hoy</strong>\x20no\x20para\x20ser\x20\x22una\x20tienda\x20más\x22,\x20sino\x20para\x20ser\x20la\x20tienda\x20donde\x20a\x20mí\x20me\x20gustaría\x20comprar.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22mb-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Quizás\x20somos\x20nuevos,\x20pero\x20nuestras\x20ganas\x20de\x20hacer\x20las\x20cosas\x20bien\x20son\x20gigantes.\x20Te\x20invito\x20a\x20ser\x20parte\x20de\x20nuestros\x20<strong>primeros\x20clientes\x20fundadores</strong>\x20y\x20vivir\x20la\x20experiencia\x20TechPerú.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-2xl\x20font-black\x20text-slate-900\x20italic\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22No\x20te\x20vamos\x20a\x20fallar.\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-12\x20pt-8\x20border-t\x20border-slate-100\x20flex\x20flex-col\x20md:flex-row\x20items-center\x20justify-between\x20gap-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22h-12\x20w-12\x20rounded-full\x20bg-slate-200\x20overflow-hidden\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20h-full\x20bg-slate-300\x20flex\x20items-center\x20justify-center\x20text-slate-500\x20font-bold\x22>2MTP</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22font-bold\x20text-slate-900\x20font-handwriting\x20text-xl\x22>2MTechPerú</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-xs\x20text-slate-400\x20uppercase\x20font-bold\x20tracking-wider\x22>Fundador</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22opacity-50\x20grayscale\x20hover:grayscale-0\x20transition-all\x20duration-500\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22h-10\x20px-4\x20border\x20border-slate-300\x20rounded-full\x20flex\x20items-center\x20gap-2\x20text-slate-400\x20text-xs\x20font-bold\x20uppercase\x20tracking-widest\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-seal-check\x20text-[#26E4ED]\x20text-lg\x22></i>\x20Compromiso\x20con\x20nuestros\x20clientes.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22max-w-4xl\x20mx-auto\x20px-6\x20py-24\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-1\x20md:grid-cols-3\x20gap-12\x20text-center\x20md:text-left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-slate-900\x20text-3xl\x20mb-4\x20group-hover:-translate-y-1\x20transition-transform\x20duration-300\x20inline-block\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-star\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-lg\x20font-bold\x20text-slate-900\x20mb-2\x22>Calidad\x20Original</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-sm\x20leading-relaxed\x22>Solo\x20productos\x20sellados\x20y\x20verificados.\x20Sin\x20imitaciones.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-slate-900\x20text-3xl\x20mb-4\x20group-hover:-translate-y-1\x20transition-transform\x20duration-300\x20inline-block\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-lightning\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-lg\x20font-bold\x20text-slate-900\x20mb-2\x22>Rapidez</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-sm\x20leading-relaxed\x22>Tu\x20tiempo\x20vale.\x20Procesamos\x20tu\x20pedido\x20el\x20mismo\x20día.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-slate-900\x20text-3xl\x20mb-4\x20group-hover:-translate-y-1\x20transition-transform\x20duration-300\x20inline-block\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-heart\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-lg\x20font-bold\x20text-slate-900\x20mb-2\x22>Transparencia</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-sm\x20leading-relaxed\x22>Hablamos\x20claro.\x20Sin\x20letras\x20chicas\x20ni\x20costos\x20ocultos.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-20\x20text-center\x20border-t\x20border-slate-100\x20pt-16\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x20mb-6\x22>¿Listo\x20para\x20probar\x20algo\x20diferente?</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/shop\x27)\x22\x20class=\x22bg-slate-900\x20text-white\x20px-10\x20py-4\x20rounded-full\x20font-bold\x20hover:bg-slate-800\x20transition-all\x20shadow-xl\x20shadow-slate-900/20\x20transform\x20hover:-translate-y-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Ver\x20Catálogo\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','currentBannerIndex','helvetica','Componentes\x20y\x20Herramientas\x20A1\x20a\x20un\x20buen\x20precio.\x20⚡','method','Ofertas\x20<span\x20class=\x22text-[#0ae4da]\x22\x20style=\x22-webkit-text-stroke:\x201px\x20#141b2d;\x22>Especiales</span>','Amazonas','main-footer','wa-icon-main','authManager','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-12\x20flex-shrink-0\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22document.getElementById(\x27cat-scroll-container\x27).scrollBy({left:\x20200,\x20behavior:\x20\x27smooth\x27})\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22absolute\x20right-0\x20top-0\x20bottom-0\x20z-20\x20w-16\x20bg-gradient-to-l\x20from-white\x20via-white/90\x20to-transparent\x20flex\x20items-center\x20justify-end\x20pr-4\x20text-slate-400\x20hover:text-[#00979D]\x20transition-colors\x20md:opacity-0\x20md:group-hover/cat-nav:opacity-100\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-right\x20text-2xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20min-h-[500px]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-1\x20sm:grid-cols-2\x20md:grid-cols-3\x20lg:grid-cols-4\x20xl:grid-cols-5\x20gap-6\x20gap-y-10\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x27})\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20bg-white\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-bottom-[60%]\x20-right-[20%]\x20w-[140%]\x20h-[140%]\x20rounded-full\x20bg-gradient-to-br\x20from-slate-100\x20via-slate-200\x20to-slate-300\x20z-0\x20transition-transform\x20duration-700\x20group-hover:scale-105\x20shadow-[inset_0_1px_10px_rgba(0,0,0,0.05)]\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-bottom-[60%]\x20-right-[20%]\x20w-[140%]\x20h-[140%]\x20rounded-full\x20border\x20border-slate-300/50\x20pointer-events-none\x20z-0\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-bottom-[55%]\x20-right-[15%]\x20w-[130%]\x20h-[130%]\x20rounded-full\x20border\x20border-slate-300/40\x20z-0\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-bottom-[50%]\x20-right-[10%]\x20w-[120%]\x20h-[120%]\x20rounded-full\x20border\x20border-[#00979D]/20\x20z-0\x20group-hover:border-[#00979D]/50\x20transition-colors\x20duration-300\x22></div>\x0a\x0a\x20\x20\x20<div\x20class=\x22absolute\x20top-8\x20right-8\x20w-16\x20h-16\x20bg-gradient-to-br\x20from-slate-100\x20to-slate-300\x20rounded-full\x20shadow-inner\x20z-0\x20group-hover:translate-y-2\x20transition-transform\x20duration-1000\x20border\x20border-slate-200\x20flex\x20items-center\x20justify-center\x20p-2\x22>\x0a\x20\x20\x20\x20<img\x20src=\x22https://qeoojbsrqlroajvdgrju.supabase.co/storage/v1/object/public/productos/bg-logo-2m.png\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22w-full\x20h-full\x20object-contain\x20opacity-40\x20grayscale\x20group-hover:grayscale-0\x20group-hover:opacity-100\x20transition-all\x20duration-500\x22>\x0a</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-2\x20left-2\x20z-30\x20flex\x20flex-col\x20gap-1\x20items-start\x20pointer-events-none\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Carrito\x20Vacío','pushState','436313kOLQzC','<span\x20class=\x22text-slate-300\x20text-xs\x20px-1\x22>...</span>','allowEscapeKey','\x27})\x22\x20class=\x22cursor-pointer\x20group\x20relative\x20h-40\x20md:h-64\x20rounded-2xl\x20overflow-hidden\x20shadow-sm\x20hover:shadow-xl\x20transition-all\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','firebaseModules','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>','<button\x20onclick=\x22openVideoModal(\x27','Error\x20','44qZSjAa','closeAdPopup','&parse_mode=Markdown&disable_notification=false','action','</button></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','auth/email-already-in-use','startScale','</span><span\x20class=\x22text-xs\x20text-green-600\x20font-bold\x20mb-1\x22>(-\x20S/\x20','disabled','keys','\x22\x20class=\x22transition-all\x20duration-700\x20ease-out\x20','checkout-panel','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[8px]\x20font-bold\x20text-slate-400\x20line-through\x20decoration-slate-300\x20-mt-0.5\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20S/\x20','\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onmouseenter=\x22startTypewriter(\x27bubble-left\x27,\x20\x27','\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[10px]\x20font-bold\x20text-slate-600\x22>','pointer-events-none','unobserve','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-blue-50\x20p-4\x20rounded-xl\x20border\x20border-blue-100\x20flex\x20items-start\x20gap-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-blue-500\x20text-white\x20rounded-full\x20p-1\x20shrink-0\x22><i\x20class=\x22ph-fill\x20ph-info\x20text-lg\x22></i></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-xs\x20text-blue-800\x20flex-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22font-bold\x20mb-1\x20text-sm\x22>Estado:\x20','createElement','\x20Opiniones)</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','toLocaleDateString','\x20unidades\x20disponibles.','contact-subject','/profile','0.0','<li\x20class=\x22flex\x20items-start\x20gap-3\x20py-2\x20border-b\x20border-slate-100\x20text-sm\x20text-slate-700\x22><i\x20class=\x22ph-fill\x20ph-check-circle\x20text-green-500\x20mt-0.5\x22></i><span>','¡Redirigiendo!','https://wa.me/51960436357?text=','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-center\x20md:text-left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1\x20class=\x22text-3xl\x20md:text-5xl\x20font-extrabold\x20mb-2\x20text-slate-900\x22>Hola,\x20','updateProfile','selectedColor','views','Solo\x20hay\x20','/points','true','</b></li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Hasta:\x20<b>','invisible','Ver\x20Pedido','how-to-buy','https://iili.io/fu69Aog.png','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','router','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20onclick=\x22router.navigate(\x27product\x27,\x20{product:\x20\x27','Documento:','.check-icon','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22userActions.showOrderDetails(\x27','\x20<i\x20class=\x22ph-bold\x20ph-arrow-right\x20group-hover:translate-x-1\x20transition-transform\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','uiManager','bill-dist','<div\x20class=\x22text-center\x20transform\x20rotate-[-5deg]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22bg-orange-500\x20text-white\x20text-[10px]\x20font-black\x20px-3\x20py-1.5\x20rounded-lg\x20uppercase\x20tracking-widest\x20shadow-xl\x20border-2\x20border-orange-600\x20block\x20mb-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20PRONTO\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[10px]\x20font-bold\x20text-slate-800\x20bg-white\x20px-2\x20py-0.5\x20rounded\x20border\x20border-slate-200\x20shadow-sm\x20whitespace-nowrap\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','</b>\x20ha\x20sido\x20aprobado.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-xs\x20text-slate-400\x22>Ya\x20estamos\x20preparando\x20tu\x20envío.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','observe','</button>','Proyectos','\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20onclick=\x22router.navigate(\x27/shop\x27)\x22\x20class=\x22cursor-pointer\x20group\x20relative\x20h-40\x20md:h-64\x20rounded-2xl\x20overflow-hidden\x20shadow-sm\x20hover:shadow-xl\x20transition-all\x20bg-slate-900\x20flex\x20items-center\x20justify-center\x20border\x20border-slate-800\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-center\x20p-6\x20relative\x20z-10\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-12\x20h-12\x20rounded-full\x20bg-[#00979D]\x20text-white\x20flex\x20items-center\x20justify-center\x20text-2xl\x20mx-auto\x20mb-3\x20group-hover:scale-110\x20transition-transform\x20shadow-[0_0_15px_rgba(0,151,157,0.5)]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-squares-four\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-white\x20font-bold\x20text-lg\x20block\x20group-hover:text-[#26E4ED]\x20transition\x22>Ver\x20Todo</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-xs\x20text-slate-400\x20mt-1\x22>Explora\x20el\x20catálogo\x20completo</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20opacity-20\x20bg-[radial-gradient(#00979D_1px,transparent_1px)]\x20[background-size:16px_16px]\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>','Sesión\x20Cerrada','add','data-client-3-2be69.firebaseapp.com','ph-shield-check','💰\x20*Total:*\x20S/\x20','https://api.telegram.org/bot','scrollTo','🔢\x20*N°\x20Operación:*\x20','*.\x0a\x0a','/favorites','code','border-slate-200','maxScale','</b>.','now','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22px-3\x20py-1\x20bg-blue-100\x20text-blue-700\x20text-xs\x20font-bold\x20rounded-full\x20uppercase\x20tracking-wider\x22>','detailQtyManager','string','scale-0','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','</option>','isArray','whatsapp','set','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','product-zoom-modal','textColor','text','</span>','contextmenu','bg-[#FFA500]\x20text-white\x20shadow-md','🛑\x20Aviso\x20Importante','\x27,\x20parseInt(document.getElementById(\x27detail-qty-input\x27).value))','<div\x20class=\x27flex\x20items-center\x20justify-center\x20h-96\x27><div\x20class=\x27text-center\x27><i\x20class=\x27ph\x20ph-spinner\x20animate-spin\x20text-4xl\x20mb-4\x27></i><p>Cargando\x20o\x20Producto\x20no\x20encontrado...</p></div></div>','clientX',',\x20search:\x20\x27','text-white','get','some','warning','setDrawColor','toString','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-heart\x20text-xl\x22></i>\x20Favoritos\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</nav>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex-1\x20fade-in\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x20mb-6\x20capitalize\x20hidden\x20lg:block\x22>','auth-pass','Tus\x20productos\x20favoritos','\x27);\x20router.handle(true);\x22\x20class=\x22bg-slate-900\x20text-white\x20px-8\x20py-4\x20rounded-xl\x20font-bold\x20hover:bg-[#00979D]\x20hover:text-slate-900\x20transition-colors\x20shadow-xl\x20flex\x20items-center\x20justify-center\x20gap-3\x20w-fit\x20group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>','setFontSize','Historial\x20de\x20compras','pageYOffset','w-4','then','<button\x20onclick=\x22router.navigate(\x27/shop\x27,\x20{category:\x20\x27','expireAt','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20w-full\x20','halign','\x20ph-heart\x20text-sm\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20w-full\x20h-full\x20p-6\x20z-10\x20flex\x20items-center\x20justify-center\x20transition-transform\x20duration-500\x20ease-out\x20group-hover:-translate-y-2\x20group-hover:scale-110\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','icon','minScale','href','question','\x20flex\x20items-center\x20gap-1\x22><i\x20class=\x22ph-fill\x20','\x27,\x20pageNum:\x20','Moquegua','video-iframe','w-full','selectedResistanceData','techPerú_cart','bottom','setAttribute','0.5','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-px\x20h-6\x20bg-slate-200\x20mx-1\x20flex-shrink-0\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','innerText','rating','from','bg-slate-900\x20text-white\x20hover:bg-slate-800','history','0px\x200px\x20-50px\x200px','subtitle','\x20día','\x22\x20class=\x22w-full\x20h-full\x20object-contain\x20mix-blend-multiply\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex-1\x20flex\x20flex-col\x20justify-between\x20min-w-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-start\x20gap-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20class=\x22font-bold\x20text-sm\x20text-slate-900\x20line-clamp-2\x20leading-snug\x22>','Nombre:','No\x20se\x20pudo\x20registrar\x20el\x20pedido.','reload','Las\x20contraseñas\x20no\x20coinciden.\x20Por\x20favor\x20verifícalas.','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>','AIzaSyCO1IIYJ8T2ksWDnu_DisIZ0KXkhn2gh3w','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20gap-2\x20mt-4\x20overflow-x-auto\x20pb-2\x20px-1\x20no-scrollbar\x20justify-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','selectProductColor(','specifications','mouseenter','<div\x20class=\x22w-[280px]\x20md:w-[300px]\x20flex-shrink-0\x20transform\x20transition\x20hover:scale-105\x20duration-300\x20overflow-hidden\x22>','shiftKey','ring-slate-900','padStart','favorites',')\x22\x20class=\x22w-full\x20text-center\x20font-extrabold\x20text-xl\x20text-slate-900\x20outline-none\x20bg-transparent\x20appearance-none\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22detailQtyManager.update(1,\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20</div>','products/','global-search','tab-btn-','<span\x20class=\x22text-xs\x20font-bold\x20opacity-70\x20align-top\x20ml-px\x22>.','payment-code-label','deg)','w-0','translate-x-full','Todos\x20nuestros\x20productos\x20cuentan\x20con\x2012\x20meses\x20de\x20garantía\x20oficial\x20de\x20marca\x20por\x20defectos\x20de\x20fábrica.','⛔\x20TU\x20CUENTA\x20ESTÁ\x20BLOQUEADA\x20POR\x20SEGURIDAD.\x20Contacta\x20a\x20soporte.','<div\x20class=\x22mt-3\x20ml-4\x20pl-3\x20border-l-2\x20border-[#00979D]\x20bg-white\x20p-2\x20rounded-r-lg\x20shadow-sm\x22><div\x20class=\x22flex\x20items-center\x20gap-1\x20mb-1\x22><i\x20class=\x22ph-fill\x20ph-arrow-bend-down-right\x20text-[#26E4ED]\x20text-sm\x22></i><span\x20class=\x22text-xs\x20font-extrabold\x20text-slate-900\x22>Respuesta\x20de\x20TechPerú</span></div><p\x20class=\x22text-xs\x20text-slate-500\x20leading-relaxed\x22>','Debes\x20estar\x20registrado\x20para\x20comentar.','text-2xl','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','zoomIn','\x27)\x22\x20class=\x22text-sm\x20bg-slate-100\x20text-slate-700\x20hover:bg-slate-900\x20hover:text-white\x20px-4\x20py-2\x20rounded-lg\x20font-bold\x20transition\x20flex\x20items-center\x20justify-center\x20gap-2\x20whitespace-nowrap\x22><i\x20class=\x22ph-bold\x20ph-eye\x22></i>\x20Ver\x20Detalles</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','body','handleResistanceChange','startDate','\x27,\x201)\x22\x20class=\x22w-7\x20h-full\x20flex\x20items-center\x20justify-center\x20text-slate-500\x20hover:text-slate-900\x20hover:bg-slate-200\x20rounded-r-lg\x20transition\x22><i\x20class=\x22ph-bold\x20ph-plus\x20text-xs\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-right\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22font-extrabold\x20text-slate-900\x20text-sm\x22>S/\x20','search','about','\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22submit\x22\x20class=\x22w-full\x20py-4\x20rounded-xl\x20bg-slate-900\x20text-white\x20font-bold\x20text-lg\x20shadow-xl\x20hover:bg-slate-800\x20hover:scale-[1.02]\x20transition\x20transform\x20active:scale-95\x22>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-1\x20lg:grid-cols-2\x20gap-6\x20mb-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-white\x20text-slate-800\x20p-8\x20rounded-2xl\x20shadow-xl\x20border\x20border-slate-200\x20relative\x20overflow-hidden\x20col-span-1\x20lg:col-span-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20right-0\x20top-0\x20w-64\x20h-64\x20bg-orange-100\x20rounded-full\x20mix-blend-multiply\x20filter\x20blur-3xl\x20opacity-50\x20animate-pulse\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20flex\x20flex-col\x20md:flex-row\x20justify-between\x20items-center\x20gap-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-[#FFA500]\x20font-bold\x20uppercase\x20tracking-widest\x20text-xs\x20mb-1\x22>Club\x20TechPerú\x20Rewards</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-5xl\x20font-extrabold\x20mb-1\x20text-slate-900\x22>','home','toLowerCase','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a<h1\x20class=\x22text-4xl\x20md:text-6xl\x20font-black\x20text-slate-900\x20tracking-tight\x20leading-none\x20mb-4\x22>\x0a\x20\x20\x20\x20','<div\x20class=\x22py-8\x20text-center\x20text-slate-400\x20italic\x20bg-slate-50\x20rounded-xl\x20border\x20border-dashed\x20border-slate-200\x22>Aún\x20no\x20hay\x20reseñas.\x20¡Sé\x20el\x20primero!</div>','Explora\x20los\x20mejores\x20productos\x20en\x20<b>','\x20unid.','\x0a\x20\x20\x20\x20<div\x20id=\x22product-zoom-modal\x22\x20class=\x22fixed\x20inset-0\x20z-[200]\x20bg-slate-900/95\x20backdrop-blur-md\x20hidden\x20opacity-0\x20transition-opacity\x20duration-300\x20flex\x20items-center\x20justify-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.close()\x22\x20class=\x22absolute\x20top-4\x20right-4\x20z-[60]\x20p-2\x20bg-white/10\x20hover:bg-white/20\x20text-white\x20rounded-full\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-x\x20text-3xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20','auth-label','drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]','theme','Selecciona\x20un\x20valor\x20de\x20resistencia.','auth-pass-confirm','-1;\x20window.moveBanner(1)\x22\x20id=\x22indicator-','\x22\x20class=\x22absolute\x20inset-0\x20w-full\x20h-full\x20object-cover\x20object-center\x20z-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>','Eliminado\x20de\x20favoritos','success','security_logs/','users/','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22pl-2\x20pr-3\x20py-0.5\x20rounded-md\x20bg-red-600\x20text-white\x20border\x20border-red-500\x20text-[8px]\x20font-bold\x20uppercase\x20tracking-widest\x20shadow-sm\x20flex\x20items-center\x20gap-1\x20z-20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-lightning\x20text-[10px]\x20flex-shrink-0\x22></i>\x20-','jspdf','downloadPDF','Quedan\x20','className','cart-panel','projectId','<div\x20class=\x22min-h-screen\x20flex\x20items-center\x20justify-center\x20text-slate-400\x20font-bold\x22>Sección\x20no\x20disponible</div>','mousemove','No\x20se\x20encontraron\x20los\x20datos\x20del\x20pedido.','\x20por\x20la\x20web.\x20Quiero\x20coordinar\x20el\x20pago\x20por\x20otro\x20medio\x20(Transferencia/Plin/Efectivo).','.banner-3d-target','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','mouseleave','\x22</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','<span\x20class=\x22bg-slate-900\x20text-white\x20text-[9px]\x20font-black\x20px-2\x20py-1\x20rounded\x20uppercase\x20tracking-widest\x20shadow-lg\x20border\x20border-slate-800\x22>Agotado</span>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20onclick=\x22','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22inline-flex\x20items-center\x20gap-2\x20px-3\x20py-1\x20rounded\x20bg-white\x20border\x20border-slate-200\x20shadow-sm\x20mb-6\x20w-fit\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22relative\x20flex\x20h-2\x20w-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22animate-ping\x20absolute\x20inline-flex\x20h-full\x20w-full\x20rounded-full\x20bg-[#00979D]\x20opacity-75\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22relative\x20inline-flex\x20rounded-full\x20h-2\x20w-2\x20bg-[#00979D]\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-slate-800\x20text-[10px]\x20font-bold\x20uppercase\x20tracking-[0.2em]\x22>','Tumbes','Hola\x20TechPerú,\x20soy\x20*','length','currentRating','settings/vacation_mode','bill-dept','restockDate','random','\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','keydown','name','\x0a\x20\x20\x20\x20<div\x20id=\x22banner-slide-','toggle-auth','wallet-discount-section','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/shop\x27,\x20{category:\x20\x27','bg-slate-200\x20text-slate-400\x20cursor-not-allowed','rgba(15,\x2023,\x2042,\x200.8)','\x0a\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20flex\x20items-center\x20justify-center\x20pointer-events-none\x20z-10\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','¿Ya\x20eres\x20miembro?','opacity-100\x20pointer-events-auto\x20active-slide','text-[10px]\x20font-bold\x20text-green-700\x20bg-green-50\x20px-3\x20py-1\x20rounded-full\x20border\x20border-green-200\x20shadow-sm\x20transition-all\x20duration-300','?page=product','\x0a\x20\x20\x20\x20<span\x20class=\x22px-2\x20py-0.5\x20rounded-md\x20bg-orange-50\x20text-orange-700\x20ring-1\x20ring-inset\x20ring-orange-600/20\x20text-[10px]\x20font-bold\x20uppercase\x20tracking-wider\x20flex\x20items-center\x20gap-1\x20z-20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-star\x20text-orange-500\x20text-[11px]\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20+','h-full\x20flex\x20flex-col\x20items-center\x20justify-center\x20p-6','confirmButtonColor','Inicia\x20Sesión',')\x22\x20class=\x22w-10\x20h-full\x20flex\x20items-center\x20justify-center\x20text-slate-400\x20hover:text-slate-900\x20transition\x22><i\x20class=\x22ph-bold\x20ph-minus\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22detail-qty-input\x22\x20type=\x22number\x22\x20value=\x221\x22\x20onchange=\x22detailQtyManager.handleInput(this,\x20','products','Subtotal','Actualmente\x20somos\x20una\x20tienda\x20100%\x20online\x20para\x20ofrecerte\x20los\x20mejores\x20precios,\x20pero\x20contamos\x20con\x20almacén\x20en\x20Huánuco\x20para\x20retiros.','\x27\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22group\x20w-14\x20h-14\x20flex-shrink-0\x20rounded-lg\x20border\x20border-slate-200\x20bg-white\x20p-1\x20hover:border-slate-900\x20transition\x20shadow-sm\x20overflow-hidden\x20relative\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','bg-slate-100','¡Pago\x20Validado!\x20🎉','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20md:flex-row\x20gap-2\x20w-full\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','El\x20nombre\x20es\x20obligatorio','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20class=\x22flex\x20items-center\x20gap-2\x20cursor-pointer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20id=\x22use-wallet-check\x22\x20class=\x22w-5\x20h-5\x20accent-green-600\x20rounded\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-sm\x20font-bold\x20text-slate-700\x22>Aplicar</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','mm-view-all-btn','changeImage','handleForm','\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[8px]\x20font-bold\x20','<ul\x20class=\x22grid\x20grid-cols-1\x20md:grid-cols-2\x20gap-x-8\x20gap-y-3\x22>','ad-img-wrapper',':</span>\x20','call','size','values','<div\x20class=\x22h-24\x22></div>','cart-count','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20w-full\x20max-w-[1440px]\x20mx-auto\x20px-4\x20md:px-6\x20relative\x20h-full\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22banner-text-','-1003493508205','¡Gracias!','Hola,\x20','\x20bg-slate-100\x20overflow-hidden\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20z-0\x20opacity-[0.4]\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20style=\x22background-image:\x20linear-gradient(#cbd5e1\x201px,\x20transparent\x201px),\x20linear-gradient(90deg,\x20#cbd5e1\x201px,\x20transparent\x201px);\x20background-size:\x2040px\x2040px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20z-0\x20bg-gradient-to-br\x20from-white/80\x20via-transparent\x20to-slate-300/50\x20pointer-events-none\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-0\x20bottom-0\x20right-0\x20w-[55%]\x20md:w-[50%]\x20z-0\x20bg-gradient-to-b\x20from-slate-800\x20to-slate-900\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20style=\x22clip-path:\x20polygon(20%\x200,\x20100%\x200,\x20100%\x20100%,\x200%\x20100%);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20opacity-10\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20style=\x22background-image:\x20radial-gradient(#ffffff\x201px,\x20transparent\x201px);\x20background-size:\x2020px\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-0\x20bottom-0\x20right-0\x20w-[55%]\x20md:w-[50%]\x20z-10\x20bg-[#00979D]\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20style=\x22clip-path:\x20polygon(20%\x200,\x2020.3%\x200,\x200.3%\x20100%,\x200%\x20100%);\x20box-shadow:\x200\x200\x2015px\x20#00979D;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20w-full\x20max-w-[1440px]\x20mx-auto\x20px-4\x20md:px-6\x20h-full\x20flex\x20items-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-12\x20w-full\x20h-full\x20items-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-span-12\x20md:col-span-6\x20lg:col-span-6\x20relative\x20z-20\x20flex\x20flex-col\x20justify-center\x20pl-4\x20md:pl-10\x20pr-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22banner-text-','Atención','menu-item-services','ctrlKey','ph-eye-slash','lg:order-2','cartManager','<i\x20class=\x22ph-fill\x20ph-star\x22></i>','search-results','/shop','navigate','detail-qty-input','selectedResistance','match','flex-grow\x20w-full\x20fade-in\x20min-h-[60vh]\x20p-0','val','WhatsApp/Otro','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22font-bold\x20text-sm\x20text-slate-900\x22>','date','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</details>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','ad-text-container','line','forEach','autoTable','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22p-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/profile\x27,\x20{tab:\x20\x27summary\x27})\x22\x20class=\x22w-full\x20flex\x20items-center\x20gap-3\x20px-3\x20py-2\x20text-sm\x20font-medium\x20text-slate-600\x20rounded-lg\x20hover:bg-cyan-50\x20hover:text-cyan-800\x20transition\x20group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-user-circle\x20text-lg\x20group-hover:text-[#26E4ED]\x22></i>\x20Resumen\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/profile\x27,\x20{tab:\x20\x27orders\x27})\x22\x20class=\x22w-full\x20flex\x20items-center\x20gap-3\x20px-3\x20py-2\x20text-sm\x20font-medium\x20text-slate-600\x20rounded-lg\x20hover:bg-blue-50\x20hover:text-blue-700\x20transition\x20group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-package\x20text-lg\x20group-hover:text-blue-500\x22></i>\x20Mis\x20Pedidos\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/profile\x27,\x20{tab:\x20\x27favorites\x27})\x22\x20class=\x22w-full\x20flex\x20items-center\x20gap-3\x20px-3\x20py-2\x20text-sm\x20font-medium\x20text-slate-600\x20rounded-lg\x20hover:bg-red-50\x20hover:text-red-700\x20transition\x20group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-heart\x20text-lg\x20group-hover:text-red-500\x22></i>\x20Favoritos\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22border-t\x20border-slate-100\x20p-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22authManager.logout()\x22\x20class=\x22w-full\x20flex\x20items-center\x20gap-3\x20px-3\x20py-2\x20text-sm\x20font-bold\x20text-slate-500\x20rounded-lg\x20hover:bg-slate-100\x20hover:text-slate-900\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-sign-out\x20text-lg\x22></i>\x20Cerrar\x20Sesión\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','json','Debes\x20aceptar\x20los\x20términos\x20y\x20condiciones.','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Fecha:\x20','</span>\x0a\x20\x20\x20\x20</span>\x0a</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','currentMaxStock','https://wa.me/','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-center\x20md:text-left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22inline-block\x20py-1\x20px-3\x20rounded-full\x20bg-[#00979D]/20\x20text-[#00979D]\x20text-xs\x20font-bold\x20mb-4\x20border\x20border-[#00979D]/30\x20uppercase\x20tracking-widest\x22>','🟢\x20Estamos\x20en\x20línea','hasResistances','/rating','payment-section','Stock','isRegistering','finalY','removeEventListener','https://via.placeholder.com/500?text=TechPeru','telegramChatId','.reveal-on-scroll','nav-shop','originalTotal','\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22event.stopPropagation();\x20userActions.toggleFavorite(\x27','left','z-[','reviewCount','billing-form','6SWVOJG','stopTimer','ad-popup-title','expire','mm-products-preview','ad-popup-content','Hola\x20TechPerú,\x20tengo\x20una\x20consulta:\x20','backToBilling','ph-bold','variant-warning-msg','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22banner-slide-','\x20en\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-y-0\x20right-0\x20pr-4\x20flex\x20items-center\x20pointer-events-none\x20text-slate-400\x20group-hover:text-slate-900\x20transition-colors\x20duration-300\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-down\x20text-base\x20bg-slate-200\x20rounded-full\x20p-1\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22variant-warning-msg\x22\x20class=\x22hidden\x20mt-3\x20ml-1\x20text-red-500\x20text-[11px]\x20font-bold\x20flex\x20items-center\x20gap-2\x20animate-pulse\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-warning-octagon\x22></i>\x20Requerido:\x20Selecciona\x20un\x20valor\x20para\x20continuar.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>Solicitar\x20Cotización</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-whatsapp-logo\x20text-xl\x20group-hover/btn:animate-bounce\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20lg:w-1/2\x20','indicator-','translate-y-4','Cajamarca','https://www.youtube.com/embed/','/wallet','\x27});\x20setTimeout(()\x20=>\x20{\x20document.getElementById(\x27tab-btn-reviews\x27).click();\x20document.getElementById(\x27reviews-section\x27).scrollIntoView({behavior:\x20\x27smooth\x27});\x20},\x20800);\x22\x20class=\x22mt-3\x20w-full\x20py-2.5\x20rounded-lg\x20bg-cyan-50\x20border\x20border-yellow-200\x20text-cyan-800\x20text-xs\x20font-bold\x20hover:bg-[#00979D]\x20hover:text-slate-900\x20hover:border-[#00979D]\x20transition\x20flex\x20items-center\x20justify-center\x20gap-2\x20shadow-sm\x20group\x22><i\x20class=\x22ph-fill\x20ph-star\x20group-hover:animate-bounce\x22></i>\x20Dejar\x20Comentario</button>','waManager','nav-home','\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20sm:flex-row\x20gap-4\x20mb-8\x20items-end\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','bill-phone','orders','bg-white','\x0a<div\x20class=\x22w-full\x20min-h-[80vh]\x20flex\x20flex-col\x20items-center\x20justify-center\x20bg-white\x20fade-in\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22animate-pulse\x20flex\x20flex-col\x20items-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22https://qeoojbsrqlroajvdgrju.supabase.co/storage/v1/object/public/productos/bg-logo-2m.png\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22h-24\x20w-auto\x20object-contain\x20mb-4\x20drop-shadow-sm\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20alt=\x22Cargando\x202MTechPerú\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1\x20class=\x22text-4xl\x20font-extrabold\x20tracking-tighter\x20flex\x20gap-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[#10c4c1]\x22>2M</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[#0ae4da]\x22>Tech</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-slate-900\x22>Perú</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-400\x20text-xs\x20font-bold\x20uppercase\x20tracking-widest\x20mt-2\x22>Cargando...</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>','bubble-visible','\x20<button\x20id=\x22toggle-auth\x22\x20class=\x22text-slate-900\x20font-bold\x20hover:underline\x20ml-1\x22>','<div\x20class=\x22bg-white\x20rounded-2xl\x20border\x20border-slate-100\x20p-12\x20text-center\x22><div\x20class=\x22inline-block\x20p-6\x20bg-slate-50\x20rounded-full\x20mb-4\x22><i\x20class=\x22ph\x20ph-heart-break\x20text-4xl\x20text-slate-400\x22></i></div><h3\x20class=\x22text-xl\x20font-bold\x20text-slate-900\x22>Sin\x20favoritos</h3><p\x20class=\x22text-slate-500\x22>Guarda\x20lo\x20que\x20te\x20gusta\x20para\x20comprarlo\x20después.</p></div>','head','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-xs\x20font-bold\x20text-slate-400\x20mb-3\x20uppercase\x20tracking-wider\x20ml-1\x22>Productos\x20Comprados</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22space-y-2\x22>','/isBlocked','splash-fade-out','backdrop','\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22','mm-categories-list','cellWidth','trim','ph-credit-card','user','startTypewriter','description','\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onmouseenter=\x22startTypewriter(\x27bubble-right\x27,\x20\x27','F12','Por\x20favor\x20califica\x20con\x20estrellas.','orderTimerInterval','bg-red-50\x20text-red-500\x20border-red-200','Datos\x20del\x20Cliente:','isBannerHovered','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22color-warning-msg\x22\x20class=\x22hidden\x20mt-3\x20text-red-500\x20text-xs\x20font-bold\x20flex\x20items-center\x20gap-2\x20bg-red-50\x20p-2\x20rounded-lg\x20border\x20border-red-100\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-warning-circle\x20text-lg\x22></i>\x20¡Debes\x20seleccionar\x20un\x20color\x20primero!\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','apply','</p></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<form\x20id=\x22auth-form\x22\x20class=\x22space-y-5\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','password','openVideoModal','test','text-slate-500','bg-transparent','•••','startY','Faltan\x20estrellas','content-','close','\x22\x20class=\x22absolute\x20inset-0\x20w-full\x20h-full\x20transition-opacity\x20duration-1000\x20ease-in-out\x20','fade-in','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20bg-slate-900\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','preventDefault','/sendMessage?chat_id=','contains','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>','showPreview','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22','clickAdPopup','/qty','badge','Teléfono:','text-slate-300','getItem','Tiempo\x20Agotado','sendTelegramAlert','points','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22min-w-[280px]\x20w-[280px]\x20snap-start\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','bubbleInterval','Descripción','uid','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/shop\x27,\x20{category:\x20\x27','floor','bottom-end','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','fill','.\x20Adjunto\x20mi\x20constancia.','refresh','hidden','\x22>Calculando...</span></div>','category','\x22></div>','stringify','video-modal','\x22\x20class=\x22absolute\x20inset-0\x20w-full\x20h-full\x20transition-opacity\x20duration-700\x20ease-out\x20','?text=Hola,%20me%20interesa%20el%20servicio%20de:%20','dragstart','</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-center\x20mt-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[10px]\x20uppercase\x20tracking-wider\x20text-slate-400\x20font-bold\x20bg-slate-100\x20px-1.5\x20rounded\x22>','Faltan\x20Puntos','Compras\x20Pausadas','runTransaction','res-btn-','payment-total-display','currentIndex','pass-icon','Categoría\x20Seleccionada','querySelectorAll','image','<i\x20class=\x22ph-fill\x20ph-star\x20text-[#00979D]\x22></i>','<div\x20class=\x22col-span-full\x20text-center\x20py-8\x20text-slate-400\x22>Cargando\x20destacados...</div>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22event.stopPropagation();\x20','slice','Este\x20es\x20un\x20voucher\x20de\x20compra.\x20Envíe\x20su\x20constancia\x20de\x20pago\x20por\x20WhatsApp.','-\x20*','auth/invalid-credential','\x27,\x20pageNum:\x201})\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22group\x20w-full\x20flex\x20items-center\x20justify-between\x20px-4\x20py-3.5\x20rounded-xl\x20transition-all\x20duration-300\x20mb-2\x20border\x20border-transparent\x20','\x20día(s)</b>.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul\x20class=\x22text-xs\x20text-slate-500\x20mt-2\x20list-disc\x20ml-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Desde:\x20<b>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-6\x20p-4\x20bg-slate-50\x20rounded-xl\x20border\x20border-slate-100\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-center\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20class=\x22text-xs\x20font-bold\x20text-slate-500\x20uppercase\x20tracking-wider\x22>Elige\x20un\x20Color:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22dynamic-stock-label\x22\x20class=\x22text-xs\x20text-slate-400\x22>Selecciona\x20para\x20ver\x20stock</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-wrap\x20gap-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22space-y-2\x20animate-fade-in-up\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20ml-1\x22><label\x20class=\x22text-sm\x20font-bold\x20text-slate-700\x22>Repetir\x20Contraseña</label></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-lock-key\x20absolute\x20left-4\x20top-4\x20text-slate-400\x20text-lg\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22auth-pass-confirm\x22\x20required\x20placeholder=\x22Confirma\x20tu\x20contraseña\x22\x20class=\x22w-full\x20pl-12\x20pr-4\x20py-4\x20rounded-xl\x20bg-slate-50\x20border-2\x20border-slate-100\x20focus:border-slate-900\x20focus:bg-white\x20outline-none\x20transition\x20font-medium\x20text-slate-900\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-yellow-50\x20border\x20border-yellow-200\x20rounded-xl\x20p-4\x20flex\x20gap-3\x20items-start\x20animate-fade-in-up\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-warning\x20text-yellow-600\x20text-xl\x20mt-0.5\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-xs\x20text-yellow-800\x20leading-relaxed\x20font-medium\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<strong>¡Importante!</strong>\x20Anota\x20tu\x20contraseña\x20en\x20un\x20lugar\x20seguro\x20y\x20no\x20la\x20compartas\x20con\x20nadie.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>','focus','\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22relative\x20inline-flex\x20rounded-full\x20h-1.5\x20w-1.5\x20','bg-[#00979D]\x20text-white\x20border-[#00979D]\x20shadow-lg\x20shadow-[#00979D]/30\x20scale-105','app','</div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22p-4\x20bg-slate-50\x20rounded-xl\x20border\x20border-slate-100\x22><label\x20class=\x22text-xs\x20font-bold\x20text-slate-400\x20uppercase\x20tracking-wider\x22>Email</label><div\x20class=\x22font-bold\x20text-slate-800\x20text-lg\x20mt-1\x22>','</div><div\x20class=\x22text-sm\x20text-slate-500\x20font-medium\x22>Favoritos\x20Guardados</div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-white\x20rounded-2xl\x20border\x20border-slate-100\x20p-8\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22font-bold\x20text-xl\x20mb-6\x20flex\x20items-center\x20gap-2\x20text-slate-800\x22><i\x20class=\x22ph-bold\x20ph-user-circle\x22></i>\x20Información\x20Personal</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-1\x20md:grid-cols-2\x20gap-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22p-4\x20bg-slate-50\x20rounded-xl\x20border\x20border-slate-100\x22><label\x20class=\x22text-xs\x20font-bold\x20text-slate-400\x20uppercase\x20tracking-wider\x22>Nombre</label><div\x20class=\x22font-bold\x20text-slate-800\x20text-lg\x20mt-1\x22>','getElementById','rounded-2xl','/orders/','opacity-100','\x22\x20class=\x22w-full\x20h-full\x20object-contain\x20group-hover:scale-110\x20transition-transform\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','<div\x20class=\x22mt-16\x20border-t\x20border-slate-200\x20pt-12\x22><div\x20class=\x22mb-8\x20px-2\x22><h3\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x20mb-1\x22>Productos\x20Similares</h3><p\x20class=\x22text-slate-500\x20text-sm\x22>Quienes\x20vieron\x20esto\x20también\x20compraron</p></div><div\x20class=\x22relative\x20w-full\x20overflow-hidden\x20py-4\x22><div\x20class=\x22absolute\x20left-0\x20top-0\x20bottom-0\x20w-12\x20bg-gradient-to-r\x20from-[#f8fafc]\x20to-transparent\x20z-20\x20pointer-events-none\x22></div><div\x20class=\x22absolute\x20right-0\x20top-0\x20bottom-0\x20w-12\x20bg-gradient-to-l\x20from-[#f8fafc]\x20to-transparent\x20z-20\x20pointer-events-none\x22></div><div\x20class=\x22animate-infinite-scroll\x20flex\x20gap-6\x20px-4\x22>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-xs\x20font-bold\x20text-slate-900\x20leading-snug\x20min-h-[2rem]\x20line-clamp-2\x20cursor-pointer\x20group-hover:text-indigo-600\x20transition-colors\x20duration-300\x22\x20onclick=\x22router.navigate(\x27product\x27,\x20{product:\x20\x27','allowOutsideClick','https://via.placeholder.com/800x600?text=TechPerú','cursor','max-w-3xl','isActive','join','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20py-10\x20mb-24\x20relative\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-end\x20mb-8\x20px-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-2\x20mb-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22bg-[#29AB30]\x20text-white\x20text-[10px]\x20font-bold\x20px-3\x20py-1\x20rounded\x20uppercase\x20tracking-widest\x20border\x20border-blue-500\x20shadow-sm\x22>Recién\x20Llegados</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-3xl\x20font-extrabold\x20text-slate-900\x22>Nuevos\x20Ingresos</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20mt-1\x22>Lo\x20último\x20con\x20etiqueta\x20de\x20novedad.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20gap-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22document.getElementById(\x27new-products-scroll\x27).scrollBy({left:\x20-320,\x20behavior:\x20\x27smooth\x27})\x22\x20class=\x22w-12\x20h-12\x20rounded-xl\x20border\x20border-slate-200\x20bg-white\x20hover:bg-slate-900\x20hover:text-white\x20hover:border-slate-900\x20text-slate-600\x20flex\x20items-center\x20justify-center\x20transition-all\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-left\x20text-xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22document.getElementById(\x27new-products-scroll\x27).scrollBy({left:\x20320,\x20behavior:\x20\x27smooth\x27})\x22\x20class=\x22w-12\x20h-12\x20rounded-xl\x20border\x20border-slate-200\x20bg-white\x20hover:bg-slate-900\x20hover:text-white\x20hover:border-slate-900\x20text-slate-600\x20flex\x20items-center\x20justify-center\x20transition-all\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-right\x20text-xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22new-products-scroll\x22\x20class=\x22flex\x20gap-6\x20overflow-x-auto\x20no-scrollbar\x20pb-8\x20scroll-smooth\x20snap-x\x20snap-mandatory\x20px-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','¿Los\x20productos\x20tienen\x20garantía?','Cancelar','\x27)\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22appearance-none\x20w-full\x20bg-slate-50\x20border\x20border-slate-200\x20text-slate-700\x20text-sm\x20font-bold\x20py-4\x20pl-12\x20pr-10\x20rounded-xl\x20leading-tight\x20focus:outline-none\x20focus:bg-white\x20focus:border-[#00979D]\x20focus:ring-4\x20focus:ring-[#00979D]/10\x20transition-all\x20duration-300\x20cursor-pointer\x20shadow-sm\x20hover:border-slate-300\x20hover:shadow-md\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22\x22\x20selected\x20disabled>Seleccionar:\x20</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20font-bold\x20text-sm\x20tracking-tight\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','onValue','</p></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22content-specs\x22\x20class=\x22tab-content\x20hidden\x20fade-in\x22><h3\x20class=\x22text-xl\x20font-bold\x20text-slate-900\x20mb-6\x22>Especificaciones\x20Técnicas</h3><div\x20class=\x22bg-white\x20border\x20border-slate-200\x20rounded-2xl\x20p-8\x20shadow-sm\x22>','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','bg-[#00979D]','push','opacity-0','Inicia\x20sesión','Áncash','scrollY','lineWidth','update','ad-popup-modal','tagName','nav-how-to-buy','Código\x20inválido','Crear\x20Cuenta','remove','7jXUdMG','wallet','securityCode','<div\x20class=\x22col-span-3\x20flex\x20flex-col\x20items-center\x20justify-center\x20h-full\x20text-slate-400\x20opacity-50\x22><i\x20class=\x22ph-fill\x20ph-ghost\x20text-4xl\x20mb-2\x22></i><p\x20class=\x22text-sm\x22>Sin\x20productos\x20por\x20ahora</p></div>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','classList','reviews','¿Qué\x20medios\x20de\x20pago\x20aceptan?','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','mobile-search-input','Entendido','</b>.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','gallery','\x20leading-relaxed\x20mb-8\x20max-w-xl\x20mx-auto\x20lg:mx-0\x20whitespace-pre-line\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20style=\x22font-family:\x20\x27Josefin\x20Sans\x27,\x20sans-serif;\x20font-weight:\x20300;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','exists','Canjear\x20Puntos','\x0a\x20\x20\x20\x20<div\x20class=\x22w-full\x20border-y\x20border-slate-100\x20bg-white\x20mb-12\x20relative\x20z-20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22max-w-[1440px]\x20mx-auto\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-2\x20md:grid-cols-4\x20divide-x\x20divide-slate-100\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group\x20flex\x20flex-col\x20items-center\x20justify-center\x20p-6\x20text-center\x20hover:bg-slate-50\x20transition-colors\x20duration-300\x20cursor-default\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-3\x20text-[#00979D]\x20text-3xl\x20group-hover:scale-110\x20group-hover:-translate-y-1\x20transition-transform\x20duration-300\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-duotone\x20ph-truck\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-xs\x20font-black\x20text-slate-900\x20uppercase\x20tracking-[0.15em]\x20mb-1\x22>Envíos\x20Nacionales</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-[10px]\x20font-medium\x20text-slate-500\x22>Rápido\x20y\x20seguro\x20vía\x20Olva/Shalom</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group\x20flex\x20flex-col\x20items-center\x20justify-center\x20p-6\x20text-center\x20hover:bg-slate-50\x20transition-colors\x20duration-300\x20cursor-default\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-3\x20text-[#00979D]\x20text-3xl\x20group-hover:scale-110\x20group-hover:-translate-y-1\x20transition-transform\x20duration-300\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-duotone\x20ph-shield-check\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-xs\x20font-black\x20text-slate-900\x20uppercase\x20tracking-[0.15em]\x20mb-1\x22>Garantía\x20Asegurada</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-[10px]\x20font-medium\x20text-slate-500\x22>12\x20Meses\x20por\x20defectos\x20de\x20fábrica</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group\x20flex\x20flex-col\x20items-center\x20justify-center\x20p-6\x20text-center\x20hover:bg-slate-50\x20transition-colors\x20duration-300\x20cursor-default\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-3\x20text-[#00979D]\x20text-3xl\x20group-hover:scale-110\x20group-hover:-translate-y-1\x20transition-transform\x20duration-300\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-duotone\x20ph-credit-card\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-xs\x20font-black\x20text-slate-900\x20uppercase\x20tracking-[0.15em]\x20mb-1\x22>Pagos\x20Flexibles</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-[10px]\x20font-medium\x20text-slate-500\x22>Yape,\x20Plin\x20y\x20Transferencia</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group\x20flex\x20flex-col\x20items-center\x20justify-center\x20p-6\x20text-center\x20hover:bg-slate-50\x20transition-colors\x20duration-300\x20cursor-default\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-3\x20text-[#00979D]\x20text-3xl\x20group-hover:scale-110\x20group-hover:-translate-y-1\x20transition-transform\x20duration-300\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-duotone\x20ph-whatsapp-logo\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-xs\x20font-black\x20text-slate-900\x20uppercase\x20tracking-[0.15em]\x20mb-1\x22>Soporte\x20Directo</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-[10px]\x20font-medium\x20text-slate-500\x22>Te\x20ayudamos\x20con\x20tu\x20proyecto</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>','_blank','imageModalManager','stopTypewriter','abs','👤\x20*Cliente:*\x20','auth-menu-dropdown','checkout-modal','color:\x20red;\x20font-size:\x2030px;\x20font-weight:\x20bold;','requestAnimationFrame','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22window.moveBanner(-1)\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22absolute\x20left-0\x20top-0\x20bottom-0\x20z-40\x20w-20\x20flex\x20items-center\x20justify-start\x20pl-2\x20group/btn\x20outline-none\x20focus:outline-none\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition-all\x20duration-500\x20ease-out\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity-100\x20md:opacity-0\x20md:-translate-x-full\x20md:group-hover/banner:opacity-100\x20md:group-hover/banner:translate-x-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22h-16\x20w-10\x20md:h-20\x20md:w-12\x20bg-slate-900/60\x20backdrop-blur-md\x20border\x20border-slate-700/50\x20border-l-0\x20rounded-r-2xl\x20flex\x20items-center\x20justify-center\x20text-white\x20shadow-2xl\x20transition-all\x20duration-300\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20group-hover/btn:bg-[#00979D]\x20group-hover/btn:text-slate-900\x20group-hover/btn:w-14\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20group-hover/btn:shadow-[0_0_30px_rgba(0,151,157,0.6)]\x22>\x20<i\x20class=\x22ph-bold\x20ph-caret-left\x20text-2xl\x20md:text-3xl\x20transition-transform\x20duration-300\x20group-hover/btn:-translate-x-1\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22window.moveBanner(1)\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22absolute\x20right-0\x20top-0\x20bottom-0\x20z-40\x20w-20\x20flex\x20items-center\x20justify-end\x20pr-2\x20group/btn\x20outline-none\x20focus:outline-none\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition-all\x20duration-500\x20ease-out\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity-100\x20md:opacity-0\x20md:translate-x-full\x20md:group-hover/banner:opacity-100\x20md:group-hover/banner:translate-x-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22h-16\x20w-10\x20md:h-20\x20md:w-12\x20bg-slate-900/60\x20backdrop-blur-md\x20border\x20border-slate-700/50\x20border-r-0\x20rounded-l-2xl\x20flex\x20items-center\x20justify-center\x20text-white\x20shadow-2xl\x20transition-all\x20duration-300\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20group-hover/btn:bg-[#00979D]\x20group-hover/btn:text-slate-900\x20group-hover/btn:w-14\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20group-hover/btn:shadow-[0_0_30px_rgba(0,151,157,0.6)]\x22>\x20<i\x20class=\x22ph-bold\x20ph-caret-right\x20text-2xl\x20md:text-3xl\x20transition-transform\x20duration-300\x20group-hover/btn:translate-x-1\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20','maxlength','<span\x20class=\x22bg-slate-900\x20text-white\x20text-lg\x20font-bold\x20px-4\x20py-2\x20rounded-full\x20shadow-2xl\x20transform\x20-rotate-12\x22>AGOTADO</span>','addImage','input','He\x20leído\x20y\x20acepto','reset','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-shopping-cart\x20text-xl\x22></i>\x20','Aprobado','2229DqEJVW','documentElement','moveProdImg','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</button>','catch','<i\x20class=\x22ph-fill\x20ph-check-circle\x20text-green-500\x22></i>\x20Stock:\x20','Componentes\x20electrónicos\x20de\x20alta\x20gama,\x20sensores\x20y\x20módulos\x20para\x20tus\x20proyectos.','selectProductResistance','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-squares-four\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>Todo</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22ml-1\x20opacity-60\x20text-xs\x20bg-white/20\x20px-1.5\x20rounded-full\x22>','<option\x20value=\x22','isPinned','\x27)\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onmouseleave=\x22stopTypewriter(\x27bubble-left\x27)\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onclick=\x22imageModalManager.open(this.src)\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22floating-img\x20w-full\x20object-contain\x20hover:rotate-[-10deg]\x20cursor-pointer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-bottom-6\x20left-1/2\x20-translate-x-1/2\x20bg-white/10\x20backdrop-blur-md\x20border\x20border-white/20\x20text-white\x20px-4\x20py-2\x20rounded-xl\x20text-xs\x20font-bold\x20whitespace-nowrap\x20opacity-0\x20group-hover:opacity-100\x20transition-opacity\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','toLocaleTimeString','Piura','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[10px]\x20font-extrabold\x20px-2.5\x20py-1\x20rounded-full\x20transition-colors\x20duration-300\x20','bg-[#00979D]\x20w-8','<button\x20onclick=\x22userActions.downloadVoucher(\x27','cellPadding','messagingSenderId','handle','S/\x200.00','border-slate-900','Arequipa','clip-path:\x20polygon(0\x200,\x20100%\x200,\x20100%\x2090%,\x200\x20100%);\x20padding-bottom:\x208rem;\x20margin-bottom:\x20-4rem;','columnStyles','\x27})\x22\x20title=\x22','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20sm:flex-row\x20gap-4\x20justify-center\x20md:justify-start\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22window.history.pushState({},\x20\x27\x27,\x20\x27','div:last-child','interval','cartItemId','Aceptamos\x20todas\x20las\x20tarjetas\x20de\x20crédito/débito,\x20Yape,\x20Plin\x20y\x20Transferencia\x20Bancaria.','\x27)\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22absolute\x20top-2\x20right-2\x20z-30\x20w-7\x20h-7\x20rounded-full\x20flex\x20items-center\x20justify-center\x20transition-all\x20duration-200\x20border\x20','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-right\x20text-xs\x20opacity-50\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22px-3\x20py-1.5\x20rounded\x20bg-slate-800\x20text-white\x20text-[9px]\x20font-bold\x20uppercase\x20tracking-[0.25em]\x20z-20\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20NUEVO\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','shop','tracking-[1em]','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','auth/weak-password','entries','desc','</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-6\x20mb-8\x20pb-8\x20border-b\x20border-slate-100\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','currentProdIdx','\x0a\x20\x20\x20\x20\x20\x20\x20\x20','hasColors','count','getDatabase','points-promo-banner','\x0a\x20\x20\x20\x20<div\x20class=\x22w-full\x20my-16\x20rounded-3xl\x20overflow-hidden\x20relative\x20h-[300px]\x20md:h-[400px]\x20flex\x20items-center\x20group\x20shadow-2xl\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1500\x22\x20class=\x22absolute\x20inset-0\x20w-full\x20h-full\x20object-cover\x20transition-transform\x20duration-1000\x20group-hover:scale-105\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20bg-gradient-to-r\x20from-slate-900\x20via-slate-900/80\x20to-transparent\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20px-8\x20md:px-16\x20max-w-2xl\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22bg-[#00979D]\x20text-white\x20text-xs\x20font-bold\x20px-3\x20py-1\x20rounded-full\x20uppercase\x20tracking-widest\x20mb-4\x20inline-block\x20shadow-lg\x22>Servicio\x20Técnico</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-3xl\x20md:text-5xl\x20font-black\x20text-white\x20mb-6\x20leading-tight\x22>¿Tienes\x20un\x20proyecto\x20en\x20mente?\x20<br><span\x20class=\x22text-slate-400\x22>Nosotros\x20lo\x20armamos.</span></h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-300\x20text-lg\x20mb-8\x20font-medium\x22>Asesoría,\x20diseño\x20de\x20circuitos\x20para\x20tus\x20prototipos.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/services\x27)\x22\x20class=\x22bg-white\x20text-slate-900\x20px-8\x20py-3\x20rounded-full\x20font-bold\x20hover:bg-[#00979D]\x20hover:text-white\x20transition-all\x20shadow-xl\x20flex\x20items-center\x20gap-2\x20group-btn\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Cotizar\x20Proyecto\x20<i\x20class=\x22ph-bold\x20ph-arrow-right\x20group-btn-hover:translate-x-1\x20transition-transform\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>','N°\x20Operación:','/reviewCount','\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-slate-50\x20p-4\x20rounded-xl\x20mb-4\x20border\x20border-slate-100\x20text-left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20justify-between\x20mb-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-8\x20h-8\x20rounded-full\x20bg-slate-200\x20flex\x20items-center\x20justify-center\x20font-bold\x20text-xs\x20text-slate-600\x22>','<div\x20class=\x22p-4\x20text-center\x20text-slate-500\x20text-xs\x20font-bold\x22>No\x20encontramos\x20coincidencias</div>','setTextColor','clear','payment','800px','Huancavelica','translate-y-10','📌\x20*Asunto:*\x20','</b>.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','style','text-slate-500\x20hover:bg-white\x20hover:text-[#00979D]\x20hover:shadow-sm\x20hover:pl-5','userName','\x27})\x22\x20class=\x22w-10\x20h-10\x20rounded-full\x20text-sm\x20font-bold\x20text-slate-500\x20hover:bg-slate-50\x20transition\x22>1</button>','<span\x20class=\x22text-[#10c4c1]\x20drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]\x22>2M</span>\x20<span\x20class=\x22text-[#0ae4da]\x20drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]\x22>Tech</span><span\x20class=\x22text-white\x20drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]\x22>Perú</span>','El\x20N°\x20de\x20Operación\x20de\x20Plin\x20suele\x20tener\x206\x20o\x20más\x20dígitos.','open','Pedido\x20#','Productos','debugger','toggle','scrollTop','/resistances/','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</h2>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22anim-left\x20text-slate-400\x20text-sm\x20md:text-base\x20mb-8\x20max-w-md\x20mx-auto\x20md:mx-0\x20leading-relaxed\x20font-medium\x22\x20style=\x22animation-delay:\x200.7s\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','<div\x20class=\x22space-y-4\x22>','/colors/','scale-50','ph-fill','bg-slate-900\x20text-white\x20hover:bg-[#00979D]','clientY','Voucher_TechPerú_','value',';\x20document.getElementById(\x27main-product-img\x27).src\x20=\x20\x27','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-2\x20gap-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-3\x20p-4\x20rounded-xl\x20bg-slate-50\x20border\x20border-slate-100\x22><i\x20class=\x22ph-fill\x20ph-truck\x20text-2xl\x20text-slate-400\x22></i><div\x20class=\x22text-xs\x20font-bold\x20text-slate-600\x22>Envío\x20Rápido<br><span\x20class=\x22font-normal\x20text-slate-400\x22>A\x20nivel\x20nacional</span></div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-3\x20p-4\x20rounded-xl\x20bg-slate-50\x20border\x20border-slate-100\x22><i\x20class=\x22ph-fill\x20ph-shield-check\x20text-2xl\x20text-slate-400\x22></i><div\x20class=\x22text-xs\x20font-bold\x20text-slate-600\x22>Garantía<br><span\x20class=\x22font-normal\x20text-slate-400\x22>12\x20meses\x20oficial</span></div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22max-w-5xl\x20mx-auto\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20border-b\x20border-slate-200\x20mb-8\x20overflow-x-auto\x20no-scrollbar\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22switchTab(\x27desc\x27)\x22\x20id=\x22tab-btn-desc\x22\x20class=\x22px-6\x20py-4\x20text-sm\x20font-bold\x20border-b-2\x20border-slate-900\x20text-slate-900\x20transition\x20whitespace-nowrap\x22>Descripción</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22switchTab(\x27specs\x27)\x22\x20id=\x22tab-btn-specs\x22\x20class=\x22px-6\x20py-4\x20text-sm\x20font-bold\x20border-b-2\x20border-transparent\x20text-slate-500\x20hover:text-slate-700\x20transition\x20whitespace-nowrap\x22>Especificaciones</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22switchTab(\x27reviews\x27)\x22\x20id=\x22tab-btn-reviews\x22\x20class=\x22px-6\x20py-4\x20text-sm\x20font-bold\x20border-b-2\x20border-transparent\x20text-slate-500\x20hover:text-slate-700\x20transition\x20whitespace-nowrap\x22>Opiniones\x20(','nav-services','textContent','<div\x20class=\x22space-y-2\x22><label\x20class=\x22text-sm\x20font-bold\x20text-slate-700\x20ml-1\x22>Nombre\x20Completo</label><div\x20class=\x22relative\x22><i\x20class=\x22ph-bold\x20ph-user\x20absolute\x20left-4\x20top-4\x20text-slate-400\x20text-lg\x22></i><input\x20type=\x22text\x22\x20id=\x22reg-name\x22\x20required\x20placeholder=\x22Ej.\x20Saúl\x20Perez\x22\x20class=\x22w-full\x20pl-12\x20pr-4\x20py-4\x20rounded-xl\x20bg-slate-50\x20border-2\x20border-slate-100\x20focus:border-slate-900\x20focus:bg-white\x20outline-none\x20transition\x20font-medium\x20text-slate-900\x22></div></div>','text-[#00979D]','qty','reverse','fillColor','123456','srv-slider-','closeVideoModal','.group\x5c/banner','ring-offset-2','threshold','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20items-end\x20gap-2\x20w-full\x20md:w-auto\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x22>S/\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/shop\x27,\x20{category:\x20\x27','onload','translate-x-4','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','ceil','newMode','bg-red-500','text-slate-300\x20cursor-not-allowed','%\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Error','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-right\x20text-lg\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[10px]\x20font-bold\x20text-slate-400\x20mt-3\x20uppercase\x20tracking-widest\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Mostrando\x20página\x20','\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22relative\x20w-8\x20h-8\x20flex\x20items-center\x20justify-center\x20overflow-hidden\x20group/btn\x20z-10\x20shadow-md\x20shadow-slate-300\x20transition-all\x20duration-300\x20hover:scale-105\x20active:scale-95\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x20min\x20para\x20validar\x20pago','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','color-btn-','flex-grow\x20w-full\x20fade-in\x20min-h-[60vh]\x20px-4\x20py-6','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-xs\x20font-bold\x20text-slate-400\x20mb-3\x20uppercase\x20tracking-wider\x20ml-1\x22>Resumen\x20Financiero</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-white\x20p-5\x20rounded-xl\x20border\x20border-slate-200\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-center\x20text-sm\x20mb-2\x20text-slate-500\x20px-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>Subtotal</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>S/\x20','showTerms','confirmButtonText','bg-slate-500\x20w-4','top','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-package\x20text-xl\x22></i>\x20Mis\x20Pedidos\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/profile\x27,\x20{tab:\x20\x27favorites\x27})\x22\x20class=\x22w-full\x20text-left\x20px-4\x20py-3\x20rounded-xl\x20transition\x20flex\x20items-center\x20gap-3\x20font-bold\x20','button[type=\x22button\x22]','</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22cartManager.remove(\x27','lineColor','Falta\x20el\x20HTML\x20del\x20modal','authDomain','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-bottom-6\x20-right-6\x20z-50\x20bg-white\x20p-4\x20rounded-2xl\x20shadow-xl\x20border\x20border-slate-100\x20hidden\x20md:flex\x20items-center\x20justify-center\x20animate-bounce\x22\x20style=\x22animation-duration:\x204s;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-center\x20leading-none\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22block\x20text-[10px]\x20font-bold\x20text-slate-400\x20uppercase\x20tracking-wider\x20mb-1\x22>REF</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22block\x20text-4xl\x20font-black\x20text-[#00979D]\x20tracking-tighter\x22>#','--scroll-y','Dirección:','pageNum','cancelButtonText','reduce','location','italic','opacity-30\x20grayscale\x20cursor-not-allowed','&text=','\x27,\x20pageNum:\x201})\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22flex-shrink-0\x20flex\x20items-center\x20gap-2\x20px-5\x20py-2.5\x20rounded-full\x20text-sm\x20font-bold\x20transition-all\x20duration-300\x20border\x20group\x20whitespace-nowrap\x20select-none\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','hex','toUpperCase','%c¡Detente!\x20%cEsta\x20es\x20una\x20función\x20del\x20navegador\x20para\x20desarrolladores.','Agrega\x20productos\x20antes\x20de\x20pagar.','\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22service-slide\x20','<div\x20class=\x22absolute\x20inset-0\x20bg-gradient-to-r\x20from-black/90\x20via-black/40\x20to-transparent\x20z-10\x20pointer-events-none\x22></div>','ELECTRÓNICA\x20&\x20SERVICIO','shadow-none','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20right-0\x20md:right-10\x20top-20\x20md:top-1/3\x20z-10\x20w-28\x20md:w-40\x20pointer-events-auto\x20float-delay-3\x20group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22bubble-right\x22\x20class=\x22thought-bubble\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22bubble-text\x22></span><span\x20class=\x22cursor-blink\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','Ayacucho','querySelector','3345828NIaHlS','isOffer','headStyles','settings/popup_ad','\x20·\x20','storageBucket','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20gap-4\x20py-4\x20border-b\x20border-slate-100\x20last:border-0\x20bg-white\x20p-3\x20rounded-xl\x20mb-2\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','phone','reveal-visible','\x22\x20class=\x22flex-1\x20font-bold\x20h-[56px]\x20px-8\x20rounded-xl\x20shadow-xl\x20flex\x20items-center\x20justify-center\x20gap-3\x20transition\x20transform\x20active:scale-95\x20mt-[18px]\x20','---','51960436357','\x27)\x22\x20class=\x22text-slate-300\x20hover:text-red-500\x20transition\x20p-1\x20-mr-2\x20-mt-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-trash\x20text-lg\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','btnText','input[name=\x22wallet_type\x22]:checked','Yape','Cusco','images','text-[10px]\x20font-bold\x20text-red-700\x20bg-red-50\x20px-3\x20py-1\x20rounded-full\x20border\x20border-red-200\x20shadow-sm','debu','\x0a\x20\x20\x20\x20<div\x20class=\x22mb-16\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-end\x20mb-6\x20px-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x22>Explora\x20por\x20Categoría</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-2\x20md:grid-cols-4\x20gap-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','initServiceSliders','San\x20Martín','isVacationActive','telegramToken','No\x20hay\x20datos\x20para\x20generar\x20el\x20PDF','tracking-widest','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','initScrollAnimations','https://iili.io/fu69rib.png','scroll','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20max-w-[1400px]\x20mx-auto\x20px-4\x20pt-4\x20pb-12\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22window.history.back()\x22\x20class=\x22mb-8\x20flex\x20items-center\x20text-slate-500\x20hover:text-slate-900\x20font-medium\x20transition\x22><i\x20class=\x22ph-bold\x20ph-arrow-left\x20mr-2\x22></i>\x20Volver\x20a\x20la\x20tienda</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-1\x20lg:grid-cols-12\x20gap-8\x20lg:gap-12\x20items-start\x20mb-12\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22lg:col-span-7\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20group/main-img\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22rounded-2xl\x20p-4\x20flex\x20flex-col\x20items-center\x20justify-center\x20border\x20border-slate-100\x20shadow-md\x20min-h-[300px]\x20max-h-[400px]\x20relative\x20bg-white\x20cursor-zoom-in\x20hover:border-slate-300\x20transition-colors\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onclick=\x22imageModalManager.open(document.getElementById(\x27main-product-img\x27).src)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20id=\x22main-product-img\x22\x20src=\x22','w-full\x20h-auto\x20max-h-[85vh]\x20object-contain\x20mx-auto\x20rounded-2xl','wheel','currentProdImages','ring-2','\x22\x20class=\x22h-full\x20object-contain\x20group-hover:scale-110\x20transition-transform\x20duration-500\x20mix-blend-multiply\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20class=\x22text-[10px]\x20font-bold\x20text-slate-700\x20leading-tight\x20line-clamp-1\x20group-hover:text-black\x20mb-1\x22>','\x27)\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onmouseleave=\x22stopTypewriter(\x27bubble-center\x27)\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onclick=\x22imageModalManager.open(this.src)\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22floating-img\x20w-full\x20object-contain\x20drop-shadow-2xl\x20cursor-pointer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-bottom-6\x20left-1/2\x20-translate-x-1/2\x20bg-white/10\x20backdrop-blur-md\x20border\x20border-white/20\x20text-white\x20px-4\x20py-2\x20rounded-xl\x20text-xs\x20font-bold\x20whitespace-nowrap\x20opacity-0\x20group-hover:opacity-100\x20transition-opacity\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','colors','https://qeoojbsrqlroajvdgrju.supabase.co/storage/v1/object/public/productos/bg-logo-2m.png','Sin\x20Stock','review-comment','No\x20se\x20pudo\x20registrar\x20el\x20pedido:\x20','.res-btn-option','text-slate-700','rgba(0,0,123,0.4)','normalize','.service-slider-container[data-autoplay=\x22true\x22]','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','<span\x20class=\x22text-[9px]\x20text-red-500\x20font-bold\x20absolute\x20-top-2\x20bg-white\x20px-1\x20rounded\x20border\x20border-red-100\x22>Agotado</span>','cart-total','border-transparent','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-4xl\x20md:text-5xl\x20lg:text-6xl\x20font-black\x20','cartManager.add(\x27','parse','Loreto','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.next()\x22\x20class=\x22absolute\x20right-4\x20top-1/2\x20-translate-y-1/2\x20z-[60]\x20w-12\x20h-12\x20bg-white/10\x20hover:bg-white/20\x20text-white\x20rounded-full\x20flex\x20items-center\x20justify-center\x20transition\x20backdrop-blur-sm\x20border\x20border-white/10\x20hover:border-white/30\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-right\x20text-3xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','Desc.\x20Monedero:','key','enabled','isOpen','-translate-y-full','⚠️\x20Aviso\x20de\x20Vacaciones','\x22\x20class=\x22w-full\x20h-full\x20object-contain\x20drop-shadow-xl\x20max-h-[350px]\x20fade-in\x20transition-transform\x20duration-500\x20group-hover/main-img:scale-105\x20','login','#0f172a','📞\x20*Tel:*\x20','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','setLineWidth','Plin','services','Este\x20correo\x20ya\x20está\x20registrado.','Sí,\x20realizamos\x20envíos\x20a\x20todo\x20el\x20Perú\x20a\x20través\x20de\x20Olva\x20Courier\x20y\x20Shalom.\x20El\x20tiempo\x20estimado\x20es\x20de\x202\x20a\x204\x20días\x20hábiles.','text-green-600','function','shadow-2xl','page','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','text-xl','wa-rotating-label','172435TbAAcd','bg-slate-500','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','nav-about','align','\x20/\x20100\x20para\x20canjear\x20S/\x2010.00</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-orange-50\x20backdrop-blur-md\x20p-6\x20rounded-xl\x20border\x20border-orange-100\x20min-w-[200px]\x20text-center\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-xs\x20text-slate-500\x20font-bold\x20uppercase\x20mb-2\x22>Tu\x20Saldo\x20Monedero</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-3xl\x20font-bold\x20text-slate-900\x20mb-4\x22>S/\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20py-12\x20mb-12\x20bg-slate-50\x20rounded-3xl\x20border\x20border-slate-200\x20overflow-hidden\x20relative\x20group-offer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22px-6\x20md:px-12\x20mb-8\x20flex\x20flex-col\x20md:flex-row\x20justify-between\x20items-end\x20gap-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a<div\x20class=\x22text-center\x20max-w-3xl\x20mx-auto\x20py-10\x20mb-6\x20border-b\x20border-slate-200\x22>\x0a\x20\x20\x20\x20<div\x20class=\x22inline-flex\x20items-center\x20gap-2\x20bg-red-50\x20border\x20border-red-100\x20px-4\x20py-1.5\x20rounded-full\x20mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-fire\x20text-red-500\x20text-sm\x20animate-bounce\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-red-600\x20text-xs\x20font-bold\x20uppercase\x20tracking-wider\x22>No\x20te\x20lo\x20pierdas!</span>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20<h2\x20class=\x22text-5xl\x20font-black\x20text-slate-900\x20mb-3\x20tracking-tighter\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20Ofertas\x20<span\x20class=\x22italic\x20text-[#00979D]\x22>2MTP</span>\x0a\x20\x20\x20\x20</h2>\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-lg\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20Aprovecha\x20los\x20mejores\x20descuentos.\x0a\x20\x20\x20\x20</p>\x0a</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/shop\x27,\x20{filter:\x20\x27offers\x27})\x22\x20class=\x22hidden\x20md:flex\x20bg-white\x20border\x20border-slate-200\x20text-slate-700\x20px-4\x20py-3\x20rounded-xl\x20font-bold\x20hover:bg-slate-100\x20transition\x20text-xs\x20items-center\x20gap-2\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Ver\x20todo\x20<i\x20class=\x22ph-bold\x20ph-arrow-right\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20gap-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22document.getElementById(\x27offers-scroll\x27).scrollBy({left:\x20-320,\x20behavior:\x20\x27smooth\x27})\x22\x20class=\x22w-12\x20h-12\x20rounded-xl\x20border\x20border-slate-200\x20bg-white\x20hover:bg-slate-900\x20hover:text-white\x20hover:border-slate-900\x20text-slate-600\x20flex\x20items-center\x20justify-center\x20transition-all\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-left\x20text-xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22document.getElementById(\x27offers-scroll\x27).scrollBy({left:\x20320,\x20behavior:\x20\x27smooth\x27})\x22\x20class=\x22w-12\x20h-12\x20rounded-xl\x20border\x20border-slate-200\x20bg-white\x20hover:bg-slate-900\x20hover:text-white\x20hover:border-slate-900\x20text-slate-600\x20flex\x20items-center\x20justify-center\x20transition-all\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-right\x20text-xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22offers-scroll\x22\x20class=\x22flex\x20gap-6\x20overflow-x-auto\x20no-scrollbar\x20pb-8\x20scroll-smooth\x20snap-x\x20snap-mandatory\x20px-6\x20md:px-12\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20onclick=\x22router.navigate(\x27/shop\x27)\x22\x20class=\x22px-6\x20py-3\x20mt-2\x20cursor-pointer\x20text-xs\x20font-bold\x20text-blue-600\x20hover:underline\x20border-t\x20border-slate-200\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Ver\x20Catálogo\x20Completo\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','text-slate-600\x20hover:bg-slate-50','Necesitas\x20mínimo\x20100\x20puntos\x20para\x20canjear.','profile',')</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22content-desc\x22\x20class=\x22tab-content\x20fade-in\x22><h3\x20class=\x22text-xl\x20font-bold\x20text-slate-900\x20mb-4\x22>Detalles\x20del\x20Producto</h3><p\x20class=\x22text-lg\x20text-slate-600\x20leading-relaxed\x20whitespace-pre-line\x22>','</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-xs\x20font-extrabold\x20text-slate-900\x22>S/\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group\x20relative\x20flex\x20gap-4\x20p-4\x20bg-white\x20rounded-2xl\x20border\x20border-slate-100\x20shadow-sm\x20hover:shadow-md\x20transition-all\x20duration-300\x20animate-fade-in-up\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-20\x20h-20\x20flex-shrink-0\x20bg-slate-50\x20rounded-xl\x20border\x20border-slate-100\x20p-2\x20flex\x20items-center\x20justify-center\x20overflow-hidden\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-20\x20w-64\x20md:w-96\x20pointer-events-auto\x20float-delay-1\x20group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22bubble-center\x22\x20class=\x22thought-bubble\x22\x20style=\x22bottom:\x20105%;\x20left:\x2060%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22bubble-text\x22></span><span\x20class=\x22cursor-blink\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-lg\x20md:text-xl\x20text-slate-300\x20mb-8\x20max-w-2xl\x20drop-shadow-md\x20mx-auto\x20md:mx-0\x22>','offerPrice','moveBanner','link','scale-110','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22space-y-2\x22><label\x20class=\x22text-sm\x20font-bold\x20text-slate-700\x20ml-1\x22>Correo\x20Electrónico</label><div\x20class=\x22relative\x22><i\x20class=\x22ph-bold\x20ph-envelope\x20absolute\x20left-4\x20top-4\x20text-slate-400\x20text-lg\x22></i><input\x20type=\x22email\x22\x20id=\x22auth-email\x22\x20required\x20placeholder=\x22hola@correo.com\x22\x20class=\x22w-full\x20pl-12\x20pr-4\x20py-4\x20rounded-xl\x20bg-slate-50\x20border-2\x20border-slate-100\x20focus:border-slate-900\x20focus:bg-white\x20outline-none\x20transition\x20font-medium\x20text-slate-900\x22></div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22space-y-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20ml-1\x22><label\x20class=\x22text-sm\x20font-bold\x20text-slate-700\x22>Contraseña</label></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-lock\x20absolute\x20left-4\x20top-4\x20text-slate-400\x20text-lg\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22auth-pass\x22\x20required\x20placeholder=\x22••••••••\x22\x20class=\x22w-full\x20pl-12\x20pr-12\x20py-4\x20rounded-xl\x20bg-slate-50\x20border-2\x20border-slate-100\x20focus:border-slate-900\x20focus:bg-white\x20outline-none\x20transition\x20font-medium\x20text-slate-900\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20onclick=\x22togglePass()\x22\x20class=\x22absolute\x20right-4\x20top-4\x20p-1\x20text-slate-400\x20hover:text-slate-900\x20transition\x20z-10\x22><i\x20id=\x22pass-icon\x22\x20class=\x22ph-bold\x20ph-eye-slash\x20text-xl\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','styles','Sin\x20Título','width','Código\x20de\x20Aprobación\x20(3\x20Dígitos)\x20*','main-header','type','\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onmouseenter=\x22startTypewriter(\x27bubble-center\x27,\x20\x27','<p\x20class=\x22text-slate-500\x20italic\x22>No\x20hay\x20especificaciones\x20detalladas.</p>','none','zoomOut','¿Tienen\x20tienda\x20física?','flex','setProperty','resumeTimer','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22lg:col-span-5\x20flex\x20flex-col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-4\x20flex\x20items-center\x20gap-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22bg-blue-50\x20text-blue-600\x20text-xs\x20font-bold\x20px-3\x20py-1\x20rounded-full\x20uppercase\x20tracking-wider\x22>','mobile-menu-panel','top-end','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-4xl\x20md:text-5xl\x20lg:text-7xl\x20font-black\x20text-slate-900\x20mb-6\x20leading-[0.95]\x20tracking-tight\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22px-4\x20py-3\x20border-b\x20border-slate-100\x20bg-slate-50\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-[10px]\x20font-bold\x20text-slate-400\x20uppercase\x20tracking-wider\x22>Conectado\x20como</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sm\x20font-bold\x20text-slate-900\x20truncate\x22>','\x5c+\x5c+\x20*(?:[a-zA-Z_$][0-9a-zA-Z_$]*)','\x27)\x22\x20class=\x22bg-slate-900\x20text-white\x20text-sm\x20font-bold\x20px-6\x20py-2.5\x20rounded-full\x20hover:bg-slate-800\x20transition\x22>Publicar\x20Reseña</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','auth-email','info','\x22></i>\x20','dataset','bg-[#00979D]\x20text-white','Regístrate\x20ahora','Stock:\x20','Destacado','includes','bill-ruc','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-400\x20text-lg\x20max-w-2xl\x20mx-auto\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Soporte\x20y\x20proyectos\x20a\x20medida\x20con\x20la\x20garantía\x20de\x202MTECHPERÚ.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20relative\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','</span>\x0a','height','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-left\x20text-lg\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-1\x20px-2\x20border-x\x20border-slate-100\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','ad-popup-img','2MTechPerú','position','/login','nav-faq','offers','banner-slide-','categories','\x27,\x20pageNum:\x201,\x20search:\x20\x27','innerHTML','¿No\x20tienes\x20cuenta?','Tope\x20alcanzado','DOMContentLoaded','setItem','reviewManager','PRECIO','\x20text-center\x20lg:text-left\x20reveal-on-scroll\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22inline-flex\x20items-center\x20gap-2\x20px-3\x20py-1\x20rounded-full\x20bg-white/10\x20border\x20border-white/20\x20backdrop-blur-sm\x20text-[#00979D]\x20text-xs\x20font-bold\x20uppercase\x20tracking-widest\x20mb-6\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22w-2\x20h-2\x20rounded-full\x20bg-[#00979D]\x20animate-pulse\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Servicio\x20','max','initBannerEffects','startsWith','Ica','normal','transform','render','panzoomInstance','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-span-full\x20flex\x20flex-col\x20items-center\x20justify-center\x20py-32\x20text-center\x20bg-slate-50\x20rounded-[2.5rem]\x20border\x20border-dashed\x20border-slate-200\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-20\x20h-20\x20bg-white\x20rounded-full\x20flex\x20items-center\x20justify-center\x20mb-4\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-duotone\x20ph-magnifying-glass\x20text-4xl\x20text-slate-300\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-xl\x20font-bold\x20text-slate-900\x20mb-1\x22>No\x20encontramos\x20productos</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-sm\x20max-w-xs\x20mx-auto\x22>Intenta\x20seleccionar\x20otra\x20categoría\x20o\x20cambiar\x20tu\x20búsqueda.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/shop\x27)\x22\x20class=\x22mt-6\x20px-6\x20py-2\x20bg-slate-900\x20text-white\x20rounded-full\x20text-sm\x20font-bold\x20hover:bg-[#00979D]\x20transition\x20shadow-lg\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Ver\x20todo\x20el\x20catálogo\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Junín','Abriendo\x20WhatsApp\x20para\x20enviar\x20tu\x20mensaje...','/orders','home_banner','setFont','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22userActions.showOrderDetails(\x27','product','checked','Agotado','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','scale-100','\x0a\x20\x20\x20\x20<div\x20class=\x22group\x20relative\x20w-full\x20h-full\x20rounded-[14px]\x20bg-slate-200\x20p-[1px]\x20overflow-hidden\x20isolate\x20shadow-sm\x20hover:shadow-xl\x20transition-shadow\x20duration-500\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-[-100%]\x20bg-[conic-gradient(from_0deg,transparent_0_340deg,#0f172a_360deg)]\x20opacity-0\x20group-hover:opacity-100\x20transition-opacity\x20duration-500\x20animate-[spin_3s_linear_infinite]\x20z-0\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20w-full\x20h-full\x20bg-white\x20rounded-[13px]\x20overflow-hidden\x20z-10\x20flex\x20flex-col\x22>\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a<div\x20class=\x22relative\x20w-full\x20aspect-[1/1]\x20overflow-hidden\x20bg-white\x20border-b\x20border-slate-200\x20cursor-pointer\x20group\x20rounded-t-[14px]\x22\x20onclick=\x22router.navigate(\x27product\x27,\x20{product:\x20\x27','Disponible','placeholder','.pdf','</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','bg-slate-50\x20text-slate-600\x20hover:bg-slate-900\x20hover:text-white','price','</div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22content-reviews\x22\x20class=\x22tab-content\x20hidden\x20fade-in\x22><div\x20class=\x22max-w-3xl\x22><h3\x20class=\x22text-xl\x20font-bold\x20text-slate-900\x20mb-6\x22>Lo\x20que\x20dicen\x20nuestros\x20clientes</h3>','La\x20Libertad','Escribe\x20tu\x20opinión.','\x20ph-heart\x20text-xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-span-12\x20md:col-span-6\x20lg:col-span-6\x20relative\x20h-full\x20flex\x20items-center\x20justify-center\x20pointer-events-none\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20w-[300px]\x20h-[300px]\x20bg-[#00979D]\x20rounded-full\x20opacity-20\x20blur-[80px]\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','move','</h2><p\x20class=\x22text-slate-500\x20mt-2\x20text-lg\x22>','border-[#00979D]','stock','bg-slate-900\x20text-white\x20border-slate-900\x20shadow-md','has','\x22\x20class=\x22absolute\x20inset-0\x20w-full\x20h-full\x20bg-slate-900\x20','/favorites/','Vista\x20sumada\x20correctamente','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20onclick=\x22router.navigate(\x27product\x27,\x20{product:\x20\x27','auth-form','\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20bottom-8\x20left-1/2\x20-translate-x-1/2\x20z-50\x20flex\x20gap-4\x20bg-slate-800/80\x20backdrop-blur\x20px-6\x20py-3\x20rounded-full\x20border\x20border-slate-700\x20shadow-2xl\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.zoomOut()\x22\x20class=\x22text-white\x20hover:text-[#00979D]\x20transition\x22\x20title=\x22Alejar\x22><i\x20class=\x22ph-bold\x20ph-minus\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-px\x20h-4\x20bg-slate-600\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.reset()\x22\x20class=\x22text-white\x20hover:text-[#00979D]\x20transition\x20text-xs\x20font-bold\x20uppercase\x20tracking-wider\x22\x20title=\x22Restablecer\x22>Reset</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-px\x20h-4\x20bg-slate-600\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.zoomIn()\x22\x20class=\x22text-white\x20hover:text-[#00979D]\x20transition\x22\x20title=\x22Acercar\x22><i\x20class=\x22ph-bold\x20ph-plus\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a<div\x20id=\x22zoom-pan-container\x22\x20class=\x22w-full\x20h-full\x20flex\x20items-center\x20justify-center\x20overflow-hidden\x20cursor-move\x20p-4\x22>\x0a\x20\x20\x20\x20<img\x20id=\x22zoom-modal-img\x22\x20src=\x22\x22\x20class=\x22max-w-full\x20max-h-[90vh]\x20object-contain\x20select-none\x20origin-center\x20transition-opacity\x20duration-200\x22>\x0a</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22absolute\x20top-4\x20left-4\x20text-slate-500\x20text-xs\x20font-bold\x20uppercase\x20tracking-widest\x20pointer-events-none\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-mouse-scroll\x22></i>\x20Usa\x20la\x20rueda\x20para\x20Zoom\x20·\x20Arrastra\x20para\x20mover\x0a\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20</div>','NFD','\x22\x20loading=\x22lazy\x22\x20alt=\x22','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','text-slate-800','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/shop\x27,\x20{category:\x20\x27','init','<div\x20class=\x22mt-2\x20text-xs\x20font-bold\x20text-red-500\x20bg-red-50\x20px-3\x20py-1\x20rounded\x20inline-block\x20border\x20border-red-100\x22><i\x20class=\x22ph-bold\x20ph-warning\x22></i>\x20Tiempo\x20de\x20reserva\x20agotado</div>','Subtotal:','\x20pagando\x20con\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-8\x20pt-6\x20border-t\x20border-slate-100\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-end\x20mb-3\x20px-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-xs\x20font-extrabold\x20text-slate-900\x20uppercase\x20tracking-widest\x20flex\x20items-center\x20gap-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-sliders-horizontal\x20text-[#26E4ED]\x22></i>\x20Especificación\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22dynamic-stock-label\x22\x20class=\x22text-[10px]\x20font-bold\x20text-slate-400\x20bg-slate-50\x20px-3\x20py-1\x20rounded-full\x20border\x20border-slate-200\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Selecciona\x20una\x20opción\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20group\x20w-full\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-y-0\x20left-0\x20pl-4\x20flex\x20items-center\x20pointer-events-none\x20z-10\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-lightning\x20text-slate-400\x20group-hover:text-[#26E4ED]\x20transition-colors\x20duration-300\x20text-lg\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20onchange=\x22handleResistanceChange(this,\x20\x27','text-slate-600','bg-white\x20text-slate-400\x20border-slate-200\x20hover:border-red-200\x20hover:text-red-500','.color-circle-option','dni','walletUsed','Canjea\x20100\x20Puntos\x20por\x20S/\x2010.00\x20de\x20saldo\x20en\x20tu\x20monedero.','150TgEhyb','isIntersecting','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','Pedido:\x20#','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22anim-sky\x20text-5xl\x20md:text-7xl\x20font-black\x20text-white\x20leading-[0.9]\x20mb-6\x20tracking-tighter\x20drop-shadow-2xl\x22\x20style=\x22animation-delay:\x200.5s\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','btnLink','\x20unid.</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22font-bold\x20text-sm\x20text-slate-900\x22>S/\x20','order-details-panel','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22https://wa.me/','\x27})\x22\x20class=\x22w-10\x20h-10\x20rounded-full\x20text-sm\x20font-bold\x20text-slate-500\x20hover:bg-slate-50\x20transition\x22>','<span\x20class=\x22mt-2\x20inline-flex\x20items-center\x20gap-1.5\x20text-xs\x20font-bold\x20text-amber-700\x20bg-amber-50\x20px-2.5\x20py-1\x20rounded-full\x20w-fit\x20border\x20border-amber-200\x20select-none\x22><i\x20class=\x22ph-fill\x20ph-star\x20text-amber-500\x20text-sm\x22></i>\x20Ganas\x20+','\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22p-2.5\x20flex\x20flex-col\x20flex-grow\x20relative\x20bg-[#F8FAFC]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-center\x20mb-0.5\x22>\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[8px]\x20font-extrabold\x20text-slate-400\x20uppercase\x20tracking-wider\x20truncate\x20max-w-[100px]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','¡Gracias\x20por\x20comprar\x20en\x202MTechPerú!','bg-slate-900\x20text-white\x20hover:bg-[#00979D]\x20hover:text-slate-900','Error\x20al\x20sumar\x20vista\x20(ignorable):','\x20(Color:\x20',';\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-check\x20text-white\x20drop-shadow-md\x20hidden\x20check-icon\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[10px]\x20font-bold\x20text-slate-500\x20truncate\x20max-w-[60px]\x22>','lastOrderData','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sm\x20text-slate-500\x20mt-2\x22>No\x20procesaremos\x20pedidos\x20hasta\x20el\x20<b>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20onmouseenter=\x22megaMenuManager.showPreview(\x27','error','checkVacationPopup','📝\x20*Mensaje:*\x20','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-2\x20text-[10px]\x20text-center\x20text-slate-400\x20bg-slate-50\x20py-1\x20rounded\x22>Método\x20de\x20Pago:\x20','Cant.','total','selectProductColor','totalBanners','.bubble-text','toFixed','overflow-hidden','color-warning-msg','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20flex\x20items-center\x20justify-center\x20transition-transform\x20duration-300\x20group-hover/btn:-translate-y-full\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-shopping-cart-simple\x20text-base\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20flex\x20items-center\x20justify-center\x20translate-y-full\x20transition-transform\x20duration-300\x20group-hover/btn:translate-y-0\x20bg-slate-800\x20text-white\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-plus\x20text-base\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','wa-chat-window','slug','wa-icon-close','checkoutManager','Enter','Faltan\x20datos','data-client-3-2be69.firebasestorage.app','removeItem','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22product-zoom-modal\x22\x20class=\x22fixed\x20inset-0\x20z-[200]\x20bg-slate-900/95\x20backdrop-blur-md\x20hidden\x20opacity-0\x20transition-opacity\x20duration-300\x20flex\x20items-center\x20justify-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.close()\x22\x20class=\x22absolute\x20top-4\x20right-4\x20z-[60]\x20p-2\x20bg-white/10\x20hover:bg-white/20\x20text-white\x20rounded-full\x20transition\x22><i\x20class=\x22ph-bold\x20ph-x\x20text-3xl\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.prev()\x22\x20class=\x22absolute\x20left-4\x20top-1/2\x20-translate-y-1/2\x20z-[60]\x20w-12\x20h-12\x20bg-white/10\x20hover:bg-white/20\x20text-white\x20rounded-full\x20flex\x20items-center\x20justify-center\x20transition\x20backdrop-blur-sm\x20border\x20border-white/10\x20hover:border-white/30\x22><i\x20class=\x22ph-bold\x20ph-caret-left\x20text-3xl\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.next()\x22\x20class=\x22absolute\x20right-4\x20top-1/2\x20-translate-y-1/2\x20z-[60]\x20w-12\x20h-12\x20bg-white/10\x20hover:bg-white/20\x20text-white\x20rounded-full\x20flex\x20items-center\x20justify-center\x20transition\x20backdrop-blur-sm\x20border\x20border-white/10\x20hover:border-white/30\x22><i\x20class=\x22ph-bold\x20ph-caret-right\x20text-3xl\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20bottom-8\x20left-1/2\x20-translate-x-1/2\x20z-50\x20flex\x20gap-4\x20bg-slate-800/80\x20backdrop-blur\x20px-6\x20py-3\x20rounded-full\x20border\x20border-slate-700\x20shadow-2xl\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.zoomOut()\x22\x20class=\x22text-white\x20hover:text-[#00979D]\x20transition\x22\x20title=\x22Alejar\x22><i\x20class=\x22ph-bold\x20ph-minus\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-px\x20h-4\x20bg-slate-600\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.reset()\x22\x20class=\x22text-white\x20hover:text-[#00979D]\x20transition\x20text-xs\x20font-bold\x20uppercase\x20tracking-wider\x22\x20title=\x22Restablecer\x22>Reset</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-px\x20h-4\x20bg-slate-600\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.zoomIn()\x22\x20class=\x22text-white\x20hover:text-[#00979D]\x20transition\x22\x20title=\x22Acercar\x22><i\x20class=\x22ph-bold\x20ph-plus\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22zoom-pan-container\x22\x20class=\x22w-full\x20h-full\x20flex\x20items-center\x20justify-center\x20overflow-hidden\x20cursor-move\x20p-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20id=\x22zoom-modal-img\x22\x20src=\x22\x22\x20class=\x22max-w-full\x20max-h-[90vh]\x20object-contain\x20select-none\x20shadow-2xl\x20origin-center\x20transition-opacity\x20duration-200\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','\x0a\x20\x20\x20\x20<div\x20class=\x22w-full\x20max-w-[1440px]\x20mx-auto\x20px-4\x20md:px-6\x20min-h-screen\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a\x0a<div\x20class=\x22relative\x20w-full\x20mb-10\x20overflow-hidden\x20bg-white\x20rounded-[2rem]\x20border\x20border-slate-100\x20shadow-sm\x20mt-4\x20group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20bg-white\x20z-0\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20right-0\x20top-0\x20h-full\x20w-2/3\x20bg-gradient-to-l\x20from-slate-50\x20via-slate-50\x20to-transparent\x20skew-x-12\x20z-0\x20opacity-80\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20right-[-20px]\x20md:right-10\x20top-1/2\x20-translate-y-1/2\x20w-48\x20md:w-80\x20opacity-[0.06]\x20pointer-events-none\x20transform\x20-rotate-12\x20z-0\x20mix-blend-multiply\x20transition-transform\x20duration-700\x20group-hover:scale-110\x20group-hover:rotate-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22https://qeoojbsrqlroajvdgrju.supabase.co/storage/v1/object/public/productos/bg-logo-2m.png\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20alt=\x22Marca\x20de\x20Agua\x20TechPerú\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22w-full\x20h-auto\x20object-contain\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-0\x20right-20\x20w-32\x20h-2\x20bg-[#00979D]\x20rounded-b-lg\x20opacity-20\x20z-0\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20px-8\x20py-12\x20md:px-16\x20md:py-16\x20flex\x20flex-col\x20md:flex-row\x20items-center\x20justify-between\x20gap-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22max-w-3xl\x20text-center\x20md:text-left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22inline-flex\x20items-center\x20gap-2\x20mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22w-6\x20h-[2px]\x20bg-[#00979D]\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-xs\x20font-bold\x20text-slate-400\x20uppercase\x20tracking-[0.2em]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','text-emerald-600','Agregar','.service-slide','active',')\x22\x20class=\x22w-10\x20h-full\x20flex\x20items-center\x20justify-center\x20text-slate-400\x20hover:text-slate-900\x20transition\x22><i\x20class=\x22ph-bold\x20ph-plus\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','x*\x20','text-red-600','cart','contact-msg','localeCompare','translateY(var(--scroll-y,\x200px))\x20scale(var(--scroll-scale,\x201))\x20perspective(1000px)\x20rotateX(','resistances','userActions','\x27)\x22\x20class=\x22group\x20mt-4\x20mx-auto\x20bg-slate-900\x20hover:bg-slate-800\x20text-white\x20px-6\x20py-2.5\x20rounded-full\x20font-bold\x20shadow-sm\x20flex\x20items-center\x20justify-center\x20gap-3\x20transition-colors\x20duration-300\x20border\x20border-slate-800\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20w-5\x20h-5\x20overflow-hidden\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20flex\x20items-center\x20justify-center\x20transition-transform\x20duration-300\x20ease-out\x20group-hover:-translate-y-full\x22><i\x20class=\x22ph-fill\x20ph-youtube-logo\x20text-lg\x20text-red-500\x22></i></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20flex\x20items-center\x20justify-center\x20transition-transform\x20duration-300\x20ease-out\x20translate-y-full\x20group-hover:translate-y-0\x22><i\x20class=\x22ph-fill\x20ph-play\x20text-lg\x20text-white\x22></i></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[10px]\x20tracking-[0.2em]\x20uppercase\x20pt-0.5\x22>Ver\x20Review</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</button>','databaseURL','ph-check-circle','findIndex','block','data-client-3-2be69','log','selectedHex','G-Z1ZES6C86S','\x22\x20readonly\x20class=\x22w-8\x20text-center\x20bg-transparent\x20text-xs\x20font-bold\x20text-slate-900\x20outline-none\x20m-0\x20p-0\x20h-full\x20border-x\x20border-slate-100\x22\x20/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22cartManager.changeQty(\x27','<i\x20class=\x22ph-bold\x20ph-star\x20text-slate-300\x22></i>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22h-12\x20w-px\x20bg-slate-200\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20cursor-pointer\x22\x20onclick=\x22document.getElementById(\x27tab-btn-reviews\x27).click()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20text-xl\x20mb-1\x22>','save','translateY(0)\x20scale(1)\x20perspective(1000px)\x20rotateX(0deg)\x20rotateY(0deg)','right','currentOrderId','Número\x20de\x20Operación\x20(6-8\x20Dígitos)\x20*','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-user\x20text-xl\x22></i>\x20Resumen\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/profile\x27,\x20{tab:\x20\x27orders\x27})\x22\x20class=\x22w-full\x20text-left\x20px-4\x20py-3\x20rounded-xl\x20transition\x20flex\x20items-center\x20gap-3\x20font-bold\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','</div></div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Bloqueo\x20de\x20Seguridad:\x20Para\x20crear\x20una\x20nueva\x20cuenta\x20intenta\x20mañana.','bg-white\x20text-slate-600\x20border-slate-200\x20hover:border-[#00979D]\x20hover:text-[#00979D]','concat','displayName','\x22\x20class=\x22w-full\x20h-full\x20object-contain\x20drop-shadow-[0_15px_30px_rgba(0,0,0,0.2)]\x20','summary','Envío:','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22imageModalManager.prev()\x22\x20class=\x22absolute\x20left-4\x20top-1/2\x20-translate-y-1/2\x20z-[60]\x20w-12\x20h-12\x20bg-white/10\x20hover:bg-white/20\x20text-white\x20rounded-full\x20flex\x20items-center\x20justify-center\x20transition\x20backdrop-blur-sm\x20border\x20border-white/10\x20hover:border-white/30\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-left\x20text-3xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','bannerInterval','\x27,\x20-1)\x22\x20class=\x22w-7\x20h-full\x20flex\x20items-center\x20justify-center\x20text-slate-500\x20hover:text-slate-900\x20hover:bg-slate-200\x20rounded-l-lg\x20transition\x22><i\x20class=\x22ph-bold\x20ph-minus\x20text-xs\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20value=\x22','711976NtiyKE','pointer-events-auto','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22slider-dots\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Usuario','map','title','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-xs\x20text-slate-400\x20mt-3\x22>Podrás\x20comprar\x20nuevamente\x20a\x20partir\x20del\x20<b>','bill-name','grayscale\x20opacity-50','target','banner-text-',')\x22>\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x22></button>','</div><div\x20class=\x22text-sm\x20text-slate-500\x20font-medium\x22>Pedidos\x20Realizados</div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-white\x20p-6\x20rounded-2xl\x20border\x20border-slate-100\x20shadow-sm\x20flex\x20items-center\x20gap-4\x20hover:shadow-md\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22p-4\x20bg-red-50\x20text-red-600\x20rounded-xl\x22><i\x20class=\x22ph-bold\x20ph-heart\x20text-3xl\x22></i></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div><div\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x22>','find','html','ph-x-circle','isConfirmed','\x27)\x22\x20class=\x22text-xs\x20bg-slate-100\x20text-slate-700\x20hover:bg-slate-200\x20hover:text-slate-900\x20border\x20border-slate-200\x20px-6\x20py-2\x20rounded-lg\x20font-bold\x20transition\x20flex\x20items-center\x20justify-center\x20gap-2\x20shadow-sm\x20transform\x20hover:-translate-y-0.5\x20whitespace-nowrap\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-star\x20text-yellow-500\x22></i>\x20Calificar\x20/\x20Detalles\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','signInWithPopup','</div>','constructor','auth-menu-content','<div\x20class=\x22mt-1\x20text-[10px]\x20font-bold\x20text-orange-600\x20bg-orange-50\x20px-2\x20py-0.5\x20rounded\x20border\x20border-orange-100\x20w-fit\x20flex\x20items-center\x20gap-1\x22><i\x20class=\x22ph-bold\x20ph-lightning\x22></i>\x20Resistencia:\x20','Apurímac','toast','videoUrl','\x20·\x20Miembro\x202MTechPerú</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22md:ml-auto\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22authManager.logout()\x22\x20class=\x22bg-white\x20hover:bg-slate-50\x20text-slate-600\x20border\x20border-slate-300\x20px-6\x20py-3\x20rounded-full\x20font-bold\x20transition\x20flex\x20items-center\x20gap-2\x20shadow-sm\x20hover:shadow-md\x20hover:text-red-500\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-sign-out\x22></i>\x20Cerrar\x20Sesión\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22px-4\x20md:px-8\x20-mt-8\x20pb-12\x20relative\x20z-20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22max-w-7xl\x20mx-auto\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20lg:flex-row\x20gap-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20lg:w-72\x20flex-shrink-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-white\x20rounded-2xl\x20shadow-lg\x20border\x20border-slate-200\x20p-2\x20sticky\x20top-24\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<nav\x20class=\x22space-y-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/profile\x27,\x20{tab:\x20\x27summary\x27})\x22\x20class=\x22w-full\x20text-left\x20px-4\x20py-3\x20rounded-xl\x20transition\x20flex\x20items-center\x20gap-3\x20font-bold\x20','order-details-modal','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-xs\x20text-slate-300\x20group-hover:text-[#26E4ED]\x20transition\x20flex\x20items-center\x20gap-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22relative\x20flex\x20h-1.5\x20w-1.5\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22animate-ping\x20absolute\x20inline-flex\x20h-full\x20w-full\x20rounded-full\x20opacity-75\x20','No\x20se\x20pudo\x20procesar\x20el\x20canje.','Error\x20Telegram','No\x20se\x20pudo\x20enviar\x20la\x20reseña.','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22reveal-on-scroll\x20h-full\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22color-btn-','\x22\x20class=\x22absolute\x20inset-0\x20z-20\x20flex\x20flex-col\x20justify-center\x20px-4\x20md:px-24\x20max-w-5xl\x20transition-all\x20duration-700\x20ease-out\x20','text-slate-500\x20border-l-4\x20border-transparent','ad-popup-msg','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Por\x20favor\x20completa\x20todos\x20los\x20campos\x20obligatorios\x20(*)','cart-backdrop','bg-slate-200\x20text-slate-400\x20group-hover:bg-[#00979D]/10\x20group-hover:text-[#00979D]','\x22\x20class=\x22w-16\x20h-16\x20rounded-lg\x20object-cover\x20border\x20border-slate-200\x20flex-shrink-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex-1\x20min-w-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20class=\x22font-bold\x20text-sm\x20text-slate-900\x20line-clamp-2\x20mb-1\x22>','text-red-500','\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20style=\x22border-radius:\x208px;\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20title=\x22','PNG','--scroll-scale','sort','#fbbf24','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20sm:flex-row\x20gap-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22window.history.pushState({},\x20\x27\x27,\x20\x27','parentElement','src','<div\x20class=\x22py-8\x20text-center\x20text-slate-400\x22>Cargando\x20opiniones...</div>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20z-20\x20flex\x20items-center\x20justify-center\x20bg-white/70\x20backdrop-blur-[1px]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-lg\x22>','Acceso\x20Restringido','viewed_product_','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','reviews/','items','bodyStyles','translate-y-full','Nuestros<br><span\x20class=\x22text-transparent\x20bg-clip-text\x20bg-gradient-to-r\x20from-[#00979D]\x20to-blue-500\x22>Servicios</span>','\x20Monedero)</span><span>S/\x20','8527181742:AAGwQ0F8bYBj0u5kDWV11nwE7YaM0SmBVGk','insertBefore','<div\x20onclick=\x22router.navigate(\x27shop\x27,\x20{search:\x20\x27','<span\x20class=\x22text-sm\x20text-slate-400\x20line-through\x20mb-1\x22>Antes:\x20S/\x20','measurementId','Método:\x20Coordinar\x20WhatsApp','onAuthStateChanged','S/\x20','isInitialized','gger','<div\x20class=\x22text-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-calendar-x\x20text-5xl\x20text-orange-500\x20mb-3\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22font-bold\x20text-lg\x20mb-2\x22>No\x20estamos\x20atendiendo\x20pedidos\x20temporalmente.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22bg-orange-50\x20p-3\x20rounded-lg\x20border\x20border-orange-100\x20text-orange-800\x20text-sm\x22>','bold','%\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-xs\x20text-slate-500\x20font-bold\x22>','comment','N/A','round','success-section','while\x20(true)\x20{}','isBlocked','is3D','zoom-modal-img','<br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-transparent\x20bg-clip-text\x20bg-gradient-to-r\x20from-white\x20via-slate-200\x20to-slate-500\x22>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','background','-translate-x-full','fontSize','🔍\x20¿Conseguiste\x20lo\x20que\x20estabas\x20buscando?','\x20productos\x20<i\x20class=\x22ph-bold\x20ph-arrow-right\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x22\x20class=\x22absolute\x20inset-0\x20w-full\x20h-full\x20object-cover\x20transition-transform\x20duration-700\x20group-hover:scale-110\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20bg-gradient-to-t\x20from-black/90\x20via-black/20\x20to-transparent\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20bottom-4\x20left-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-white\x20font-bold\x20text-lg\x20md:text-xl\x20block\x20mb-1\x22>','https://api.ipify.org?format=json','P.\x20Unit','Pendiente\x20de\x20Validación','endDate','showAdPopup','Llega\x20en\x20','Tacna','msg','reply','Fecha:\x20','bill-prov','1975752qqaunZ','mt-2\x20text-xs\x20font-bold\x20text-red-500\x20bg-red-50\x20px-3\x20py-1\x20rounded\x20inline-block\x20border\x20border-red-100','bg-slate-900\x20text-white\x20shadow-lg\x20shadow-slate-900/20\x20transform\x20scale-[1.02]','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-1\x20mt-1\x20bg-slate-100\x20w-fit\x20px-2\x20py-0.5\x20rounded\x20border\x20border-slate-200\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-2.5\x20h-2.5\x20rounded-full\x20border\x20border-slate-300\x22\x20style=\x22background-color:\x20','timer','tab','faq','signOut','<span\x20class=\x22text-[8px]\x20bg-red-500\x20text-white\x20px-1\x20rounded\x20font-bold\x22>-Oferta</span>','dynamic-stock-label','📦\x20*Productos:*\x0a','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','megaMenuManager','opacity','hasVideo','w-8','fire','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-xs\x20text-slate-500\x20font-bold\x20hover:text-blue-600\x20transition\x20underline\x22>','addEventListener','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20items-center\x20justify-center\x20mt-16\x20pb-8\x20fade-in\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-2\x20p-1.5\x20bg-white\x20border\x20border-slate-200\x20rounded-full\x20shadow-lg\x20shadow-slate-200/50\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/shop\x27,\x20{category:\x20\x27','openServiceGallery','</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','<div\x20class=\x22grid\x20grid-cols-1\x20sm:grid-cols-2\x20lg:grid-cols-3\x20xl:grid-cols-4\x20gap-6\x22>','img','https://iili.io/faJmoQI.png','\x20text-xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22font-bold\x20text-slate-900\x20text-base\x20md:text-lg\x20group-hover:text-yellow-600\x20transition-colors\x22>','<p>Tu\x20cuenta\x20ha\x20sido\x20bloqueada\x20temporalmente.</p>','Stock\x20Máximo','\x20overflow-hidden\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))]\x20from-[#1e293b]\x20via-[#0f172a]\x20to-black\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20opacity-20\x22\x20style=\x22background-image:\x20linear-gradient(#00979D\x201px,\x20transparent\x201px),\x20linear-gradient(90deg,\x20#00979D\x201px,\x20transparent\x201px);\x20background-size:\x2040px\x2040px;\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20w-full\x20max-w-[1440px]\x20mx-auto\x20px-4\x20md:px-6\x20h-full\x20flex\x20flex-col\x20md:flex-row\x20items-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20<div\x20id=\x22banner-text-','min','<br><span\x20class=\x22text-green-400\x20font-normal\x22>Mi\x20Cuenta</span>','bg-slate-900\x20text-white\x20border-slate-900\x20shadow-slate-900/20\x20scale-105\x20ring-2\x20ring-offset-2\x20ring-slate-200','ad-btn-label','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','use-wallet-check','</span></li>','lg:order-1','Desarrollo\x20de\x20proyectos\x20con\x20microcontroladores\x20de\x20Microchip,\x20STM32,\x20Arduino,\x20Raspberry\x20y\x20mucho\x20más.\x20🚀','🚨\x20*NUEVO\x20PEDIDO\x20RECIBIDO*\x20🚨\x0a\x0a','scrollToTopBtn','ph-eye','Solo\x20quedan\x20','#ffffff','/cart','popstate','text-slate-900','\x27)\x22\x20class=\x22w-full\x20md:w-auto\x20text-xs\x20font-bold\x20text-slate-500\x20hover:text-red-600\x20bg-slate-50\x20hover:bg-red-50\x20border\x20border-slate-200\x20hover:border-red-200\x20px-4\x20py-2\x20rounded-lg\x20transition\x20flex\x20items-center\x20justify-center\x20gap-2\x20mb-2\x20md:mb-0\x22><i\x20class=\x22ph-bold\x20ph-file-pdf\x20text-lg\x22></i>\x20Voucher</button>','text-[#1CE8DE]','bg-slate-900','Lambayeque','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Selecciona\x20un\x20color.','opacity-0\x20pointer-events-none','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22userActions.redeemPoints()\x22\x20class=\x22w-full\x20bg-[#FFA500]\x20hover:bg-orange-400\x20text-white\x20font-bold\x20py-2\x20rounded-lg\x20text-sm\x20transition\x20shadow-md\x20hover:shadow-lg\x20disabled:opacity-50\x20disabled:cursor-not-allowed\x22\x20','</span></div>','translate-y-8\x20opacity-0','showLoading','contact-name','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20leading-none\x22>\x0a\x0a\x0a<div\x20class=\x22flex\x20items-end\x20gap-0.5\x22>\x0a\x20\x20\x20\x20<span\x20class=\x22text-[10px]\x20font-bold\x20mb-0.5\x20','<div\x20class=\x22mt-1\x20text-[10px]\x20font-bold\x20text-indigo-600\x20bg-indigo-50\x20px-2\x20py-0.5\x20rounded\x20border\x20border-indigo-100\x20w-fit\x20flex\x20items-center\x20gap-1\x22><i\x20class=\x22ph-fill\x20ph-palette\x22></i>\x20Color:\x20','Firebase:\x20','message','split','showConfirmButton','fontStyle','Lima','\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-sm\x20text-slate-500\x20mb-2\x22><i\x20class=\x22ph-bold\x20ph-calendar-blank\x20mr-1\x22></i>\x20','<div\x20class=\x22text-center\x20py-20\x20text-slate-400\x22>Pronto\x20publicaremos\x20nuevos\x20servicios.</div>','<div\x20class=\x22mt-2\x20text-xs\x20font-bold\x20text-orange-600\x20bg-orange-50\x20px-3\x20py-1\x20rounded\x20inline-block\x20border\x20border-orange-100\x22><i\x20class=\x22ph-bold\x20ph-clock\x22></i>\x20<span\x20class=\x22order-timer\x22\x20data-expire=\x22','Falta\x20comentario','mobile-link-services','toggleCart','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-sm\x20text-slate-700\x20font-medium\x22>','offsetWidth','isVisible','\x20(Res:\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-auto\x20px-2.5\x20py-2\x20bg-slate-100\x20border-t\x20border-slate-200\x20flex\x20items-center\x20justify-between\x20gap-2\x20relative\x20z-20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[8px]\x20font-black\x20uppercase\x20tracking-widest\x20','\x20productos</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','setHours','replace','\x20mb-6\x20leading-tight\x20tracking-tight\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','focusConfirm','Debes\x20comprar\x20y\x20validar\x20este\x20producto\x20para\x20opinar.','OFERTA','ph-question','Puno','<span\x20class=\x22text-slate-900\x20font-bold\x22>Stock\x20en\x20','cart-overlay','¡Instalaciones\x20eléctricas\x20y\x20mucho\x20más!','/contact','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1\x20class=\x22text-3xl\x20md:text-4xl\x20font-extrabold\x20text-slate-900\x20leading-tight\x20mb-4\x22>','switchTab','bg-white\x20text-slate-600\x20border-slate-200\x20shadow-sm','zoomWithWheel','charAt','display','selectedColorData','wa-rotating-text','status','?text=','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','togglePass','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22max-w-[1280px]\x20mx-auto\x20flex\x20flex-col\x20lg:flex-row\x20items-center\x20gap-12\x20lg:gap-20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20lg:w-1/2\x20','\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-end\x20justify-between\x20mt-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20bg-slate-50\x20border\x20border-slate-200\x20rounded-lg\x20h-7\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22cartManager.changeQty(\x27','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','ref','apiKey','Contraentrega','billing','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22','whatsapp-link','onclick','\x20<div\x20class=\x22flex\x20justify-between\x20items-center\x20mt-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-xs\x20text-slate-500\x20font-bold\x20bg-slate-100\x20px-2\x20py-1\x20rounded\x22>','<span\x20class=\x22bg-slate-100\x20text-slate-400\x20text-[10px]\x20px-1.5\x20py-0.5\x20rounded-full\x20group-hover:bg-[#00979D]/10\x20group-hover:text-[#00979D]\x20transition-colors\x22>','filter','toISOString','ph-storefront','tracking-[0.25em]','¡Llega\x20Hoy!','Debes\x20ingresar\x20para\x20guardar\x20favoritos','getYoutubeId','span','bg-white\x20text-slate-500\x20border-slate-200\x20hover:border-[#00979D]\x20hover:text-[#00979D]\x20hover:shadow-md','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-white\x20p-6\x20rounded-2xl\x20border\x20border-slate-100\x20shadow-sm\x20flex\x20items-center\x20gap-4\x20hover:shadow-md\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22p-4\x20bg-blue-50\x20text-blue-600\x20rounded-xl\x22><i\x20class=\x22ph-bold\x20ph-package\x20text-3xl\x22></i></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div><div\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x22>','reg-name'];_0x34c8=function(){return _0x5a0ac7;};return _0x34c8();}async function renderProduct(_0x2f6026,_0x380788){const _0xfb47fa=_0x6e00bc;_0x2f6026[_0xfb47fa(0x379)]=_0xfb47fa(0x1a2);const _0x96c802=PRODUCTS['find'](_0xd817ec=>_0xd817ec[_0xfb47fa(0x3e1)]===_0x380788);if(_0x96c802&&_0x96c802['id']){const _0x5831ae=_0xfb47fa(0x44e)+_0x96c802['id'];if(!sessionStorage['getItem'](_0x5831ae)){sessionStorage[_0xfb47fa(0x37d)](_0x5831ae,_0xfb47fa(0x54b));const _0x16e866=ref(db,_0xfb47fa(0x5c2)+_0x96c802['id']+'/views');window[_0xfb47fa(0x525)][_0xfb47fa(0x1f1)](_0x16e866,_0x57147b=>{return(_0x57147b||0x76*0x2+0x254a+-0x2636)+(-0x1*0x4a3+0x78*0x11+0x354*-0x1);})[_0xfb47fa(0x592)](()=>{const _0x2d86f2=_0xfb47fa;console[_0x2d86f2(0x3fd)](_0x2d86f2(0x3aa));})[_0xfb47fa(0x256)](_0x40356e=>{const _0xf6720e=_0xfb47fa;console[_0xf6720e(0x3d3)](_0xf6720e(0x3cd),_0x40356e);});}}let _0x21f9da=null;if(_0x96c802['stock']<=0xdfc+-0x7*0x1c9+-0x17d&&_0x96c802['restockDate']){const _0x3cd2aa=new Date();_0x3cd2aa[_0xfb47fa(0x4ce)](0x1bed+0x23d+-0x1e2a,0x1c5+-0x741+0x57c,-0x1100+0xe5b*-0x1+-0x17*-0x15d,0x20e4+0x14a1+-0x3585);const _0x187dc2=_0x96c802[_0xfb47fa(0x606)][_0xfb47fa(0x4bd)]('-'),_0x2c0564=new Date(_0x187dc2[0x63c+0xb0c*0x1+-0x1148],_0x187dc2[-0xe9a+-0x4*0x2de+-0x8b1*-0x3]-(-0x4f8+0xa7c*-0x1+0xf75),_0x187dc2[-0x2a3+-0xf29+0x11ce]),_0x1a7741=_0x2c0564-_0x3cd2aa,_0x2a6ab4=Math['ceil'](_0x1a7741/((0x9*-0x1a4+-0xa3*-0x37+0x1059*-0x1)*(0x134e+0x134f+-0x2661)*(0xc2f+0xf*0x1d2+-0x2741*0x1)*(-0x71*-0xa+0x6d4+-0x1*0xb26)));if(_0x2a6ab4>-0xe11+0x91d+-0x13d*-0x4)_0x21f9da=_0xfb47fa(0x479)+_0x2a6ab4+_0xfb47fa(0x5ae)+(_0x2a6ab4>0x1f79+0x9a+0x5*-0x66a?'s':'');else _0x2a6ab4===0x1512+0x251d+-0x3a2f&&(_0x21f9da=_0xfb47fa(0x4f8));}if(!_0x96c802)return _0x2f6026[_0xfb47fa(0x379)]=_0xfb47fa(0x581);const _0x79bae4=PRODUCTS['filter'](_0x4f5b40=>_0x4f5b40[_0xfb47fa(0x1e7)]===_0x96c802[_0xfb47fa(0x1e7)]&&_0x4f5b40['id']!==_0x96c802['id']),_0x326718=_0x79bae4['length']>-0x11ab+0x15cf+0x424*-0x1?[..._0x79bae4,..._0x79bae4,..._0x79bae4,..._0x79bae4]:[],_0xfc1cf1=_0x326718[_0xfb47fa(0x1fc)](-0xb83+-0x1*-0x88d+0x1*0x2f6,-0x847+-0x1*0x1e6d+0x26c8);let _0x173515='';_0x79bae4[_0xfb47fa(0x602)]>0x7f*-0x17+-0x2032+-0x2b9b*-0x1&&(_0x173515=_0xfb47fa(0x210)+_0xfc1cf1[_0xfb47fa(0x419)](_0x238d19=>_0xfb47fa(0x5bb)+ProductCard(_0x238d19)+'</div>')[_0xfb47fa(0x217)]('')+'</div></div></div>');const _0x47d084=_0x96c802[_0xfb47fa(0x5a8)]?parseFloat(_0x96c802[_0xfb47fa(0x5a8)])[_0xfb47fa(0x3dc)](0x7*0x139+-0x185c+0xfce):_0xfb47fa(0x541),_0x43694a=_0x96c802[_0xfb47fa(0x186)]||0x1*-0x9ff+0x11fc+0x1*-0x7fd,_0x2f0041=_0x96c802['stock']||0x91+-0x184*-0x15+-0x2065,_0x56e133=_0x2f0041>0x6a1+-0x1231*-0x1+-0x9*0x2c2,_0x289531=state['favorites'][_0xfb47fa(0x3a7)](_0x96c802['id']);window['currentProdImages']=[_0x96c802[_0xfb47fa(0x1f8)],..._0x96c802[_0xfb47fa(0x23b)]||[]],window[_0xfb47fa(0x27b)]=0x3*-0x4dc+0x3*0x6ad+-0x3*0x1d1,window[_0xfb47fa(0x254)]=_0x28ea3b=>{const _0x57c06e=_0xfb47fa;if(window[_0x57c06e(0x309)][_0x57c06e(0x602)]<=-0x1e04+-0x14ae+-0x32b3*-0x1)return;let _0x4554b7=window[_0x57c06e(0x27b)]+_0x28ea3b;if(_0x4554b7>=window[_0x57c06e(0x309)][_0x57c06e(0x602)])_0x4554b7=-0x8*0x20a+0xc9+0x3*0x52d;if(_0x4554b7<0x3*0xbe9+0x7*-0x3c+-0x2217*0x1)_0x4554b7=window['currentProdImages'][_0x57c06e(0x602)]-(-0x661*0x4+0x2467+0xc7*-0xe);window[_0x57c06e(0x27b)]=_0x4554b7;const _0x2ba5be=document[_0x57c06e(0x20b)]('main-product-img');_0x2ba5be[_0x57c06e(0x449)]=window[_0x57c06e(0x309)][_0x4554b7],_0x2ba5be['classList'][_0x57c06e(0x22d)](_0x57c06e(0x1c8)),void _0x2ba5be['offsetWidth'],_0x2ba5be['classList'][_0x57c06e(0x561)](_0x57c06e(0x1c8));};let _0x4a5bd2='';_0x96c802[_0xfb47fa(0x48d)]&&_0x96c802['videoUrl']&&(_0x4a5bd2=_0xfb47fa(0x527)+_0x96c802[_0xfb47fa(0x42f)]+_0xfb47fa(0x3f7));const _0x73549e=window[_0xfb47fa(0x309)][_0xfb47fa(0x602)]>0x8ca+0x251*0x10+-0x2dd9?_0xfb47fa(0x5b7)+window[_0xfb47fa(0x309)][_0xfb47fa(0x419)]((_0x24f370,_0x3f1943)=>'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22window.currentProdIdx\x20=\x20'+_0x3f1943+_0xfb47fa(0x2a5)+_0x24f370+_0xfb47fa(0x61e)+_0x24f370+_0xfb47fa(0x20f))[_0xfb47fa(0x217)]('')+_0xfb47fa(0x4c1):'',_0x4bd598=Array(-0x749+0xc27*0x1+-0x49*0x11)[_0xfb47fa(0x1e2)](-0x25e4+0x6*0x19b+0x1c42)[_0xfb47fa(0x419)]((_0x136e0d,_0x470b31)=>_0x470b31<Math['round'](_0x47d084)?_0xfb47fa(0x1f9):'<i\x20class=\x22ph-bold\x20ph-star\x20text-slate-300\x22></i>')['join']('');let _0x5a460f=_0xfb47fa(0x44a);try{const _0x3e68e5=await get(ref(db,'reviews/'+_0x96c802['id']));if(_0x3e68e5[_0xfb47fa(0x23d)]()){const _0x5d3cf4=Object[_0xfb47fa(0x14f)](_0x3e68e5[_0xfb47fa(0x165)]())[_0xfb47fa(0x2ac)]();_0x5a460f=_0x5d3cf4['map'](_0x530c23=>_0xfb47fa(0x285)+_0x530c23[_0xfb47fa(0x291)][_0xfb47fa(0x4df)](-0x6a9+-0x80d*-0x1+0x1*-0x164)['toUpperCase']()+_0xfb47fa(0x167)+_0x530c23[_0xfb47fa(0x291)]+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-xs\x20text-slate-400\x22>'+new Date(_0x530c23[_0xfb47fa(0x168)])[_0xfb47fa(0x53d)]()+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20text-[#00979D]\x20text-xs\x20mb-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+Array(-0x185f+0xb21+0x1e5*0x7)[_0xfb47fa(0x1e2)](-0x2f*-0x37+0x6*0xb3+-0x1*0xe4b)[_0xfb47fa(0x419)]((_0x14e848,_0x24ac4d)=>_0x24ac4d<_0x530c23['rating']?_0xfb47fa(0x15d):_0xfb47fa(0x401))[_0xfb47fa(0x217)]('')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-600\x20text-sm\x20mb-2\x22>\x22'+_0x530c23[_0xfb47fa(0x463)]+_0xfb47fa(0x5fc)+(_0x530c23[_0xfb47fa(0x47c)]?_0xfb47fa(0x5cc)+_0x530c23['reply']+'</p></div>':'')+_0xfb47fa(0x5b4))[_0xfb47fa(0x217)]('');}else _0x5a460f=_0xfb47fa(0x5de);}catch(_0x3c1e50){console[_0xfb47fa(0x3d3)](_0x3c1e50);}let _0x27e3e7=_0xfb47fa(0x354);if(_0x96c802['specifications']){const _0x1c277f=_0x96c802[_0xfb47fa(0x5b9)][_0xfb47fa(0x4bd)]('\x0a')[_0xfb47fa(0x4f4)](_0x2ce928=>_0x2ce928[_0xfb47fa(0x1ae)]()!=='');_0x27e3e7=_0xfb47fa(0x14a)+_0x1c277f[_0xfb47fa(0x419)](_0x576358=>_0xfb47fa(0x542)+_0x576358+_0xfb47fa(0x4a2))[_0xfb47fa(0x217)]('')+'</ul>';}let _0x300aad='';if(!state['user'])_0x300aad='<div\x20class=\x22bg-blue-50\x20p-6\x20rounded-2xl\x20border\x20border-blue-100\x20mb-8\x20text-center\x22><p\x20class=\x22text-blue-800\x20font-medium\x20mb-3\x22>Inicia\x20sesión\x20para\x20compartir\x20tu\x20opinión</p><button\x20onclick=\x22router.navigate(\x27/login\x27)\x22\x20class=\x22bg-white\x20text-slate-900\x20text-sm\x20font-bold\x20px-6\x20py-2\x20rounded-full\x20border\x20border-slate-200\x20hover:bg-slate-50\x22>Ir\x20al\x20Login</button></div>';else{const _0x2be75b=state[_0xfb47fa(0x1a0)][_0xfb47fa(0x586)](_0x254c16=>_0x254c16[_0xfb47fa(0x4e3)]==='Aprobado'&&_0x254c16[_0xfb47fa(0x451)]&&_0x254c16[_0xfb47fa(0x451)][_0xfb47fa(0x586)](_0x319c01=>_0x319c01['id']===_0x96c802['id']));_0x2be75b?_0x300aad='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-white\x20p-6\x20rounded-2xl\x20border\x20border-slate-200\x20mb-8\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20class=\x22font-bold\x20text-slate-900\x20mb-4\x22>Escribe\x20tu\x20opinión</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20gap-2\x20mb-4\x20text-2xl\x20cursor-pointer\x22\x20id=\x22star-selector\x22><i\x20onclick=\x22reviewManager.setRating(1)\x22\x20id=\x22star-form-1\x22\x20class=\x22ph-bold\x20ph-star\x20text-slate-300\x20hover:text-[#00979D]\x20transition\x22></i><i\x20onclick=\x22reviewManager.setRating(2)\x22\x20id=\x22star-form-2\x22\x20class=\x22ph-bold\x20ph-star\x20text-slate-300\x20hover:text-[#00979D]\x20transition\x22></i><i\x20onclick=\x22reviewManager.setRating(3)\x22\x20id=\x22star-form-3\x22\x20class=\x22ph-bold\x20ph-star\x20text-slate-300\x20hover:text-[#00979D]\x20transition\x22></i><i\x20onclick=\x22reviewManager.setRating(4)\x22\x20id=\x22star-form-4\x22\x20class=\x22ph-bold\x20ph-star\x20text-slate-300\x20hover:text-[#00979D]\x20transition\x22></i><i\x20onclick=\x22reviewManager.setRating(5)\x22\x20id=\x22star-form-5\x22\x20class=\x22ph-bold\x20ph-star\x20text-slate-300\x20hover:text-[#00979D]\x20transition\x22></i></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20id=\x22review-comment\x22\x20class=\x22w-full\x20p-3\x20rounded-xl\x20border\x20border-slate-200\x20mb-4\x20focus:border-[#00979D]\x20outline-none\x20text-sm\x20bg-slate-50\x22\x20rows=\x223\x22\x20placeholder=\x22¿Qué\x20te\x20pareció\x20el\x20producto?\x22></textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22reviewManager.submitReview(\x27'+_0x96c802['id']+_0xfb47fa(0x361):_0x300aad='<div\x20class=\x22bg-slate-50\x20p-6\x20rounded-2xl\x20border\x20border-slate-200\x20mb-8\x20text-center\x20opacity-75\x22><i\x20class=\x22ph-bold\x20ph-lock-key\x20text-2xl\x20text-slate-400\x20mb-2\x22></i><p\x20class=\x22text-slate-600\x20text-sm\x20font-medium\x22>Solo\x20los\x20clientes\x20que\x20han\x20comprado\x20y\x20validado\x20este\x20producto\x20pueden\x20dejar\x20una\x20reseña.</p></div>';}let _0x4e61f5='';if(_0x96c802[_0xfb47fa(0x27d)]&&_0x96c802[_0xfb47fa(0x30d)]&&_0x96c802[_0xfb47fa(0x30d)]['length']>-0x159d+0x25b5+-0x1018){window[_0xfb47fa(0x4e1)]=null,window[_0xfb47fa(0x173)]=0xefa+-0x1*0xd36+-0x1c4;const _0x406082=_0x96c802[_0xfb47fa(0x30d)][_0xfb47fa(0x419)]((_0x4f240b,_0x310da4)=>{const _0x583dec=_0xfb47fa,_0xf3cdb8=_0x4f240b[_0x583dec(0x2ab)]<=0x1c63+0x1*-0x1b21+-0x142;return _0x583dec(0x5fe)+(_0xf3cdb8?'':_0x583dec(0x5b8)+_0x310da4+',\x20\x27'+_0x96c802['id']+'\x27)')+'\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22cursor-pointer\x20group\x20relative\x20flex\x20flex-col\x20items-center\x20gap-1\x20'+(_0xf3cdb8?_0x583dec(0x2d9):'')+_0x583dec(0x438)+_0x310da4+'\x22\x20class=\x22color-circle-option\x20w-10\x20h-10\x20rounded-full\x20border\x20border-slate-200\x20shadow-sm\x20flex\x20items-center\x20justify-center\x20transition-all\x20hover:scale-105\x22\x20style=\x22background-color:\x20'+_0x4f240b[_0x583dec(0x2dc)]+_0x583dec(0x3cf)+_0x4f240b[_0x583dec(0x60a)]+_0x583dec(0x317)+(_0xf3cdb8?_0x583dec(0x318):'')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>';})[_0xfb47fa(0x217)]('');_0x4e61f5=_0xfb47fa(0x202)+_0x406082+_0xfb47fa(0x1ba);}let _0x506937='';if(_0x96c802['hasResistances']&&_0x96c802['resistances']&&_0x96c802[_0xfb47fa(0x3f5)][_0xfb47fa(0x602)]>-0xfab+-0xa66+0x1a11){window[_0xfb47fa(0x5a1)]=null,window['currentMaxStock']=0x51b*-0x3+-0x22b1+0x3202*0x1;const _0x2b7809=_0x96c802[_0xfb47fa(0x3f5)][_0xfb47fa(0x419)]((_0x39e31e,_0x45e991)=>{const _0x3fc8ea=_0xfb47fa,_0x16859d=_0x39e31e[_0x3fc8ea(0x2ab)]<=-0x5ae+-0xd0c+0x12ba;return _0x3fc8ea(0x25b)+_0x45e991+'\x22\x20'+(_0x16859d?'disabled':'')+_0x3fc8ea(0x4b1)+_0x39e31e[_0x3fc8ea(0x2a4)]+'\x20'+(_0x16859d?'(Agotado)':'')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</option>';})[_0xfb47fa(0x217)]('');_0x506937=_0xfb47fa(0x3b8)+_0x96c802['id']+_0xfb47fa(0x21b)+_0x2b7809+_0xfb47fa(0x194);}const _0x15d38f=_0xfb47fa(0x5e1)+(window[_0xfb47fa(0x309)]['length']>0x4*0xc1+0x11d7+-0x14da?_0xfb47fa(0x412):'')+_0xfb47fa(0x284)+(window[_0xfb47fa(0x309)][_0xfb47fa(0x602)]>-0x3*0xaaf+0x3*-0x874+0x396a*0x1?_0xfb47fa(0x31f):'')+_0xfb47fa(0x3ae);_0x2f6026[_0xfb47fa(0x379)]=_0xfb47fa(0x306)+_0x96c802['image']+_0xfb47fa(0x326)+(!_0x56e133?_0xfb47fa(0x41d):'')+'\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20bottom-4\x20right-4\x20bg-white/90\x20backdrop-blur\x20text-slate-900\x20p-3\x20rounded-xl\x20shadow-lg\x20border\x20border-slate-100\x20opacity-0\x20translate-y-2\x20group-hover/main-img:opacity-100\x20group-hover/main-img:translate-y-0\x20transition-all\x20duration-300\x20pointer-events-none\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-magnifying-glass-plus\x20text-xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-3\x20right-3\x20pointer-events-auto\x20z-20\x22\x20onclick=\x22event.stopPropagation()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22userActions.toggleFavorite(\x27'+_0x96c802['id']+'\x27)\x22\x20class=\x22p-2.5\x20rounded-full\x20border\x20transition-all\x20shadow-sm\x20'+(_0x289531?_0xfb47fa(0x1b7):_0xfb47fa(0x3ba))+_0xfb47fa(0x1d0)+(_0x289531?_0xfb47fa(0x2a0):_0xfb47fa(0x190))+_0xfb47fa(0x39f)+(!_0x56e133?_0xfb47fa(0x611)+(_0x21f9da?_0xfb47fa(0x510)+_0x21f9da+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>':_0xfb47fa(0x24b))+'\x0a\x20\x20\x20\x20</div>\x0a':'')+_0xfb47fa(0x3ad)+_0x4a5bd2+_0xfb47fa(0x573)+_0x73549e+_0xfb47fa(0x35b)+_0x96c802[_0xfb47fa(0x1e7)]+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-xs\x20font-bold\x20'+(_0x56e133?_0xfb47fa(0x330):_0xfb47fa(0x441))+_0xfb47fa(0x59c)+(_0x56e133?_0xfb47fa(0x3f9):_0xfb47fa(0x425))+_0xfb47fa(0x364)+(_0x56e133?_0xfb47fa(0x368)+_0x2f0041:_0xfb47fa(0x392))+_0xfb47fa(0x4db)+_0x96c802['name']+_0xfb47fa(0x27a)+(_0x96c802[_0xfb47fa(0x2e8)]&&_0x96c802['offerPrice']?_0xfb47fa(0x459)+_0x96c802[_0xfb47fa(0x39b)]['toFixed'](-0x116d+-0x180b+-0x1*-0x297a)+'</span>':'')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-4xl\x20font-bold\x20'+(_0x96c802[_0xfb47fa(0x2e8)]?_0xfb47fa(0x3f0):_0xfb47fa(0x4ac))+'\x20tracking-tight\x22>S/\x20'+(_0x96c802['isOffer']&&_0x96c802['offerPrice']?_0x96c802[_0xfb47fa(0x347)]:_0x96c802[_0xfb47fa(0x39b)])[_0xfb47fa(0x3dc)](-0x26a0+0x1f4f+0x19*0x4b)+_0xfb47fa(0x36d)+(_0x96c802[_0xfb47fa(0x1d9)]?_0xfb47fa(0x3c9)+_0x96c802[_0xfb47fa(0x1d9)]+'\x20Puntos</span>':'')+_0xfb47fa(0x402)+_0x4bd598+_0xfb47fa(0x490)+_0x47d084+'\x20('+_0x43694a+_0xfb47fa(0x53c)+_0x4e61f5+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x506937+_0xfb47fa(0x19e)+(_0x56e133?'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20sm:w-auto\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20class=\x22block\x20text-[10px]\x20font-bold\x20text-slate-500\x20uppercase\x20tracking-wider\x20mb-1\x20ml-1\x22>Cantidad</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20justify-between\x20bg-white\x20rounded-xl\x20px-2\x20py-1\x20w-full\x20sm:w-36\x20border-2\x20border-slate-100\x20hover:border-slate-300\x20transition\x20h-[56px]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22detailQtyManager.update(-1,\x20'+_0x2f0041+_0xfb47fa(0x61a)+_0x2f0041+_0xfb47fa(0x5c0)+_0x2f0041+_0xfb47fa(0x3ee):'')+_0xfb47fa(0x1ab)+(_0x56e133?_0xfb47fa(0x31c)+_0x96c802['id']+_0xfb47fa(0x580):'')+_0xfb47fa(0x2f0)+(_0x56e133?_0xfb47fa(0x5aa):_0xfb47fa(0x60f))+'\x22\x20'+(!_0x56e133?_0xfb47fa(0x531):'')+_0xfb47fa(0x250)+(_0x56e133?'Añadir\x20al\x20Carrito':_0x21f9da?'Disponible:\x20'+_0x21f9da:'Sin\x20Stock')+_0xfb47fa(0x2a6)+_0x43694a+_0xfb47fa(0x342)+_0x96c802[_0xfb47fa(0x1b2)]+_0xfb47fa(0x21e)+_0x27e3e7+_0xfb47fa(0x39c)+_0x300aad+'<div\x20class=\x22space-y-2\x20mt-6\x22>'+_0x5a460f+_0xfb47fa(0x40a)+_0x173515+_0xfb47fa(0x232)+_0x15d38f,window[_0xfb47fa(0x4dc)]=_0x5255a4=>{const _0x29f686=_0xfb47fa;[_0x29f686(0x279),'specs',_0x29f686(0x234)][_0x29f686(0x16c)](_0x2aa6c5=>{const _0x46ebb2=_0x29f686,_0x1c3e39=document[_0x46ebb2(0x20b)](_0x46ebb2(0x5c4)+_0x2aa6c5),_0x1960c1=document[_0x46ebb2(0x20b)](_0x46ebb2(0x1c5)+_0x2aa6c5);_0x2aa6c5===_0x5255a4?(_0x1c3e39[_0x46ebb2(0x233)][_0x46ebb2(0x22d)](_0x46ebb2(0x31a),_0x46ebb2(0x1c0)),_0x1c3e39[_0x46ebb2(0x233)][_0x46ebb2(0x561)](_0x46ebb2(0x267),_0x46ebb2(0x4ac)),_0x1960c1[_0x46ebb2(0x233)][_0x46ebb2(0x22d)](_0x46ebb2(0x1e5))):(_0x1c3e39[_0x46ebb2(0x233)][_0x46ebb2(0x561)](_0x46ebb2(0x31a),_0x46ebb2(0x1c0)),_0x1c3e39[_0x46ebb2(0x233)][_0x46ebb2(0x22d)](_0x46ebb2(0x267),_0x46ebb2(0x4ac)),_0x1960c1['classList'][_0x46ebb2(0x561)](_0x46ebb2(0x1e5)));});};}function renderProfile(_0x5494c0,_0x2a2ac7=_0x6e00bc(0x410)){const _0xbc369e=_0x6e00bc,_0xeb5a61=state[_0xbc369e(0x1b0)],_0x294b05=_0xeb5a61[_0xbc369e(0x40e)]||'Usuario',_0x46ee77=_0xeb5a61['email'],_0x34ea12=_0x294b05[_0xbc369e(0x4df)](-0x9d8+-0x10ae+0x1a86)[_0xbc369e(0x2dd)](),_0x198f42=PRODUCTS['filter'](_0x36e01d=>state[_0xbc369e(0x5bf)][_0xbc369e(0x3a7)](_0x36e01d['id']));let _0x5cc940='';if(_0x2a2ac7===_0xbc369e(0x410)){const _0x448e44=Math[_0xbc369e(0x49c)](state[_0xbc369e(0x1d9)]/(-0x31d*-0x1+-0x1*-0x188e+-0x1b47*0x1)*(0xfb*0x7+0x2081+-0x26fa),0x793+-0x3*-0x33b+0xf0*-0x12);_0x5cc940=_0xbc369e(0x5da)+state[_0xbc369e(0x1d9)]+_0xbc369e(0x503)+_0x448e44+_0xbc369e(0x462)+state[_0xbc369e(0x1d9)]+_0xbc369e(0x33c)+state[_0xbc369e(0x22f)][_0xbc369e(0x3dc)](-0x2ba*-0x6+0x241*0x2+-0x3c*0x59)+_0xbc369e(0x4b4)+(state[_0xbc369e(0x1d9)]<-0x1ebb+-0x156d+0x348c?'disabled':'')+'>'+(state[_0xbc369e(0x1d9)]>=-0x16c7*0x1+-0xf7*-0x1c+-0x3d9?_0xbc369e(0x23e):_0xbc369e(0x1ef))+_0xbc369e(0x4fd)+state[_0xbc369e(0x1a0)][_0xbc369e(0x602)]+_0xbc369e(0x422)+state[_0xbc369e(0x5bf)][_0xbc369e(0x14e)]+_0xbc369e(0x20a)+_0x294b05+_0xbc369e(0x209)+_0x46ee77+'</div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>';}else{if(_0x2a2ac7===_0xbc369e(0x1a0))state[_0xbc369e(0x1a0)][_0xbc369e(0x602)]===0x1*0x10f0+0x1d33+-0x2e23?_0x5cc940='<div\x20class=\x22bg-white\x20rounded-2xl\x20border\x20border-slate-100\x20p-12\x20text-center\x22><div\x20class=\x22inline-block\x20p-6\x20bg-slate-50\x20rounded-full\x20mb-4\x22><i\x20class=\x22ph\x20ph-package\x20text-4xl\x20text-slate-400\x22></i></div><h3\x20class=\x22text-xl\x20font-bold\x20text-slate-900\x22>Sin\x20pedidos\x20aún</h3><p\x20class=\x22text-slate-500\x20mb-6\x22>Explora\x20nuestra\x20tienda\x20y\x20encuentra\x20lo\x20que\x20buscas.</p><button\x20onclick=\x22router.navigate(\x27/shop\x27)\x22\x20class=\x22bg-slate-900\x20text-white\x20px-6\x20py-2\x20rounded-full\x20font-bold\x20hover:bg-slate-800\x22>Ir\x20a\x20la\x20Tienda</button></div>':(setTimeout(()=>{const _0x233174=_0xbc369e;if(window[_0x233174(0x1b6)])clearInterval(window[_0x233174(0x1b6)]);window[_0x233174(0x1b6)]=setInterval(()=>{const _0x18c76f=_0x233174,_0x2617e4=document[_0x18c76f(0x1f7)]('.order-timer');if(_0x2617e4[_0x18c76f(0x602)]===-0x134b*0x1+0x1*-0x1799+-0x726*-0x6)return;_0x2617e4[_0x18c76f(0x16c)](_0x11ae1a=>{const _0x4d4387=_0x18c76f,_0x57f890=parseInt(_0x11ae1a[_0x4d4387(0x365)][_0x4d4387(0x18b)]),_0x210e31=_0x57f890-Date[_0x4d4387(0x56e)]();if(_0x210e31<=-0x35*0x5+0x1aef+-0x19e6)_0x11ae1a[_0x4d4387(0x379)]=_0x4d4387(0x1d7),_0x11ae1a[_0x4d4387(0x448)][_0x4d4387(0x5f2)]=_0x4d4387(0x480);else{const _0x2e5d1d=Math[_0x4d4387(0x1df)](_0x210e31/(0x17e96+-0xeaaf+-0x1d7*-0x2f)),_0x3ebb6f=Math['floor'](_0x210e31%(-0x1126f*-0x1+-0x10650+0x1*0xde41)/(0x261b+-0x2*0x1241+0x24f));_0x11ae1a[_0x4d4387(0x5a7)]=_0x2e5d1d+':'+(_0x3ebb6f<-0x1*0x1303+0x2*-0x10e7+-0x7*-0x78d?'0':'')+_0x3ebb6f+_0x4d4387(0x2c1);}});},-0x1394+0xdfd*-0x1+0x2579);},-0x1e4*-0xb+0x26a0+-0x3b08),_0x5cc940=_0xbc369e(0x29d)+state[_0xbc369e(0x1a0)][_0xbc369e(0x419)]((_0x1d51df,_0x1ad112)=>{const _0x47a81a=_0xbc369e;let _0x12472e='';_0x1d51df[_0x47a81a(0x4e3)]==='Pendiente\x20de\x20Validación'&&_0x1d51df[_0x47a81a(0x594)]&&(_0x1d51df['expireAt']>Date['now']()?_0x12472e=_0x47a81a(0x4c4)+_0x1d51df[_0x47a81a(0x594)]+_0x47a81a(0x1e6):_0x12472e=_0x47a81a(0x3b5));const _0x5e150b=_0x47a81a(0x262)+_0x1d51df['id']+_0x47a81a(0x4ad);let _0x1e92d1='';return _0x1d51df[_0x47a81a(0x4e3)]===_0x47a81a(0x251)?_0x1e92d1='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20flex-col\x20gap-2\x20w-full\x20md:w-auto\x20items-end\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x22>S/\x20'+_0x1d51df[_0x47a81a(0x3d8)][_0x47a81a(0x3dc)](-0x4e9+-0x7e*0x4+-0x1*-0x6e3)+_0x47a81a(0x143)+_0x5e150b+_0x47a81a(0x38f)+_0x1d51df['id']+_0x47a81a(0x427):_0x1e92d1=_0x47a81a(0x2b4)+_0x1d51df['total']['toFixed'](-0x18df+-0x1*-0xb45+-0x10c*-0xd)+_0x47a81a(0x143)+_0x5e150b+_0x47a81a(0x556)+_0x1d51df['id']+_0x47a81a(0x5d1),'<div\x20class=\x22bg-white\x20border\x20border-slate-200\x20rounded-xl\x20p-6\x20shadow-sm\x20flex\x20flex-col\x20md:flex-row\x20justify-between\x20items-start\x20md:items-center\x20gap-4\x20hover:border-[#FFA500]\x20transition-colors\x20duration-300\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-3\x20mb-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22font-bold\x20text-lg\x20text-slate-900\x22>Pedido\x20#'+(_0x1d51df['id']?_0x1d51df['id'][_0x47a81a(0x1fc)](-(-0x7cf*-0x1+0xc48+0xb*-0x1d3)):(Date[_0x47a81a(0x56e)]()-_0x1ad112)[_0x47a81a(0x589)]()[_0x47a81a(0x1fc)](-(-0x2039+-0x1009+-0xce*-0x3c)))+_0x47a81a(0x56f)+_0x1d51df[_0x47a81a(0x4e3)]+_0x47a81a(0x4c2)+new Date(_0x1d51df[_0x47a81a(0x168)])[_0x47a81a(0x53d)]()+_0x47a81a(0x2eb)+new Date(_0x1d51df[_0x47a81a(0x168)])['toLocaleTimeString']()+_0x47a81a(0x4c8)+(_0x1d51df[_0x47a81a(0x451)]?_0x1d51df[_0x47a81a(0x451)]['length']:0x243*-0x8+0x117+0x1101)+_0x47a81a(0x4cd)+_0x12472e+_0x47a81a(0x46c)+_0x1e92d1+_0x47a81a(0x3c1);})[_0xbc369e(0x217)]('')+_0xbc369e(0x429));else{if(_0x2a2ac7===_0xbc369e(0x5bf)){if(_0x198f42[_0xbc369e(0x602)]===-0x1a22+-0x1baa+0x2c*0x139)_0x5cc940=_0xbc369e(0x1a5);else _0x5cc940=_0xbc369e(0x495)+_0x198f42[_0xbc369e(0x419)](ProductCard)[_0xbc369e(0x217)]('')+_0xbc369e(0x429);}}}_0x5494c0['innerHTML']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20max-w-[1440px]\x20mx-auto\x20bg-white\x20min-h-[80vh]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20w-full\x20bg-gradient-to-b\x20from-white\x20to-slate-50\x20border-b\x20border-slate-200\x20pt-12\x20pb-12\x20px-6\x20md:px-12\x20overflow-hidden\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20bg-[url(\x27https://www.transparenttextures.com/patterns/cubes.png\x27)]\x20opacity-[0.03]\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20flex\x20flex-col\x20md:flex-row\x20items-center\x20gap-8\x20max-w-7xl\x20mx-auto\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-24\x20h-24\x20md:w-32\x20md:h-32\x20rounded-full\x20bg-slate-900\x20text-[#FFA500]\x20flex\x20items-center\x20justify-center\x20text-4xl\x20md:text-5xl\x20font-extrabold\x20shadow-xl\x20border-4\x20border-white\x22>'+_0x34ea12+_0xbc369e(0x545)+_0x294b05+_0xbc369e(0x44c)+_0x46ee77+_0xbc369e(0x430)+(_0x2a2ac7===_0xbc369e(0x410)?_0xbc369e(0x57e):_0xbc369e(0x33f))+_0xbc369e(0x408)+(_0x2a2ac7===_0xbc369e(0x1a0)?_0xbc369e(0x57e):'text-slate-600\x20hover:bg-slate-50')+_0xbc369e(0x2ca)+(_0x2a2ac7===_0xbc369e(0x5bf)?'bg-[#FFA500]\x20text-white\x20shadow-md':'text-slate-600\x20hover:bg-slate-50')+_0xbc369e(0x58a)+(_0x2a2ac7==='summary'?'Resumen\x20de\x20tu\x20cuenta':_0x2a2ac7===_0xbc369e(0x1a0)?_0xbc369e(0x58f):_0xbc369e(0x58c))+_0xbc369e(0x494)+_0x5cc940+_0xbc369e(0x302);}window[_0x6e00bc(0x4e6)]=()=>{const _0x189309=_0x6e00bc,_0x126520=document[_0x189309(0x20b)](_0x189309(0x58b)),_0x5e3390=document[_0x189309(0x20b)](_0x189309(0x1f5));_0x126520[_0x189309(0x352)]==='password'?(_0x126520['type']='text',_0x5e3390[_0x189309(0x233)][_0x189309(0x22d)](_0x189309(0x15a)),_0x5e3390[_0x189309(0x233)][_0x189309(0x561)](_0x189309(0x4a7))):(_0x126520[_0x189309(0x352)]=_0x189309(0x1bd),_0x5e3390[_0x189309(0x233)][_0x189309(0x22d)](_0x189309(0x4a7)),_0x5e3390[_0x189309(0x233)][_0x189309(0x561)](_0x189309(0x15a)));};function renderLogin(_0x1dc8bb){const _0x2c1377=_0x6e00bc,_0x34cc58=authManager[_0x2c1377(0x17b)];_0x1dc8bb[_0x2c1377(0x379)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20min-h-screen\x20w-full\x20bg-white\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hidden\x20lg:flex\x20w-1/2\x20relative\x20bg-slate-900\x20items-center\x20justify-center\x20overflow-hidden\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1950&q=80\x22\x20class=\x22absolute\x20inset-0\x20w-full\x20h-full\x20object-cover\x20opacity-50\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20bg-gradient-to-r\x20from-slate-900\x20via-slate-900/80\x20to-transparent\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20p-12\x20text-white\x20max-w-lg\x22>\x0a\x20\x20\x20\x20\x0a<div\x20class=\x22flex\x20items-center\x20gap-4\x20mb-6\x22>\x0a\x20\x20\x20\x20<img\x20src=\x22https://qeoojbsrqlroajvdgrju.supabase.co/storage/v1/object/public/productos/bg-logo-2m.png\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22h-16\x20w-auto\x20object-contain\x20drop-shadow-[0_0_15px_rgba(0,151,157,0.3)]\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20alt=\x22Logotipo\x202MTechPerú\x22>\x0a\x20\x20\x20\x20<h1\x20class=\x22text-4xl\x20font-extrabold\x20tracking-tighter\x20flex\x20gap-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[#10c4c1]\x22\x20style=\x22text-shadow:\x200\x202px\x204px\x20rgba(0,0,0,0.3);\x22>2M</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-[#0ae4da]\x22\x20style=\x22text-shadow:\x200\x202px\x204px\x20rgba(0,0,0,0.3);\x22>Tech</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-white\x22\x20style=\x22text-shadow:\x200\x202px\x204px\x20rgba(0,0,0,0.3);\x22>Perú</span>\x0a\x20\x20\x20\x20</h1>\x0a</div>\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-5xl\x20font-bold\x20leading-tight\x20mb-6\x22>Tu\x20tienda\x20virtual\x20de\x20confianza\x20y\x20a\x20un\x20buen\x20precio.</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-lg\x20text-slate-300\x20mb-8\x22>Únete\x20a\x20nuestra\x20comunidad\x20y\x20accede\x20a\x20ofertas,\x20puntos\x20para\x20canjear\x20y\x20mucho\x20más.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20lg:w-1/2\x20flex\x20items-center\x20justify-center\x20p-8\x20lg:p-16\x20relative\x20bg-white\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/\x27)\x22\x20class=\x22absolute\x20top-8\x20left-8\x20text-slate-400\x20hover:text-slate-900\x20transition\x20flex\x20items-center\x20gap-2\x20font-bold\x20text-sm\x22><i\x20class=\x22ph-bold\x20ph-arrow-left\x20text-lg\x22></i>\x20Volver\x20al\x20inicio</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20max-w-md\x20space-y-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-center\x20lg:text-left\x22><h2\x20class=\x22text-3xl\x20md:text-4xl\x20font-extrabold\x20text-slate-900\x22>'+(_0x34cc58?_0x2c1377(0x22c):'Bienvenido\x20de\x20nuevo')+_0x2c1377(0x3a3)+(_0x34cc58?'Empieza\x20tu\x20viaje\x20tecnológico\x20hoy.':'Ingresa\x20tus\x20datos\x20para\x20continuar.')+_0x2c1377(0x1bc)+(_0x34cc58?_0x2c1377(0x2a9):'')+_0x2c1377(0x34b)+(_0x34cc58?_0x2c1377(0x203):'')+_0x2c1377(0x5d8)+(_0x34cc58?'Registrarme\x20Gratis':'Iniciar\x20Sesión')+'</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</form>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-center\x20text-slate-600\x20font-medium\x20mt-8\x22>'+(_0x34cc58?_0x2c1377(0x612):_0x2c1377(0x37a))+_0x2c1377(0x1a4)+(_0x34cc58?_0x2c1377(0x619):_0x2c1377(0x367))+_0x2c1377(0x52d),document[_0x2c1377(0x20b)](_0x2c1377(0x3ac))[_0x2c1377(0x491)]('submit',authManager[_0x2c1377(0x148)]),document['getElementById'](_0x2c1377(0x60c))[_0x2c1377(0x4f1)]=()=>{const _0x5816eb=_0x2c1377;authManager[_0x5816eb(0x17b)]=!_0x34cc58,renderLogin(_0x1dc8bb);};}function renderFAQ(_0x4bd5b2){const _0x30e69c=_0x6e00bc,_0x128337=['ph-truck',_0x30e69c(0x563),_0x30e69c(0x4f6),_0x30e69c(0x1af)],_0x15550a=FAQS[_0x30e69c(0x419)]((_0x2fd93c,_0x1a64b1)=>{const _0x44a585=_0x30e69c,_0x10da84=_0x128337[_0x1a64b1]||_0x44a585(0x4d5);return'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<details\x20class=\x22group\x20bg-white\x20rounded-2xl\x20border\x20border-slate-100\x20shadow-sm\x20open:shadow-md\x20open:border-[#00979D]\x20transition-all\x20duration-300\x20overflow-hidden\x20mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<summary\x20class=\x22flex\x20items-center\x20justify-between\x20p-6\x20cursor-pointer\x20select-none\x20list-none\x20bg-white\x20group-open:bg-slate-50/50\x20transition-colors\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-10\x20h-10\x20rounded-xl\x20bg-slate-50\x20border\x20border-slate-100\x20flex\x20items-center\x20justify-center\x20text-slate-500\x20group-open:bg-[#00979D]\x20group-open:text-slate-900\x20group-open:border-[#00979D]\x20transition-all\x20duration-300\x20shrink-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20'+_0x10da84+_0x44a585(0x498)+_0x2fd93c['q']+'</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-slate-400\x20group-open:text-[#26E4ED]\x20transform\x20group-open:rotate-180\x20transition-transform\x20duration-300\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-caret-down\x20text-xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</summary>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22px-6\x20pb-6\x20pt-2\x20bg-slate-50/50\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22pl-14\x20text-slate-600\x20leading-relaxed\x20text-sm\x20md:text-base\x20border-l-2\x20border-slate-200\x20ml-5\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x2fd93c['a']+_0x44a585(0x169);})[_0x30e69c(0x217)]('');_0x4bd5b2[_0x30e69c(0x379)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20max-w-[1440px]\x20mx-auto\x20px-4\x20md:px-8\x20py-12\x20bg-slate-50/50\x20min-h-[80vh]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22max-w-3xl\x20mx-auto\x20text-center\x20mb-16\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22bg-yellow-100\x20text-cyan-800\x20border\x20border-yellow-200\x20text-xs\x20font-bold\x20px-3\x20py-1\x20rounded-full\x20uppercase\x20tracking-widest\x20mb-4\x20inline-block\x22>Soporte\x202MTP</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1\x20class=\x22text-3xl\x20md:text-5xl\x20font-extrabold\x20text-slate-900\x20mb-4\x20tracking-tight\x22>¿Cómo\x20podemos\x20ayudarte?</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-lg\x22>Resolvemos\x20tus\x20dudas\x20sobre\x20envíos,\x20garantías\x20y\x20métodos\x20de\x20pago\x20al\x20instante.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22max-w-3xl\x20mx-auto\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x15550a+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22max-w-3xl\x20mx-auto\x20mt-12\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-slate-900\x20rounded-3xl\x20p-8\x20md:p-12\x20relative\x20overflow-hidden\x20flex\x20flex-col\x20md:flex-row\x20items-center\x20justify-between\x20gap-8\x20text-center\x20md:text-left\x20shadow-2xl\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-0\x20right-0\x20w-64\x20h-64\x20bg-[#00979D]\x20rounded-full\x20mix-blend-multiply\x20filter\x20blur-3xl\x20opacity-10\x20pointer-events-none\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-2xl\x20font-bold\x20text-white\x20mb-2\x22>¿No\x20encuentras\x20tu\x20respuesta?</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-400\x22>Nuestro\x20equipo\x20de\x20expertos\x20está\x20listo\x20para\x20atenderte\x20personalmente.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20shrink-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22https://wa.me/51960436357\x22\x20target=\x22_blank\x22\x20class=\x22bg-[#00979D]\x20hover:bg-[#09BFED]\x20text-slate-900\x20px-8\x20py-4\x20rounded-xl\x20font-bold\x20transition\x20shadow-lg\x20shadow-[#00979D]/20\x20flex\x20items-center\x20justify-center\x20gap-3\x20hover:scale-105\x20active:scale-95\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-whatsapp-logo\x20text-xl\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Chatear\x20ahora\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-center\x20mt-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-xs\x20text-slate-400\x20font-medium\x22>Tiempo\x20de\x20respuesta\x20promedio:\x20<span\x20class=\x22text-green-600\x20font-bold\x22>Menos\x20de\x205\x20minutos</span></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>';}function _0x32b0(_0xbafd7e,_0x34c878){_0xbafd7e=_0xbafd7e-(0x1*0x867+0x79e+-0xec2);const _0x32b00a=_0x34c8();let _0x331cf5=_0x32b00a[_0xbafd7e];return _0x331cf5;}window['closePointsBanner']=()=>{const _0x37247a=_0x6e00bc,_0x486690=document[_0x37247a(0x20b)](_0x37247a(0x280));_0x486690&&_0x486690['classList'][_0x37247a(0x561)]('translate-y-full');},setTimeout(()=>{const _0x3f3491=_0x6e00bc,_0x4f4564=document['getElementById'](_0x3f3491(0x280));_0x4f4564&&_0x4f4564[_0x3f3491(0x233)][_0x3f3491(0x22d)](_0x3f3491(0x453));},0x1d4c+0x12c3+0x2457*-0x1),window[_0x6e00bc(0x491)](_0x6e00bc(0x4ab),router['handle']),window['addEventListener'](_0x6e00bc(0x37c),()=>{const _0x381cc6=_0x6e00bc;setTimeout(()=>{const _0x27f177=_0x32b0,_0x16dfce=document['getElementById']('splash-screen');_0x16dfce&&(_0x16dfce[_0x27f177(0x233)][_0x27f177(0x561)](_0x27f177(0x1a9)),setTimeout(()=>_0x16dfce[_0x27f177(0x22d)](),-0xb*0x11e+-0x19f7+-0xd67*-0x3));},0x24dc+-0x2ce+-0x1a3e),router[_0x381cc6(0x265)]();const _0x48df8f=()=>{const _0x56d07e=_0x381cc6,_0x55d856=document[_0x56d07e(0x20b)](_0x56d07e(0x5c3)),_0x9bd8df=document[_0x56d07e(0x20b)](_0x56d07e(0x15e));if(!_0x55d856||!_0x9bd8df)return;_0x55d856[_0x56d07e(0x491)](_0x56d07e(0x24d),_0x239f27=>{const _0x184514=_0x56d07e,_0x424bc0=_0x239f27[_0x184514(0x41e)][_0x184514(0x2a4)][_0x184514(0x5dc)]()[_0x184514(0x315)](_0x184514(0x3af))[_0x184514(0x4cf)](/[\u0300-\u036f]/g,'')[_0x184514(0x1ae)]();if(_0x424bc0[_0x184514(0x602)]<0xd*0x2e2+0x62*0x59+-0xf*0x4c5){_0x9bd8df[_0x184514(0x233)][_0x184514(0x561)](_0x184514(0x1e5));return;}const _0x36576c=PRODUCTS[_0x184514(0x4f4)](_0x3928a9=>{const _0x380b42=_0x184514,_0x4b4468=(_0x3928a9['name']||'')[_0x380b42(0x5dc)]()['normalize'](_0x380b42(0x3af))[_0x380b42(0x4cf)](/[\u0300-\u036f]/g,''),_0x4d659c=(_0x3928a9['category']||'')['toLowerCase']()[_0x380b42(0x315)](_0x380b42(0x3af))[_0x380b42(0x4cf)](/[\u0300-\u036f]/g,'');return _0x4b4468[_0x380b42(0x36a)](_0x424bc0)||_0x4d659c[_0x380b42(0x36a)](_0x424bc0);})[_0x184514(0x1fc)](0x1*-0x1681+0x207a*0x1+-0x25*0x45,-0x506*-0x6+0x1e4a+-0xf*0x407);_0x36576c['length']===0x1b87+0xacf+-0x2bd*0xe?_0x9bd8df[_0x184514(0x379)]=_0x184514(0x286):_0x9bd8df[_0x184514(0x379)]=_0x36576c['map'](_0x3ca3a6=>_0x184514(0x553)+_0x3ca3a6[_0x184514(0x3e1)]+'\x27});\x20document.getElementById(\x27global-search\x27).value\x20=\x20\x27\x27;\x20document.getElementById(\x27search-results\x27).classList.add(\x27hidden\x27);\x22\x20class=\x22flex\x20items-center\x20gap-3\x20p-3\x20hover:bg-slate-50\x20cursor-pointer\x20border-b\x20border-slate-50\x20last:border-0\x20transition\x20group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22'+_0x3ca3a6['image']+'\x22\x20class=\x22w-10\x20h-10\x20object-cover\x20rounded-lg\x20border\x20border-slate-100\x20group-hover:scale-105\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex-1\x20min-w-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20class=\x22text-sm\x20font-bold\x20text-slate-800\x20truncate\x22>'+_0x3ca3a6['name']+_0x184514(0x1ee)+_0x3ca3a6[_0x184514(0x1e7)]+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-xs\x20font-bold\x20text-slate-900\x22>S/\x20'+(_0x3ca3a6[_0x184514(0x2e8)]?_0x3ca3a6[_0x184514(0x347)]:_0x3ca3a6['price'])+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20')['join']('')+(_0x184514(0x458)+_0x424bc0+'\x27});\x20document.getElementById(\x27global-search\x27).value\x20=\x20\x27\x27;\x20document.getElementById(\x27search-results\x27).classList.add(\x27hidden\x27);\x22\x20class=\x22p-3\x20text-center\x20text-xs\x20font-bold\x20text-blue-600\x20hover:bg-blue-50\x20cursor-pointer\x20bg-slate-50\x20transition\x20border-t\x20border-slate-100\x22>Ver\x20todos\x20los\x20resultados\x20<i\x20class=\x22ph-bold\x20ph-arrow-right\x22></i></div>'),_0x9bd8df[_0x184514(0x233)][_0x184514(0x22d)](_0x184514(0x1e5));}),_0x55d856[_0x56d07e(0x491)]('keypress',_0x2401e6=>{const _0x2c3fd0=_0x56d07e;if(_0x2401e6[_0x2c3fd0(0x321)]===_0x2c3fd0(0x3e4)){const _0x23b9f2=_0x55d856[_0x2c3fd0(0x2a4)][_0x2c3fd0(0x1ae)]();if(_0x23b9f2){const _0x58d2e1={};_0x58d2e1[_0x2c3fd0(0x5d6)]=_0x23b9f2,router[_0x2c3fd0(0x160)]('shop',_0x58d2e1),_0x55d856['value']='',_0x9bd8df['classList'][_0x2c3fd0(0x561)](_0x2c3fd0(0x1e5)),_0x55d856['blur']();}}}),document['addEventListener']('click',_0x4addff=>{const _0x4491ad=_0x56d07e;!_0x55d856[_0x4491ad(0x1cd)](_0x4addff[_0x4491ad(0x41e)])&&!_0x9bd8df[_0x4491ad(0x1cd)](_0x4addff[_0x4491ad(0x41e)])&&_0x9bd8df[_0x4491ad(0x233)][_0x4491ad(0x561)](_0x4491ad(0x1e5));});};_0x48df8f();}),function initUbigeoSimple(){const _0xb706ca=_0x6e00bc,_0x1bb3e3=document[_0xb706ca(0x20b)](_0xb706ca(0x605)),_0x3a8190=[_0xb706ca(0x519),_0xb706ca(0x224),_0xb706ca(0x42d),_0xb706ca(0x268),_0xb706ca(0x2e5),_0xb706ca(0x198),'Callao',_0xb706ca(0x2f7),_0xb706ca(0x28b),'Huánuco',_0xb706ca(0x384),_0xb706ca(0x38a),_0xb706ca(0x39d),_0xb706ca(0x4b0),_0xb706ca(0x4c0),_0xb706ca(0x31e),'Madre\x20de\x20Dios',_0xb706ca(0x59e),'Pasco',_0xb706ca(0x25f),_0xb706ca(0x4d6),_0xb706ca(0x2fd),_0xb706ca(0x47a),_0xb706ca(0x600),'Ucayali'];_0x1bb3e3[_0xb706ca(0x379)]='<option\x20value=\x22\x22>Seleccione\x20Departamento</option>',_0x3a8190[_0xb706ca(0x16c)](_0x32d13c=>{const _0x3a1182=_0xb706ca;_0x1bb3e3[_0x3a1182(0x379)]+='<option\x20value=\x22'+_0x32d13c+'\x22>'+_0x32d13c+_0x3a1182(0x574);});}();function renderHowToBuy(_0x75e57f){_0x75e57f['innerHTML']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20bg-slate-50\x20min-h-screen\x20font-sans\x20pb-32\x20overflow-hidden\x20relative\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20overflow-hidden\x20pointer-events-none\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-0\x20left-1/2\x20-translate-x-1/2\x20w-full\x20h-[500px]\x20bg-gradient-to-b\x20from-white\x20to-transparent\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20bottom-0\x20left-0\x20w-[500px]\x20h-[500px]\x20bg-blue-100/40\x20rounded-full\x20blur-[100px]\x20mix-blend-multiply\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-20\x20right-0\x20w-[500px]\x20h-[500px]\x20bg-cyan-100/40\x20rounded-full\x20blur-[100px]\x20mix-blend-multiply\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20pt-24\x20pb-20\x20px-6\x20text-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22inline-block\x20py-1\x20px-3\x20rounded-full\x20bg-white\x20border\x20border-slate-200\x20text-[#00979D]\x20text-xs\x20font-bold\x20tracking-[0.2em]\x20uppercase\x20mb-5\x20shadow-sm\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Guía\x20de\x20Compra\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1\x20class=\x22text-5xl\x20md:text-7xl\x20font-black\x20text-slate-900\x20mb-6\x20tracking-tight\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Compra\x20en\x20<span\x20class=\x22text-transparent\x20bg-clip-text\x20bg-gradient-to-r\x20from-[#00979D]\x20to-blue-600\x22>4\x20Pasos.</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-lg\x20max-w-2xl\x20mx-auto\x20font-medium\x20leading-relaxed\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Sin\x20cajas\x20negras.\x20Sin\x20registros\x20eternos.\x20Una\x20experiencia\x20de\x20compra\x20fluida\x20y\x20transparente.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22max-w-[1440px]\x20mx-auto\x20px-6\x20relative\x20z-10\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22hidden\x20lg:block\x20absolute\x20top-[85px]\x20left-[10%]\x20right-[10%]\x20h-[2px]\x20bg-slate-200\x20z-0\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20grid-cols-1\x20md:grid-cols-2\x20lg:grid-cols-4\x20gap-12\x20lg:gap-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20onclick=\x22router.navigate(\x27/shop\x27)\x22\x20class=\x22group\x20cursor-pointer\x20relative\x20text-center\x20pt-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20flex\x20flex-col\x20items-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-20\x20h-20\x20bg-white\x20rounded-2xl\x20border-2\x20border-slate-100\x20flex\x20items-center\x20justify-center\x20text-4xl\x20text-slate-400\x20mb-6\x20transition-all\x20duration-500\x20group-hover:border-cyan-400\x20group-hover:text-cyan-500\x20group-hover:shadow-[0_10px_30px_-10px_rgba(6,182,212,0.5)]\x20group-hover:-translate-y-2\x20relative\x20z-20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-magnifying-glass\x20transform\x20group-hover:scale-110\x20transition-transform\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-top-3\x20-right-3\x20w-8\x20h-8\x20bg-slate-50\x20rounded-full\x20flex\x20items-center\x20justify-center\x20text-xs\x20font-bold\x20text-slate-400\x20border\x20border-slate-200\x20group-hover:bg-cyan-500\x20group-hover:text-white\x20group-hover:border-cyan-500\x20transition-all\x20shadow-sm\x22>1</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x20mb-3\x20group-hover:text-cyan-600\x20transition-colors\x22>Elige\x20tu\x20producto</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-sm\x20leading-relaxed\x20px-4\x20group-hover:text-slate-600\x20transition-colors\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Explora\x20nuestro\x20catálogo\x20y\x20añade\x20lo\x20que\x20necesites\x20al\x20carrito.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group\x20relative\x20text-center\x20pt-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20flex\x20flex-col\x20items-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-20\x20h-20\x20bg-white\x20rounded-2xl\x20border-2\x20border-slate-100\x20flex\x20items-center\x20justify-center\x20text-4xl\x20text-slate-400\x20mb-6\x20transition-all\x20duration-500\x20group-hover:border-purple-400\x20group-hover:text-purple-500\x20group-hover:shadow-[0_10px_30px_-10px_rgba(168,85,247,0.5)]\x20group-hover:-translate-y-2\x20relative\x20z-20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-note-pencil\x20transform\x20group-hover:scale-110\x20transition-transform\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-top-3\x20-right-3\x20w-8\x20h-8\x20bg-slate-50\x20rounded-full\x20flex\x20items-center\x20justify-center\x20text-xs\x20font-bold\x20text-slate-400\x20border\x20border-slate-200\x20group-hover:bg-purple-500\x20group-hover:text-white\x20group-hover:border-purple-500\x20transition-all\x20shadow-sm\x22>2</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x20mb-3\x20group-hover:text-purple-600\x20transition-colors\x22>Datos\x20de\x20Envío</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-sm\x20leading-relaxed\x20px-4\x20group-hover:text-slate-600\x20transition-colors\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Llena\x20el\x20formulario\x20express\x20en\x20el\x20checkout.\x20Solo\x20lo\x20necesario.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group\x20relative\x20text-center\x20pt-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20flex\x20flex-col\x20items-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-20\x20h-20\x20bg-white\x20rounded-2xl\x20border-2\x20border-slate-100\x20flex\x20items-center\x20justify-center\x20text-4xl\x20text-slate-400\x20mb-6\x20transition-all\x20duration-500\x20group-hover:border-amber-400\x20group-hover:text-amber-500\x20group-hover:shadow-[0_10px_30px_-10px_rgba(245,158,11,0.5)]\x20group-hover:-translate-y-2\x20relative\x20z-20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-qr-code\x20transform\x20group-hover:scale-110\x20transition-transform\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-top-3\x20-right-3\x20w-8\x20h-8\x20bg-slate-50\x20rounded-full\x20flex\x20items-center\x20justify-center\x20text-xs\x20font-bold\x20text-slate-400\x20border\x20border-slate-200\x20group-hover:bg-amber-500\x20group-hover:text-white\x20group-hover:border-amber-500\x20transition-all\x20shadow-sm\x22>3</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x20mb-3\x20group-hover:text-amber-600\x20transition-colors\x22>Pago\x20QR</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-sm\x20leading-relaxed\x20px-4\x20group-hover:text-slate-600\x20transition-colors\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Paga\x20al\x20instante\x20con\x20Yape/Plin\x20e\x20ingresa\x20tu\x20código\x20de\x20operación.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22group\x20relative\x20text-center\x20pt-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20z-10\x20flex\x20flex-col\x20items-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-20\x20h-20\x20bg-white\x20rounded-2xl\x20border-2\x20border-slate-100\x20flex\x20items-center\x20justify-center\x20text-4xl\x20text-slate-400\x20mb-6\x20transition-all\x20duration-500\x20group-hover:border-green-400\x20group-hover:text-green-500\x20group-hover:shadow-[0_10px_30px_-10px_rgba(34,197,94,0.5)]\x20group-hover:-translate-y-2\x20relative\x20z-20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-whatsapp-logo\x20transform\x20group-hover:scale-110\x20transition-transform\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20-top-3\x20-right-3\x20w-8\x20h-8\x20bg-slate-50\x20rounded-full\x20flex\x20items-center\x20justify-center\x20text-xs\x20font-bold\x20text-slate-400\x20border\x20border-slate-200\x20group-hover:bg-green-500\x20group-hover:text-white\x20group-hover:border-green-500\x20transition-all\x20shadow-sm\x22>4</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-2xl\x20font-bold\x20text-slate-900\x20mb-3\x20group-hover:text-green-600\x20transition-colors\x22>Confirmación</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-slate-500\x20text-sm\x20leading-relaxed\x20px-4\x20group-hover:text-slate-600\x20transition-colors\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Envía\x20la\x20captura\x20por\x20WhatsApp\x20y\x20tu\x20pedido\x20sale\x20en\x20camino.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-20\x20text-center\x20relative\x20z-10\x20px-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22router.navigate(\x27/shop\x27)\x22\x20class=\x22group\x20bg-slate-900\x20text-white\x20text-lg\x20font-bold\x20px-10\x20py-4\x20rounded-full\x20hover:bg-[#00979D]\x20hover:text-white\x20transition-all\x20duration-300\x20shadow-xl\x20shadow-slate-900/10\x20hover:shadow-[#00979D]/30\x20flex\x20items-center\x20justify-center\x20mx-auto\x20gap-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>Comenzar\x20Ahora</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-bold\x20ph-arrow-right\x20group-hover:translate-x-1\x20transition-transform\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22mt-6\x20text-slate-400\x20text-sm\x20font-medium\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Soporte\x20en\x20tiempo\x20real\x20<a\x20href=\x22https://wa.me/51960436357\x22\x20target=\x22_blank\x22\x20class=\x22text-slate-900\x20hover:text-[#00979D]\x20transition-colors\x20font-bold\x20underline\x20decoration-2\x22>aquí</a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>';}function renderAbout(_0x91452){const _0x32bb98=_0x6e00bc;_0x91452[_0x32bb98(0x379)]=_0x32bb98(0x513);}window[_0x6e00bc(0x493)]=(_0x519228,_0x102ed0)=>{const _0x196694=_0x6e00bc;if(!SERVICES_DATA||!SERVICES_DATA[_0x196694(0x451)])return;const _0x4e593a=SERVICES_DATA[_0x196694(0x451)][_0x519228];if(!_0x4e593a)return;let _0x3fd012=[];if(_0x4e593a[_0x196694(0x2f8)]&&Array[_0x196694(0x575)](_0x4e593a[_0x196694(0x2f8)])&&_0x4e593a[_0x196694(0x2f8)]['length']>0x20*-0xf3+0x1cb8+0x4*0x6a)_0x3fd012=_0x4e593a['images'];else{if(_0x4e593a['image'])_0x3fd012=[_0x4e593a[_0x196694(0x1f8)]];else return;}window[_0x196694(0x309)]=_0x3fd012,window[_0x196694(0x27b)]=_0x102ed0,window[_0x196694(0x241)]&&window[_0x196694(0x241)]['open'](_0x3fd012[_0x102ed0]);};function renderServices(_0x1d9aa7){const _0x4c88cd=_0x6e00bc;if(!SERVICES_DATA||!SERVICES_DATA[_0x4c88cd(0x322)]){_0x1d9aa7[_0x4c88cd(0x379)]=_0x4c88cd(0x5f5);return;}const {pageTitle:_0x1d5655,whatsapp:_0x18267f,items:_0x16b35b}=SERVICES_DATA,_0x16f104=_0x18267f||_0x4c88cd(0x2f2);let _0x4a4a82='';if(_0x16b35b&&Array[_0x4c88cd(0x575)](_0x16b35b)&&_0x16b35b[_0x4c88cd(0x602)]>0x38*0x31+0x12*0x7d+0x2*-0x9c1){const _0x4d9ed2=_0x16b35b[_0x4c88cd(0x4f4)](_0x5c783f=>_0x5c783f[_0x4c88cd(0x4ca)]!==![]);_0x4d9ed2[_0x4c88cd(0x602)]===0x1*0x245c+0x1e5a+-0x2*0x215b?_0x4a4a82=_0x4c88cd(0x4c3):_0x4a4a82=_0x4d9ed2[_0x4c88cd(0x419)]((_0xebf8d,_0x4f806c)=>{const _0x161bfe=_0x4c88cd,_0x278de1=_0x4f806c%(-0x211f+0x210a+-0x1*-0x17)===0x1e3f+-0xd98+-0x57*0x31,_0x595a73=_0xebf8d[_0x161bfe(0x576)]&&_0xebf8d[_0x161bfe(0x576)][_0x161bfe(0x1ae)]()!==''?_0xebf8d['whatsapp']:_0x16f104;let _0x47bbb3='',_0x1ab89e='',_0x4a63e4='',_0x57345a='';if(_0x4f806c%(-0x2*-0xc0b+-0x30e+-0x1505)===0xb5b+-0x1046*-0x1+-0x1ba1)_0x47bbb3=_0x161bfe(0x4af),_0x1ab89e=_0x161bfe(0x584),_0x4a63e4=_0x161bfe(0x1d5),_0x57345a='bg-[#00979D]\x20text-slate-900\x20hover:bg-white';else _0x4f806c%(-0x8ac+0x1623*0x1+-0xd74)===0x40*0x75+-0x1*0x23d5+0x696?(_0x47bbb3=_0x161bfe(0x1a1),_0x1ab89e=_0x161bfe(0x4ac),_0x4a63e4=_0x161bfe(0x3b9),_0x57345a=_0x161bfe(0x3cc)):(_0x47bbb3=_0x161bfe(0x61f),_0x1ab89e=_0x161bfe(0x3b2),_0x4a63e4=_0x161bfe(0x1c0),_0x57345a=_0x161bfe(0x2a1));const _0x2c6868=_0x4f806c===_0x4d9ed2[_0x161bfe(0x602)]-(-0x224f+0x47*-0x6e+-0x40d2*-0x1),_0x7d39ba=_0x2c6868?'':_0x161bfe(0x269),_0x4fd4a6=_0x161bfe(0x185)+(-0x29*0xc1+0x17e6+-0x721*-0x1-_0x4f806c)+']';let _0x454076=[];if(_0xebf8d[_0x161bfe(0x2f8)]&&Array[_0x161bfe(0x575)](_0xebf8d[_0x161bfe(0x2f8)])&&_0xebf8d[_0x161bfe(0x2f8)][_0x161bfe(0x602)]>0x2*-0xecc+-0x1284+0x2*0x180e)_0x454076=_0xebf8d[_0x161bfe(0x2f8)];else _0xebf8d[_0x161bfe(0x1f8)]?_0x454076=[_0xebf8d['image']]:_0x454076=[_0x161bfe(0x213)];const _0x4f1153=_0x161bfe(0x2af)+_0x4f806c,_0x3b40b7=_0x454076['map']((_0x421bc9,_0x1cf147)=>_0x161bfe(0x393)+_0x421bc9+_0x161bfe(0x2e0)+(_0x1cf147===0x2*-0x20a+-0x14ce+0x1c7*0xe?_0x161bfe(0x3ed):'')+'\x20object-cover\x20w-full\x20h-full\x20cursor-zoom-in\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data-index=\x22'+_0x1cf147+'\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onclick=\x22openServiceGallery('+_0x4f806c+',\x20'+_0x1cf147+_0x161bfe(0x420))['join'](''),_0x186212=_0x454076['length']>0x2d*0x86+0x6*-0x5e1+0xbb9?_0x161bfe(0x417)+_0x454076[_0x161bfe(0x419)]((_0x3f0287,_0x3a7ed8)=>'<div\x20class=\x22slider-dot\x20'+(_0x3a7ed8===-0x417*-0x9+-0x119*-0xb+-0x30e2?_0x161bfe(0x3ed):'')+_0x161bfe(0x1e8))[_0x161bfe(0x217)]('')+_0x161bfe(0x43c):'',_0x2e2081=_0x454076[_0x161bfe(0x602)]>-0x1ba2+-0x5*-0x56f+0x8*0xf?'data-autoplay=\x22true\x22':'',_0x70796a=_0x278de1?'lg:order-2':_0x161bfe(0x4a3),_0x2b6483=_0x278de1?_0x161bfe(0x4a3):_0x161bfe(0x15b),_0x2dcaee=(_0x4f806c+(-0x26ab*-0x1+0x1*0x7e2+0x9*-0x52c))[_0x161bfe(0x589)]()[_0x161bfe(0x5be)](0x2*0x1223+0x655*0x4+-0x3d98,'0');return _0x161bfe(0x595)+_0x47bbb3+'\x20'+_0x4fd4a6+'\x20pt-20\x20px-6\x20md:px-12\x22\x20style=\x22'+_0x7d39ba+_0x161bfe(0x4e7)+_0x2b6483+_0x161bfe(0x380)+_0x2dcaee+_0x161bfe(0x31b)+_0x1ab89e+_0x161bfe(0x4d0)+(_0xebf8d[_0x161bfe(0x41a)]||_0x161bfe(0x34e))+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-xl\x20md:text-2xl\x20'+_0x4a63e4+_0x161bfe(0x23c)+(_0xebf8d[_0x161bfe(0x279)]||_0xebf8d['description']||'')+_0x161bfe(0x3c7)+_0x595a73+_0x161bfe(0x1ec)+encodeURIComponent(_0xebf8d[_0x161bfe(0x41a)])+'\x22\x20target=\x22_blank\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class=\x22inline-flex\x20items-center\x20gap-3\x20px-8\x20py-4\x20rounded-xl\x20font-bold\x20transition-all\x20shadow-lg\x20hover:shadow-xl\x20hover:-translate-y-1\x20group/btn\x20'+_0x57345a+_0x161bfe(0x195)+_0x70796a+'\x20reveal-on-scroll\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20bg-[#00979D]\x20blur-3xl\x20opacity-20\x20rounded-full\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20overflow-hidden\x20rounded-[2.5rem]\x20shadow-2xl\x20aspect-[4/3]\x20bg-slate-800\x20service-slider-container\x20border-4\x20border-white/10\x22\x20id=\x22'+_0x4f1153+'\x22\x20'+_0x2e2081+'>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x3b40b7+_0x161bfe(0x1ca)+_0x186212+_0x161bfe(0x2d1)+_0x2dcaee+_0x161bfe(0x236)+(_0x2c6868?_0x161bfe(0x150):'')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20';})[_0x4c88cd(0x217)]('');}else _0x4a4a82='<div\x20class=\x22text-center\x20py-20\x20text-slate-400\x22>No\x20hay\x20servicios\x20registrados\x20aún.</div>';_0x1d9aa7[_0x4c88cd(0x379)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20<link\x20href=\x22https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap\x22\x20rel=\x22stylesheet\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20bg-slate-900\x20min-h-screen\x20font-sans\x20overflow-x-hidden\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20pt-32\x20pb-32\x20px-6\x20overflow-hidden\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20inset-0\x20opacity-20\x20pointer-events-none\x22\x20style=\x22background-image:\x20radial-gradient(#00979D\x201px,\x20transparent\x201px);\x20background-size:\x2040px\x2040px;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22absolute\x20top-0\x20right-0\x20w-[500px]\x20h-[500px]\x20bg-[#00979D]\x20rounded-full\x20blur-[120px]\x20opacity-20\x20mix-blend-screen\x20pointer-events-none\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22max-w-5xl\x20mx-auto\x20text-center\x20relative\x20z-10\x20fade-in\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-[#00979D]\x20font-bold\x20tracking-[0.3em]\x20text-xs\x20uppercase\x20mb-6\x20animate-pulse\x20bg-slate-800/50\x20inline-block\x20px-4\x20py-1\x20rounded-full\x20border\x20border-slate-700\x22>Soluciones\x20Profesionales</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1\x20class=\x22text-5xl\x20md:text-7xl\x20lg:text-8xl\x20font-black\x20text-white\x20tracking-tighter\x20mb-8\x20leading-[0.9]\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x1d5655||_0x4c88cd(0x454))+_0x4c88cd(0x36c)+_0x4a4a82+_0x4c88cd(0x3e8),window['scrollTo'](-0x254b*0x1+0x3*0xb77+0x173*0x2,0x20e9+0x176d+-0x3856),setTimeout(()=>{const _0x493a5d=_0x4c88cd;if(window[_0x493a5d(0x303)])window['initScrollAnimations']();if(window[_0x493a5d(0x2fc)])window[_0x493a5d(0x2fc)]();},0xacd*0x1+0xc4d+-0x1*0x16b6);}window[_0x6e00bc(0x2fc)]=()=>{const _0x354776=_0x6e00bc,_0x20f5a1=document[_0x354776(0x1f7)](_0x354776(0x316));_0x20f5a1[_0x354776(0x16c)](_0x3c1899=>{const _0x217561=_0x354776;let _0x149fa4=-0x1ae0+0x184e+0x292;const _0x5a4295=_0x3c1899['querySelectorAll'](_0x217561(0x3ec)),_0x58d605=_0x3c1899['querySelectorAll']('.slider-dot'),_0x35560c=_0x5a4295[_0x217561(0x602)];if(_0x3c1899[_0x217561(0x365)][_0x217561(0x26e)])clearInterval(_0x3c1899['dataset'][_0x217561(0x26e)]);const _0x5ab131=()=>{const _0x429f1a=_0x217561;_0x5a4295[_0x149fa4][_0x429f1a(0x233)]['remove'](_0x429f1a(0x3ed));if(_0x58d605[_0x149fa4])_0x58d605[_0x149fa4][_0x429f1a(0x233)][_0x429f1a(0x22d)](_0x429f1a(0x3ed));_0x149fa4=(_0x149fa4+(-0x2*0x9c4+-0x19f*0x11+0x2f18))%_0x35560c,_0x5a4295[_0x149fa4][_0x429f1a(0x233)][_0x429f1a(0x561)]('active');if(_0x58d605[_0x149fa4])_0x58d605[_0x149fa4][_0x429f1a(0x233)][_0x429f1a(0x561)](_0x429f1a(0x3ed));},_0x18d4c7=setInterval(_0x5ab131,-0x2349+0x267b*-0x1+0x1dcc*0x3);_0x3c1899[_0x217561(0x365)][_0x217561(0x26e)]=_0x18d4c7;});},window[_0x6e00bc(0x2c6)]=()=>{const _0x4cea25=_0x6e00bc,_0x3b14dd={};_0x3b14dd[_0x4cea25(0x41a)]='',_0x3b14dd[_0x4cea25(0x34f)]=_0x4cea25(0x28a),_0x3b14dd[_0x4cea25(0x424)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-left\x20font-sans\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-2xl\x20font-black\x20text-slate-900\x20mb-6\x20text-center\x22>Términos\x20del\x20Servicio</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22space-y-6\x20text-sm\x20text-slate-600\x20max-h-[60vh]\x20overflow-y-auto\x20pr-2\x20custom-scrollbar\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-cyan-50\x20p-4\x20rounded-xl\x20border\x20border-yellow-200\x20text-yellow-800\x20text-xs\x20font-bold\x20mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ph-fill\x20ph-info\x22></i>\x20Última\x20actualización\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<section>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22font-bold\x20text-slate-900\x20text-base\x20mb-2\x22>1.\x20Generalidades</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Bienvenido\x20a\x20<strong>2MTechPerú</strong>.\x20Al\x20realizar\x20una\x20compra\x20con\x20nosotros,\x20aceptas\x20estos\x20términos.\x20Nos\x20especializamos\x20en\x20la\x20venta\x20de\x20hardware,\x20componentes\x20y\x20gadgets\x20tecnológicos\x20con\x20garantía\x20oficial.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</section>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<section>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22font-bold\x20text-slate-900\x20text-base\x20mb-2\x22>2.\x20Proceso\x20de\x20Compra\x20y\x20Pagos</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul\x20class=\x22list-disc\x20ml-4\x20space-y-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Todos\x20los\x20pedidos\x20realizados\x20en\x20la\x20web\x20están\x20sujetos\x20a\x20<strong>validación\x20de\x20stock</strong>\x20y\x20pago.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Aceptamos\x20Yape,\x20Plin\x20y\x20Transferencias\x20Bancarias.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Una\x20vez\x20generado\x20el\x20pedido,\x20tienes\x20un\x20plazo\x20máximo\x20de\x20<strong>30\x20minutos</strong>\x20para\x20enviar\x20la\x20constancia\x20de\x20pago\x20vía\x20WhatsApp.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</section>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<section>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22font-bold\x20text-slate-900\x20text-base\x20mb-2\x22>3.\x20Envíos\x20y\x20Entregas</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22mb-2\x22>Realizamos\x20envíos\x20a\x20todo\x20el\x20Perú\x20mediante\x20Olva\x20Courier,\x20Shalom\x20o\x20motorizado\x20privado\x20(solo\x20Huánuco).</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul\x20class=\x22list-disc\x20ml-4\x20space-y-1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li><strong>Huánuco:</strong>\x20Entrega\x20en\x2024\x20a\x2048\x20horas\x20hábiles.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li><strong>Provincias:</strong>\x20Entrega\x20entre\x202\x20a\x204\x20días\x20hábiles\x20dependiendo\x20del\x20destino.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>2MTechPerú\x20no\x20se\x20responsabiliza\x20por\x20demoras\x20ocasionadas\x20por\x20la\x20empresa\x20de\x20transporte\x20(huelgas,\x20desastres\x20naturales,\x20etc.),\x20pero\x20brindaremos\x20soporte\x20para\x20el\x20seguimiento.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</section>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<section>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22font-bold\x20text-slate-900\x20text-base\x20mb-2\x22>4.\x20Política\x20de\x20Garantía\x20(IMPORTANTE)</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22mb-2\x22>Todos\x20nuestros\x20productos\x20cuentan\x20con\x20<strong>12\x20meses\x20de\x20garantía</strong>\x20por\x20defectos\x20de\x20fábrica.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-slate-100\x20p-3\x20rounded-lg\x20border\x20border-slate-200\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<strong>La\x20garantía\x20NO\x20cubre:</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul\x20class=\x22list-disc\x20ml-4\x20mt-1\x20text-xs\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Daños\x20físicos\x20(golpes,\x20caídas,\x20quiñes).</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Daños\x20por\x20líquidos\x20o\x20humedad.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Manipulación\x20indebida\x20de\x20hardware\x20(pines\x20doblados).</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Sobrecargas\x20eléctricas\x20o\x20uso\x20de\x20fuentes\x20de\x20poder\x20genéricas\x20inadecuadas.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</section>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<section>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22font-bold\x20text-slate-900\x20text-base\x20mb-2\x22>5.\x20Cambios\x20y\x20Devoluciones</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Solo\x20se\x20aceptan\x20cambios\x20dentro\x20de\x20los\x20primeros\x207\x20días\x20calendario\x20si\x20el\x20producto\x20presenta\x20fallas\x20de\x20fábrica\x20confirmadas\x20por\x20nuestro\x20servicio\x20técnico.\x20El\x20producto\x20debe\x20estar\x20con\x20su\x20caja\x20y\x20accesorios\x20originales\x20en\x20perfecto\x20estado.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22mt-2\x20text-xs\x20italic\x22>*No\x20realizamos\x20devoluciones\x20de\x20dinero\x20por\x20\x22arrepentimiento\x20de\x20compra\x22\x20una\x20vez\x20abierto\x20el\x20producto,\x20debido\x20a\x20la\x20naturaleza\x20de\x20los\x20componentes\x20tecnológicos.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</section>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<section>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22font-bold\x20text-slate-900\x20text-base\x20mb-2\x22>6.\x20Privacidad\x20de\x20Datos</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Tus\x20datos\x20personales\x20(Nombre,\x20DNI,\x20Dirección)\x20son\x20utilizados\x20únicamente\x20para\x20procesar\x20el\x20envío\x20y\x20emitir\x20tu\x20comprobante\x20de\x20pago.\x20No\x20compartimos\x20tu\x20información\x20con\x20terceros\x20ajenos\x20a\x20la\x20logística\x20de\x20entrega.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</section>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20',_0x3b14dd['showCloseButton']=!![],_0x3b14dd['showConfirmButton']=!![],_0x3b14dd['confirmButtonText']=_0x4cea25(0x24e),_0x3b14dd[_0x4cea25(0x618)]='#0f172a',_0x3b14dd[_0x4cea25(0x4d2)]=![],_0x3b14dd[_0x4cea25(0x46e)]=_0x4cea25(0x4a9),_0x3b14dd[_0x4cea25(0x1aa)]=_0x4cea25(0x610),Swal[_0x4cea25(0x48f)](_0x3b14dd);},window['handleContactSubmit']=_0x232735=>{const _0x5a94ab=_0x6e00bc;_0x232735['preventDefault']();const _0x28eaf9=document[_0x5a94ab(0x20b)]('contact-name')[_0x5a94ab(0x2a4)][_0x5a94ab(0x1ae)](),_0x1c2864=document[_0x5a94ab(0x20b)](_0x5a94ab(0x53f))[_0x5a94ab(0x2a4)],_0x5b59a8=document[_0x5a94ab(0x20b)]('contact-msg')[_0x5a94ab(0x2a4)][_0x5a94ab(0x1ae)]();if(!_0x28eaf9||!_0x5b59a8)return Swal['fire'](_0x5a94ab(0x3e5),'Por\x20favor\x20completa\x20tu\x20nombre\x20y\x20mensaje.',_0x5a94ab(0x587));const _0x3856b5=_0x5a94ab(0x601)+_0x28eaf9+_0x5a94ab(0x568)+(_0x5a94ab(0x28d)+_0x1c2864+'\x0a')+(_0x5a94ab(0x3d5)+_0x5b59a8+'\x0a\x0a')+'Espero\x20su\x20respuesta.',_0x5dddce=_0x5a94ab(0x2f2),_0x206255=_0x5a94ab(0x174)+_0x5dddce+_0x5a94ab(0x4e4)+encodeURIComponent(_0x3856b5);window[_0x5a94ab(0x295)](_0x206255,_0x5a94ab(0x240));const _0x42ebba={};_0x42ebba[_0x5a94ab(0x598)]=_0x5a94ab(0x5eb),_0x42ebba['title']=_0x5a94ab(0x543),_0x42ebba[_0x5a94ab(0x57b)]=_0x5a94ab(0x38b),_0x42ebba[_0x5a94ab(0x483)]=0x7d0,_0x42ebba['showConfirmButton']=![],Swal[_0x5a94ab(0x48f)](_0x42ebba),document[_0x5a94ab(0x20b)](_0x5a94ab(0x4b8))[_0x5a94ab(0x2a4)]='',document[_0x5a94ab(0x20b)](_0x5a94ab(0x3f2))[_0x5a94ab(0x2a4)]='';},document['addEventListener'](_0x6e00bc(0x37c),()=>{const _0x182225=_0x6e00bc,_0x3dce03=[_0x182225(0x176),'👋\x20¿En\x20qué\x20podemos\x20ayudarte?',_0x182225(0x471)];let _0x295317=-0x1*-0x24ca+0x1177+-0x3641;const _0x14d115=document[_0x182225(0x20b)](_0x182225(0x336)),_0xfe0d26=document['getElementById'](_0x182225(0x4e2)),_0x32acf1=()=>{const _0x1b3312=_0x182225;if(!_0x14d115||!_0xfe0d26)return;_0xfe0d26['innerText']=_0x3dce03[_0x295317],_0x14d115[_0x1b3312(0x233)][_0x1b3312(0x22d)](_0x1b3312(0x222),_0x1b3312(0x2b7)),setTimeout(()=>{const _0x2d213a=_0x1b3312;_0x14d115[_0x2d213a(0x233)][_0x2d213a(0x561)]('opacity-0','translate-x-4'),_0x295317=(_0x295317+(-0x1da6+0x222f+0x5*-0xe8))%_0x3dce03[_0x2d213a(0x602)];},-0x1918+0x1*-0x202f+0x4ccf);};setTimeout(()=>{_0x32acf1(),setInterval(_0x32acf1,-0x2c54a+-0x2cdde+0x504*0x17a);},0x8*-0x41+-0x1559+0x2319);});let lastScrollTop=-0x1*-0x8d1+-0x19f7+-0x1126*-0x1;const mainHeader=document[_0x6e00bc(0x20b)](_0x6e00bc(0x351));window['addEventListener'](_0x6e00bc(0x305),function(){const _0x4ad0a9=_0x6e00bc;let _0x5e6924=window[_0x4ad0a9(0x590)]||document[_0x4ad0a9(0x253)][_0x4ad0a9(0x29a)];_0x5e6924>lastScrollTop&&_0x5e6924>-0x7fb+-0x6*0x187+0x1189?mainHeader[_0x4ad0a9(0x233)]['add'](_0x4ad0a9(0x324)):mainHeader[_0x4ad0a9(0x233)]['remove']('-translate-y-full'),lastScrollTop=_0x5e6924<=-0x1264+0x514+0xd50?0x8e1+0x26*0xbf+-0x253b:_0x5e6924;},![]);const scrollBtn=document['getElementById'](_0x6e00bc(0x4a6));window[_0x6e00bc(0x491)](_0x6e00bc(0x305),()=>{const _0x172c05=_0x6e00bc;window[_0x172c05(0x225)]>0xcc0+-0x15b*-0x6+-0x1*0x1352?scrollBtn['classList'][_0x172c05(0x22d)](_0x172c05(0x222),'invisible',_0x172c05(0x28c)):scrollBtn['classList']['add'](_0x172c05(0x222),_0x172c05(0x54d),'translate-y-10');}),document[_0x6e00bc(0x491)](_0x6e00bc(0x57d),function(_0x46ebec){const _0x2166f9=_0x6e00bc;if(_0x46ebec[_0x2166f9(0x41e)][_0x2166f9(0x229)]==='IMG')return _0x46ebec['preventDefault'](),![];},![]),document[_0x6e00bc(0x491)](_0x6e00bc(0x1ed),function(_0x48612f){const _0x58321f=_0x6e00bc;if(_0x48612f[_0x58321f(0x41e)]['tagName']==='IMG')return _0x48612f[_0x58321f(0x1cb)](),![];},![]),document['addEventListener'](_0x6e00bc(0x609),function(_0x1c18fa){const _0x3587e2=_0x6e00bc;if(_0x1c18fa['key']===_0x3587e2(0x1b4))return _0x1c18fa[_0x3587e2(0x1cb)](),![];if(_0x1c18fa[_0x3587e2(0x159)]&&_0x1c18fa['shiftKey']&&_0x1c18fa[_0x3587e2(0x321)]==='I')return _0x1c18fa[_0x3587e2(0x1cb)](),![];if(_0x1c18fa['ctrlKey']&&_0x1c18fa[_0x3587e2(0x5bc)]&&_0x1c18fa[_0x3587e2(0x321)]==='J')return _0x1c18fa['preventDefault'](),![];if(_0x1c18fa[_0x3587e2(0x159)]&&_0x1c18fa[_0x3587e2(0x5bc)]&&_0x1c18fa[_0x3587e2(0x321)]==='C')return _0x1c18fa[_0x3587e2(0x1cb)](),![];if(_0x1c18fa['ctrlKey']&&_0x1c18fa[_0x3587e2(0x321)]==='U')return _0x1c18fa[_0x3587e2(0x1cb)](),![];}),(function(){const _0x4ad660=function(){function _0x3971f0(){const _0x459af0=_0x32b0;try{(function(){}[_0x459af0(0x42a)](_0x459af0(0x298))());}catch(_0x2b8d9e){}}setInterval(_0x3971f0,0x1*-0x434+0x1085*-0x1+-0x5*-0x439);};_0x4ad660();}()),setInterval(function(){const _0x294d44=_0x6e00bc;console[_0x294d44(0x288)](),console['log'](_0x294d44(0x2de),_0x294d44(0x247),'color:\x20black;\x20font-size:\x2014px;');},0x18*-0x21+0xd0f*-0x1+0x140f);function _0x33d0d7(_0x31b400){function _0x1ff937(_0x148bb6){const _0x4a6044=_0x32b0;if(typeof _0x148bb6===_0x4a6044(0x571))return function(_0x332f8c){}[_0x4a6044(0x42a)](_0x4a6044(0x467))[_0x4a6044(0x1bb)]('counter');else(''+_0x148bb6/_0x148bb6)['length']!==-0x68*-0x1f+0x2111+-0x2*0x16d4||_0x148bb6%(-0x1edd*0x1+-0x107d+-0x1*-0x2f6e)===-0xde1+-0x14ee+0x22cf?function(){return!![];}[_0x4a6044(0x42a)](_0x4a6044(0x2fa)+_0x4a6044(0x45f))[_0x4a6044(0x14d)](_0x4a6044(0x52c)):function(){return![];}['constructor'](_0x4a6044(0x2fa)+_0x4a6044(0x45f))[_0x4a6044(0x1bb)]('stateObject');_0x1ff937(++_0x148bb6);}try{if(_0x31b400)return _0x1ff937;else _0x1ff937(0x16e7+0x16*0xc1+0x1*-0x277d);}catch(_0x30de25){}}
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signOut, updateProfile } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getDatabase, ref, set, get, push, remove, onValue, update, runTransaction } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+        
+        window.firebaseModules = { initializeApp, getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signOut, updateProfile, getDatabase, ref, set, get, push, remove, onValue, update,runTransaction };
+   
+   
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCO1IIYJ8T2ksWDnu_DisIZ0KXkhn2gh3w",
+  authDomain: "data-client-3-2be69.firebaseapp.com",
+  databaseURL: "https://data-client-3-2be69-default-rtdb.firebaseio.com",
+  projectId: "data-client-3-2be69",
+  storageBucket: "data-client-3-2be69.firebasestorage.app",
+  messagingSenderId: "953517130591",
+  appId: "1:953517130591:web:e31f9755daaa255c92ecea",
+  measurementId: "G-Z1ZES6C86S"
+};
+        
+        let app;
+        try { app = initializeApp(firebaseConfig); } catch(e){ app = firebase.app(); }
+        const auth = getAuth(app);
+        const db = getDatabase(app);
+
+        let PRODUCTS = []; 
+        let CATEGORIES = [];
+        let BANNER_DATA = null;
+        let VACATION_SETTINGS = null; // <--- AGREGAR ESTO
+        let bannerInterval = null;
+        let POPUP_LINK = '';
+        let SERVICES_DATA = null;
+
+// --- PEGA ESTO EN SU LUGAR ---
+
+
+// LISTENER DE SERVICIOS (ACTUALIZADO)
+onValue(ref(db, 'content/services_page'), (snapshot) => {
+    if (snapshot.exists()) {
+        const data = snapshot.val();
+        SERVICES_DATA = data; // Actualizamos variable global
+
+        // Lógica para mostrar/ocultar menú (igual que antes)
+        const desktopMenu = document.getElementById('menu-item-services');
+        const mobileMenu = document.getElementById('mobile-link-services');
+        
+        if (data.enabled) {
+            if(desktopMenu) desktopMenu.classList.remove('hidden');
+            if(mobileMenu) mobileMenu.classList.remove('hidden', 'flex');
+            if(mobileMenu) mobileMenu.classList.add('flex');
+        } else {
+            if(desktopMenu) desktopMenu.classList.add('hidden');
+            if(mobileMenu) mobileMenu.classList.add('hidden');
+            
+            // Redirección si está deshabilitado y el usuario está ahí
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('page') === 'services') router.navigate('/');
+        }
+        
+        // Refrescar si estamos en la página
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('page') === 'services') {
+            router.handle(false);
+        }
+    }
+});
+
+        // CARGA SEGURA DE PRODUCTOS
+        onValue(ref(db, 'products'), (snapshot) => {
+            if (snapshot.exists()) {
+                const allData = Object.values(snapshot.val());
+                
+                // PROTECCIÓN TOTAL:
+                // 1. (p && p.id && p.name) -> Evita que productos vacíos rompan la página (Igual que en tu Admin)
+                // 2. (p.isVisible !== false) -> Respeta tu botón de ocultar/mostrar
+                PRODUCTS = allData.filter(p => p && p.id && p.name && p.isVisible !== false);
+                
+                // Forzar actualización de la vista actual
+                router.handle(false); // false para no scrollear arriba cada vez que alguien compra algo
+            } else { 
+                PRODUCTS = []; 
+                router.handle(false); 
+            }
+        });
+
+        // CARGA SEGURA DE CATEGORÍAS (Con auto-refresco del menú)
+        onValue(ref(db, 'categories'), (snapshot) => {
+            if (snapshot.exists()) {
+                const rawCats = Object.values(snapshot.val());
+                
+                // Ordenar: Primero fijadas, luego alfabético
+                CATEGORIES = rawCats.filter(c => c && c.name).sort((a, b) => {
+                    if (a.isPinned && !b.isPinned) return -1;
+                    if (!a.isPinned && b.isPinned) return 1;
+                    return a.name.localeCompare(b.name);
+                });
+                
+                // MÁGIA: Si el Mega Menú ya se dibujó, lo obligamos a repintarse
+                if(window.megaMenuManager && typeof window.megaMenuManager.refresh === 'function') {
+                    window.megaMenuManager.refresh();
+                }
+                
+                router.handle(false);
+            } else { 
+                CATEGORIES = []; 
+                if(window.megaMenuManager && typeof window.megaMenuManager.refresh === 'function') {
+                    window.megaMenuManager.refresh();
+                }
+                router.handle(false); 
+            }
+        });
+
+
+// --- LISTENER DE POPUP PUBLICITARIO (ADAPTADO CON TEXTOS) ---
+onValue(ref(db, 'settings/popup_ad'), (snapshot) => {
+    if (snapshot.exists()) {
+        const data = snapshot.val();
+        
+        // 1. Verificar si está activo y tiene imagen
+        if (!data.isActive || !data.image) return;
+
+        // 2. Verificar fechas
+        const now = new Date();
+        now.setHours(0,0,0,0);
+        
+        // Convertir strings YYYY-MM-DD a objetos Date
+        const startParts = data.startDate.split('-');
+        const endParts = data.endDate.split('-');
+        const startDate = new Date(startParts[0], startParts[1] - 1, startParts[2]);
+        const endDate = new Date(endParts[0], endParts[1] - 1, endParts[2]);
+
+        if (now >= startDate && now <= endDate) {
+            
+            // 3. RETRASO INTELIGENTE (2.5 segundos)
+            setTimeout(() => {
+                // AQUÍ ESTÁ EL CAMBIO: Pasamos también title, message y btnText
+                window.showAdPopup(
+                    data.image, 
+                    data.link, 
+                    data.title, 
+                    data.message, 
+                    data.btnText
+                );
+            }, 2500); 
+            
+        }
+    }
+});
+
+
+onValue(ref(db, 'categories'), (snapshot) => {
+    if (snapshot.exists()) {
+        const rawCats = Object.values(snapshot.val());
+        
+        CATEGORIES = rawCats.sort((a, b) => {
+            if (a.isPinned && !b.isPinned) return -1;
+            if (!a.isPinned && b.isPinned) return 1;
+            return a.name.localeCompare(b.name);
+        });
+        
+        // --- ESTA ES LA LÍNEA MÁGICA ---
+        // Si el Mega Menú ya existe, le obligamos a actualizarse al instante
+        if(window.megaMenuManager && typeof window.megaMenuManager.refresh === 'function') {
+            window.megaMenuManager.refresh();
+        }
+        // -------------------------------
+        
+        router.handle();
+    } else { 
+        CATEGORIES = []; 
+        
+        // También actualizamos si se borraron todas las categorías
+        if(window.megaMenuManager && typeof window.megaMenuManager.refresh === 'function') {
+            window.megaMenuManager.refresh();
+        }
+
+        router.handle(); 
+    }
+});
+        
+
+// AGREGAR ESTE NUEVO onValue:
+        onValue(ref(db, 'settings/vacation_mode'), (snapshot) => {
+            if (snapshot.exists()) {
+                VACATION_SETTINGS = snapshot.val();
+                checkVacationPopup(); // Verificar si mostramos el popup al cargar o cambiar datos
+            } else {
+                VACATION_SETTINGS = null;
+            }
+        });
+
+
+        onValue(ref(db, 'home_banner'), (snapshot) => {
+            if (snapshot.exists()) {
+                BANNER_DATA = snapshot.val();
+                const params = new URLSearchParams(window.location.search);
+                const currentPage = params.get('page') || 'home';
+                if(currentPage === 'home') {
+                    const app = document.getElementById('app');
+                    renderHome(app);
+                }
+            }
+        });
+
+        const FAQS = [
+            { q: "¿Realizan envíos a provincias?", a: "Sí, realizamos envíos a todo el Perú a través de Olva Courier y Shalom. El tiempo estimado es de 2 a 4 días hábiles." },
+            { q: "¿Los productos tienen garantía?", a: "Todos nuestros productos cuentan con 12 meses de garantía oficial de marca por defectos de fábrica." },
+            { q: "¿Tienen tienda física?", a: "Actualmente somos una tienda 100% online para ofrecerte los mejores precios, pero contamos con almacén en Huánuco para retiros." },
+            { q: "¿Qué medios de pago aceptan?", a: "Aceptamos todas las tarjetas de crédito/débito, Yape, Plin y Transferencia Bancaria." }
+        ];
+
+        const state = { 
+            cart: JSON.parse(localStorage.getItem('techPerú_cart')) || [], 
+            user: null,
+            favorites: new Set(), 
+            orders: [],
+            points: 0,
+            wallet: 0
+        };
+
+
+// --- LÓGICA DE VACACIONES (SIEMPRE VISIBLE AL RECARGAR) ---
+
+        // Función 1: Determina si HOY la tienda está cerrada (bloqueo real)
+        window.isVacationActive = () => {
+            if (!VACATION_SETTINGS || !VACATION_SETTINGS.isActive) return false;
+            
+            const now = new Date();
+            now.setHours(0,0,0,0); // Normalizamos hoy a las 00:00
+
+            const startParts = VACATION_SETTINGS.startDate.split('-');
+            const endParts = VACATION_SETTINGS.endDate.split('-');
+            
+            const startDate = new Date(startParts[0], startParts[1] - 1, startParts[2]);
+            const endDate = new Date(endParts[0], endParts[1] - 1, endParts[2]);
+            
+            // Si hoy está DENTRO del rango de vacaciones
+            return now >= startDate && now <= endDate;
+        };
+
+        // Función 2: Muestra Popup de Bloqueo O Aviso de Anticipación
+        window.checkVacationPopup = () => {
+            if (!VACATION_SETTINGS || !VACATION_SETTINGS.isActive) return;
+
+            const now = new Date();
+            now.setHours(0,0,0,0);
+
+            const startParts = VACATION_SETTINGS.startDate.split('-');
+            const endParts = VACATION_SETTINGS.endDate.split('-');
+            
+            const startDate = new Date(startParts[0], startParts[1] - 1, startParts[2]);
+            const endDate = new Date(endParts[0], endParts[1] - 1, endParts[2]);
+
+            // Calculamos la diferencia en días
+            const diffTime = startDate - now;
+            const daysUntilStart = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            // ESCENARIO A: ESTAMOS EN VACACIONES (BLOQUEO TOTAL)
+            if (now >= startDate && now <= endDate) {
+                Swal.fire({
+                    title: '🛑 Aviso Importante',
+                    html: `<div class="text-center">
+                            <i class="ph-fill ph-calendar-x text-5xl text-orange-500 mb-3"></i>
+                            <p class="text-lg font-bold text-slate-700">${VACATION_SETTINGS.message}</p>
+                            <p class="text-sm text-slate-500 mt-2">No procesaremos pedidos hasta el <b>${new Date(endDate).toLocaleDateString()}</b>.</p>
+                           </div>`,
+                    icon: 'warning',
+                    confirmButtonText: 'Entendido',
+                    confirmButtonColor: '#0f172a',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    backdrop: `rgba(0,0,123,0.4)`
+                });
+            }
+            // ESCENARIO B: FALTAN 5 DÍAS O MENOS (AVISO PREVIO - SIEMPRE VISIBLE)
+            else if (daysUntilStart > 0 && daysUntilStart <= 5) {
+                // AQUÍ QUITAMOS EL IF DE SESSIONSTORAGE PARA QUE SALGA SIEMPRE
+                Swal.fire({
+                    title: '⚠️ Aviso de Vacaciones',
+                    html: `<div class="text-left">
+                            <p class="text-sm font-bold text-slate-700 mb-2">¡Anticipa tus compras!</p>
+                            <p class="text-xs text-slate-600">Nuestra tienda entrará en pausa por vacaciones en <b>${daysUntilStart} día(s)</b>.</p>
+                            <ul class="text-xs text-slate-500 mt-2 list-disc ml-4">
+                                <li>Desde: <b>${startDate.toLocaleDateString()}</b></li>
+                                <li>Hasta: <b>${endDate.toLocaleDateString()}</b></li>
+                            </ul>
+                            <p class="text-xs font-bold text-green-600 mt-2">✅ Aún puedes comprar hoy con normalidad.</p>
+                           </div>`,
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    timer: 10000, // Se va solo en 10 segundos
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                });
+            }
+        };
+
+
+        window.uiManager = {
+            toggleMobileMenu: () => {
+                const menu = document.getElementById('mobile-menu');
+                const panel = document.getElementById('mobile-menu-panel');
+                if (menu.classList.contains('hidden')) {
+                    menu.classList.remove('hidden');
+                    setTimeout(() => panel.classList.remove('-translate-x-full'), 10);
+                } else {
+                    panel.classList.add('-translate-x-full');
+                    setTimeout(() => menu.classList.add('hidden'), 300);
+                }
+            },
+            mobileNavigate: (path, params) => {
+                uiManager.toggleMobileMenu();
+                router.navigate(path, params);
+            }
+        };
+
+
+window.userActions = {
+            handleProfileClick: () => {
+                if (state.user) router.navigate('/profile');
+                else router.navigate('/login');
+            },
+
+
+// AGREGA ESTA NUEVA FUNCIÓN:
+    handleAuthClick: () => {
+        if (state.user) {
+            router.navigate('/profile'); // Si ya ingresó, va al perfil
+        } else {
+            router.navigate('/login');   // Si no, va al login
+        }
+    },
+
+            toggleFavorite: async (productId) => {
+                if (!state.user) return Swal.fire('Inicia sesión', 'Debes ingresar para guardar favoritos', 'info');
+                const dbRef = ref(db, `users/${state.user.uid}/favorites/${productId}`);
+                if (state.favorites.has(productId)) {
+                    await remove(dbRef);
+                    Swal.fire({icon: 'success', title: 'Eliminado de favoritos', toast: true, position: 'bottom-end', timer: 1000, showConfirmButton: false});
+                } else {
+                    await set(dbRef, true);
+                    Swal.fire({icon: 'success', title: 'Añadido a favoritos', toast: true, position: 'bottom-end', timer: 1000, showConfirmButton: false});
+                }
+            },
+            redeemPoints: async () => {
+                if (state.points < 100) return Swal.fire('Faltan Puntos', 'Necesitas mínimo 100 puntos para canjear.', 'info');
+                
+                const result = await Swal.fire({
+                    title: '¿Canjear Puntos?',
+                    text: "Canjea 100 Puntos por S/ 10.00 de saldo en tu monedero.",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Sí, canjear',
+                    confirmButtonColor: '#fbbf24', 
+                    cancelButtonText: 'Cancelar'
+                });
+
+                if (result.isConfirmed) {
+                    try {
+                        Swal.showLoading();
+                        const cost = 100;
+                        const reward = 10; 
+                        
+                        const newPoints = state.points - cost;
+                        const newWallet = state.wallet + reward;
+
+                        const updates = {};
+                        updates[`users/${state.user.uid}/points`] = newPoints;
+                        updates[`users/${state.user.uid}/wallet`] = newWallet;
+
+                        await update(ref(db), updates);
+                        Swal.fire('¡Canje Exitoso!', `Tienes S/ ${reward}.00 más en tu monedero.`, 'success');
+                    } catch(e) {
+                        console.error(e);
+                        Swal.fire('Error', 'No se pudo procesar el canje.', 'error');
+                    }
+                }
+            },
+
+downloadVoucher: (oid) => {
+                // Buscamos el pedido en el historial cargado
+                const order = state.orders.find(o => o.id === oid);
+                if(order) {
+                    checkoutManager.downloadPDF(order);
+                } else {
+                    Swal.fire('Error', 'No se encontraron los datos del pedido.', 'error');
+                }
+            },
+
+
+checkout: () => {
+                // --- BLOQUEO POR VACACIONES (Esto se queda igual) ---
+                if (isVacationActive()) {
+                    cartManager.toggleCart(); 
+                    return Swal.fire({
+                        title: 'Compras Pausadas',
+                        html: `<div class="text-center">
+                                <i class="ph-fill ph-calendar-x text-5xl text-orange-500 mb-3"></i>
+                                <p class="font-bold text-lg mb-2">No estamos atendiendo pedidos temporalmente.</p>
+                                <p class="bg-orange-50 p-3 rounded-lg border border-orange-100 text-orange-800 text-sm">${VACATION_SETTINGS.message}</p>
+                                <p class="text-xs text-slate-400 mt-3">Podrás comprar nuevamente a partir del <b>${new Date(VACATION_SETTINGS.endDate).toLocaleDateString()}</b>.</p>
+                               </div>`,
+                        confirmButtonText: 'Entendido',
+                        confirmButtonColor: '#0f172a'
+                    });
+                }
+                // ------------------------------
+
+                if (state.cart.length === 0) return Swal.fire('Carrito Vacío', 'Agrega productos antes de pagar.', 'warning');
+                
+                // VALIDACIÓN DE LOGIN
+                if (!state.user) {
+                    cartManager.toggleCart();
+                    Swal.fire({ title: 'Inicia sesión', text: 'Necesitamos tus datos para el pedido.', icon: 'info', confirmButtonText: 'Ir a Login', confirmButtonColor: '#0f172a' }).then(() => router.navigate('/login'));
+                    return;
+                }
+
+                // --- AQUÍ ESTÁ EL CAMBIO PARA LA TRANSICIÓN ELEGANTE ---
+                
+                // 1. Primero cerramos el carrito (empieza la animación de salida)
+                cartManager.toggleCart(); 
+                
+                // 2. Esperamos 300ms (el carrito ya se habrá movido un poco hacia afuera)
+                // y entonces hacemos entrar el Checkout. Esto evita el golpe brusco.
+                setTimeout(() => {
+                    checkoutManager.open();   
+                }, 300);
+            },
+
+showOrderDetails: (orderId) => {
+                const order = state.orders.find(o => o.id === orderId);
+                if (!order) return Swal.fire('Error', 'No se encontraron los datos del pedido.', 'error');
+
+                const modal = document.getElementById('order-details-modal');
+                const panel = document.getElementById('order-details-panel');
+                const content = document.getElementById('order-details-content');
+                
+                // Verificar que el HTML del modal existe
+                if(!modal || !panel || !content) return console.error("Falta el HTML del modal");
+
+                document.getElementById('od-modal-id').innerText = `Pedido #${order.id.slice(-6)}`;
+
+                // 1. Generar lista de productos (CON VARIANTES Y BOTÓN DE RESEÑA)
+                const isApproved = order.status === 'Aprobado';
+                
+                const itemsHTML = (order.items || []).map(i => {
+                    // --- AQUI ESTÁ LA MEJORA: DETECTAR VARIANTE ---
+                    let variantInfo = '';
+                    if (i.selectedResistance) {
+                        variantInfo = `<div class="mt-1 text-[10px] font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded border border-orange-100 w-fit flex items-center gap-1"><i class="ph-bold ph-lightning"></i> Resistencia: ${i.selectedResistance}</div>`;
+                    } else if (i.selectedColor) {
+                        variantInfo = `<div class="mt-1 text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100 w-fit flex items-center gap-1"><i class="ph-fill ph-palette"></i> Color: ${i.selectedColor}</div>`;
+                    }
+                    // ---------------------------------------------
+
+                    // Botón de reseña solo si está aprobado
+                    const reviewBtn = isApproved 
+                        ? `<button onclick="router.navigate('product', {product: '${i.slug}'}); setTimeout(() => { document.getElementById('tab-btn-reviews').click(); document.getElementById('reviews-section').scrollIntoView({behavior: 'smooth'}); }, 800);" class="mt-3 w-full py-2.5 rounded-lg bg-cyan-50 border border-yellow-200 text-cyan-800 text-xs font-bold hover:bg-[#00979D] hover:text-slate-900 hover:border-[#00979D] transition flex items-center justify-center gap-2 shadow-sm group"><i class="ph-fill ph-star group-hover:animate-bounce"></i> Dejar Comentario</button>` 
+                        : '';
+
+                    return `
+                    <div class="flex gap-4 py-4 border-b border-slate-100 last:border-0 bg-white p-3 rounded-xl mb-2 shadow-sm">
+                        <img src="${i.image}" class="w-16 h-16 rounded-lg object-cover border border-slate-200 flex-shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-sm text-slate-900 line-clamp-2 mb-1">${i.name}</h4>
+                            
+                            ${variantInfo} <div class="flex justify-between items-center mt-2">
+                                <span class="text-xs text-slate-500 font-bold bg-slate-100 px-2 py-1 rounded">${i.qty} unid.</span>
+                                <span class="font-bold text-sm text-slate-900">S/ ${(i.qty * i.price).toFixed(2)}</span>
+                            </div>
+                            ${reviewBtn}
+                        </div>
+                    </div>`;
+                }).join('');
+
+                // 2. Verificar descuento Monedero
+                let walletHTML = '';
+                if(order.walletUsed && order.walletUsed > 0) {
+                    walletHTML = `
+                    <div class="flex justify-between items-center text-sm mb-2 px-2">
+                        <span class="text-green-600 font-bold flex items-center gap-1"><i class="ph-fill ph-wallet"></i> Desc. Monedero</span>
+                        <span class="text-green-600 font-bold">- S/ ${order.walletUsed.toFixed(2)}</span>
+                    </div>`;
+                }
+
+                // 3. Renderizar todo el contenido
+                content.innerHTML = `
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 flex items-start gap-3">
+                        <div class="bg-blue-500 text-white rounded-full p-1 shrink-0"><i class="ph-fill ph-info text-lg"></i></div>
+                        <div class="text-xs text-blue-800 flex-1">
+                            <p class="font-bold mb-1 text-sm">Estado: ${order.status}</p>
+                            <p>Fecha: ${new Date(order.date).toLocaleDateString()} a las ${new Date(order.date).toLocaleTimeString()}</p>
+                            <p class="mt-1 opacity-75">Entrega en: ${order.billing.address}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h3 class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-wider ml-1">Productos Comprados</h3>
+                        <div class="space-y-2">${itemsHTML}</div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h3 class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-wider ml-1">Resumen Financiero</h3>
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="flex justify-between items-center text-sm mb-2 text-slate-500 px-2">
+                                <span>Subtotal</span>
+                                <span>S/ ${(order.originalTotal || order.total).toFixed(2)}</span>
+                            </div>
+                            ${walletHTML}
+                            <div class="border-t border-slate-100 my-3 pt-3 flex justify-between items-center px-2">
+                                <span class="font-extrabold text-slate-900 text-lg">Total Pagado</span>
+                                <span class="font-extrabold text-slate-900 text-lg">S/ ${order.total.toFixed(2)}</span>
+                            </div>
+                            <div class="mt-2 text-[10px] text-center text-slate-400 bg-slate-50 py-1 rounded">Método de Pago: ${order.payment.method}</div>
+                        </div>
+                    </div>
+                `;
+
+                modal.classList.remove('hidden');
+                setTimeout(() => panel.classList.remove('translate-x-full'), 10);
+            },
+
+            closeOrderDetails: () => {
+                const modal = document.getElementById('order-details-modal');
+                const panel = document.getElementById('order-details-panel');
+                if(modal && panel) {
+                    panel.classList.add('translate-x-full');
+                    setTimeout(() => modal.classList.add('hidden'), 300);
+                }
+            }
+        };
+
+        
+
+window.checkoutManager = {
+
+
+
+    // --- NUEVO: Cambiar input según Yape o Plin ---
+            toggleWalletInput: () => {
+                const type = document.querySelector('input[name="wallet_type"]:checked').value;
+                const label = document.getElementById('payment-code-label');
+                const input = document.getElementById('payment-code');
+
+                input.value = ''; // Limpiamos lo que escribió
+
+                if(type === 'Yape') {
+                    // Configuración YAPE
+                    label.innerText = 'Código de Aprobación (3 Dígitos) *';
+                    input.setAttribute('maxlength', '3');
+                    input.placeholder = '•••';
+                    input.classList.add('tracking-[1em]', 'text-2xl'); // Letras separadas y grandes
+                    input.classList.remove('tracking-widest', 'text-xl');
+                } else {
+                    // Configuración PLIN
+                    label.innerText = 'Número de Operación (6-8 Dígitos) *';
+                    input.setAttribute('maxlength', '12'); 
+                    input.placeholder = '123456';
+                    input.classList.remove('tracking-[1em]', 'text-2xl'); 
+                    input.classList.add('tracking-widest', 'text-xl'); // Letras más juntas
+                }
+            },
+            // -----------------------------------------------
+
+// NUEVO: Función para volver al carrito desde el checkout
+            backToCart: () => {
+                checkoutManager.close();
+                // Esperamos que termine la animación de cierre (300ms) y abrimos el carrito
+                setTimeout(() => {
+                    cartManager.toggleCart();
+                }, 300);
+            },
+
+
+
+
+            // NUEVO: Navegación inteligente (Atrás en orden)
+            goBack: () => {
+                const paymentSec = document.getElementById('payment-section');
+                
+                // Si la sección de pago es visible, volvemos al formulario (Paso 1)
+                if (!paymentSec.classList.contains('hidden')) {
+                    checkoutManager.backToBilling();
+                } 
+                // Si estamos en el formulario, volvemos al carrito (Paso 0)
+                else {
+                    checkoutManager.backToCart();
+                }
+            },
+    
+            // --- DATOS TELEGRAM ---
+            telegramToken: '8527181742:AAGwQ0F8bYBj0u5kDWV11nwE7YaM0SmBVGk', 
+            telegramChatId: '-1003493508205',       
+            
+sendTelegramAlert: async (order) => {
+                const oid = order.id ? order.id.slice(-6) : '---';
+                
+                // --- AQUI ESTÁ EL CAMBIO: Detectar variantes para Telegram ---
+                const itemsList = order.items.map(i => {
+                    let variantInfo = "";
+                    
+                    // Si es Color
+                    if(i.selectedColor) {
+                        variantInfo = ` (Color: ${i.selectedColor})`;
+                    } 
+                    // Si es Resistencia
+                    else if(i.selectedResistance) {
+                        variantInfo = ` (Res: ${i.selectedResistance})`;
+                    }
+
+                    // Formato: "- 2x Nombre del Producto (Color: Rojo)"
+                    return `- *${i.qty}x* ${i.name}${variantInfo}`;
+                }).join('\n');
+                // -------------------------------------------------------------
+                
+                const textRaw = `🚨 *NUEVO PEDIDO RECIBIDO* 🚨\n\n` +
+                             `🆔 *Pedido:* ${oid}\n` + 
+                             `👤 *Cliente:* ${order.billing.name}\n` +
+                             `📞 *Tel:* ${order.billing.phone}\n` +
+                             `💰 *Total:* S/ ${order.total.toFixed(2)}\n` +
+                             `💳 *Pago:* ${order.payment.method}\n` +
+                             `🔢 *N° Operación:* ${order.payment.securityCode}\n\n` + 
+                             `📦 *Productos:*\n${itemsList}`;
+
+                const encodedText = encodeURIComponent(textRaw);
+                // Asegúrate de que las variables token y chatId sean accesibles aquí
+                // Usamos window.checkoutManager para asegurar el acceso a las propiedades
+                const url = `https://api.telegram.org/bot${window.checkoutManager.telegramToken}/sendMessage?chat_id=${window.checkoutManager.telegramChatId}&text=${encodedText}&parse_mode=Markdown&disable_notification=false`;
+
+                try { await fetch(url); } catch (e) { console.error("Error Telegram", e); }
+            },
+
+
+            currentOrderId: null,
+            lastOrderData: null,
+
+open: () => {
+                const modal = document.getElementById('checkout-modal');
+                const panel = document.getElementById('checkout-panel');
+                
+                // Bloqueamos el scroll del fondo
+                document.body.classList.add('overflow-hidden');
+
+                document.getElementById('billing-form').classList.remove('hidden');
+                document.getElementById('payment-section').classList.add('hidden');
+                document.getElementById('success-section').classList.add('hidden');
+                
+                // Solo rellenar con el nombre del usuario si el campo está vacío
+                const nameField = document.getElementById('bill-name');
+                if(state.user && state.user.displayName && !nameField.value) {
+                    nameField.value = state.user.displayName;
+                }
+                
+                document.getElementById('payment-code').value = '';
+                
+                const walletSection = document.getElementById('wallet-discount-section');
+                if(walletSection) walletSection.remove();
+
+                if(state.wallet > 0) {
+                    const form = document.getElementById('billing-form');
+                    const div = document.createElement('div');
+                    div.id = 'wallet-discount-section';
+                    div.className = "bg-green-50 border border-green-200 p-4 rounded-xl flex items-center justify-between mb-4";
+                    div.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <div class="bg-green-500 text-white rounded-full p-1"><i class="ph-bold ph-wallet text-xl"></i></div>
+                            <div>
+                                <div class="text-sm font-bold text-green-800">Usar Saldo Monedero</div>
+                                <div class="text-xs text-green-600">Disponible: S/ ${state.wallet.toFixed(2)}</div>
+                            </div>
+                        </div>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" id="use-wallet-check" class="w-5 h-5 accent-green-600 rounded">
+                            <span class="text-sm font-bold text-slate-700">Aplicar</span>
+                        </label>
+                    `;
+                    const btn = form.querySelector('button[type="button"]'); 
+                    form.insertBefore(div, btn);
+                }
+
+                modal.classList.remove('hidden');
+                setTimeout(() => panel.classList.remove('translate-x-full'), 10);
+            },
+
+
+close: () => {
+                const modal = document.getElementById('checkout-modal');
+                const panel = document.getElementById('checkout-panel');
+                
+                // Reactivamos el scroll del fondo
+                document.body.classList.remove('overflow-hidden');
+
+                panel.classList.add('translate-x-full');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            },
+            goToPayment: () => {
+                const req = ['bill-name', 'bill-dni', 'bill-phone', 'bill-dept', 'bill-prov', 'bill-dist'];
+                for(let id of req) {
+                    if(!document.getElementById(id).value.trim()) return Swal.fire('Faltan datos', 'Por favor completa todos los campos obligatorios (*)', 'warning');
+                }
+                if(!document.getElementById('terms-check').checked) return Swal.fire('Términos', 'Debes aceptar los términos y condiciones.', 'warning');
+
+                const originalTotal = state.cart.reduce((a,b)=>a+(b.price*b.qty),0);
+                let finalTotal = originalTotal;
+                let walletDiscount = 0;
+                const useWallet = document.getElementById('use-wallet-check')?.checked;
+
+                if (useWallet && state.wallet > 0) {
+                    if (state.wallet >= finalTotal) {
+                        walletDiscount = finalTotal;
+                        finalTotal = 0;
+                    } else {
+                        walletDiscount = state.wallet;
+                        finalTotal = finalTotal - walletDiscount;
+                    }
+                }
+
+                const displayEl = document.getElementById('payment-total-display');
+                if (walletDiscount > 0) {
+                    displayEl.innerHTML = `<div class="flex flex-col items-center leading-tight"><span class="text-sm text-slate-400 line-through font-medium">Subtotal: S/ ${originalTotal.toFixed(2)}</span><span class="text-xs text-green-600 font-bold mb-1">(- S/ ${walletDiscount.toFixed(2)} Monedero)</span><span>S/ ${finalTotal.toFixed(2)}</span></div>`;
+                } else {
+                    displayEl.innerHTML = `S/ ${finalTotal.toFixed(2)}`;
+                }
+
+                document.getElementById('billing-form').classList.add('hidden');
+                document.getElementById('payment-section').classList.remove('hidden');
+            },
+
+            backToBilling: () => {
+                document.getElementById('payment-section').classList.add('hidden');
+                document.getElementById('billing-form').classList.remove('hidden');
+            },
+
+confirmOrder: async () => {
+                // 1. Detectar billetera y código
+                const walletType = document.querySelector('input[name="wallet_type"]:checked').value;
+                const code = document.getElementById('payment-code').value.trim();
+
+                // 2. Validaciones Dinámicas
+                if(walletType === 'Yape' && code.length !== 3) {
+                    return Swal.fire('Código inválido', 'El código de Yape debe tener 3 dígitos exactos.', 'warning');
+                }
+                if(walletType === 'Plin' && code.length < 6) {
+                    return Swal.fire('Código inválido', 'El N° de Operación de Plin suele tener 6 o más dígitos.', 'warning');
+                }
+
+                Swal.showLoading();
+                
+                const expireTime = Date.now() + (10 * 60 * 1000);
+                const useWallet = document.getElementById('use-wallet-check')?.checked;
+                let walletUsed = 0;
+                let finalTotal = state.cart.reduce((a,b)=>a+(b.price*b.qty),0);
+                const originalTotal = finalTotal;
+
+                if (useWallet && state.wallet > 0) {
+                    if (state.wallet >= finalTotal) {
+                        walletUsed = finalTotal;
+                        finalTotal = 0;
+                    } else {
+                        walletUsed = state.wallet;
+                        finalTotal = finalTotal - walletUsed;
+                    }
+                }
+
+                const orderData = {
+                    userId: state.user.uid,
+                    customerName: document.getElementById('bill-name').value,
+                    billing: {
+                        name: document.getElementById('bill-name').value,
+                        dni: document.getElementById('bill-dni').value,
+                        phone: document.getElementById('bill-phone').value,
+                        ruc: document.getElementById('bill-ruc').value || '---',
+                        address: `${document.getElementById('bill-dept').value}, ${document.getElementById('bill-prov').value}, ${document.getElementById('bill-dist').value}`
+                    },
+                    payment: { method: `QR/${walletType}`, securityCode: code },
+                    items: [...state.cart],
+                    total: finalTotal,
+                    originalTotal: originalTotal,
+                    walletUsed: walletUsed,
+                    date: new Date().toISOString(),
+                    status: 'Pendiente de Validación',
+                    expireAt: expireTime
+                };
+
+                try {
+                    const newOrderRef = push(ref(db, `users/${state.user.uid}/orders`));
+                    const orderId = newOrderRef.key;
+                    const updates = {};
+                    
+                    // Guardar pedido
+                    updates[`users/${state.user.uid}/orders/${orderId}`] = orderData;
+                    updates[`all_orders/${orderId}`] = { ...orderData, id: orderId };
+
+// --- LÓGICA DE STOCK MAESTRA ---
+                    state.cart.forEach(item => {
+                        const originalProd = PRODUCTS.find(p => p.id === item.id);
+                        if(originalProd) {
+                            // 1. Restar del Stock General
+                            const newStock = (originalProd.stock || 0) - item.qty;
+                            updates[`products/${item.id}/stock`] = newStock >= 0 ? newStock : 0;
+
+                            // 2. Restar del Stock de Color
+                            if (item.selectedColor && originalProd.colors) {
+                                const cIndex = originalProd.colors.findIndex(c => c.name === item.selectedColor);
+                                if (cIndex !== -1) {
+                                    const cQty = parseInt(originalProd.colors[cIndex].qty) || 0;
+                                    const newCQty = cQty - item.qty;
+                                    updates[`products/${item.id}/colors/${cIndex}/qty`] = newCQty >= 0 ? newCQty : 0;
+                                }
+                            }
+
+                            // 3. Restar del Stock de Resistencia
+                            if (item.selectedResistance && originalProd.resistances) {
+                                const rIndex = originalProd.resistances.findIndex(r => r.value === item.selectedResistance);
+                                if (rIndex !== -1) {
+                                    const rQty = parseInt(originalProd.resistances[rIndex].qty) || 0;
+                                    const newRQty = rQty - item.qty;
+                                    updates[`products/${item.id}/resistances/${rIndex}/qty`] = newRQty >= 0 ? newRQty : 0;
+                                }
+                            }
+                        }
+                    });
+                    // ---------------------------------------------
+
+                    if (walletUsed > 0) updates[`users/${state.user.uid}/wallet`] = (state.wallet - walletUsed);
+
+                    await update(ref(db), updates);
+                    checkoutManager.currentOrderId = orderId;
+                    checkoutManager.lastOrderData = orderData;
+
+                    checkoutManager.sendTelegramAlert({ ...orderData, id: orderId });
+
+                    state.cart = [];
+                    cartManager.save();
+
+                    document.getElementById('payment-section').classList.add('hidden');
+                    document.getElementById('success-section').classList.remove('hidden');
+                    
+                    const msg = `Hola, acabo de realizar el pedido ${orderId.slice(-6)} pagando con ${walletType}. Adjunto mi constancia.`;
+                    document.getElementById('whatsapp-link').href = `https://wa.me/51960436357?text=${encodeURIComponent(msg)}`;
+                    Swal.close();
+                } catch (err) {
+                    console.error(err);
+                    Swal.fire('Error', 'No se pudo registrar el pedido: ' + err.message, 'error');
+                }
+            },
+
+            confirmWhatsAppOrder: async () => {
+                Swal.showLoading();
+                const expireTime = Date.now() + (10 * 60 * 1000);
+                const useWallet = document.getElementById('use-wallet-check')?.checked;
+                let walletUsed = 0;
+                let finalTotal = state.cart.reduce((a,b)=>a+(b.price*b.qty),0);
+                const originalTotal = finalTotal;
+
+                if (useWallet && state.wallet > 0) {
+                    if (state.wallet >= finalTotal) {
+                        walletUsed = finalTotal;
+                        finalTotal = 0;
+                    } else {
+                        walletUsed = state.wallet;
+                        finalTotal = finalTotal - walletUsed;
+                    }
+                }
+
+                const orderData = {
+                    userId: state.user.uid,
+                    customerName: document.getElementById('bill-name').value,
+                    billing: {
+                        name: document.getElementById('bill-name').value,
+                        dni: document.getElementById('bill-dni').value,
+                        phone: document.getElementById('bill-phone').value,
+                        ruc: document.getElementById('bill-ruc').value || '---',
+                        address: `${document.getElementById('bill-dept').value}, ${document.getElementById('bill-prov').value}, ${document.getElementById('bill-dist').value}`
+                    },
+                    payment: { method: 'WhatsApp/Otro', securityCode: 'N/A' },
+                    items: [...state.cart],
+                    total: finalTotal,
+                    originalTotal: originalTotal,
+                    walletUsed: walletUsed,
+                    date: new Date().toISOString(),
+                    status: 'Pendiente de Validación',
+                    expireAt: expireTime
+                };
+
+                try {
+                    const newOrderRef = push(ref(db, `users/${state.user.uid}/orders`));
+                    const orderId = newOrderRef.key;
+                    const updates = {};
+                    updates[`users/${state.user.uid}/orders/${orderId}`] = orderData;
+                    updates[`all_orders/${orderId}`] = { ...orderData, id: orderId };
+
+                    state.cart.forEach(item => {
+                        const originalProd = PRODUCTS.find(p => p.id === item.id);
+                        if(originalProd) {
+                            const newStock = (originalProd.stock || 0) - item.qty;
+                            updates[`products/${item.id}/stock`] = newStock >= 0 ? newStock : 0;
+                        }
+                    });
+
+                    if (walletUsed > 0) updates[`users/${state.user.uid}/wallet`] = (state.wallet - walletUsed);
+
+                    await update(ref(db), updates);
+                    checkoutManager.currentOrderId = orderId;
+                    checkoutManager.lastOrderData = orderData;
+
+                    checkoutManager.sendTelegramAlert({ ...orderData, id: orderId });
+
+                    state.cart = [];
+                    cartManager.save();
+
+                    document.getElementById('payment-section').classList.add('hidden');
+                    document.getElementById('success-section').classList.remove('hidden');
+                    
+                    const msg = `Hola TechPerú, he realizado el pedido #${orderId.slice(-6)} por la web. Quiero coordinar el pago por otro medio (Transferencia/Plin/Efectivo).`;
+                    const waLink = `https://wa.me/51960436357?text=${encodeURIComponent(msg)}`;
+                    
+                    document.getElementById('whatsapp-link').href = waLink;
+                    window.open(waLink, '_blank');
+
+                    Swal.close();
+                } catch (err) {
+                    console.error(err);
+                    Swal.fire('Error', 'No se pudo registrar el pedido.', 'error');
+                }
+            },
+
+
+
+downloadPDF: (customOrder = null) => {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                const data = customOrder || checkoutManager.lastOrderData;
+                
+                let oid = '---';
+                if(customOrder && customOrder.id) oid = customOrder.id.slice(-6);
+                else if(checkoutManager.currentOrderId) oid = checkoutManager.currentOrderId.slice(-6);
+
+                if(!data) return Swal.fire('Error', 'No hay datos para generar el PDF', 'error');
+                const logoUrl = "https://qeoojbsrqlroajvdgrju.supabase.co/storage/v1/object/public/productos/bg-logo-2m.png";
+                
+                const ancho = 25;  // Ancho del logo en el PDF
+                const alto = 17;   // Alto del logo (Si se ve aplastado, sube este número)
+
+                // 3. Dibujamos el logo
+                doc.addImage(logoUrl, 'PNG', 14, 10, ancho, alto);
+
+                // 4. Escribimos el título debajo
+                doc.setFontSize(24); 
+                doc.setFont("helvetica", "bold"); 
+                // El 8 es el espacio entre logo y texto
+                doc.text("2MTechPerú", 14, 10 + alto + 8); 
+
+                // --- FIN OPCIÓN MANUAL ---
+                doc.setFontSize(10); doc.setFont("helvetica", "normal");
+                doc.text("Voucher de Compra", 195, 18, { align: 'right' });
+                doc.text(`Pedido: #${oid}`, 195, 23, { align: 'right' });
+                
+                if(data.payment.method === 'WhatsApp/Otro' || data.payment.securityCode === 'N/A') {
+                    doc.text(`Método: Coordinar WhatsApp`, 195, 28, { align: 'right' });
+                } else {
+                    // Detectamos si es Yape o Plin para la etiqueta
+                    const isYape = data.payment.method.includes('Yape');
+                    const label = isYape ? 'Cód. Aprobación:' : 'N° Operación:';
+                    doc.text(`${label} ${data.payment.securityCode}`, 195, 28, { align: 'right' });
+                }
+                
+                // Usamos la fecha del pedido guardado, no la actual, para que sea fiel al historial
+                const dateStr = data.date ? new Date(data.date).toLocaleDateString() + ' ' + new Date(data.date).toLocaleTimeString() : new Date().toLocaleDateString();
+                doc.text(`Fecha: ${dateStr}`, 195, 33, { align: 'right' });
+                
+                doc.setFontSize(12); doc.setFont("helvetica", "bold"); doc.text("Datos del Cliente:", 14, 45);
+                doc.setFontSize(10); doc.setFont("helvetica", "normal");
+                const startInfoY = 52;
+                doc.text(`Nombre:`, 14, startInfoY); doc.text(data.billing.name, 45, startInfoY);
+                doc.text(`Documento:`, 14, startInfoY+5); doc.text(data.billing.dni, 45, startInfoY+5);
+                doc.text(`Teléfono:`, 14, startInfoY+10); doc.text(data.billing.phone, 45, startInfoY+10);
+                doc.text(`Dirección:`, 14, startInfoY+15); doc.text(data.billing.address, 45, startInfoY+15);
+
+
+// MODIFICACIÓN PARA PDF: Agregamos Color o Resistencia al nombre
+                const tableBody = data.items.map(item => {
+                    let description = item.name;
+                    
+                    // 1. Si tiene Color, lo agregamos
+                    if (item.selectedColor) {
+                        description += ` (${item.selectedColor})`;
+                    }
+                    
+                    // 2. Si tiene Resistencia, la agregamos
+                    if (item.selectedResistance) {
+                        description += ` (Res: ${item.selectedResistance})`;
+                    }
+                        
+                    return [item.qty, description, `S/ ${item.price.toFixed(2)}`, `S/ ${(item.qty * item.price).toFixed(2)}`];
+                });
+
+
+                doc.autoTable({ startY: 80, head: [['Cant.', 'Descripción', 'P. Unit', 'Subtotal']], body: tableBody, theme: 'plain', styles: { fontSize: 10, cellPadding: 3 }, headStyles: { fillColor: false, textColor: [0,0,0], fontStyle: 'bold', lineWidth: {bottom: 0.5}, lineColor: [200,200,200] }, bodyStyles: { lineWidth: {bottom: 0.1}, lineColor: [230,230,230] }, columnStyles: { 0: { cellWidth: 20 }, 2: { cellWidth: 30, halign: 'right' }, 3: { cellWidth: 30, halign: 'right' } } });
+
+                let finalY = doc.lastAutoTable.finalY + 10;
+                doc.text(`Subtotal:`, 150, finalY, { align: 'right' }); doc.text(`S/ ${data.originalTotal.toFixed(2)}`, 195, finalY, { align: 'right' });
+                if (data.walletUsed > 0) { finalY += 6; doc.text(`Desc. Monedero:`, 150, finalY, { align: 'right' }); doc.text(`- S/ ${data.walletUsed.toFixed(2)}`, 195, finalY, { align: 'right' }); }
+                doc.text(`Envío:`, 150, finalY+6, { align: 'right' }); doc.text(`Contraentrega`, 195, finalY+6, { align: 'right' });
+               
+                doc.setDrawColor(0); doc.setLineWidth(0.5); doc.line(130, finalY+10, 195, finalY+10);
+                doc.setFont("helvetica", "bold"); doc.setFontSize(12); doc.text(`TOTAL PAGADO:`, 150, finalY+18, { align: 'right' }); doc.text(`S/ ${data.total.toFixed(2)}`, 195, finalY+18, { align: 'right' });
+                doc.setFont("helvetica", "italic"); doc.setFontSize(9); doc.setTextColor(100); doc.text("¡Gracias por comprar en 2MTechPerú!", 105, finalY+35, { align: 'center' }); doc.text("Este es un voucher de compra. Envíe su constancia de pago por WhatsApp.", 105, finalY+40, { align: 'center' });
+                
+                // Nombre del archivo con el ID
+                doc.save(`Voucher_TechPerú_${oid}.pdf`);
+            }
+
+
+        };
+
+window.authManager = {
+            isRegistering: false,
+            handleForm: async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('auth-email').value;
+                const pass = document.getElementById('auth-pass').value;
+                const nameInput = document.getElementById('reg-name');
+
+                try {
+                    Swal.showLoading();
+
+                    if (authManager.isRegistering) {
+                        // --- NUEVO: VALIDACIÓN DE REPETIR CONTRASEÑA ---
+                        const passConfirm = document.getElementById('auth-pass-confirm').value;
+                        
+                        if (pass !== passConfirm) {
+                            throw new Error("Las contraseñas no coinciden. Por favor verifícalas.");
+                        }
+
+                        // Lógica de Registro (Igual que antes)
+                        const ipResponse = await fetch('https://api.ipify.org?format=json');
+                        const ipData = await ipResponse.json();
+                        const userIP = ipData.ip.replace(/\./g, '-'); 
+                        const today = new Date().toLocaleDateString();
+
+                        const ipLogRef = ref(db, `security_logs/${userIP}`);
+                        const ipSnapshot = await get(ipLogRef);
+
+                        if (ipSnapshot.exists()) {
+                            const lastDate = ipSnapshot.val().date;
+                            if (lastDate === today) throw new Error("Bloqueo de Seguridad: Para crear una nueva cuenta intenta mañana.");
+                        }
+                        if(!nameInput.value) throw new Error("El nombre es obligatorio");
+
+                        const cred = await createUserWithEmailAndPassword(auth, email, pass);
+                        await set(ipLogRef, { date: today });
+                        await updateProfile(cred.user, { displayName: nameInput.value });
+                        await set(ref(db, 'users/' + cred.user.uid), { 
+                            username: nameInput.value, email: email, createdAt: new Date().toISOString(),
+                            registeredIP: ipData.ip, points: 0, wallet: 0, isBlocked: false
+                        });
+                    } else {
+                        // LOGIN NORMAL
+                        const cred = await signInWithEmailAndPassword(auth, email, pass);
+                        
+                        const userRef = ref(db, `users/${cred.user.uid}`);
+                        const snapshot = await get(userRef);
+                        const userData = snapshot.val();
+
+                        if (userData && userData.isBlocked === true) {
+                            await signOut(auth); 
+                            throw new Error("⛔ TU CUENTA ESTÁ BLOQUEADA POR SEGURIDAD. Contacta a soporte.");
+                        }
+                    }
+                    Swal.close();
+                    router.navigate('/'); 
+                } catch (err) {
+                    console.error(err);
+                    let msg = err.message.replace("Firebase: ", "").replace("Error ", "");
+                    if(err.code === 'auth/invalid-credential') msg = "Correo o contraseña incorrectos.";
+                    if(err.code === 'auth/weak-password') msg = "La contraseña debe tener al menos 6 caracteres.";
+                    if(err.code === 'auth/email-already-in-use') msg = "Este correo ya está registrado.";
+                    Swal.fire('Atención', msg, 'error');
+                }
+            },
+            logout: async () => { 
+                try {
+                    await signOut(auth); 
+                    state.user = null;
+                    state.cart = [];
+                    state.orders = [];
+                    state.favorites.clear();
+                    localStorage.removeItem('techPerú_cart');
+                    Swal.fire({icon: 'success', title: 'Sesión Cerrada', toast: true, position: 'top-end', timer: 1500, showConfirmButton: false});
+                    router.navigate('/');
+                    window.location.reload(); 
+                } catch(e) { console.error(e); }
+            }
+        };
+
+
+
+onAuthStateChanged(auth, (user) => {
+    state.user = user;
+    const label = document.getElementById('auth-label');
+    const arrow = document.getElementById('auth-arrow'); // La flechita
+    const menuContent = document.getElementById('auth-menu-content'); // El interior del menú
+    const menuDropdown = document.getElementById('auth-menu-dropdown'); // <--- NUEVA REFERENCIA IMPORTANTE
+
+    if (user) {
+
+
+// --- PEGAR ESTO AQUÍ (INICIO) ---
+        // Esto guarda la fecha y hora exacta en la base de datos
+        update(ref(db, `users/${user.uid}`), {
+            lastLogin: new Date().toISOString()
+        });
+        // --- PEGAR ESTO AQUÍ (FIN) ---
+
+
+        if (menuDropdown) menuDropdown.classList.remove('hidden');
+        // --- USUARIO LOGUEADO ---
+        
+        // 1. UI: Mostrar Nombre y Flecha
+        const name = user.displayName ? user.displayName.split(' ')[0] : 'Usuario';
+        
+        if (label) label.innerHTML = `Hola, ${name}<br><span class="text-green-400 font-normal">Mi Cuenta</span>`;
+        if (arrow) arrow.classList.remove('hidden'); // Mostramos la flechita
+
+        // 2. GENERAR EL MENÚ DESPLEGABLE PROFESIONAL
+        if (menuContent) {
+            menuContent.innerHTML = `
+                <div class="px-4 py-3 border-b border-slate-100 bg-slate-50">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Conectado como</p>
+                    <p class="text-sm font-bold text-slate-900 truncate">${user.email}</p>
+                </div>
+                
+                <div class="p-2">
+                    <button onclick="router.navigate('/profile', {tab: 'summary'})" class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-600 rounded-lg hover:bg-cyan-50 hover:text-cyan-800 transition group">
+                        <i class="ph-bold ph-user-circle text-lg group-hover:text-[#26E4ED]"></i> Resumen
+                    </button>
+                    
+                    <button onclick="router.navigate('/profile', {tab: 'orders'})" class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-600 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition group">
+                        <i class="ph-bold ph-package text-lg group-hover:text-blue-500"></i> Mis Pedidos
+                    </button>
+                    
+                    <button onclick="router.navigate('/profile', {tab: 'favorites'})" class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-600 rounded-lg hover:bg-red-50 hover:text-red-700 transition group">
+                        <i class="ph-bold ph-heart text-lg group-hover:text-red-500"></i> Favoritos
+                    </button>
+                </div>
+
+                <div class="border-t border-slate-100 p-2">
+                    <button onclick="authManager.logout()" class="w-full flex items-center gap-3 px-3 py-2 text-sm font-bold text-slate-500 rounded-lg hover:bg-slate-100 hover:text-slate-900 transition">
+                        <i class="ph-bold ph-sign-out text-lg"></i> Cerrar Sesión
+                    </button>
+                </div>
+            `;
+        }
+
+
+// --- NUEVO: MONITOR DE BLOQUEO EN TIEMPO REAL ---
+// --- MONITOR DE BLOQUEO EN TIEMPO REAL MEJORADO ---
+                onValue(ref(db, `users/${user.uid}/isBlocked`), async (snapshot) => {
+                    const isBlocked = snapshot.val();
+                    if (isBlocked === true) {
+                        // Si se detecta bloqueo, cerramos sesión y mandamos al home
+                        await signOut(auth);
+                        state.user = null; // Limpiar estado local
+                        router.navigate('/'); // Navegar visualmente al home
+                        
+                        Swal.fire({
+                            title: 'Acceso Restringido',
+                            html: '<p>Tu cuenta ha sido bloqueada temporalmente.</p>',
+                            icon: 'error',
+                            confirmButtonText: 'Entendido',
+                            confirmButtonColor: '#0f172a',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then(() => {
+                            window.location.reload(); // Recarga final para limpiar todo rastro
+                        });
+                    }
+                });
+                // ------------------------------------------------
+                // ------------------------------------------------
+
+
+                if (label) label.innerHTML = `Hola, ${name}<br><span class="text-[#00979d] font-normal">Mi Perfil</span>`;
+                
+                const cartRef = ref(db, `users/${user.uid}/cart`);
+
+                // 2. FUSIÓN INICIAL (Solo se ejecuta una vez al conectar)
+                // Sirve para no perder lo que agregaste antes de loguearte
+                get(cartRef).then((snapshot) => {
+                    const cloudCart = snapshot.val() || [];
+                    const localCart = state.cart; 
+
+                    if (localCart.length > 0) {
+                        // Si tengo productos locales, los mezclo con la nube
+                        const finalMap = new Map();
+                        cloudCart.forEach(item => finalMap.set(item.id, item));
+
+// --- INICIO DE CORRECCIÓN ---
+                localCart.forEach(item => {
+                    if (finalMap.has(item.id)) {
+                        const existing = finalMap.get(item.id);
+                        
+                        // CORRECCIÓN: En vez de sumar (+=), usamos el número mayor.
+                        // Si Nube tiene 5 y Local tiene 5 -> Se queda en 5 (No duplica).
+                        // Si Nube tiene 5 y Local tiene 6 (agregaste uno offline) -> Se actualiza a 6.
+                        existing.qty = Math.max(existing.qty, item.qty);
+                        
+                        finalMap.set(item.id, existing);
+                    } else {
+                        finalMap.set(item.id, item);
+                    }
+                });
+                // --- FIN DE CORRECCIÓN ---
+                        
+                        // Subimos la mezcla perfecta a la nube
+                        set(cartRef, Array.from(finalMap.values()));
+                    }
+                });
+
+                // 3. ¡AQUÍ ESTÁ LA MAGIA! -> ESCUCHA EN TIEMPO REAL (onValue)
+                // Esto reemplaza al 'get' simple. Se queda escuchando cambios para siempre.
+                onValue(cartRef, (snapshot) => {
+                    const data = snapshot.val();
+                    
+                    // Actualizamos la variable local con lo que diga la nube
+                    state.cart = data || []; 
+                    
+                    // Guardamos en LocalStorage para que no parpadee al recargar
+                    localStorage.setItem('techPerú_cart', JSON.stringify(state.cart));
+                    
+                    // Actualizamos el ícono del carrito (burbuja roja)
+                    const c = state.cart.reduce((a,b)=>a+b.qty,0);
+                    const badge = document.getElementById('cart-count');
+                    if(badge) {
+                        badge.innerText = c; 
+                        badge.classList.toggle('opacity-0', c === 0);
+                    }
+                    
+                    // Si el carrito está abierto, redibujamos los productos
+                    cartManager.render(); 
+                });
+
+                // 4. Cargar Favoritos (También en tiempo real)
+                onValue(ref(db, `users/${user.uid}/favorites`), (snapshot) => {
+                    state.favorites.clear();
+                    const data = snapshot.val();
+                    if (data) Object.keys(data).forEach(key => state.favorites.add(key));
+                    
+                    // Si estamos en la página de perfil, refrescar
+                    if(window.location.search.includes('profile')) router.handle(false);
+                    // O refrescar las tarjetas de productos (corazones)
+                    const app = document.getElementById('app');
+                    if (app && !window.location.search.includes('profile')) router.handle(false);
+                });
+
+                // 5. Cargar Pedidos y Notificaciones
+                onValue(ref(db, `users/${user.uid}/orders`), (snapshot) => {
+                    const data = snapshot.val();
+                    const newOrders = data ? Object.entries(data).map(([key, value]) => ({ ...value, id: key })).reverse() : [];
+
+                    // Detector de "Pedido Aprobado" para notificar
+                    if (state.orders.length > 0) { 
+                        newOrders.forEach(newOrder => {
+                            const oldOrder = state.orders.find(o => o.id === newOrder.id);
+
+// --- CÓDIGO NUEVO PARA LA NOTIFICACIÓN ---
+                    if (oldOrder && oldOrder.status !== 'Aprobado' && newOrder.status === 'Aprobado') {
+                        Swal.fire({
+                            title: '¡Pago Validado! 🎉',
+                            html: `<div class="text-left">
+                                     <p class="text-sm text-slate-600 mb-1">Tu pedido <b>#${newOrder.id.slice(-6)}</b> ha sido aprobado.</p>
+                                     <p class="text-xs text-slate-400">Ya estamos preparando tu envío.</p>
+                                   </div>`,
+                            icon: 'success',
+                            toast: true,
+                            position: 'top-end',
+                            
+                            // 1. AGREGAMOS EL BOTÓN DE CIERRE
+                            showCloseButton: true, 
+                            
+                            // 2. AGREGAMOS LA BARRA DE TIEMPO (Estilo "Tiempo en línea")
+                            timer: 10000, // 10 segundos
+                            timerProgressBar: true, 
+
+                            showConfirmButton: true,
+                            confirmButtonText: 'Ver Pedido',
+                            confirmButtonColor: '#0f172a', // Color Slate-900 (Tu tema)
+                            
+                            // Efecto: Si pasas el mouse, el tiempo se detiene
+                            didOpen: (toast) => {
+                                toast.onmouseenter = Swal.stopTimer;
+                                toast.onmouseleave = Swal.resumeTimer;
+                            }
+                        }).then((r) => { 
+                            if(r.isConfirmed) router.navigate('/profile', { tab: 'orders' }); 
+                        });
+                    }
+                    // -----------------------------------------
+                        });
+      
+                    }
+
+                    
+                    state.orders = newOrders;
+                    if(window.location.search.includes('profile')) router.handle(false);
+                });
+
+
+// --- 6. AGREGAR ESTO: Cargar Puntos y Monedero en Tiempo Real ---
+        onValue(ref(db, `users/${user.uid}`), (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                // Actualizamos el estado local con lo que hay en la base de datos
+                state.points = parseInt(data.points) || 0;
+                state.wallet = parseFloat(data.wallet) || 0;
+
+                // Si el usuario está viendo su perfil ahora mismo, refrescamos la pantalla
+                if(window.location.search.includes('profile')) {
+                    router.handle(false);
+                }
+            }
+        });
+        // -------------------------------------------------------------
+
+
+
+} else {
+        // --- USUARIO NO LOGUEADO ---
+        if (menuDropdown) menuDropdown.classList.add('hidden');
+        // UI: Texto por defecto
+        if (label) label.innerHTML = `Mi Cuenta<br><span class="text-slate-400 font-normal">Entrar / Registro</span>`;
+        if (arrow) arrow.classList.add('hidden'); // Ocultamos flecha
+        if (menuContent) menuContent.innerHTML = ''; // Limpiamos menú para seguridad
+
+        // Limpieza de estados (igual que tenías antes)
+        state.favorites.clear();
+        state.orders = [];
+        state.cart = [];
+        localStorage.removeItem('techPerú_cart');
+        cartManager.render();
+        const badge = document.getElementById('cart-count');
+        if(badge) badge.classList.add('opacity-0');
+        
+        router.handle();
+    }
+});
+
+        window.waManager = {
+            isOpen: false,
+            toggle: () => {
+                const box = document.getElementById('wa-chat-window');
+                const mainIcon = document.getElementById('wa-icon-main');
+                const closeIcon = document.getElementById('wa-icon-close');
+                
+                waManager.isOpen = !waManager.isOpen;
+
+                if (waManager.isOpen) {
+                    box.classList.remove('scale-0', 'opacity-0');
+                    mainIcon.classList.add('opacity-0', 'scale-50');
+                    closeIcon.classList.remove('opacity-0', 'scale-50');
+                    setTimeout(() => document.getElementById('wa-message-input').focus(), 300);
+                } else {
+                    box.classList.add('scale-0', 'opacity-0');
+                    mainIcon.classList.remove('opacity-0', 'scale-50');
+                    closeIcon.classList.add('opacity-0', 'scale-50');
+                }
+            },
+            send: () => {
+                const input = document.getElementById('wa-message-input');
+                const text = input.value.trim();
+                if (!text) return;
+                const phone = "51960436357";
+                const msg = `Hola TechPerú, tengo una consulta: ${text}`;
+                window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+                input.value = '';
+                waManager.toggle();
+            }
+        };
+
+
+
+
+// --- NUEVO: CEREBRO DE COLORES ---
+// Variable para recordar qué color eligió el cliente
+window.selectedColorData = null;
+
+
+
+window.selectProductResistance = (index, productID) => {
+    // Buscar producto actualizado
+    const p = PRODUCTS.find(x => x.id === productID);
+    if(!p || !p.resistances) return;
+
+    const res = p.resistances[index];
+    
+    // Guardar selección
+    window.selectedResistanceData = res;
+    window.selectedColorData = null; // Limpiar selección de color para no mezclar
+
+    // A. VISUAL: Resetear estilos de todos los botones
+    document.querySelectorAll('.res-btn-option').forEach(el => {
+        el.classList.remove('bg-slate-900', 'text-white', 'border-slate-900');
+        el.classList.add('bg-white', 'text-slate-700', 'border-slate-200');
+    });
+
+    // B. VISUAL: Activar el botón seleccionado
+    const activeBtn = document.getElementById(`res-btn-${index}`);
+    if(activeBtn) {
+        activeBtn.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
+        activeBtn.classList.add('bg-slate-900', 'text-white', 'border-slate-900');
+    }
+
+    // C. Mostrar Stock
+    const stockDisplay = document.getElementById('dynamic-stock-label');
+    if(stockDisplay) {
+        stockDisplay.innerHTML = `<span class="text-slate-900 font-bold">Stock de ${res.value}:</span> ${res.qty} unid.`;
+    }
+
+    // D. Resetear cantidad a 1
+    const qtyInput = document.getElementById('detail-qty-input');
+    if(qtyInput) {
+        qtyInput.value = 1;
+        window.currentMaxStock = res.qty;
+    }
+
+    // Ocultar alertas
+    const warning = document.getElementById('variant-warning-msg');
+    if(warning) warning.classList.add('hidden');
+};
+
+
+
+// Función que se activa al dar clic en un círculo de color
+window.selectProductColor = (index, productID) => {
+    // Buscamos el producto en tu lista
+    const p = PRODUCTS.find(x => x.id === productID);
+    if(!p || !p.colors) return;
+
+    // Obtenemos el color específico (ej: Rojo)
+    const color = p.colors[index];
+    
+    // Guardamos este color en la "memoria" temporal
+    window.selectedColorData = color;
+
+    // A. VISUAL: Quitar borde a todos los círculos
+    document.querySelectorAll('.color-circle-option').forEach(el => {
+        el.classList.remove('ring-2', 'ring-offset-2', 'ring-slate-900', 'scale-110');
+        // Ocultar el check de todos
+        const checkIcon = el.querySelector('.check-icon');
+        if(checkIcon) checkIcon.classList.add('hidden');
+    });
+    
+    // B. VISUAL: Poner borde al seleccionado
+    const activeCircle = document.getElementById(`color-btn-${index}`);
+    if(activeCircle) {
+        activeCircle.classList.add('ring-2', 'ring-offset-2', 'ring-slate-900', 'scale-110');
+        const activeCheck = activeCircle.querySelector('.check-icon');
+        if(activeCheck) activeCheck.classList.remove('hidden');
+    }
+
+    // C. ACTUALIZAR STOCK EN PANTALLA
+    // Cambiamos el texto que dice "Disponible" por el stock de ese color
+const stockDisplay = document.getElementById('dynamic-stock-label');
+    if(stockDisplay) {
+        // AQUI ESTÁ LA CLAVE: color.qty vendrá actualizado de Firebase tras el Paso 1
+        stockDisplay.innerHTML = `<span class="text-slate-900 font-bold">Stock en ${color.name}:</span> ${color.qty} unid.`;
+    }
+    // D. RESETEAR CANTIDAD A 1
+    // Para evitar que pidan más de lo que hay en ese color
+    const qtyInput = document.getElementById('detail-qty-input');
+    if(qtyInput) {
+        qtyInput.value = 1;
+        // Guardamos el stock máximo de ESTE color para validar después
+        window.currentMaxStock = color.qty;
+    }
+    
+    // Ocultar mensaje de error si estaba visible
+    const warning = document.getElementById('color-warning-msg');
+    if(warning) warning.classList.add('hidden');
+};
+// ------------------------------------------
+
+
+// --- LÓGICA SELECT PREMIUM (Actualizada) ---
+window.handleResistanceChange = (selectElement, productID) => {
+    const index = selectElement.value;
+    if (index === "") return;
+
+    const p = PRODUCTS.find(x => x.id === productID);
+    if (!p || !p.resistances) return;
+
+    const res = p.resistances[index];
+
+    // 1. Guardar datos
+    window.selectedResistanceData = res;
+    window.selectedColorData = null;
+
+    // 2. Actualizar Stock con diseño visual (Verde si hay stock)
+    const stockDisplay = document.getElementById('dynamic-stock-label');
+    if (stockDisplay) {
+        if(res.qty > 0) {
+            stockDisplay.innerHTML = `<i class="ph-fill ph-check-circle text-green-500"></i> Stock: ${res.qty} unid.`;
+            stockDisplay.className = "text-[10px] font-bold text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200 shadow-sm transition-all duration-300";
+        } else {
+            stockDisplay.innerHTML = `Agotado`;
+            stockDisplay.className = "text-[10px] font-bold text-red-700 bg-red-50 px-3 py-1 rounded-full border border-red-200 shadow-sm";
+        }
+    }
+
+    // 3. Resetear inputs
+    const qtyInput = document.getElementById('detail-qty-input');
+    if (qtyInput) {
+        qtyInput.value = 1;
+        window.currentMaxStock = res.qty;
+    }
+
+    // 4. Quitar alertas
+    const warning = document.getElementById('variant-warning-msg');
+    if (warning) warning.classList.add('hidden');
+};
+
+
+
+// --- GESTOR DE ZOOM PROFESIONAL (MODAL) ---
+window.imageModalManager = {
+    panzoomInstance: null,
+    currentIndex: 0, // Variable para saber en qué foto estamos
+
+    open: (imgSrc) => {
+        const modal = document.getElementById('product-zoom-modal');
+        const img = document.getElementById('zoom-modal-img');
+        const container = document.getElementById('zoom-pan-container');
+        
+        if(!modal || !img || !container) return;
+
+        // Sincronizar el índice actual con el de la página de producto
+        if (window.currentProdIdx !== undefined) {
+            window.imageModalManager.currentIndex = window.currentProdIdx;
+        }
+
+        // 1. Mostrar Modal
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modal.classList.add('opacity-100');
+        }, 10);
+        
+        document.body.classList.add('overflow-hidden'); 
+
+        // 2. Cargar imagen e iniciar Panzoom
+        img.onload = () => {
+            if (window.imageModalManager.panzoomInstance) {
+                window.imageModalManager.panzoomInstance.destroy();
+            }
+
+            window.imageModalManager.panzoomInstance = Panzoom(img, {
+                maxScale: 4,
+                minScale: 0.8,
+                startScale: 1,
+                cursor: 'move'
+            });
+
+            setTimeout(() => window.imageModalManager.panzoomInstance.reset(), 50);
+            container.addEventListener('wheel', window.imageModalManager.panzoomInstance.zoomWithWheel);
+        };
+
+        img.src = imgSrc;
+    },
+
+    close: () => {
+        const modal = document.getElementById('product-zoom-modal');
+        const container = document.getElementById('zoom-pan-container');
+        
+        if(!modal) return;
+
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0');
+        
+        document.body.classList.remove('overflow-hidden');
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            document.getElementById('zoom-modal-img').src = '';
+        }, 300);
+
+        if (window.imageModalManager.panzoomInstance && container) {
+            container.removeEventListener('wheel', window.imageModalManager.panzoomInstance.zoomWithWheel);
+        }
+    },
+
+    // --- NUEVAS FUNCIONES PARA FLECHAS ---
+    changeImage: (step) => {
+        // Verificar si hay galería
+        if (!window.currentProdImages || window.currentProdImages.length <= 1) return;
+
+        // Calcular nuevo índice (Matemática circular)
+        let newIndex = window.imageModalManager.currentIndex + step;
+        if (newIndex >= window.currentProdImages.length) newIndex = 0;
+        if (newIndex < 0) newIndex = window.currentProdImages.length - 1;
+
+        // Actualizar índice y cambiar imagen
+        window.imageModalManager.currentIndex = newIndex;
+        const img = document.getElementById('zoom-modal-img');
+        
+        // Efecto visual de recarga
+        img.style.opacity = '0.5';
+        setTimeout(() => {
+            img.src = window.currentProdImages[newIndex];
+            img.onload = () => {
+                img.style.opacity = '1';
+                // Reiniciar zoom al cambiar foto
+                if (window.imageModalManager.panzoomInstance) {
+                    window.imageModalManager.panzoomInstance.reset();
+                }
+            };
+        }, 150);
+    },
+
+    next: () => window.imageModalManager.changeImage(1),
+    prev: () => window.imageModalManager.changeImage(-1),
+
+    zoomIn: () => window.imageModalManager.panzoomInstance && window.imageModalManager.panzoomInstance.zoomIn(),
+    zoomOut: () => window.imageModalManager.panzoomInstance && window.imageModalManager.panzoomInstance.zoomOut(),
+    reset: () => window.imageModalManager.panzoomInstance && window.imageModalManager.panzoomInstance.reset()
+};
+
+
+window.cartManager = {
+            toggleCart: () => {
+                const el = document.getElementById('cart-overlay');
+                const p = document.getElementById('cart-panel');
+                const bg = document.getElementById('cart-backdrop');
+                
+                if(el.classList.contains('hidden')) { 
+                    el.classList.remove('hidden'); 
+                    document.body.classList.add('overflow-hidden');
+                    setTimeout(() => { 
+                        bg.classList.remove('opacity-0'); 
+                        p.classList.remove('translate-x-full'); 
+                    }, 10); 
+                } 
+                else { 
+                    bg.classList.add('opacity-0'); 
+                    p.classList.add('translate-x-full'); 
+                    document.body.classList.remove('overflow-hidden');
+                    setTimeout(() => el.classList.add('hidden'), 500); 
+                }
+            },
+
+            add: (id, qtyToAdd = 1) => {
+                const p = PRODUCTS.find(x => x.id === id);
+                if(!p) return Swal.fire('Error', 'Producto no disponible', 'error');
+
+                let finalId = p.id;
+                let selectedRes = null;
+                let selectedCol = null;
+
+                // CASO 1: TIENE COLORES
+                if (p.hasColors && p.colors && p.colors.length > 0) {
+                    if (!window.selectedColorData) {
+                        const warning = document.getElementById('variant-warning-msg') || document.getElementById('color-warning-msg');
+                        if(warning) warning.classList.remove('hidden');
+                        return Swal.fire('Atención', 'Selecciona un color.', 'warning');
+                    }
+                    selectedCol = window.selectedColorData;
+                    finalId = `${p.id}-${selectedCol.name}`;
+                    if (qtyToAdd > selectedCol.qty) return Swal.fire('Stock', `Solo quedan ${selectedCol.qty} en ${selectedCol.name}.`, 'warning');
+                }
+                
+                // CASO 2: TIENE RESISTENCIAS
+                else if (p.hasResistances && p.resistances && p.resistances.length > 0) {
+                    if (!window.selectedResistanceData) {
+                        const warning = document.getElementById('variant-warning-msg'); 
+                        if(warning) warning.classList.remove('hidden');
+                        return Swal.fire('Atención', 'Selecciona un valor de resistencia.', 'warning');
+                    }
+                    selectedRes = window.selectedResistanceData;
+                    finalId = `${p.id}-${selectedRes.value}`; 
+                    if (qtyToAdd > selectedRes.qty) return Swal.fire('Stock', `Solo quedan ${selectedRes.qty} de ${selectedRes.value}.`, 'warning');
+                }
+                
+                // CASO 3: NORMAL
+                else {
+                    const currentStock = parseInt(p.stock || 0);
+                    if(qtyToAdd > currentStock) return Swal.fire('Stock', 'No hay suficiente stock.', 'warning');
+                }
+
+                // Usamos cartItemId para buscar si ya existe
+                const ex = state.cart.find(x => x.cartItemId === finalId);
+                if(ex) { 
+                    ex.qty += qtyToAdd; 
+                } else { 
+                    state.cart.push({
+                        ...p,
+                        cartItemId: finalId, // ESTE ES EL ID ÚNICO DEL ITEM EN EL CARRITO
+                        qty: qtyToAdd,
+                        selectedColor: selectedCol ? selectedCol.name : null,
+                        selectedHex: selectedCol ? selectedCol.hex : null,
+                        selectedResistance: selectedRes ? selectedRes.value : null
+                    }); 
+                }
+                
+                cartManager.save(); 
+                
+                const extraInfo = selectedRes ? `(${selectedRes.value})` : (selectedCol ? `(${selectedCol.name})` : '');
+                Swal.fire({icon: 'success', title: '¡Añadido!', text: `${qtyToAdd}x ${p.name} ${extraInfo}`, toast: true, position: 'bottom-end', timer: 1500, showConfirmButton: false});
+            },
+
+            // USAR cartItemId en lugar de id para evitar conflictos de variantes
+            changeQty: (cartItemId, delta) => {
+                const item = state.cart.find(x => x.cartItemId === cartItemId);
+                if(!item) return;
+                
+                // Validar stock real (Colores / Resistencias / Normal)
+                let maxStock = parseInt(item.stock || 0);
+                
+                // Si tiene color, buscamos el stock específico
+                if(item.selectedColor) {
+                    const realProd = PRODUCTS.find(p => p.id === item.id);
+                    if(realProd && realProd.colors) {
+                        const col = realProd.colors.find(c => c.name === item.selectedColor);
+                        if(col) maxStock = col.qty;
+                    }
+                } 
+                // Si tiene resistencia, buscamos el stock específico
+                else if(item.selectedResistance) {
+                    const realProd = PRODUCTS.find(p => p.id === item.id);
+                    if(realProd && realProd.resistances) {
+                        const res = realProd.resistances.find(r => r.value === item.selectedResistance);
+                        if(res) maxStock = res.qty;
+                    }
+                }
+
+                let newQty = parseInt(item.qty) + delta;
+                if(newQty < 1) newQty = 1; 
+                if(newQty > maxStock) return Swal.fire('Tope alcanzado', `Solo hay ${maxStock} unidades disponibles.`, 'warning');
+
+                item.qty = newQty;
+                cartManager.save();
+            },
+
+            remove: (cartItemId) => { 
+                // Borrar por ID único de variante, no por ID de producto
+                state.cart = state.cart.filter(x => x.cartItemId !== cartItemId); 
+                cartManager.save(); 
+            },
+            
+            save: () => {
+                localStorage.setItem('techPerú_cart', JSON.stringify(state.cart));
+                const c = state.cart.reduce((a,b)=>a+parseInt(b.qty),0);
+                const badge = document.getElementById('cart-count');
+                if(badge) { badge.innerText = c; badge.classList.toggle('opacity-0', c === 0); }
+                cartManager.render();
+
+                if (state.user) {
+                    const cartRef = ref(db, `users/${state.user.uid}/cart`);
+                    set(cartRef, state.cart).catch(err => console.error(err));
+                }
+            },
+
+            render: () => {
+                const div = document.getElementById('cart-items-container');
+                const subtotalEl = document.getElementById('cart-subtotal');
+                let t = 0;
+
+                if (state.cart.length === 0) {
+                    div.className = "h-full flex flex-col items-center justify-center p-6"; 
+                    div.innerHTML = `
+                        <div class="text-center fade-in">
+                            <div class="w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <i class="ph-fill ph-shopping-bag text-4xl text-slate-300"></i>
+                            </div>
+                            <h3 class="text-lg font-extrabold text-slate-900 mb-2">Tu carrito está vacío</h3>
+                            <p class="text-sm text-slate-400 mb-6 max-w-[200px] mx-auto leading-relaxed">
+                                Parece que aún no has agregado nada.
+                            </p>
+                            <button onclick="cartManager.toggleCart()" class="text-sm font-bold text-[#26E4ED] hover:text-yellow-600 underline transition">
+                                Seguir comprando
+                            </button>
+                        </div>`;
+                    document.getElementById('cart-total').innerText = `S/ 0.00`;
+                    if(subtotalEl) subtotalEl.innerText = `S/ 0.00`;
+                    return;
+                }
+
+                div.className = "space-y-4";
+
+                div.innerHTML = state.cart.map(i => {
+                    const itemTotal = i.price * i.qty;
+                    t += itemTotal;
+                    
+                    // CORRECCIÓN AQUÍ: Definimos variantBadge correctamente
+                    const variantBadge = i.selectedResistance ? `
+                        <div class="mt-1 bg-orange-50 text-orange-700 w-fit px-2 py-0.5 rounded border border-orange-100 text-[10px] font-bold">
+                            Resistencia: ${i.selectedResistance}
+                        </div>
+                    ` : (i.selectedColor ? `
+                        <div class="flex items-center gap-1 mt-1 bg-slate-100 w-fit px-2 py-0.5 rounded border border-slate-200">
+                            <div class="w-2.5 h-2.5 rounded-full border border-slate-300" style="background-color: ${i.selectedHex}"></div>
+                            <span class="text-[10px] font-bold text-slate-600">${i.selectedColor}</span>
+                        </div>
+                    ` : '');
+                    
+                    // CORRECCIÓN AQUÍ: Usamos i.cartItemId para los botones y variantBadge para el HTML
+                    return `
+                    <div class="group relative flex gap-4 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in-up">
+                        <div class="w-20 h-20 flex-shrink-0 bg-slate-50 rounded-xl border border-slate-100 p-2 flex items-center justify-center overflow-hidden">
+                            <img src="${i.image}" class="w-full h-full object-contain mix-blend-multiply">
+                        </div>
+
+                        <div class="flex-1 flex flex-col justify-between min-w-0">
+                            <div>
+                                <div class="flex justify-between items-start gap-2">
+                                    <h4 class="font-bold text-sm text-slate-900 line-clamp-2 leading-snug">${i.name}</h4>
+                                    <button onclick="cartManager.remove('${i.cartItemId}')" class="text-slate-300 hover:text-red-500 transition p-1 -mr-2 -mt-2">
+                                        <i class="ph-bold ph-trash text-lg"></i>
+                                    </button>
+                                </div>
+                                ${variantBadge} </div>
+
+                            <div class="flex items-end justify-between mt-2">
+                                <div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg h-7">
+                                    <button onclick="cartManager.changeQty('${i.cartItemId}', -1)" class="w-7 h-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-200 rounded-l-lg transition"><i class="ph-bold ph-minus text-xs"></i></button>
+                                    <input type="number" value="${i.qty}" readonly class="w-8 text-center bg-transparent text-xs font-bold text-slate-900 outline-none m-0 p-0 h-full border-x border-slate-100" />
+                                    <button onclick="cartManager.changeQty('${i.cartItemId}', 1)" class="w-7 h-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-200 rounded-r-lg transition"><i class="ph-bold ph-plus text-xs"></i></button>
+                                </div>
+
+                                <div class="text-right">
+                                    <div class="font-extrabold text-slate-900 text-sm">S/ ${itemTotal.toFixed(2)}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                }).join('');
+
+                document.getElementById('cart-total').innerText = `S/ ${t.toFixed(2)}`;
+                if(subtotalEl) subtotalEl.innerText = `S/ ${t.toFixed(2)}`;
+            }
+        };
+
+        cartManager.save();
+
+
+// --- 1. REEMPLAZAR ESTO: Lógica mejorada para escribir cantidades ---
+        window.detailQtyManager = {
+            update: (delta, maxStock) => {
+                const input = document.getElementById('detail-qty-input');
+                let current = parseInt(input.value) || 1;
+                let next = current + delta;
+                if(next < 1) next = 1;
+                if(next > maxStock) {
+                    next = maxStock;
+                    Swal.fire('Stock Máximo', `Solo hay ${maxStock} unidades disponibles.`, 'info');
+                }
+                input.value = next;
+            },
+            handleInput: (el, maxStock) => {
+                let val = parseInt(el.value);
+                if(isNaN(val) || val < 1) val = 1;
+                if(val > maxStock) {
+                    val = maxStock;
+                    Swal.fire('Stock Máximo', `Solo hay ${maxStock} unidades disponibles.`, 'info');
+                }
+                el.value = val;
+            }
+        };
+
+// --- FUNCIONES VIDEO YOUTUBE ---
+window.getYoutubeId = (url) => {
+    if(!url) return null;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+};
+
+window.openVideoModal = (url) => {
+    const videoId = getYoutubeId(url);
+    if (!videoId) return Swal.fire('Error', 'Link no válido', 'error');
+    const modal = document.getElementById('video-modal');
+    document.getElementById('video-iframe').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    modal.classList.remove('hidden');
+    setTimeout(() => modal.classList.remove('opacity-0'), 10);
+};
+
+window.closeVideoModal = () => {
+    const modal = document.getElementById('video-modal');
+    modal.classList.add('opacity-0');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        document.getElementById('video-iframe').src = "";
+    }, 300);
+};
+
+        window.reviewManager = {
+            currentRating: 0,
+            setRating: (stars) => {
+                reviewManager.currentRating = stars;
+                for(let i=1; i<=5; i++) {
+                    const el = document.getElementById(`star-form-${i}`);
+                    if(el) {
+                        el.classList.remove('ph-bold', 'ph-fill', 'text-[#00979D]', 'text-slate-300');
+                        if(i <= stars) el.classList.add('ph-fill', 'text-[#00979D]');
+                        else el.classList.add('ph-bold', 'text-slate-300');
+                    }
+                }
+            },
+submitReview: async (productId) => {
+                if (!state.user) return Swal.fire('Inicia Sesión', 'Debes estar registrado para comentar.', 'warning');
+                
+                // --- VALIDACIÓN DE SEGURIDAD ---
+                const hasPurchased = state.orders.some(order => 
+                    order.status === 'Aprobado' && 
+                    order.items && 
+                    order.items.some(item => item.id === productId)
+                );
+                
+                if (!hasPurchased) {
+                    return Swal.fire('Acceso denegado', 'Debes comprar y validar este producto para opinar.', 'error');
+                }
+                // -------------------------------
+
+                if (reviewManager.currentRating === 0) return Swal.fire('Faltan estrellas', 'Por favor califica con estrellas.', 'warning');
+                
+                const comment = document.getElementById('review-comment').value;
+                if (!comment.trim()) return Swal.fire('Falta comentario', 'Escribe tu opinión.', 'warning');
+
+                const reviewData = {
+                    userId: state.user.uid,
+                    userName: state.user.displayName || 'Usuario',
+                    rating: reviewManager.currentRating,
+                    comment: comment,
+                    date: new Date().toISOString()
+                };
+                try {
+                    Swal.showLoading();
+                    await push(ref(db, `reviews/${productId}`), reviewData);
+                    const snapshot = await get(ref(db, `reviews/${productId}`));
+                    let totalStars = 0, totalReviews = 0;
+                    if (snapshot.exists()) {
+                        const reviews = Object.values(snapshot.val());
+                        totalReviews = reviews.length;
+                        totalStars = reviews.reduce((acc, curr) => acc + curr.rating, 0);
+                    }
+                    const newAverage = totalReviews > 0 ? (totalStars / totalReviews) : 0;
+                    await set(ref(db, `products/${productId}/rating`), newAverage);
+                    await set(ref(db, `products/${productId}/reviewCount`), totalReviews);
+                    Swal.fire('¡Gracias!', 'Tu opinión ha sido publicada.', 'success');
+                    router.navigate('product', {product: PRODUCTS.find(p=>p.id === productId).slug}); 
+                } catch (e) { console.error(e); Swal.fire('Error', 'No se pudo enviar la reseña.', 'error'); }
+            }
+        };
+
+
+// --- MEGA MENÚ MANAGER (CON ACTUALIZACIÓN EN TIEMPO REAL) ---
+window.megaMenuManager = {
+    isInitialized: false,
+    
+    // Función para limpiar y redibujar cuando cambian los datos
+    refresh: () => {
+        const listContainer = document.getElementById('mm-categories-list');
+        if (!listContainer) return;
+        
+        // 1. Limpiamos el contenido actual
+        listContainer.innerHTML = ''; 
+        // 2. Reseteamos el bloqueo
+        megaMenuManager.isInitialized = false; 
+        // 3. Volvemos a iniciar (esto redibuja con las nuevas categorías)
+        megaMenuManager.init();
+    },
+
+    init: () => {
+        // Si no hay categorías o ya está dibujado (y no hemos pedido refresh), no hacemos nada
+        if (CATEGORIES.length === 0 || megaMenuManager.isInitialized) return;
+
+        const listContainer = document.getElementById('mm-categories-list');
+        if (!listContainer) return;
+
+        // --- DIBUJAR CATEGORÍAS ---
+        listContainer.innerHTML = CATEGORIES.map((cat, index) => {
+            const isActive = index === 0; 
+            if(isActive) setTimeout(() => megaMenuManager.showPreview(cat.name), 50);
+
+            return `
+            <div onmouseenter="megaMenuManager.showPreview('${cat.name}')" 
+                 class="mm-cat-item px-6 py-3 cursor-pointer flex justify-between items-center text-sm font-bold transition-all duration-200 hover:bg-white hover:text-[#26E4ED] hover:border-l-4 hover:border-[#00979D] ${isActive ? 'bg-white text-slate-900 border-l-4 border-[#00979D]' : 'text-slate-500 border-l-4 border-transparent'}">
+                <span>${cat.name}</span>
+                <i class="ph-bold ph-caret-right text-xs opacity-50"></i>
+            </div>`;
+        }).join('');
+        
+        listContainer.innerHTML += `
+            <div onclick="router.navigate('/shop')" class="px-6 py-3 mt-2 cursor-pointer text-xs font-bold text-blue-600 hover:underline border-t border-slate-200">
+                Ver Catálogo Completo
+            </div>
+        `;
+
+        megaMenuManager.isInitialized = true;
+    },
+
+    showPreview: (categoryName) => {
+        // Actualizar estilos visuales de la lista
+        const items = document.querySelectorAll('.mm-cat-item');
+        items.forEach(el => {
+            // Usamos textContent para comparar porque innerText puede variar según estilos
+            if(el.textContent.trim().includes(categoryName)) {
+                el.classList.remove('text-slate-500', 'border-transparent');
+                el.classList.add('bg-white', 'text-slate-900', 'border-[#00979D]');
+            } else {
+                el.classList.add('text-slate-500', 'border-transparent');
+                el.classList.remove('bg-white', 'text-slate-900', 'border-[#00979D]');
+            }
+        });
+
+        const products = PRODUCTS.filter(p => p.category === categoryName).slice(0, 6);
+        const container = document.getElementById('mm-products-preview');
+        const btn = document.getElementById('mm-view-all-btn');
+
+        if(btn) btn.onclick = () => router.navigate('/shop', {category: categoryName, pageNum: 1});
+        if(!container) return;
+
+        if (products.length === 0) {
+            container.innerHTML = `<div class="col-span-3 flex flex-col items-center justify-center h-full text-slate-400 opacity-50"><i class="ph-fill ph-ghost text-4xl mb-2"></i><p class="text-sm">Sin productos por ahora</p></div>`;
+            return;
+        }
+
+        container.innerHTML = products.map(p => `
+            <div onclick="router.navigate('product', {product: '${p.slug}'})" class="group cursor-pointer bg-slate-50 rounded-xl p-3 border border-slate-100 hover:border-[#00979D] hover:shadow-md transition-all duration-300 flex flex-col h-[140px]">
+                <div class="flex-1 w-full flex items-center justify-center overflow-hidden mb-2 bg-white rounded-lg p-1">
+                    <img src="${p.image}" class="h-full object-contain group-hover:scale-110 transition-transform duration-500 mix-blend-multiply">
+                </div>
+                <div>
+                    <h4 class="text-[10px] font-bold text-slate-700 leading-tight line-clamp-1 group-hover:text-black mb-1">${p.name}</h4>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-extrabold text-slate-900">S/ ${p.isOffer ? p.offerPrice : p.price}</span>
+                        ${p.isOffer ? '<span class="text-[8px] bg-red-500 text-white px-1 rounded font-bold">-Oferta</span>' : ''}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        
+        container.classList.remove('fade-in');
+        void container.offsetWidth; 
+        container.classList.add('fade-in');
+    }
+};
+
+
+// --- AGREGAR ESTO DENTRO DEL SCRIPT, JUNTO A TUS OTRAS FUNCIONES WINDOW ---
+
+window.initScrollAnimations = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Añadimos la clase para activar la animación
+                entry.target.classList.add('reveal-visible');
+                // Dejamos de observar para que no se anime doble vez
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1, // Se activa cuando se ve el 10% del producto
+        rootMargin: "0px 0px -50px 0px" // Un pequeño margen para que no aparezca pegado al borde
+    });
+
+    // Buscar todos los elementos con la clase y observarlos
+    document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+        observer.observe(el);
+    });
+};
+
+
+
+
+window.clickAdPopup = () => {
+    // AQUI ES DONDE FALLABA ANTES POR FALTA DE LA VARIABLE
+    if(POPUP_LINK && POPUP_LINK !== '#') { 
+        closeAdPopup();
+        if(POPUP_LINK.startsWith('/') || POPUP_LINK.startsWith('?')) {
+            if(POPUP_LINK.includes('?page=product')) {
+                const urlParams = new URLSearchParams(POPUP_LINK.split('?')[1]);
+                router.navigate('product', {product: urlParams.get('product')});
+            } else if(POPUP_LINK.includes('/shop')) {
+                router.navigate('/shop');
+            } else {
+                window.location.href = POPUP_LINK;
+            }
+        } else {
+            window.open(POPUP_LINK, '_blank');
+        }
+    } else {
+        closeAdPopup(); // Si no hay link, solo cierra
+    }
+};
+
+
+
+// REEMPLAZA ESTA FUNCIÓN EN Perúnuevo.html
+
+window.showAdPopup = (imageUrl, linkUrl, title, message, btnText) => {
+    const modal = document.getElementById('ad-popup-modal');
+    const img = document.getElementById('ad-popup-img');
+    const content = document.getElementById('ad-popup-content');
+    const backdrop = document.getElementById('ad-popup-backdrop');
+    
+    // Referencias a textos
+    const textContainer = document.getElementById('ad-text-container');
+    const titleEl = document.getElementById('ad-popup-title');
+    const msgEl = document.getElementById('ad-popup-msg');
+    const btnLabel = document.getElementById('ad-btn-label');
+    const imgWrapper = document.getElementById('ad-img-wrapper');
+
+    // 1. Configurar Imagen y Link
+    img.src = imageUrl;
+    POPUP_LINK = linkUrl;
+
+    // 2. Lógica de Texto: ¿Mostramos la parte blanca de abajo o no?
+    const hasText = (title && title.trim() !== '') || (message && message.trim() !== '');
+
+    if (hasText) {
+        // MODO CON TEXTO (Estilo Card)
+        textContainer.classList.remove('hidden');
+        titleEl.innerText = title || '';
+        msgEl.innerText = message || '';
+        btnLabel.innerText = btnText || 'Ver Detalles';
+        
+        // Ajuste de imagen para compartir espacio
+        img.className = "w-full h-48 md:h-64 object-cover transition-transform duration-700 group-hover:scale-105";
+        content.classList.replace('max-w-3xl', 'max-w-md'); // Más angosto para leer mejor
+    } else {
+        // MODO SOLO IMAGEN (Estilo Poster completo)
+        textContainer.classList.add('hidden');
+        
+        // Imagen grande sin restricciones de altura forzadas por texto
+        img.className = "w-full h-auto max-h-[85vh] object-contain mx-auto rounded-2xl";
+        // Fondo transparente para que parezca flotar solo la imagen
+        content.classList.remove('bg-white', 'shadow-2xl'); 
+        content.classList.add('bg-transparent', 'shadow-none');
+        imgWrapper.classList.add('rounded-2xl', 'shadow-2xl', 'overflow-hidden');
+    }
+
+    // 3. Mostrar Modal
+    modal.classList.remove('hidden');
+    void modal.offsetWidth; // Force Reflow
+
+    setTimeout(() => {
+        backdrop.classList.remove('opacity-0');
+        backdrop.classList.add('opacity-100');
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+    }, 10);
+};
+window.closeAdPopup = () => {
+    const modal = document.getElementById('ad-popup-modal');
+    const content = document.getElementById('ad-popup-content');
+    const backdrop = document.getElementById('ad-popup-backdrop');
+    
+    // Animación de Salida
+    content.classList.remove('scale-100', 'opacity-100');
+    content.classList.add('scale-95', 'opacity-0'); // Se encoge ligeramente al salir
+    
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0');
+    
+    // Esperar a que termine la animación (500ms) para ocultar el div
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        document.getElementById('ad-popup-img').src = ""; // Limpiar imagen
+    }, 500);
+};
+
+
+
+
+window.initBannerEffects = () => {
+    const container = document.querySelector('.group\\/banner'); 
+    if (!container) return;
+
+    window.isBannerHovered = false;
+    let ticking = false; // Variable para controlar el frame rate
+
+    // --- 1. MOUSE ENTER/LEAVE (Sin cambios drásticos) ---
+    container.addEventListener('mouseenter', () => {
+        window.isBannerHovered = true; 
+        if (window.bannerInterval) clearInterval(window.bannerInterval);
+    });
+
+    container.addEventListener('mouseleave', () => {
+        window.isBannerHovered = false;
+        if (window.bannerInterval) clearInterval(window.bannerInterval);
+        window.bannerInterval = setInterval(() => window.moveBanner(1), 6000);
+
+        const activeSlide = document.getElementById(`banner-slide-${window.currentBannerIndex}`);
+        if (activeSlide) {
+            const img = activeSlide.querySelector('.banner-3d-target');
+            if(img) {
+                // Reseteamos estilos directamente
+                img.style.transform = 'translateY(0) scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg)';
+            }
+        }
+    });
+
+    // --- 2. MOUSE MOVE (Optimizado con requestAnimationFrame) ---
+    container.addEventListener('mousemove', (e) => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const activeSlide = document.getElementById(`banner-slide-${window.currentBannerIndex}`);
+                if (activeSlide) {
+                    const img = activeSlide.querySelector('.banner-3d-target');
+                    if (img) {
+                        const rect = container.getBoundingClientRect();
+                        const x = e.clientX - rect.left; 
+                        const y = e.clientY - rect.top;
+                        const xPct = (x / rect.width - 0.5) * 2; 
+                        const yPct = (y / rect.height - 0.5) * 2;
+                        
+                        // Usamos transform directamente (más rápido que setProperty para animaciones continuas)
+                        const rotX = yPct * -10;
+                        const rotY = xPct * 10;
+                        
+                        // Aplicamos todas las transformaciones en una sola línea para evitar reflows
+                        img.style.transform = `translateY(var(--scroll-y, 0px)) scale(var(--scroll-scale, 1)) perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+                    }
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // --- 3. SCROLL (Optimizado con requestAnimationFrame) ---
+    // Movemos la lógica del scroll fuera del listener directo
+    let scrollTicking = false;
+    
+    window.addEventListener('scroll', () => {
+        if (!scrollTicking) {
+            window.requestAnimationFrame(() => {
+                const activeSlide = document.getElementById(`banner-slide-${window.currentBannerIndex}`);
+                if (activeSlide) {
+                    const img = activeSlide.querySelector('.banner-3d-target');
+                    if (img) {
+                        const scrollY = window.scrollY;
+                        // Solo calculamos si el banner está visible (ahorra recursos)
+                        if (scrollY < 800) { 
+                            const moveY = scrollY * 0.15; 
+                            const scale = 1 + (scrollY / 4000); 
+                            
+                            // Actualizamos variables CSS o transform directo
+                            img.style.setProperty('--scroll-y', `${moveY}px`);
+                            img.style.setProperty('--scroll-scale', `${scale}`);
+                            
+                            // Nota: drop-shadow es muy pesado. Considera desactivarlo al hacer scroll si sigue lento.
+                            // img.style.setProperty('--drop-shadow-y', `${20 + (scrollY * 0.1)}px`);
+                        }
+                    }
+                }
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    }, { passive: true }); // 'passive: true' le dice al navegador que no vamos a cancelar el scroll, haciéndolo más fluido
+};
+
+window.router = {
+            navigate: (p, params = {}) => {
+                let url = `?page=${p.replace('/','') || 'home'}`;
+                Object.keys(params).forEach(k => url += `&${k}=${params[k]}`);
+                window.history.pushState({}, '', url); 
+                router.handle(true); 
+            },
+            handle: (doScroll = true) => {
+                const params = new URLSearchParams(window.location.search);
+                const page = params.get('page') || 'home';
+                const app = document.getElementById('app');
+                const header = document.getElementById('main-header');
+                const footer = document.getElementById('main-footer');
+                
+                if (doScroll) window.scrollTo(0,0);
+
+// --- LÓGICA CORREGIDA PARA ILUMINAR EL MENÚ ACTIVO ---
+                const highlightMenu = () => {
+                    const map = {
+                        'home': 'nav-home',
+                        'shop': 'nav-shop', 'product': 'nav-shop',
+                        'faq': 'nav-faq',
+                        'how-to-buy': 'nav-how-to-buy',
+                        'about': 'nav-about',
+                        'services': 'nav-services'
+                    };
+                    
+                    const params = new URLSearchParams(window.location.search);
+                    const page = params.get('page') || 'home';
+                    const activeId = map[page] || 'nav-home';
+
+                    // Reseteamos todos y activamos el correcto
+                    Object.values(map).forEach(id => {
+                        const el = document.getElementById(id);
+                        if(!el) return;
+
+                        const textSpan = el.querySelector('span'); // El texto
+                        const lineDiv = el.querySelector('div:last-child'); // La línea de abajo
+
+                        if(id === activeId) {
+                            // ESTADO ACTIVO (ESTOY EN ESTA PÁGINA)
+                            // 1. Quitamos el blanco para que no estorbe
+                            textSpan.classList.remove('text-white', 'tracking-widest');
+                            
+                            // 2. Ponemos el color Arduino (#00979D) y el brillo
+                            textSpan.classList.add('text-[#1CE8DE]', 'tracking-[0.25em]', 'drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]');
+                            
+                            // Mostramos la línea de abajo
+                            lineDiv.classList.remove('w-0', 'opacity-0');
+                            lineDiv.classList.add('w-full', 'opacity-100');
+                        } else {
+                            // ESTADO INACTIVO (NO ESTOY AQUÍ)
+                            // 1. Ponemos el texto en BLANCO (Nuevo cambio)
+                            textSpan.classList.add('text-white', 'tracking-widest');
+                            
+                            // 2. Quitamos el color Arduino
+                            textSpan.classList.remove('text-[#1CE8DE]', 'tracking-[0.25em]', 'drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]');
+                            
+                            // Ocultamos la línea
+                            lineDiv.classList.add('w-0', 'opacity-0');
+                            lineDiv.classList.remove('w-full', 'opacity-100');
+                        }
+                    });
+                };           
+                // Ejecutamos la iluminación del menú
+                highlightMenu();
+                // --------------------------------------------------
+
+                if(page === 'login') { 
+                    header.style.display = 'none'; footer.style.display = 'none'; 
+                    app.className = "w-full fade-in";
+
+} else { 
+    header.style.display = 'block'; footer.style.display = 'block'; 
+    
+    // CAMBIO IMPORTANTE: Si es home, quitamos el padding (p-0). Si no, lo dejamos.
+// CAMBIO: Ahora 'services' también ocupa todo el ancho (p-0)
+    if (page === 'home' || page === 'services') {
+        app.className = "flex-grow w-full fade-in min-h-[60vh] p-0"; 
+    } else {
+        app.className = "flex-grow w-full fade-in min-h-[60vh] px-4 py-6";
+    }
+}
+
+                if(page === 'home') renderHome(app);
+                else if(page === 'shop') renderShop(app, params.get('category'), parseInt(params.get('pageNum') || 1), params.get('filter'), params.get('search'));
+                else if(page === 'product') renderProduct(app, params.get('product'));
+                else if(page === 'login') renderLogin(app);
+                else if(page === 'faq') renderFAQ(app);
+                else if(page === 'how-to-buy') renderHowToBuy(app);
+                else if(page === 'about') renderAbout(app);
+else if(page === 'services') renderServices(app);
+else if(page === 'profile') {
+    if(!state.user && !auth.currentUser) { router.navigate('/login'); return; }
+    // AQUI EL CAMBIO: Si 'tab' es nulo, forzamos 'summary'
+    renderProfile(app, params.get('tab') || 'summary');
+}
+
+
+
+            }
+        };
+
+
+function ProductCard(p) {
+    // --- PEGAR ESTO AL INICIO DE LA FUNCIÓN ---
+    let restockMsg = null;
+    
+    if (p.stock <= 0 && p.restockDate) {
+        const today = new Date();
+        today.setHours(0,0,0,0); // Ignorar hora actual
+        
+        // Corregir la fecha del admin (a veces viene con zona horaria distinta)
+        const parts = p.restockDate.split('-');
+        const target = new Date(parts[0], parts[1] - 1, parts[2]); 
+        
+        const diffTime = target - today;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+        if (diffDays > 0) {
+            restockMsg = `Llega en ${diffDays} día${diffDays > 1 ? 's' : ''}`;
+        } else if (diffDays === 0) {
+            restockMsg = "¡Llega Hoy!";
+        }
+    }
+    // ------------------------------------------
+
+    // ... (el resto de tu código original: isNew, isFav, etc) ...
+    
+    let isNew = false;
+    
+    // Lógica para detectar si es nuevo (mantenemos tu lógica original)
+    if (p.newMode === 'forced_on') isNew = true;
+    else if (p.newMode === 'forced_off') isNew = false;
+    else if (p.date) {
+        const diffDays = Math.abs(new Date() - new Date(p.date)) / (1000 * 60 * 60 * 24);
+        if (diffDays <= 3) isNew = true;
+    }
+
+    const isFav = state.favorites.has(p.id);
+    const finalPrice = (p.isOffer && p.offerPrice) ? p.offerPrice : p.price;
+    const originalPrice = (p.isOffer && p.offerPrice) ? p.price : (p.price * 1.2);
+    const stock = p.stock || 0;
+    const isStock = stock > 0;
+    const isLowStock = stock > 0 && stock <= 5;
+    const isComingSoon = p.isComingSoon === true; // <--- AGREGAR ESTO
+    
+    const dotColorClass = isLowStock ? 'bg-red-500' : 'bg-emerald-500';
+
+    return `
+    <div class="group relative w-full h-full rounded-[14px] bg-slate-200 p-[1px] overflow-hidden isolate shadow-sm hover:shadow-xl transition-shadow duration-500">
+        
+        <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_340deg,#0f172a_360deg)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_3s_linear_infinite] z-0"></div>
+
+        <div class="relative w-full h-full bg-white rounded-[13px] overflow-hidden z-10 flex flex-col">
+
+
+
+
+
+
+
+
+
+<div class="relative w-full aspect-[1/1] overflow-hidden bg-white border-b border-slate-200 cursor-pointer group rounded-t-[14px]" onclick="router.navigate('product', {product: '${p.slug}'})">
+                
+                <div class="absolute inset-0 bg-white"></div>
+
+                <div class="absolute -bottom-[60%] -right-[20%] w-[140%] h-[140%] rounded-full bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 z-0 transition-transform duration-700 group-hover:scale-105 shadow-[inset_0_1px_10px_rgba(0,0,0,0.05)]"></div>
+
+                <div class="absolute -bottom-[60%] -right-[20%] w-[140%] h-[140%] rounded-full border border-slate-300/50 pointer-events-none z-0"></div>
+
+                <div class="absolute -bottom-[55%] -right-[15%] w-[130%] h-[130%] rounded-full border border-slate-300/40 z-0"></div>
+                <div class="absolute -bottom-[50%] -right-[10%] w-[120%] h-[120%] rounded-full border border-[#00979D]/20 z-0 group-hover:border-[#00979D]/50 transition-colors duration-300"></div>
+
+   <div class="absolute top-8 right-8 w-16 h-16 bg-gradient-to-br from-slate-100 to-slate-300 rounded-full shadow-inner z-0 group-hover:translate-y-2 transition-transform duration-1000 border border-slate-200 flex items-center justify-center p-2">
+    <img src="https://qeoojbsrqlroajvdgrju.supabase.co/storage/v1/object/public/productos/bg-logo-2m.png" 
+         class="w-full h-full object-contain opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
+</div>
+                <div class="absolute top-2 left-2 z-30 flex flex-col gap-1 items-start pointer-events-none">
+                    ${p.isOffer ? `
+                        <span class="pl-2 pr-3 py-0.5 rounded-md bg-red-600 text-white border border-red-500 text-[8px] font-bold uppercase tracking-widest shadow-sm flex items-center gap-1 z-20">
+                            <i class="ph-fill ph-lightning text-[10px] flex-shrink-0"></i> -${Math.round(100 - ((finalPrice * 100) / originalPrice))}%
+                        </span>
+                    ` : ''}
+
+${isNew ? `
+                        <span class="px-3 py-1.5 rounded bg-slate-800 text-white text-[9px] font-bold uppercase tracking-[0.25em] z-20 shadow-sm">
+                            NUEVO
+                        </span>
+                    ` : ''}
+
+  ${p.points ? `
+    <span class="px-2 py-0.5 rounded-md bg-orange-50 text-orange-700 ring-1 ring-inset ring-orange-600/20 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 z-20">
+        <i class="ph-fill ph-star text-orange-500 text-[11px]"></i>
+        +${p.points}
+    </span>
+` : ''}
+
+                    
+                </div>
+
+                <button onclick="event.stopPropagation(); userActions.toggleFavorite('${p.id}')" 
+                    class="absolute top-2 right-2 z-30 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 border ${isFav ? 'bg-red-50 border-red-100 text-red-500' : 'bg-white border-slate-200 text-slate-400 hover:text-red-500 hover:border-red-200 hover:shadow-md'}">
+                    <i class="${isFav ? 'ph-fill' : 'ph-bold'} ph-heart text-sm"></i>
+                </button>
+                
+                <div class="relative w-full h-full p-6 z-10 flex items-center justify-center transition-transform duration-500 ease-out group-hover:-translate-y-2 group-hover:scale-110">
+                    <img src="${p.image}" class="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.2)] ${!isStock ? 'grayscale opacity-50' : ''}" loading="lazy" alt="${p.name}">
+                </div>
+
+${isComingSoon ? `
+<div class="absolute inset-0 z-20 flex items-center justify-center bg-slate-900/60 backdrop-blur-[2px]">
+    <div class="text-center transform -rotate-3">
+        <span class="bg-[#00979D] text-white text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-xl border-2 border-white block mb-1">PRONTO</span>
+        <span class="text-[9px] font-bold text-white bg-slate-900/80 px-2 py-0.5 rounded border border-white/20 shadow-sm whitespace-nowrap">Próximo Lanzamiento</span>
+    </div>
+</div>` : ''}
+
+
+                ${!isStock ? `
+                    <div class="absolute inset-0 z-20 flex items-center justify-center bg-white/70 backdrop-blur-[1px]">
+                        ${restockMsg ? 
+                            `<div class="text-center transform rotate-[-5deg]">
+                                <span class="bg-orange-500 text-white text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-xl border-2 border-orange-600 block mb-1">
+                                    PRONTO
+                                </span>
+                                <span class="text-[10px] font-bold text-slate-800 bg-white px-2 py-0.5 rounded border border-slate-200 shadow-sm whitespace-nowrap">
+                                    ${restockMsg}
+                                </span>
+                            </div>` 
+                            : 
+                            `<span class="bg-slate-900 text-white text-[9px] font-black px-2 py-1 rounded uppercase tracking-widest shadow-lg border border-slate-800">Agotado</span>`
+                        }
+                    </div>
+                ` : ''}
+
+            </div>
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            <div class="p-2.5 flex flex-col flex-grow relative bg-[#F8FAFC]">
+                <div class="flex justify-between items-center mb-0.5"> 
+                    <span class="text-[8px] font-extrabold text-slate-400 uppercase tracking-wider truncate max-w-[100px]">
+                        ${p.category}
+                    </span>
+                    
+                    ${isStock ? `
+                        <div class="flex items-center gap-1">
+                            <span class="relative flex h-1.5 w-1.5">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${dotColorClass}"></span>
+                              <span class="relative inline-flex rounded-full h-1.5 w-1.5 ${dotColorClass}"></span>
+                            </span>
+                            <span class="text-[8px] font-bold ${isLowStock ? 'text-red-600' : 'text-emerald-600'}">
+                                ${isLowStock ? `Quedan ${stock}` : 'Disponible'}
+                            </span>
+                        </div>
+                    ` : ''}
+                </div>
+
+                <h3 class="text-xs font-bold text-slate-900 leading-snug min-h-[2rem] line-clamp-2 cursor-pointer group-hover:text-indigo-600 transition-colors duration-300" onclick="router.navigate('product', {product: '${p.slug}'})" title="${p.name}">
+                    ${p.name}
+                </h3>
+            </div>
+
+            <div class="mt-auto px-2.5 py-2 bg-slate-100 border-t border-slate-200 flex items-center justify-between gap-2 relative z-20">
+                <div class="flex flex-col">
+                     <span class="text-[8px] font-black uppercase tracking-widest ${p.isOffer ? 'text-red-600' : 'text-slate-500'}">
+                        ${p.isOffer ? 'OFERTA' : 'PRECIO'}
+                    </span>
+                    
+                    <div class="flex flex-col leading-none">
+
+
+<div class="flex items-end gap-0.5">
+    <span class="text-[10px] font-bold mb-0.5 ${p.isOffer ? 'text-red-600' : 'text-slate-600'}">S/</span>
+    <span class="text-lg font-black tracking-tighter ${p.isOffer ? 'text-red-600' : 'text-slate-900'}">
+        ${Math.floor(finalPrice)}<span class="text-xs font-bold opacity-70 align-top ml-px">.${finalPrice.toFixed(2).split('.')[1]}</span>
+    </span>
+</div>
+
+                        
+                        ${p.isOffer ? `
+                            <span class="text-[8px] font-bold text-slate-400 line-through decoration-slate-300 -mt-0.5">
+                                S/ ${originalPrice.toFixed(2)}
+                            </span>
+                        ` : ''}
+                    </div>
+                </div>
+
+
+${isComingSoon ? 
+    // BOTÓN BLOQUEADO PRÓXIMAMENTE
+    `<button disabled class="relative w-8 h-8 flex items-center justify-center bg-slate-100 text-slate-400 rounded-lg cursor-not-allowed border border-slate-200" title="Próximamente">
+        <i class="ph-bold ph-hourglass-high text-base"></i>
+    </button>`
+    : 
+    // BOTÓN NORMAL (STOCK O AGOTADO)
+    `<button onclick="event.stopPropagation(); ${isStock ? `cartManager.add('${p.id}')` : ''}" 
+        class="relative w-8 h-8 flex items-center justify-center overflow-hidden group/btn z-10 shadow-md shadow-slate-300 transition-all duration-300 hover:scale-105 active:scale-95
+        ${isStock ? 'bg-slate-900 text-white' : 'bg-slate-200 text-slate-400 cursor-not-allowed'}" 
+        style="border-radius: 8px;" 
+        title="${isStock ? 'Agregar' : 'Sin Stock'}">
+        
+        ${isStock ? `
+            <div class="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover/btn:-translate-y-full">
+                <i class="ph-fill ph-shopping-cart-simple text-base"></i>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-300 group-hover/btn:translate-y-0 bg-slate-800 text-white">
+                <i class="ph-bold ph-plus text-base"></i>
+            </div>
+        ` : '<i class="ph-bold ph-prohibit text-base"></i>'}
+    </button>`
+}
+
+
+            </div>
+        </div>
+    </div>`;
+}
+        window.currentBannerIndex = 0;
+        window.totalBanners = 0;
+
+
+
+window.moveBanner = (step) => {
+    if (window.totalBanners <= 1) return;
+
+    // 1. OCULTAR SLIDE ACTUAL
+    const prevSlide = document.getElementById(`banner-slide-${window.currentBannerIndex}`);
+    const prevText = document.getElementById(`banner-text-${window.currentBannerIndex}`);
+    const prevInd = document.getElementById(`indicator-${window.currentBannerIndex}`);
+    
+    if(prevSlide) {
+        prevSlide.classList.replace('opacity-100', 'opacity-0');
+        prevSlide.classList.remove('glitch-active');
+    }
+    if(prevText) { 
+        prevText.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto'); 
+        prevText.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none'); 
+    }
+    if(prevInd) { 
+        prevInd.classList.remove('bg-[#00979D]', 'w-8'); 
+        prevInd.classList.add('bg-slate-500', 'w-4'); 
+    }
+
+    // 2. CALCULAR NUEVO ÍNDICE
+    window.currentBannerIndex = (window.currentBannerIndex + step + window.totalBanners) % window.totalBanners;
+
+    // 3. MOSTRAR NUEVO SLIDE
+    const nextSlide = document.getElementById(`banner-slide-${window.currentBannerIndex}`);
+    const nextText = document.getElementById(`banner-text-${window.currentBannerIndex}`);
+    const nextInd = document.getElementById(`indicator-${window.currentBannerIndex}`);
+    
+    if(nextSlide) {
+        nextSlide.classList.replace('opacity-0', 'opacity-100'); 
+        
+        // Efecto Glitch
+        nextSlide.classList.add('glitch-active');
+        setTimeout(() => {
+            if(nextSlide) nextSlide.classList.remove('glitch-active');
+        }, 500);
+    }
+    if(nextText) { 
+        setTimeout(() => {
+            nextText.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none'); 
+            nextText.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto'); 
+        }, 300);
+    }
+    if(nextInd) { 
+        nextInd.classList.remove('bg-slate-500', 'w-4'); 
+        nextInd.classList.add('bg-[#00979D]', 'w-8'); 
+    }
+
+    // 4. LÓGICA INTELIGENTE DE REINICIO
+    // Limpiamos el intervalo actual siempre
+    if (window.bannerInterval) clearInterval(window.bannerInterval);
+
+    // SOLO reiniciamos el contador automático si el mouse NO está encima
+    if (!window.isBannerHovered) {
+        window.bannerInterval = setInterval(() => window.moveBanner(1), 6000);
+    }
+};
+
+
+
+// --- EFECTO MÁQUINA DE ESCRIBIR PARA LA PORTADA ---
+window.bubbleInterval = null;
+
+window.startTypewriter = (elementId, text) => {
+    const bubble = document.getElementById(elementId);
+    const contentSpan = bubble.querySelector('.bubble-text');
+    
+    if(!bubble || !contentSpan) return;
+
+    // 1. Mostrar la burbuja
+    bubble.classList.add('bubble-visible');
+    contentSpan.innerText = ""; // Limpiar texto anterior
+    
+    // 2. Iniciar escritura
+    let i = 0;
+    if (window.bubbleInterval) clearInterval(window.bubbleInterval);
+    
+    window.bubbleInterval = setInterval(() => {
+        if (i < text.length) {
+            contentSpan.innerText += text.charAt(i);
+            i++;
+        } else {
+            clearInterval(window.bubbleInterval);
+        }
+    }, 50); // Velocidad de escritura (ms)
+};
+
+window.stopTypewriter = (elementId) => {
+    const bubble = document.getElementById(elementId);
+    if (window.bubbleInterval) clearInterval(window.bubbleInterval);
+    if(bubble) bubble.classList.remove('bubble-visible');
+};
+
+function renderHome(container) {
+
+
+    const offerProducts = PRODUCTS.filter(p => p.isOffer);
+    const loopOffers = offerProducts.length > 0 ? [...offerProducts, ...offerProducts, ...offerProducts, ...offerProducts] : [];
+    const displayOffers = loopOffers.slice(0, 20);
+    // 2. NUEVO: FILTRO DE PRODUCTOS NUEVOS
+    // Usamos la misma lógica que tu tarjeta: menos de 7 días o forzado "ON"
+const newProducts = PRODUCTS.filter(p => {
+        // Si está forzado a NO ser nuevo, lo ignoramos
+        if (p.newMode === 'forced_off') return false;
+        
+        // Si está forzado a SÍ ser nuevo, entra
+        if (p.newMode === 'forced_on') return true;
+
+        // Si es automático, debe tener 3 días o menos (Igual que tu etiqueta)
+        if (p.date) {
+            const diffDays = Math.abs(new Date() - new Date(p.date)) / (1000 * 60 * 60 * 24);
+            return diffDays <= 3; 
+        }
+        return false;
+    });
+
+    if (window.bannerInterval) clearInterval(window.bannerInterval);
+
+
+
+
+// --- LÓGICA DE ORDENAMIENTO INTELIGENTE (VISTAS + DESEMPATE) ---
+        const sortedByViews = [...PRODUCTS].sort((a, b) => {
+            // 1. Obtener vistas (si no tiene, es 0)
+            const viewsA = parseInt(a.views || 0);
+            const viewsB = parseInt(b.views || 0);
+            
+            // 2. CRITERIO PRINCIPAL: Mayor cantidad de vistas gana
+            if (viewsB !== viewsA) {
+                return viewsB - viewsA;
+            }
+
+            // 3. CRITERIO DE DESEMPATE (Si tienen mismas vistas):
+            // Ganará el que sea más nuevo (por fecha)
+            const dateA = new Date(a.date || 0);
+            const dateB = new Date(b.date || 0);
+            
+            return dateB - dateA; 
+        });
+
+        // Tomamos los 5 primeros productos ganadores
+        const productsHTML = sortedByViews.length 
+            ? sortedByViews.slice(0, 5).map(ProductCard).join('') 
+            : '<div class="col-span-full text-center py-8 text-slate-400">Cargando destacados...</div>';
+        // -----------------------------------------------------------
+
+// 1. PORTADA FIJA (ESTRATEGIA: SERVICIOS, PROYECTOS Y PRODUCTOS)
+    const fixedHero = {
+        type: 'fixed-split',
+        title: '2M Tech Perú', 
+        subtitle: 'ELECTRÓNICA & SERVICIO', 
+        
+        // DESCRIPCIÓN PRINCIPAL (ENGANCHE):
+        // Vende la solución completa: no solo vendes piezas, ayudas a crear.
+        desc: 'Encuentra los mejores componentes, solicita nuestro servicio técnico especializado o cotiza el desarrollo integral de tus proyectos. ¡Haz realidad tus ideas hoy!',
+        
+        // LAS 3 IMÁGENES FLOTANTES (TUS 3 PILARES):
+        products: [
+            { 
+                name: 'Servicios', 
+                img: 'https://iili.io/fu69Aog.png', // Imagen Izquierda
+                link: '/services',
+                // TEXTO BURBUJA (SERVICIOS):
+                msg: '¡Instalaciones eléctricas y mucho más!' 
+            }, 
+            { 
+                name: 'Proyectos', 
+                img: 'https://iili.io/fu69rib.png', // Imagen Central (La más grande)
+                link: '/contact', // Idealmente llevaría a contacto/cotización
+                // TEXTO BURBUJA (PROYECTOS):
+                msg: 'Desarrollo de proyectos con microcontroladores de Microchip, STM32, Arduino, Raspberry y mucho más. 🚀' 
+            },
+            { 
+                name: 'Productos', 
+                img: 'https://iili.io/faJmoQI.png', // Imagen Derecha
+                link: '/shop',
+                // TEXTO BURBUJA (PRODUCTOS):
+                msg: 'Componentes y Herramientas A1 a un buen precio. ⚡' 
+            }
+        ]
+    };
+
+    // 2. JUNTARLO CON LA DATA DE FIREBASE (Fijo va primero)
+// 2. JUNTARLO CON LA DATA DE FIREBASE (Fijo va primero)
+    let banners = [fixedHero]; 
+    if (BANNER_DATA) {
+        let dbBanners = [];
+        
+        // Convertir a array si no lo es
+        if(Array.isArray(BANNER_DATA)) { 
+            dbBanners = BANNER_DATA; 
+        } else if (BANNER_DATA.image) { 
+            dbBanners = [BANNER_DATA]; 
+        }
+        
+        // --- FILTRO DE VISIBILIDAD ---
+        // Solo agregamos al carrusel los que NO tengan isVisible = false
+        const visibleBanners = dbBanners.filter(b => b.isVisible !== false);
+        
+        banners = banners.concat(visibleBanners);
+    }
+
+    window.totalBanners = banners.length;
+    window.currentBannerIndex = 0;
+
+
+
+    
+
+// GENERACIÓN DE SLIDES (MODIFICADO PARA FULL WIDTH)
+    const carouselHTML = banners.map((b, index) => {
+        // --- PEGAR ESTO AL INICIO DEL MAP ---
+        const isActiveState = index === 0 ? 'opacity-100 pointer-events-auto active-slide' : 'opacity-0 pointer-events-none';
+        
+
+if (b.type === 'fixed-split') {
+    return `
+    <div id="banner-slide-${index}" class="absolute inset-0 w-full h-full bg-slate-900 ${isActiveState} overflow-hidden">
+        
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1e293b] via-[#0f172a] to-black"></div>
+        <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(#00979D 1px, transparent 1px), linear-gradient(90deg, #00979D 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+        <div class="relative z-10 w-full max-w-[1440px] mx-auto px-4 md:px-6 h-full flex flex-col md:flex-row items-center">
+            
+     <div id="banner-text-${index}" class="w-full md:w-5/12 flex flex-col justify-start md:justify-center text-center md:text-left pt-24 md:pt-0 z-20 pointer-events-auto h-full">
+        
+                <div class="anim-left" style="animation-delay: 0.3s">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00979D] bg-[#00979D]/10 text-[#26E4ED] font-bold tracking-[0.2em] uppercase text-[10px] mb-4 shadow-[0_0_15px_rgba(0,151,157,0.5)]">
+                        <span class="w-2 h-2 rounded-full bg-[#00979D] animate-pulse"></span> ${b.subtitle}
+                    </span>
+                </div>
+
+                <h2 class="anim-sky text-5xl md:text-7xl font-black text-white leading-[0.9] mb-6 tracking-tighter drop-shadow-2xl" style="animation-delay: 0.5s">
+                    ${b.title.split(' ')[0]}<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500">${b.title.split(' ').slice(1).join(' ')}</span>
+                </h2>
+
+                <p class="anim-left text-slate-400 text-sm md:text-base mb-8 max-w-md mx-auto md:mx-0 leading-relaxed font-medium" style="animation-delay: 0.7s">
+                    ${b.desc}
+                </p>
+
+            </div>
+
+            <div class="w-full md:w-7/12 h-full relative flex items-center justify-center pointer-events-none mt-10 md:mt-0">
+                
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#00979D] rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-pulse"></div>
+
+                <div class="absolute left-0 md:left-10 top-1/2 -translate-y-1/2 z-10 w-32 md:w-48 pointer-events-auto float-delay-2 group">
+                    <div id="bubble-left" class="thought-bubble">
+                        <span class="bubble-text"></span><span class="cursor-blink"></span>
+                    </div>
+                    
+                    <img src="${b.products[0].img}" 
+                         onmouseenter="startTypewriter('bubble-left', '${b.products[0].msg}')"
+                         onmouseleave="stopTypewriter('bubble-left')"
+                         onclick="imageModalManager.open(this.src)"
+                         class="floating-img w-full object-contain hover:rotate-[-10deg] cursor-pointer">
+                    
+                    <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                        ${b.products[0].name}
+                    </div>
+                </div>
+
+                <div class="absolute right-0 md:right-10 top-20 md:top-1/3 z-10 w-28 md:w-40 pointer-events-auto float-delay-3 group">
+                    <div id="bubble-right" class="thought-bubble">
+                        <span class="bubble-text"></span><span class="cursor-blink"></span>
+                    </div>
+
+                    <img src="${b.products[2].img}" 
+                         onmouseenter="startTypewriter('bubble-right', '${b.products[2].msg}')"
+                         onmouseleave="stopTypewriter('bubble-right')"
+                         onclick="imageModalManager.open(this.src)"
+                         class="floating-img w-full object-contain hover:rotate-[10deg] cursor-pointer">
+
+                    <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                        ${b.products[2].name}
+                    </div>
+                </div>
+
+                <div class="relative z-20 w-64 md:w-96 pointer-events-auto float-delay-1 group">
+                    <div id="bubble-center" class="thought-bubble" style="bottom: 105%; left: 60%;">
+                        <span class="bubble-text"></span><span class="cursor-blink"></span>
+                    </div>
+
+                    <img src="${b.products[1].img}" 
+                         onmouseenter="startTypewriter('bubble-center', '${b.products[1].msg}')"
+                         onmouseleave="stopTypewriter('bubble-center')"
+                         onclick="imageModalManager.open(this.src)"
+                         class="floating-img w-full object-contain drop-shadow-2xl cursor-pointer">
+                    
+                    <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                        ${b.products[1].name}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>`;
+}
+
+        const isActive = index === 0 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none';
+        const hasButton = b.btnText && b.btnText.trim() !== "";
+
+// --- MODO 1: PRODUCTO FLOTANTE 3D (OPTIMIZADO: SIN LAG + TEXTURA METAL) ---
+        if (b.is3D) {
+            return `
+            <div id="banner-slide-${index}" class="absolute inset-0 w-full h-full transition-opacity duration-700 ease-out ${isActive} bg-slate-100 overflow-hidden">
+                
+                <div class="absolute inset-0 z-0 opacity-[0.4]" 
+                     style="background-image: linear-gradient(#cbd5e1 1px, transparent 1px), linear-gradient(90deg, #cbd5e1 1px, transparent 1px); background-size: 40px 40px;">
+                </div>
+                
+                <div class="absolute inset-0 z-0 bg-gradient-to-br from-white/80 via-transparent to-slate-300/50 pointer-events-none"></div>
+
+                <div class="absolute top-0 bottom-0 right-0 w-[55%] md:w-[50%] z-0 bg-gradient-to-b from-slate-800 to-slate-900" 
+                     style="clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);">
+                     
+                     <div class="absolute inset-0 opacity-10" 
+                          style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;">
+                     </div>
+                </div>
+
+                <div class="absolute top-0 bottom-0 right-0 w-[55%] md:w-[50%] z-10 bg-[#00979D]" 
+                     style="clip-path: polygon(20% 0, 20.3% 0, 0.3% 100%, 0% 100%); box-shadow: 0 0 15px #00979D;">
+                </div>
+
+                <div class="absolute inset-0 w-full max-w-[1440px] mx-auto px-4 md:px-6 h-full flex items-center">
+                    
+                    <div class="grid grid-cols-12 w-full h-full items-center">
+                        
+                        <div class="col-span-12 md:col-span-6 lg:col-span-6 relative z-20 flex flex-col justify-center pl-4 md:pl-10 pr-4">
+                            
+                            <div id="banner-text-${index}" class="transition-all duration-700 ease-out ${index === 0 ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
+                                
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white border border-slate-200 shadow-sm mb-6 w-fit">
+                                    <span class="relative flex h-2 w-2">
+                                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00979D] opacity-75"></span>
+                                      <span class="relative inline-flex rounded-full h-2 w-2 bg-[#00979D]"></span>
+                                    </span>
+                                    <span class="text-slate-800 text-[10px] font-bold uppercase tracking-[0.2em]">${b.badge || 'DESTACADO'}</span>
+                                </div>
+
+                                <h2 class="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 mb-6 leading-[0.95] tracking-tight">
+                                    ${b.title || 'TechPerú'}
+                                </h2>
+                                
+                                <p class="text-base md:text-lg text-slate-600 mb-8 font-medium leading-relaxed border-l-4 border-[#00979D] pl-4 max-w-md">
+                                    ${b.subtitle || ''}
+                                </p>
+                                
+                                ${hasButton ? `
+                                <div class="flex flex-col sm:flex-row gap-4">
+                                    <button onclick="window.history.pushState({}, '', '${b.btnLink || '?page=shop'}'); router.handle(true);" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-[#00979D] hover:text-slate-900 transition-colors shadow-xl flex items-center justify-center gap-3 w-fit group">
+                                        <span>${b.btnText}</span>
+                                        <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                    </button>
+                                </div>` : ''}
+                            </div>
+                        </div>
+
+                        <div class="col-span-12 md:col-span-6 lg:col-span-6 relative h-full flex items-center justify-center pointer-events-none">
+                            
+                            <div class="absolute w-[300px] h-[300px] bg-[#00979D] rounded-full opacity-20 blur-[80px]"></div>
+
+                            <img src="${b.image}" 
+                                 class="banner-3d-target relative z-30 w-[85%] max-w-[500px] object-contain drop-shadow-2xl transform transition-transform will-change-transform">
+                        </div>
+
+                    </div>
+                </div>
+            </div>`;
+        }
+        
+// --- MODO 2: BANNER NORMAL (FOTO COMPLETA) ---
+        else {
+            // 1. DETECTAR SI EL ADMIN ESCRIBIÓ TEXTO
+            // Si título, subtítulo y botón están vacíos, asumimos que es "Solo Imagen"
+            const hasContent = (b.title && b.title.trim() !== '') || 
+                               (b.subtitle && b.subtitle.trim() !== '') || 
+                               (b.btnText && b.btnText.trim() !== '');
+
+            return `
+            <div id="banner-slide-${index}" class="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${isActive}">
+                <div class="absolute inset-0 bg-slate-900">
+                    <img src="${b.image}" class="absolute inset-0 w-full h-full object-cover object-center z-0">
+                    
+                    ${hasContent ? `<div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent z-10 pointer-events-none"></div>` : ''}
+                </div>
+
+                ${hasContent ? `
+                <div class="absolute inset-0 w-full max-w-[1440px] mx-auto px-4 md:px-6 relative h-full">
+                    <div id="banner-text-${index}" class="absolute inset-0 z-20 flex flex-col justify-center px-4 md:px-24 max-w-5xl transition-all duration-700 ease-out ${index === 0 ? 'translate-y-0' : 'translate-y-4'}">
+                        <div class="text-center md:text-left">
+                            <span class="inline-block py-1 px-3 rounded-full bg-[#00979D]/20 text-[#00979D] text-xs font-bold mb-4 border border-[#00979D]/30 uppercase tracking-widest">${b.badge || 'Destacado'}</span>
+                            <h2 class="text-4xl md:text-6xl xl:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">${b.title || ''}</h2>
+                            <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl drop-shadow-md mx-auto md:mx-0">${b.subtitle || ''}</p>
+                            
+                            ${hasButton ? `
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                                <button onclick="window.history.pushState({}, '', '${b.btnLink || '?page=shop'}'); router.handle(true);" class="bg-[#00979D] text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-[#09BFED] transition shadow-lg shadow-[#00979D]/20 flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 group">${b.btnText} <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i></button>
+                            </div>` : ''}
+                        </div>
+                    </div>
+                </div>
+                ` : ''}
+            </div>`;
+        }
+    }).join('');
+
+
+// CÓDIGO ACTUALIZADO PARA FLECHAS CON RESPLANDOR ARDUINO
+    const navButtonsHTML = banners.length > 1 ? `
+        <button onclick="window.moveBanner(-1)" 
+            class="absolute left-0 top-0 bottom-0 z-40 w-20 flex items-center justify-start pl-2 group/btn outline-none focus:outline-none 
+                   transition-all duration-500 ease-out 
+                   opacity-100 md:opacity-0 md:-translate-x-full md:group-hover/banner:opacity-100 md:group-hover/banner:translate-x-0">
+            
+            <div class="h-16 w-10 md:h-20 md:w-12 bg-slate-900/60 backdrop-blur-md border border-slate-700/50 border-l-0 rounded-r-2xl flex items-center justify-center text-white shadow-2xl transition-all duration-300 
+                        group-hover/btn:bg-[#00979D] group-hover/btn:text-slate-900 group-hover/btn:w-14 
+                        group-hover/btn:shadow-[0_0_30px_rgba(0,151,157,0.6)]"> <i class="ph-bold ph-caret-left text-2xl md:text-3xl transition-transform duration-300 group-hover/btn:-translate-x-1"></i>
+            </div>
+        </button>
+
+        <button onclick="window.moveBanner(1)" 
+            class="absolute right-0 top-0 bottom-0 z-40 w-20 flex items-center justify-end pr-2 group/btn outline-none focus:outline-none 
+                   transition-all duration-500 ease-out 
+                   opacity-100 md:opacity-0 md:translate-x-full md:group-hover/banner:opacity-100 md:group-hover/banner:translate-x-0">
+            
+            <div class="h-16 w-10 md:h-20 md:w-12 bg-slate-900/60 backdrop-blur-md border border-slate-700/50 border-r-0 rounded-l-2xl flex items-center justify-center text-white shadow-2xl transition-all duration-300 
+                        group-hover/btn:bg-[#00979D] group-hover/btn:text-slate-900 group-hover/btn:w-14 
+                        group-hover/btn:shadow-[0_0_30px_rgba(0,151,157,0.6)]"> <i class="ph-bold ph-caret-right text-2xl md:text-3xl transition-transform duration-300 group-hover/btn:translate-x-1"></i>
+            </div>
+        </button>
+    ` : '';
+
+
+
+// --- 1. BARRA DE BENEFICIOS (ESTILO SHOPIFY PREMIUM) ---
+    const trustBarHTML = `
+    <div class="w-full border-y border-slate-100 bg-white mb-12 relative z-20">
+        <div class="max-w-[1440px] mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-100">
+                
+                <div class="group flex flex-col items-center justify-center p-6 text-center hover:bg-slate-50 transition-colors duration-300 cursor-default">
+                    <div class="mb-3 text-[#00979D] text-3xl group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300">
+                        <i class="ph-duotone ph-truck"></i>
+                    </div>
+                    <h3 class="text-xs font-black text-slate-900 uppercase tracking-[0.15em] mb-1">Envíos Nacionales</h3>
+                    <p class="text-[10px] font-medium text-slate-500">Rápido y seguro vía Olva/Shalom</p>
+                </div>
+
+                <div class="group flex flex-col items-center justify-center p-6 text-center hover:bg-slate-50 transition-colors duration-300 cursor-default">
+                    <div class="mb-3 text-[#00979D] text-3xl group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300">
+                        <i class="ph-duotone ph-shield-check"></i>
+                    </div>
+                    <h3 class="text-xs font-black text-slate-900 uppercase tracking-[0.15em] mb-1">Garantía Asegurada</h3>
+                    <p class="text-[10px] font-medium text-slate-500">12 Meses por defectos de fábrica</p>
+                </div>
+
+                <div class="group flex flex-col items-center justify-center p-6 text-center hover:bg-slate-50 transition-colors duration-300 cursor-default">
+                    <div class="mb-3 text-[#00979D] text-3xl group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300">
+                        <i class="ph-duotone ph-credit-card"></i>
+                    </div>
+                    <h3 class="text-xs font-black text-slate-900 uppercase tracking-[0.15em] mb-1">Pagos Flexibles</h3>
+                    <p class="text-[10px] font-medium text-slate-500">Yape, Plin y Transferencia</p>
+                </div>
+
+                <div class="group flex flex-col items-center justify-center p-6 text-center hover:bg-slate-50 transition-colors duration-300 cursor-default">
+                    <div class="mb-3 text-[#00979D] text-3xl group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300">
+                        <i class="ph-duotone ph-whatsapp-logo"></i>
+                    </div>
+                    <h3 class="text-xs font-black text-slate-900 uppercase tracking-[0.15em] mb-1">Soporte Directo</h3>
+                    <p class="text-[10px] font-medium text-slate-500">Te ayudamos con tu proyecto</p>
+                </div>
+
+            </div>
+        </div>
+    </div>`;
+
+
+// --- 2. CATEGORÍAS VISUALES DINÁMICAS (TOP 3 CON MÁS PRODUCTOS) ---
+    
+    // A. Contar cuántos productos tiene cada categoría
+    const catCounts = {};
+    PRODUCTS.forEach(p => {
+        if (p.category) {
+            catCounts[p.category] = (catCounts[p.category] || 0) + 1;
+        }
+    });
+
+    // B. Ordenar categorías por cantidad y tomar las 3 mejores
+    const topCategories = CATEGORIES.map(c => {
+        // Buscamos un producto de esta categoría para robarle la foto de portada
+        const representativeProduct = PRODUCTS.find(p => p.category === c.name);
+        return {
+            name: c.name,
+            count: catCounts[c.name] || 0,
+            // Si hay producto, usamos su foto. Si no, una imagen gris por defecto.
+            image: representativeProduct ? representativeProduct.image : 'https://via.placeholder.com/500?text=TechPeru'
+        };
+    })
+    .filter(c => c.count > 0) // Solo mostrar si tienen al menos 1 producto
+    .sort((a, b) => b.count - a.count) // Ordenar de mayor a menor
+    .slice(0, 3); // Quedarnos solo con las 3 primeras
+
+    // C. Generar el HTML de las tarjetas
+    const visualCategoriesHTML = `
+    <div class="mb-16">
+        <div class="flex justify-between items-end mb-6 px-2">
+            <h2 class="text-2xl font-bold text-slate-900">Explora por Categoría</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            
+            ${topCategories.map(c => `
+                <div onclick="router.navigate('/shop', {category: '${c.name}'})" class="cursor-pointer group relative h-40 md:h-64 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all">
+                    <img src="${c.image}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="text-white font-bold text-lg md:text-xl block mb-1">${c.name}</span>
+                        <span class="text-xs text-slate-300 group-hover:text-[#26E4ED] transition flex items-center gap-1">
+                            ${c.count} productos <i class="ph-bold ph-arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+            `).join('')}
+
+            <div onclick="router.navigate('/shop')" class="cursor-pointer group relative h-40 md:h-64 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all bg-slate-900 flex items-center justify-center border border-slate-800">
+                <div class="text-center p-6 relative z-10">
+                    <div class="w-12 h-12 rounded-full bg-[#00979D] text-white flex items-center justify-center text-2xl mx-auto mb-3 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(0,151,157,0.5)]">
+                        <i class="ph-bold ph-squares-four"></i>
+                    </div>
+                    <span class="text-white font-bold text-lg block group-hover:text-[#26E4ED] transition">Ver Todo</span>
+                    <span class="text-xs text-slate-400 mt-1">Explora el catálogo completo</span>
+                </div>
+                <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#00979D_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            </div>
+
+        </div>
+    </div>`;
+
+    // --- 3. BANNER PROMOCIONAL (ROMPE-RITMO) ---
+    const promoBannerHTML = `
+    <div class="w-full my-16 rounded-3xl overflow-hidden relative h-[300px] md:h-[400px] flex items-center group shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1500" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
+        
+        <div class="relative z-10 px-8 md:px-16 max-w-2xl">
+            <span class="bg-[#00979D] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block shadow-lg">Servicio Técnico</span>
+            <h2 class="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">¿Tienes un proyecto en mente? <br><span class="text-slate-400">Nosotros lo armamos.</span></h2>
+            <p class="text-slate-300 text-lg mb-8 font-medium">Asesoría, diseño de circuitos para tus prototipos.</p>
+            <button onclick="router.navigate('/services')" class="bg-white text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-[#00979D] hover:text-white transition-all shadow-xl flex items-center gap-2 group-btn">
+                Cotizar Proyecto <i class="ph-bold ph-arrow-right group-btn-hover:translate-x-1 transition-transform"></i>
+            </button>
+        </div>
+    </div>`;
+
+
+
+
+// --- ESTRUCTURA FINAL DE LA PÁGINA DE INICIO ---
+    container.innerHTML = `
+    <div class="relative w-full h-[620px] md:h-[600px] lg:h-[650px] group/banner bg-slate-900 mb-12 overflow-hidden">
+        ${carouselHTML}
+        ${navButtonsHTML}
+        ${banners.length > 1 ? `<div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-40 flex gap-3">${banners.map((_, idx) => `<button onclick="window.currentBannerIndex = ${idx}-1; window.moveBanner(1)" id="indicator-${idx}" class="h-1.5 rounded-full transition-all duration-300 hover:bg-[#00979D] shadow-sm ${idx === 0 ? 'bg-[#00979D] w-8' : 'bg-slate-500 w-4'}"></button>`).join('')}</div>` : ''}
+    </div>
+
+    ${trustBarHTML}
+
+    <div class="w-full max-w-[1440px] mx-auto px-4 md:px-6">
+
+        ${visualCategoriesHTML}
+
+        <div class="flex justify-between items-end mb-6 px-2">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Más Vistos</h2>
+                <p class="text-slate-500 text-sm mt-1">Lo que todos están buscando hoy.</p>
+            </div>
+            <a href="#" onclick="event.preventDefault(); router.navigate('/shop')" class="text-blue-600 font-bold hover:text-blue-700 text-sm md:text-base flex items-center gap-1">Ver todo <i class="ph-bold ph-arrow-right"></i></a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 pb-12">
+            ${productsHTML}
+        </div>
+
+        ${promoBannerHTML}
+
+        ${offerProducts.length > 0 ? `
+        <div class="w-full py-12 mb-12 bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden relative group-offer">
+            <div class="px-6 md:px-12 mb-8 flex flex-col md:flex-row justify-between items-end gap-4">
+                <div>
+                    
+<div class="text-center max-w-3xl mx-auto py-10 mb-6 border-b border-slate-200">
+    <div class="inline-flex items-center gap-2 bg-red-50 border border-red-100 px-4 py-1.5 rounded-full mb-4">
+        <i class="ph-fill ph-fire text-red-500 text-sm animate-bounce"></i>
+        <span class="text-red-600 text-xs font-bold uppercase tracking-wider">No te lo pierdas!</span>
+    </div>
+    
+    <h2 class="text-5xl font-black text-slate-900 mb-3 tracking-tighter">
+        Ofertas <span class="italic text-[#00979D]">2MTP</span>
+    </h2>
+    
+    <p class="text-slate-500 text-lg">
+        Aprovecha los mejores descuentos.
+    </p>
+</div>
+                
+                <div class="flex items-center gap-3">
+                    <button onclick="router.navigate('/shop', {filter: 'offers'})" class="hidden md:flex bg-white border border-slate-200 text-slate-700 px-4 py-3 rounded-xl font-bold hover:bg-slate-100 transition text-xs items-center gap-2 shadow-sm">
+                        Ver todo <i class="ph-bold ph-arrow-right"></i>
+                    </button>
+
+                    <div class="flex gap-2">
+                        <button onclick="document.getElementById('offers-scroll').scrollBy({left: -320, behavior: 'smooth'})" class="w-12 h-12 rounded-xl border border-slate-200 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-600 flex items-center justify-center transition-all shadow-sm">
+                            <i class="ph-bold ph-caret-left text-xl"></i>
+                        </button>
+                        <button onclick="document.getElementById('offers-scroll').scrollBy({left: 320, behavior: 'smooth'})" class="w-12 h-12 rounded-xl border border-slate-200 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-600 flex items-center justify-center transition-all shadow-sm">
+                            <i class="ph-bold ph-caret-right text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="offers-scroll" class="flex gap-6 overflow-x-auto no-scrollbar pb-8 scroll-smooth snap-x snap-mandatory px-6 md:px-12">
+                ${offerProducts.map(p => `
+                    <div class="min-w-[280px] w-[280px] snap-start">
+                        ${ProductCard(p)}
+                    </div>
+                `).join('')}
+            </div>
+        </div>` : ''}
+
+        ${newProducts.length > 0 ? `
+        <div class="w-full py-10 mb-24 relative">
+            <div class="flex justify-between items-end mb-8 px-2">
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="bg-[#29AB30] text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-widest border border-blue-500 shadow-sm">Recién Llegados</span>
+                    </div>
+                    <h2 class="text-3xl font-extrabold text-slate-900">Nuevos Ingresos</h2>
+                    <p class="text-slate-500 mt-1">Lo último con etiqueta de novedad.</p>
+                </div>
+                
+                <div class="flex gap-2">
+                    <button onclick="document.getElementById('new-products-scroll').scrollBy({left: -320, behavior: 'smooth'})" class="w-12 h-12 rounded-xl border border-slate-200 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-600 flex items-center justify-center transition-all shadow-sm">
+                        <i class="ph-bold ph-caret-left text-xl"></i>
+                    </button>
+                    <button onclick="document.getElementById('new-products-scroll').scrollBy({left: 320, behavior: 'smooth'})" class="w-12 h-12 rounded-xl border border-slate-200 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-600 flex items-center justify-center transition-all shadow-sm">
+                        <i class="ph-bold ph-caret-right text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="new-products-scroll" class="flex gap-6 overflow-x-auto no-scrollbar pb-8 scroll-smooth snap-x snap-mandatory px-2">
+                ${newProducts.map(p => `
+                    <div class="min-w-[280px] w-[280px] snap-start">
+                        ${ProductCard(p)}
+                    </div>
+                `).join('')}
+            </div>
+        </div>` : ''}
+ 
+    </div>`;
+
+     // Iniciamos el efecto Scroll Pop Out
+// Inicializamos el sistema híbrido
+setTimeout(() => window.initBannerEffects(), 100);
+
+        if(banners.length > 1) {
+            window.bannerInterval = setInterval(() => window.moveBanner(1), 6000);
+        }
+    }
+
+function renderShop(container, category, currentPage = 1, filterType = null, searchTerm = '') {
+
+    // --- 1. LÓGICA DE FILTROS (Mantenemos tu lógica original intacta) ---
+    let items = category ? PRODUCTS.filter(p => p.category === category) : PRODUCTS;
+    if (filterType === 'offers') items = items.filter(p => p.isOffer === true);
+
+    const rawTerm = searchTerm || document.getElementById('global-search')?.value || document.getElementById('mobile-search-input')?.value || "";
+    const search = rawTerm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    if(search) {
+        items = items.filter(p => {
+            const cleanName = (p.name || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const cleanCat = (p.category || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            return cleanName.includes(search) || cleanCat.includes(search);
+        });
+    }
+
+// --- 2. ORDENAMIENTO ALEATORIO (MIX SORPRESA) ---
+    
+    // Si el cliente está BUSCANDO o filtrando OFERTAS, respetamos el orden lógico
+    if (search || filterType === 'offers') {
+        items.sort((a, b) => {
+            // Prioridad a las ofertas si se buscan ofertas
+            if (filterType === 'offers') {
+                return (b.price - (b.offerPrice || 0)) - (a.price - (a.offerPrice || 0));
+            }
+            // Si es búsqueda, priorizamos coincidencia de nombre (opcional)
+            return 0; 
+        });
+    } 
+    // Si está NAVEGANDO (viendo el catálogo normal), ¡mezclamos todo!
+    else {
+        // Truco matemático para desordenar el array (Shuffle)
+        items.sort(() => Math.random() - 0.5);
+    }
+
+
+// --- 3. LÓGICA DE PAGINACIÓN (20 Productos) ---
+    const itemsPerPage = 20; // <--- AQUÍ ESTÁ EL LÍMITE DE 20
+    const totalItems = items.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    
+    // Validaciones para que no de error si cambias de categoría
+    if (currentPage < 1) currentPage = 1;
+    if (currentPage > totalPages && totalPages > 0) currentPage = totalPages;
+    
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedItems = items.slice(startIndex, endIndex);
+
+    // --- GENERADOR DE BOTONES DE PAGINACIÓN (Diseño Moderno) ---
+    let paginationHTML = '';
+    
+    if (totalPages > 1) {
+        paginationHTML = `
+        <div class="flex flex-col items-center justify-center mt-16 pb-8 fade-in">
+            
+            <div class="flex items-center gap-2 p-1.5 bg-white border border-slate-200 rounded-full shadow-lg shadow-slate-200/50">
+                
+                <button onclick="router.navigate('/shop', {category: '${category || ''}', pageNum: ${currentPage - 1}, search: '${search}'})" 
+                        class="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 ${currentPage > 1 ? 'bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white' : 'text-slate-300 cursor-not-allowed'}" 
+                        ${currentPage === 1 ? 'disabled' : ''}>
+                    <i class="ph-bold ph-caret-left text-lg"></i>
+                </button>
+
+                <div class="flex items-center gap-1 px-2 border-x border-slate-100">
+        `;
+
+        // Lógica inteligente para mostrar botones (Ej: 1, 2, 3 ... 10)
+        let startPage = Math.max(1, currentPage - 2);
+        let endPage = Math.min(totalPages, currentPage + 2);
+
+        // Siempre mostrar la página 1
+        if (startPage > 1) {
+            paginationHTML += `<button onclick="router.navigate('/shop', {category: '${category || ''}', pageNum: 1, search: '${search}'})" class="w-10 h-10 rounded-full text-sm font-bold text-slate-500 hover:bg-slate-50 transition">1</button>`;
+            if (startPage > 2) paginationHTML += `<span class="text-slate-300 text-xs px-1">...</span>`;
+        }
+
+        // El bucle de las páginas centrales
+        for (let i = startPage; i <= endPage; i++) {
+            const isActive = i === currentPage;
+            paginationHTML += `
+            <button onclick="router.navigate('/shop', {category: '${category || ''}', pageNum: ${i}, search: '${search}'})" 
+                    class="w-10 h-10 rounded-full text-sm font-bold transition-all duration-300 flex items-center justify-center
+                    ${isActive 
+                        ? 'bg-[#00979D] text-white shadow-md shadow-[#00979D]/30 scale-110' 
+                        : 'bg-transparent text-slate-600 hover:bg-slate-100'}">
+                ${i}
+            </button>`;
+        }
+
+        // Siempre mostrar la última página
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) paginationHTML += `<span class="text-slate-300 text-xs px-1">...</span>`;
+            paginationHTML += `<button onclick="router.navigate('/shop', {category: '${category || ''}', pageNum: ${totalPages}, search: '${search}'})" class="w-10 h-10 rounded-full text-sm font-bold text-slate-500 hover:bg-slate-50 transition">${totalPages}</button>`;
+        }
+
+        paginationHTML += `
+                </div>
+
+                <button onclick="router.navigate('/shop', {category: '${category || ''}', pageNum: ${currentPage + 1}, search: '${search}'})" 
+                        class="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 ${currentPage < totalPages ? 'bg-slate-50 text-slate-600 hover:bg-slate-900 hover:text-white' : 'text-slate-300 cursor-not-allowed'}" 
+                        ${currentPage === totalPages ? 'disabled' : ''}>
+                    <i class="ph-bold ph-caret-right text-lg"></i>
+                </button>
+
+            </div>
+
+            <span class="text-[10px] font-bold text-slate-400 mt-3 uppercase tracking-widest">
+                Mostrando página ${currentPage} de ${totalPages}
+            </span>
+
+        </div>`;
+    }
+
+
+
+
+
+
+
+
+
+    // --- 4. NUEVO DISEÑO DE SIDEBAR (PROFESIONAL) ---
+    
+    // Calculamos el total global para el botón "Todas"
+    const totalProductsCount = PRODUCTS.length;
+
+    const catListDesktop = CATEGORIES.map(c => {
+        const isSelected = category === c.name;
+        const isPinned = c.isPinned;
+        
+        // CALCULAR CANTIDAD (Toque Profesional)
+        const qty = PRODUCTS.filter(p => p.category === c.name).length;
+
+        // ESTILOS DINÁMICOS
+        // Activo: Cápsula oscura (Slate-900) con texto blanco.
+        // Inactivo: Texto gris, hover blanco con sombra sutil.
+        const btnClass = isSelected 
+            ? "bg-slate-900 text-white shadow-lg shadow-slate-900/20 transform scale-[1.02]" 
+            : "text-slate-500 hover:bg-white hover:text-[#00979D] hover:shadow-sm hover:pl-5";
+
+        const badgeClass = isSelected
+            ? "bg-[#00979D] text-white"
+            : "bg-slate-200 text-slate-400 group-hover:bg-[#00979D]/10 group-hover:text-[#00979D]";
+
+        // Icono de estrella dorada si está fijado
+        const iconHTML = isPinned 
+            ? `<i class="ph-fill ph-star text-amber-400 text-xs mr-2 animate-pulse"></i>` 
+            : ``;
+
+        return `
+        <button onclick="router.navigate('/shop', {category: '${c.name}', pageNum: 1})" 
+                class="group w-full flex items-center justify-between px-4 py-3.5 rounded-xl transition-all duration-300 mb-2 border border-transparent ${btnClass}">
+            
+            <div class="flex items-center font-bold text-sm tracking-tight">
+                ${iconHTML}
+                <span>${c.name}</span>
+            </div>
+            
+            <span class="text-[10px] font-extrabold px-2.5 py-1 rounded-full transition-colors duration-300 ${badgeClass}">
+                ${qty}
+            </span>
+        </button>`;
+    }).join('');
+
+    // Diseño Móvil (Chips horizontales)
+    const catListMobile = CATEGORIES.map(c => {
+        const isSelected = category === c.name;
+        return `
+        <button onclick="router.navigate('/shop', {category: '${c.name}', pageNum: 1})" 
+            class="whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold transition flex-shrink-0 border 
+            ${isSelected ? 'bg-slate-900 text-white border-slate-900 shadow-md' : 'bg-white text-slate-600 border-slate-200 shadow-sm'}">
+            ${c.name}
+        </button>`;
+    }).join('');
+
+
+
+
+
+
+    // --- 6. RENDERIZADO FINAL (AQUÍ ESTÁ EL CAMBIO VISUAL) ---
+    container.innerHTML = `
+    <div class="w-full max-w-[1440px] mx-auto px-4 md:px-6 min-h-screen">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="relative w-full mb-10 overflow-hidden bg-white rounded-[2rem] border border-slate-100 shadow-sm mt-4 group">
+            
+            <div class="absolute inset-0 bg-white z-0"></div>
+
+            <div class="absolute right-0 top-0 h-full w-2/3 bg-gradient-to-l from-slate-50 via-slate-50 to-transparent skew-x-12 z-0 opacity-80"></div>
+            
+            <div class="absolute right-[-20px] md:right-10 top-1/2 -translate-y-1/2 w-48 md:w-80 opacity-[0.06] pointer-events-none transform -rotate-12 z-0 mix-blend-multiply transition-transform duration-700 group-hover:scale-110 group-hover:rotate-0">
+                <img src="https://qeoojbsrqlroajvdgrju.supabase.co/storage/v1/object/public/productos/bg-logo-2m.png" 
+                     alt="Marca de Agua TechPerú" 
+                     class="w-full h-auto object-contain">
+            </div>
+
+            <div class="absolute top-0 right-20 w-32 h-2 bg-[#00979D] rounded-b-lg opacity-20 z-0"></div>
+
+            <div class="relative z-10 px-8 py-12 md:px-16 md:py-16 flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <div class="max-w-3xl text-center md:text-left">
+                    
+                    <div class="inline-flex items-center gap-2 mb-4">
+                        <span class="w-6 h-[2px] bg-[#00979D]"></span>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">
+                            ${category ? 'Categoría Seleccionada' : 'Catálogo Completo'}
+                        </span>
+                    </div>
+
+<h1 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tight leading-none mb-4">
+    ${category ? category : (filterType === 'offers'
+        ? 'Ofertas <span class="text-[#0ae4da]" style="-webkit-text-stroke: 1px #141b2d;">Especiales</span>'
+: '<span class="text-[#10c4c1] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">2M</span> <span class="text-[#0ae4da] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">Tech</span><span class="text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">Perú</span>'
+   
+    )}
+</h1>
+
+
+
+                    
+
+                    <p class="text-lg text-slate-500 font-medium max-w-xl mx-auto md:mx-0">
+                        ${category 
+                            ? `Explora los mejores productos en <b>${category}</b>.` 
+                            : 'Componentes electrónicos de alta gama, sensores y módulos para tus proyectos.'}
+                    </p>
+                </div>
+
+                <div class="hidden md:flex items-center justify-center relative z-10">
+                    <div class="w-20 h-20 rounded-full border-[4px] border-white shadow-lg flex items-center justify-center bg-slate-50 group-hover:bg-white transition-colors">
+                         <div class="w-12 h-12 rounded-full bg-slate-100 text-[#00979D] flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="ph-bold ph-arrow-down-right"></i>
+                         </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        
+
+
+
+<style>
+            #main-header { position: relative !important; transform: none !important; top: auto !important; }
+            #mobile-search-bar { display: none !important; } /* Opcional: limpia la vista móvil */
+        </style>
+
+        <div class="flex flex-col gap-8 mb-12">
+            
+            <div class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all" id="category-sticky-bar">
+                
+                <div class="relative w-full max-w-[1440px] mx-auto px-4 md:px-0 group/cat-nav">
+                    
+                    <button onclick="document.getElementById('cat-scroll-container').scrollBy({left: -200, behavior: 'smooth'})" 
+                            class="absolute left-0 top-0 bottom-0 z-20 w-16 bg-gradient-to-r from-white via-white/90 to-transparent flex items-center justify-start pl-4 text-slate-400 hover:text-[#00979D] transition-colors md:opacity-0 md:group-hover/cat-nav:opacity-100">
+                        <i class="ph-bold ph-caret-left text-2xl"></i>
+                    </button>
+
+                    <div id="cat-scroll-container" class="flex items-center gap-3 overflow-x-auto no-scrollbar py-4 px-2 scroll-smooth">
+                        
+                        <button onclick="router.navigate('/shop', {pageNum: 1})" 
+                                class="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 shadow-sm border select-none
+                                ${!category ? 'bg-slate-900 text-white border-slate-900 shadow-slate-900/20 scale-105 ring-2 ring-offset-2 ring-slate-200' : 'bg-white text-slate-600 border-slate-200 hover:border-[#00979D] hover:text-[#00979D]'}">
+                            <i class="ph-bold ph-squares-four"></i>
+                            <span>Todo</span>
+                            <span class="ml-1 opacity-60 text-xs bg-white/20 px-1.5 rounded-full">${totalProductsCount}</span>
+                        </button>
+
+                        <div class="w-px h-6 bg-slate-200 mx-1 flex-shrink-0"></div>
+
+                        ${CATEGORIES.map(c => {
+                            const isSelected = category === c.name;
+                            const qty = PRODUCTS.filter(p => p.category === c.name).length;
+                            return `
+                            <button onclick="router.navigate('/shop', {category: '${c.name}', pageNum: 1})" 
+                                    class="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border group whitespace-nowrap select-none
+                                    ${isSelected 
+                                        ? 'bg-[#00979D] text-white border-[#00979D] shadow-lg shadow-[#00979D]/30 scale-105' 
+                                        : 'bg-white text-slate-500 border-slate-200 hover:border-[#00979D] hover:text-[#00979D] hover:shadow-md'}">
+                                
+                                <span>${c.name}</span>
+                                ${isSelected 
+                                    ? `<i class="ph-bold ph-check bg-white/20 rounded-full p-0.5 text-xs"></i>` 
+                                    : `<span class="bg-slate-100 text-slate-400 text-[10px] px-1.5 py-0.5 rounded-full group-hover:bg-[#00979D]/10 group-hover:text-[#00979D] transition-colors">${qty}</span>`}
+                            </button>`;
+                        }).join('')}
+                        
+                        <div class="w-12 flex-shrink-0"></div>
+                    </div>
+
+                    <button onclick="document.getElementById('cat-scroll-container').scrollBy({left: 200, behavior: 'smooth'})" 
+                            class="absolute right-0 top-0 bottom-0 z-20 w-16 bg-gradient-to-l from-white via-white/90 to-transparent flex items-center justify-end pr-4 text-slate-400 hover:text-[#00979D] transition-colors md:opacity-0 md:group-hover/cat-nav:opacity-100">
+                        <i class="ph-bold ph-caret-right text-2xl"></i>
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="w-full min-h-[500px]">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 gap-y-10">
+                    ${paginatedItems.length ? paginatedItems.map(p => `
+                        <div class="reveal-on-scroll h-full">
+                            ${ProductCard(p)}
+                        </div>
+                    `).join('') : `
+                        <div class="col-span-full flex flex-col items-center justify-center py-32 text-center bg-slate-50 rounded-[2.5rem] border border-dashed border-slate-200">
+                            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm">
+                                <i class="ph-duotone ph-magnifying-glass text-4xl text-slate-300"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-1">No encontramos productos</h3>
+                            <p class="text-slate-500 text-sm max-w-xs mx-auto">Intenta seleccionar otra categoría o cambiar tu búsqueda.</p>
+                            <button onclick="router.navigate('/shop')" class="mt-6 px-6 py-2 bg-slate-900 text-white rounded-full text-sm font-bold hover:bg-[#00979D] transition shadow-lg">
+                                Ver todo el catálogo
+                            </button>
+                        </div>
+                    `}
+                </div>
+                
+                ${paginationHTML}
+            </div>
+        </div>
+
+    </div>`;
+
+    // Reactivar animaciones de scroll
+    setTimeout(() => window.initScrollAnimations(), 100); 
+}
+
+
+
+
+
+async function renderProduct(container, slug) {
+
+    // Pantalla de carga (Igual que antes)
+    container.innerHTML = `
+<div class="w-full min-h-[80vh] flex flex-col items-center justify-center bg-white fade-in">
+        <div class="animate-pulse flex flex-col items-center">
+            <img src="https://qeoojbsrqlroajvdgrju.supabase.co/storage/v1/object/public/productos/bg-logo-2m.png" 
+                 class="h-24 w-auto object-contain mb-4 drop-shadow-sm" 
+                 alt="Cargando 2MTechPerú">
+            
+            <h1 class="text-4xl font-extrabold tracking-tighter flex gap-2">
+                <span class="text-[#10c4c1]">2M</span>
+                <span class="text-[#0ae4da]">Tech</span>
+                <span class="text-slate-900">Perú</span>
+            </h1>
+            
+            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">Cargando...</p>
+        </div>
+    </div>`;
+    
+    const p = PRODUCTS.find(x => x.slug === slug);
+
+    // --- CÓDIGO NUEVO: CONTADOR DE VISTAS SEGURO ---
+    if (p && p.id) {
+        // Creamos una llave única para esta sesión y producto
+        const viewedKey = `viewed_product_${p.id}`;
+        
+        // Verificamos: ¿Ya visitó este producto en esta sesión?
+        if (!sessionStorage.getItem(viewedKey)) {
+            
+            // Si NO lo ha visitado, marcamos que ya lo vio para que no se repita
+            sessionStorage.setItem(viewedKey, 'true');
+
+            // Usamos una transacción segura para sumar +1 en la base de datos
+            const productRef = ref(db, `products/${p.id}/views`);
+            window.firebaseModules.runTransaction(productRef, (currentViews) => {
+                return (currentViews || 0) + 1;
+            }).then(() => {
+                console.log("Vista sumada correctamente");
+            }).catch((err) => {
+                console.error("Error al sumar vista (ignorable):", err);
+            });
+        }
+    }
+    // --------------------------------------------------
+// --- PEGAR ESTO JUSTO DESPUÉS DE ENCONTRAR 'p' ---
+    let restockMsg = null;
+    
+    if (p.stock <= 0 && p.restockDate) {
+        const today = new Date();
+        today.setHours(0,0,0,0); 
+        
+        // Corregir la fecha para evitar problemas de zona horaria
+        const parts = p.restockDate.split('-');
+        const target = new Date(parts[0], parts[1] - 1, parts[2]); 
+        
+        const diffTime = target - today;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+        if (diffDays > 0) {
+            restockMsg = `Llega en ${diffDays} día${diffDays > 1 ? 's' : ''}`;
+        } else if (diffDays === 0) {
+            restockMsg = "¡Llega Hoy!";
+        }
+    }
+    // -----------------------------------------------------
+
+    if(!p) return container.innerHTML = "<div class='flex items-center justify-center h-96'><div class='text-center'><i class='ph ph-spinner animate-spin text-4xl mb-4'></i><p>Cargando o Producto no encontrado...</p></div></div>";
+    
+    // 1. Lógica de Productos Similares
+    const similarProducts = PRODUCTS.filter(item => item.category === p.category && item.id !== p.id);
+    const loopSimilar = similarProducts.length > 0 ? [...similarProducts, ...similarProducts, ...similarProducts, ...similarProducts] : [];
+    const displaySimilar = loopSimilar.slice(0, 20);
+
+    let similarHTML = '';
+    if(similarProducts.length > 0) {
+        similarHTML = `<div class="mt-16 border-t border-slate-200 pt-12"><div class="mb-8 px-2"><h3 class="text-2xl font-bold text-slate-900 mb-1">Productos Similares</h3><p class="text-slate-500 text-sm">Quienes vieron esto también compraron</p></div><div class="relative w-full overflow-hidden py-4"><div class="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#f8fafc] to-transparent z-20 pointer-events-none"></div><div class="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#f8fafc] to-transparent z-20 pointer-events-none"></div><div class="animate-infinite-scroll flex gap-6 px-4">${displaySimilar.map(sim => `<div class="w-[280px] md:w-[300px] flex-shrink-0 transform transition hover:scale-105 duration-300 overflow-hidden">${ProductCard(sim)}</div>`).join('')}</div></div></div>`;
+    }
+
+    // 2. Datos Básicos
+    const rating = p.rating ? parseFloat(p.rating).toFixed(1) : "0.0";
+    const reviewsCount = p.reviewCount || 0;
+    const stock = p.stock || 0;
+    const isStock = stock > 0;
+    const isFav = state.favorites.has(p.id);
+
+    // 3. Lógica de Imágenes
+    window.currentProdImages = [p.image, ...(p.gallery || [])];
+    window.currentProdIdx = 0;
+    
+    window.moveProdImg = (step) => {
+        if(window.currentProdImages.length <= 1) return;
+        let newIdx = window.currentProdIdx + step;
+        if(newIdx >= window.currentProdImages.length) newIdx = 0;
+        if(newIdx < 0) newIdx = window.currentProdImages.length - 1;
+        
+        window.currentProdIdx = newIdx;
+        const mainImg = document.getElementById('main-product-img');
+        // Actualizamos imagen y agregamos efecto fade
+        mainImg.src = window.currentProdImages[newIdx];
+        mainImg.classList.remove('fade-in');
+        void mainImg.offsetWidth; // Trigger reflow
+        mainImg.classList.add('fade-in');
+    };
+
+    let videoBtn = '';
+    if (p.hasVideo && p.videoUrl) {
+        videoBtn = `<button onclick="openVideoModal('${p.videoUrl}')" class="group mt-4 mx-auto bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-bold shadow-sm flex items-center justify-center gap-3 transition-colors duration-300 border border-slate-800">
+            <div class="relative w-5 h-5 overflow-hidden">
+                <div class="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out group-hover:-translate-y-full"><i class="ph-fill ph-youtube-logo text-lg text-red-500"></i></div>
+                <div class="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out translate-y-full group-hover:translate-y-0"><i class="ph-fill ph-play text-lg text-white"></i></div>
+            </div>
+            <span class="text-[10px] tracking-[0.2em] uppercase pt-0.5">Ver Review</span>
+        </button>`;
+    }
+
+    const thumbnailsHTML = window.currentProdImages.length > 1 ? `
+        <div class="flex gap-2 mt-4 overflow-x-auto pb-2 px-1 no-scrollbar justify-center">
+            ${window.currentProdImages.map((img, idx) => `
+                <button onclick="window.currentProdIdx = ${idx}; document.getElementById('main-product-img').src = '${img}'" 
+                class="group w-14 h-14 flex-shrink-0 rounded-lg border border-slate-200 bg-white p-1 hover:border-slate-900 transition shadow-sm overflow-hidden relative">
+                    <img src="${img}" class="w-full h-full object-contain group-hover:scale-110 transition-transform">
+                </button>
+            `).join('')}
+        </div>` : '';
+
+    const starsHTML = Array(5).fill(0).map((_, i) => i < Math.round(rating) ? '<i class="ph-fill ph-star text-[#00979D]"></i>' : '<i class="ph-bold ph-star text-slate-300"></i>').join('');
+
+    // 4. Cargar Reseñas
+    let reviewsListHTML = '<div class="py-8 text-center text-slate-400">Cargando opiniones...</div>';
+    try {
+        const snap = await get(ref(db, `reviews/${p.id}`));
+        if(snap.exists()) {
+            const revs = Object.values(snap.val()).reverse();
+            reviewsListHTML = revs.map(r => `
+                <div class="bg-slate-50 p-4 rounded-xl mb-4 border border-slate-100 text-left">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center font-bold text-xs text-slate-600">${r.userName.charAt(0).toUpperCase()}</div>
+                            <span class="font-bold text-sm text-slate-900">${r.userName}</span>
+                        </div>
+                        <span class="text-xs text-slate-400">${new Date(r.date).toLocaleDateString()}</span>
+                    </div>
+                    <div class="flex text-[#00979D] text-xs mb-2">
+                        ${Array(5).fill(0).map((_, i) => i < r.rating ? '<i class="ph-fill ph-star"></i>' : '<i class="ph-bold ph-star text-slate-300"></i>').join('')}
+                    </div>
+                    <p class="text-slate-600 text-sm mb-2">"${r.comment}"</p>
+                    ${r.reply ? `<div class="mt-3 ml-4 pl-3 border-l-2 border-[#00979D] bg-white p-2 rounded-r-lg shadow-sm"><div class="flex items-center gap-1 mb-1"><i class="ph-fill ph-arrow-bend-down-right text-[#26E4ED] text-sm"></i><span class="text-xs font-extrabold text-slate-900">Respuesta de TechPerú</span></div><p class="text-xs text-slate-500 leading-relaxed">${r.reply}</p></div>` : ''}
+                </div>`).join('');
+        } else { reviewsListHTML = '<div class="py-8 text-center text-slate-400 italic bg-slate-50 rounded-xl border border-dashed border-slate-200">Aún no hay reseñas. ¡Sé el primero!</div>'; }
+    } catch(e) { console.error(e); }
+
+    let specsHTML = '<p class="text-slate-500 italic">No hay especificaciones detalladas.</p>';
+    if (p.specifications) {
+        const lines = p.specifications.split('\n').filter(line => line.trim() !== '');
+        specsHTML = `<ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">${lines.map(line => `<li class="flex items-start gap-3 py-2 border-b border-slate-100 text-sm text-slate-700"><i class="ph-fill ph-check-circle text-green-500 mt-0.5"></i><span>${line}</span></li>`).join('')}</ul>`;
+    }
+
+    let reviewFormHTML = '';
+    if (!state.user) {
+        reviewFormHTML = `<div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 mb-8 text-center"><p class="text-blue-800 font-medium mb-3">Inicia sesión para compartir tu opinión</p><button onclick="router.navigate('/login')" class="bg-white text-slate-900 text-sm font-bold px-6 py-2 rounded-full border border-slate-200 hover:bg-slate-50">Ir al Login</button></div>`;
+    } else {
+        const hasPurchased = state.orders.some(order => order.status === 'Aprobado' && order.items && order.items.some(item => item.id === p.id));
+        if (hasPurchased) {
+            reviewFormHTML = `
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 mb-8 shadow-sm">
+                <h4 class="font-bold text-slate-900 mb-4">Escribe tu opinión</h4>
+                <div class="flex gap-2 mb-4 text-2xl cursor-pointer" id="star-selector"><i onclick="reviewManager.setRating(1)" id="star-form-1" class="ph-bold ph-star text-slate-300 hover:text-[#00979D] transition"></i><i onclick="reviewManager.setRating(2)" id="star-form-2" class="ph-bold ph-star text-slate-300 hover:text-[#00979D] transition"></i><i onclick="reviewManager.setRating(3)" id="star-form-3" class="ph-bold ph-star text-slate-300 hover:text-[#00979D] transition"></i><i onclick="reviewManager.setRating(4)" id="star-form-4" class="ph-bold ph-star text-slate-300 hover:text-[#00979D] transition"></i><i onclick="reviewManager.setRating(5)" id="star-form-5" class="ph-bold ph-star text-slate-300 hover:text-[#00979D] transition"></i></div>
+                <textarea id="review-comment" class="w-full p-3 rounded-xl border border-slate-200 mb-4 focus:border-[#00979D] outline-none text-sm bg-slate-50" rows="3" placeholder="¿Qué te pareció el producto?"></textarea>
+                <button onclick="reviewManager.submitReview('${p.id}')" class="bg-slate-900 text-white text-sm font-bold px-6 py-2.5 rounded-full hover:bg-slate-800 transition">Publicar Reseña</button>
+            </div>`;
+        } else {
+            reviewFormHTML = `<div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8 text-center opacity-75"><i class="ph-bold ph-lock-key text-2xl text-slate-400 mb-2"></i><p class="text-slate-600 text-sm font-medium">Solo los clientes que han comprado y validado este producto pueden dejar una reseña.</p></div>`;
+        }
+    }
+
+    // 5. PREPARAR VARIABLES DE VARIANTES (Colores / Resistencias)
+    
+    // A. COLORES
+    let colorHTML = '';
+    if (p.hasColors && p.colors && p.colors.length > 0) {
+        window.selectedColorData = null; 
+        window.currentMaxStock = 0; 
+        const circles = p.colors.map((c, index) => {
+            const sinStock = c.qty <= 0;
+            return `
+            <div onclick="${sinStock ? '' : `selectProductColor(${index}, '${p.id}')`}" 
+                 class="cursor-pointer group relative flex flex-col items-center gap-1 ${sinStock ? 'opacity-30 grayscale cursor-not-allowed' : ''}">
+                <div id="color-btn-${index}" class="color-circle-option w-10 h-10 rounded-full border border-slate-200 shadow-sm flex items-center justify-center transition-all hover:scale-105" style="background-color: ${c.hex};">
+                    <i class="ph-bold ph-check text-white drop-shadow-md hidden check-icon"></i>
+                </div>
+                <span class="text-[10px] font-bold text-slate-500 truncate max-w-[60px]">${c.name}</span>
+                ${sinStock ? '<span class="text-[9px] text-red-500 font-bold absolute -top-2 bg-white px-1 rounded border border-red-100">Agotado</span>' : ''}
+            </div>`;
+        }).join('');
+
+        colorHTML = `
+        <div class="mb-6 p-4 bg-slate-50 rounded-xl border border-slate-100">
+            <div class="flex justify-between items-center mb-3">
+                <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Elige un Color:</label>
+                <div id="dynamic-stock-label" class="text-xs text-slate-400">Selecciona para ver stock</div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                ${circles}
+            </div>
+            <div id="color-warning-msg" class="hidden mt-3 text-red-500 text-xs font-bold flex items-center gap-2 bg-red-50 p-2 rounded-lg border border-red-100">
+                <i class="ph-bold ph-warning-circle text-lg"></i> ¡Debes seleccionar un color primero!
+            </div>
+        </div>`;
+    }
+
+    // B. RESISTENCIAS
+    let resistanceHTML = '';
+    if (p.hasResistances && p.resistances && p.resistances.length > 0) {
+        window.selectedResistanceData = null;
+        window.currentMaxStock = 0;
+
+        const optionsHTML = p.resistances.map((r, index) => {
+            const sinStock = r.qty <= 0;
+            return `<option value="${index}" ${sinStock ? 'disabled' : ''}>
+                        ${r.value} ${sinStock ? '(Agotado)' : ''}
+                    </option>`;
+        }).join('');
+
+        resistanceHTML = `
+        <div class="mb-8 pt-6 border-t border-slate-100">
+            <div class="flex justify-between items-end mb-3 px-1">
+                <span class="text-xs font-extrabold text-slate-900 uppercase tracking-widest flex items-center gap-2">
+                    <i class="ph-fill ph-sliders-horizontal text-[#26E4ED]"></i> Especificación
+                </span>
+                <div id="dynamic-stock-label" class="text-[10px] font-bold text-slate-400 bg-slate-50 px-3 py-1 rounded-full border border-slate-200 shadow-sm">
+                    Selecciona una opción
+                </div>
+            </div>
+            
+            <div class="relative group w-full">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
+                    <i class="ph-bold ph-lightning text-slate-400 group-hover:text-[#26E4ED] transition-colors duration-300 text-lg"></i>
+                </div>
+
+                <select onchange="handleResistanceChange(this, '${p.id}')" 
+                        class="appearance-none w-full bg-slate-50 border border-slate-200 text-slate-700 text-sm font-bold py-4 pl-12 pr-10 rounded-xl leading-tight focus:outline-none focus:bg-white focus:border-[#00979D] focus:ring-4 focus:ring-[#00979D]/10 transition-all duration-300 cursor-pointer shadow-sm hover:border-slate-300 hover:shadow-md">
+                    <option value="" selected disabled>Seleccionar: </option>
+                    ${optionsHTML}
+                </select>
+                
+                <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-400 group-hover:text-slate-900 transition-colors duration-300">
+                    <i class="ph-bold ph-caret-down text-base bg-slate-200 rounded-full p-1"></i>
+                </div>
+            </div>
+
+            <div id="variant-warning-msg" class="hidden mt-3 ml-1 text-red-500 text-[11px] font-bold flex items-center gap-2 animate-pulse">
+                <i class="ph-fill ph-warning-octagon"></i> Requerido: Selecciona un valor para continuar.
+            </div>
+        </div>`;
+    }
+    
+// HTML DEL MODAL (CON FLECHAS AGREGADAS)
+    const modalZoomHTML = `
+    <div id="product-zoom-modal" class="fixed inset-0 z-[200] bg-slate-900/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
+        
+        <button onclick="imageModalManager.close()" class="absolute top-4 right-4 z-[60] p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition">
+            <i class="ph-bold ph-x text-3xl"></i>
+        </button>
+
+        ${window.currentProdImages.length > 1 ? `
+        <button onclick="imageModalManager.prev()" class="absolute left-4 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition backdrop-blur-sm border border-white/10 hover:border-white/30">
+            <i class="ph-bold ph-caret-left text-3xl"></i>
+        </button>
+        ` : ''}
+
+        ${window.currentProdImages.length > 1 ? `
+        <button onclick="imageModalManager.next()" class="absolute right-4 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition backdrop-blur-sm border border-white/10 hover:border-white/30">
+            <i class="ph-bold ph-caret-right text-3xl"></i>
+        </button>
+        ` : ''}
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex gap-4 bg-slate-800/80 backdrop-blur px-6 py-3 rounded-full border border-slate-700 shadow-2xl">
+            <button onclick="imageModalManager.zoomOut()" class="text-white hover:text-[#00979D] transition" title="Alejar"><i class="ph-bold ph-minus"></i></button>
+            <div class="w-px h-4 bg-slate-600"></div>
+            <button onclick="imageModalManager.reset()" class="text-white hover:text-[#00979D] transition text-xs font-bold uppercase tracking-wider" title="Restablecer">Reset</button>
+            <div class="w-px h-4 bg-slate-600"></div>
+            <button onclick="imageModalManager.zoomIn()" class="text-white hover:text-[#00979D] transition" title="Acercar"><i class="ph-bold ph-plus"></i></button>
+        </div>
+
+<div id="zoom-pan-container" class="w-full h-full flex items-center justify-center overflow-hidden cursor-move p-4">
+    <img id="zoom-modal-img" src="" class="max-w-full max-h-[90vh] object-contain select-none origin-center transition-opacity duration-200">
+</div>
+
+        <p class="absolute top-4 left-4 text-slate-500 text-xs font-bold uppercase tracking-widest pointer-events-none">
+            <i class="ph-fill ph-mouse-scroll"></i> Usa la rueda para Zoom · Arrastra para mover
+        </p>
+    </div>`;
+
+    // 6. CONSTRUCCIÓN DEL HTML PRINCIPAL
+    container.innerHTML = `
+        <div class="w-full max-w-[1400px] mx-auto px-4 pt-4 pb-12">
+            <button onclick="window.history.back()" class="mb-8 flex items-center text-slate-500 hover:text-slate-900 font-medium transition"><i class="ph-bold ph-arrow-left mr-2"></i> Volver a la tienda</button>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12">
+
+                <div class="lg:col-span-7">
+                    <div class="relative group/main-img">
+                        <div class="rounded-2xl p-4 flex flex-col items-center justify-center border border-slate-100 shadow-md min-h-[300px] max-h-[400px] relative bg-white cursor-zoom-in hover:border-slate-300 transition-colors"
+                             onclick="imageModalManager.open(document.getElementById('main-product-img').src)">
+                            
+                            <img id="main-product-img" src="${p.image}" class="w-full h-full object-contain drop-shadow-xl max-h-[350px] fade-in transition-transform duration-500 group-hover/main-img:scale-105 ${!isStock ? 'grayscale opacity-50' : ''}">
+                            
+                            <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-slate-900 p-3 rounded-xl shadow-lg border border-slate-100 opacity-0 translate-y-2 group-hover/main-img:opacity-100 group-hover/main-img:translate-y-0 transition-all duration-300 pointer-events-none">
+                                <i class="ph-bold ph-magnifying-glass-plus text-xl"></i>
+                            </div>
+
+                            <div class="absolute top-3 right-3 pointer-events-auto z-20" onclick="event.stopPropagation()">
+                                <button onclick="userActions.toggleFavorite('${p.id}')" class="p-2.5 rounded-full border transition-all shadow-sm ${isFav ? "bg-red-50 text-red-500 border-red-200" : "bg-white text-slate-400 border-slate-200 hover:border-red-200 hover:text-red-500"}">
+                                    <i class="${isFav ? 'ph-fill' : 'ph-bold'} ph-heart text-xl"></i>
+                                </button>
+                            </div>
+
+${!isStock ? `
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+        ${restockMsg ? 
+            `<div class="text-center transform -rotate-6 bg-white/90 p-3 rounded-2xl shadow-2xl border border-orange-200 backdrop-blur-sm">
+                <span class="block bg-orange-500 text-white text-lg font-black px-4 py-1 rounded-lg uppercase tracking-widest shadow-md mb-1">
+                    AGOTADO
+                </span>
+                <span class="block text-xs font-bold text-orange-800 uppercase tracking-wider">
+                    ${restockMsg}
+                </span>
+             </div>`
+            : 
+            `<span class="bg-slate-900 text-white text-lg font-bold px-4 py-2 rounded-full shadow-2xl transform -rotate-12">AGOTADO</span>`
+        }
+    </div>
+` : ''}
+
+                        </div>
+                    </div>
+                    ${videoBtn}
+                    ${thumbnailsHTML}
+                </div>
+
+                <div class="lg:col-span-5 flex flex-col">
+                    <div class="mb-4 flex items-center gap-3">
+                        <span class="bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">${p.category}</span>
+                        <span class="text-xs font-bold ${isStock ? 'text-green-600' : 'text-red-500'} flex items-center gap-1"><i class="ph-fill ${isStock ? 'ph-check-circle' : 'ph-x-circle'}"></i> ${isStock ? `Stock: ${stock}` : 'Agotado'}</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-4">${p.name}</h1>
+                    <div class="flex items-center gap-6 mb-8 pb-8 border-b border-slate-100">
+                        <div class="flex flex-col">
+                            ${p.isOffer && p.offerPrice ? `<span class="text-sm text-slate-400 line-through mb-1">Antes: S/ ${p.price.toFixed(2)}</span>` : ''}
+                            <span class="text-4xl font-bold ${p.isOffer ? 'text-red-600' : 'text-slate-900'} tracking-tight">S/ ${(p.isOffer && p.offerPrice ? p.offerPrice : p.price).toFixed(2)}</span>
+${p.points ? `<span class="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full w-fit border border-amber-200 select-none"><i class="ph-fill ph-star text-amber-500 text-sm"></i> Ganas +${p.points} Puntos</span>` : ''}
+                       
+                            </div>
+                        <div class="h-12 w-px bg-slate-200"></div>
+                        <div class="flex flex-col cursor-pointer" onclick="document.getElementById('tab-btn-reviews').click()">
+                            <div class="flex text-xl mb-1">${starsHTML}</div>
+                            <span class="text-xs text-slate-500 font-bold hover:text-blue-600 transition underline">${rating} (${reviewsCount} Opiniones)</span>
+                        </div>
+                    </div>
+
+                    ${colorHTML}
+                    ${resistanceHTML}
+
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8 items-end">
+                      ${isStock && !p.isComingSoon ? `
+                        <div class="w-full sm:w-auto">
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1 ml-1">Cantidad</label>
+                            <div class="flex items-center justify-between bg-white rounded-xl px-2 py-1 w-full sm:w-36 border-2 border-slate-100 hover:border-slate-300 transition h-[56px]">
+                                <button onclick="detailQtyManager.update(-1, ${stock})" class="w-10 h-full flex items-center justify-center text-slate-400 hover:text-slate-900 transition"><i class="ph-bold ph-minus"></i></button>
+                                <input id="detail-qty-input" type="number" value="1" onchange="detailQtyManager.handleInput(this, ${stock})" class="w-full text-center font-extrabold text-xl text-slate-900 outline-none bg-transparent appearance-none">
+                                <button onclick="detailQtyManager.update(1, ${stock})" class="w-10 h-full flex items-center justify-center text-slate-400 hover:text-slate-900 transition"><i class="ph-bold ph-plus"></i></button>
+                            </div>
+                        </div>` : ''}
+
+  ${p.isComingSoon ? 
+    // CASO 1: SI ES PRÓXIMAMENTE (Botón Bloqueado)
+    `<button disabled class="flex-1 font-bold h-[56px] px-8 rounded-xl shadow-none flex items-center justify-center gap-3 transition bg-slate-100 text-slate-400 cursor-not-allowed border-2 border-slate-200 border-dashed mt-[18px]">
+        <i class="ph-bold ph-hourglass-high text-xl"></i> PRÓXIMAMENTE
+    </button>` 
+    : 
+    // CASO 2: NORMAL (Botón de Comprar o Sin Stock)
+    `<button onclick="${isStock ? `cartManager.add('${p.id}', parseInt(document.getElementById('detail-qty-input').value))` : ''}" class="flex-1 font-bold h-[56px] px-8 rounded-xl shadow-xl flex items-center justify-center gap-3 transition transform active:scale-95 mt-[18px] ${isStock ? "bg-slate-900 text-white hover:bg-slate-800" : "bg-slate-200 text-slate-400 cursor-not-allowed"}" ${!isStock ? 'disabled' : ''}>
+        <i class="ph-bold ph-shopping-cart text-xl"></i> ${isStock ? 'Añadir al Carrito' : (restockMsg ? `Disponible: ${restockMsg}` : 'Sin Stock')}
+    </button>`
+}
+
+
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100"><i class="ph-fill ph-truck text-2xl text-slate-400"></i><div class="text-xs font-bold text-slate-600">Envío Rápido<br><span class="font-normal text-slate-400">A nivel nacional</span></div></div>
+                        <div class="flex items-center gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100"><i class="ph-fill ph-shield-check text-2xl text-slate-400"></i><div class="text-xs font-bold text-slate-600">Garantía<br><span class="font-normal text-slate-400">12 meses oficial</span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-5xl mx-auto">
+                <div class="flex border-b border-slate-200 mb-8 overflow-x-auto no-scrollbar">
+                    <button onclick="switchTab('desc')" id="tab-btn-desc" class="px-6 py-4 text-sm font-bold border-b-2 border-slate-900 text-slate-900 transition whitespace-nowrap">Descripción</button>
+                    <button onclick="switchTab('specs')" id="tab-btn-specs" class="px-6 py-4 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition whitespace-nowrap">Especificaciones</button>
+                    <button onclick="switchTab('reviews')" id="tab-btn-reviews" class="px-6 py-4 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition whitespace-nowrap">Opiniones (${reviewsCount})</button>
+                </div>
+                <div id="content-desc" class="tab-content fade-in"><h3 class="text-xl font-bold text-slate-900 mb-4">Detalles del Producto</h3><p class="text-lg text-slate-600 leading-relaxed whitespace-pre-line">${p.description}</p></div>
+                <div id="content-specs" class="tab-content hidden fade-in"><h3 class="text-xl font-bold text-slate-900 mb-6">Especificaciones Técnicas</h3><div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">${specsHTML}</div></div>
+                <div id="content-reviews" class="tab-content hidden fade-in"><div class="max-w-3xl"><h3 class="text-xl font-bold text-slate-900 mb-6">Lo que dicen nuestros clientes</h3>${reviewFormHTML}<div class="space-y-2 mt-6">${reviewsListHTML}</div></div></div>
+            </div>
+            ${similarHTML}
+        </div>
+        ${modalZoomHTML}`;
+
+    window.switchTab = (tab) => {
+        ['desc', 'specs', 'reviews'].forEach(t => {
+            const btn = document.getElementById(`tab-btn-${t}`);
+            const content = document.getElementById(`content-${t}`);
+            if(t === tab) { btn.classList.remove('border-transparent', 'text-slate-500'); btn.classList.add('border-slate-900', 'text-slate-900'); content.classList.remove('hidden'); } 
+            else { btn.classList.add('border-transparent', 'text-slate-500'); btn.classList.remove('border-slate-900', 'text-slate-900'); content.classList.add('hidden'); }
+        });
+    };
+}
+
+
+function renderProfile(container, tab = 'summary') {
+            const u = state.user;
+            const userName = u.displayName || 'Usuario';
+            const userEmail = u.email;
+            const userInitial = userName.charAt(0).toUpperCase();
+            const favProducts = PRODUCTS.filter(p => state.favorites.has(p.id));
+
+            let contentHTML = '';
+            
+            // --- PESTAÑA RESUMEN ---
+            if (tab === 'summary') {
+                const progress = Math.min((state.points / 100) * 100, 100);
+                contentHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white text-slate-800 p-8 rounded-2xl shadow-xl border border-slate-200 relative overflow-hidden col-span-1 lg:col-span-2">
+                        <div class="absolute right-0 top-0 w-64 h-64 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse"></div>
+                        <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                            <div>
+                                <h3 class="text-[#FFA500] font-bold uppercase tracking-widest text-xs mb-1">Club TechPerú Rewards</h3>
+                                <div class="text-5xl font-extrabold mb-1 text-slate-900">${state.points} <span class="text-xl font-medium text-slate-400">Pts</span></div>
+                                <div class="text-sm text-slate-500 mb-4">Equivale a progreso para tu siguiente recompensa.</div>
+                                <div class="w-full md:w-64 h-3 bg-slate-100 rounded-full overflow-hidden mb-2 border border-slate-200">
+                                    <div class="h-full bg-gradient-to-r from-orange-300 to-[#FFA500] transition-all duration-1000 shadow-[0_0_10px_#FFA500]" style="width: ${progress}%"></div>
+                                </div>
+                                <div class="text-xs text-slate-500 font-bold">${state.points} / 100 para canjear S/ 10.00</div>
+                            </div>
+                            <div class="bg-orange-50 backdrop-blur-md p-6 rounded-xl border border-orange-100 min-w-[200px] text-center shadow-sm">
+                                <div class="text-xs text-slate-500 font-bold uppercase mb-2">Tu Saldo Monedero</div>
+                                <div class="text-3xl font-bold text-slate-900 mb-4">S/ ${state.wallet.toFixed(2)}</div>
+                                <button onclick="userActions.redeemPoints()" class="w-full bg-[#FFA500] hover:bg-orange-400 text-white font-bold py-2 rounded-lg text-sm transition shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed" ${state.points < 100 ? 'disabled' : ''}>${state.points >= 100 ? 'Canjear Puntos' : 'Faltan Puntos'}</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 hover:shadow-md transition">
+                        <div class="p-4 bg-blue-50 text-blue-600 rounded-xl"><i class="ph-bold ph-package text-3xl"></i></div>
+                        <div><div class="text-2xl font-bold text-slate-900">${state.orders.length}</div><div class="text-sm text-slate-500 font-medium">Pedidos Realizados</div></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 hover:shadow-md transition">
+                        <div class="p-4 bg-red-50 text-red-600 rounded-xl"><i class="ph-bold ph-heart text-3xl"></i></div>
+                        <div><div class="text-2xl font-bold text-slate-900">${state.favorites.size}</div><div class="text-sm text-slate-500 font-medium">Favoritos Guardados</div></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl border border-slate-100 p-8 shadow-sm">
+                    <h3 class="font-bold text-xl mb-6 flex items-center gap-2 text-slate-800"><i class="ph-bold ph-user-circle"></i> Información Personal</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100"><label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Nombre</label><div class="font-bold text-slate-800 text-lg mt-1">${userName}</div></div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100"><label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Email</label><div class="font-bold text-slate-800 text-lg mt-1">${userEmail}</div></div>
+                    </div>
+                </div>`;
+
+            // --- PESTAÑA PEDIDOS (AQUÍ HICE EL CAMBIO) ---
+            } else if (tab === 'orders') {
+                if (state.orders.length === 0) {
+                    contentHTML = `<div class="bg-white rounded-2xl border border-slate-100 p-12 text-center"><div class="inline-block p-6 bg-slate-50 rounded-full mb-4"><i class="ph ph-package text-4xl text-slate-400"></i></div><h3 class="text-xl font-bold text-slate-900">Sin pedidos aún</h3><p class="text-slate-500 mb-6">Explora nuestra tienda y encuentra lo que buscas.</p><button onclick="router.navigate('/shop')" class="bg-slate-900 text-white px-6 py-2 rounded-full font-bold hover:bg-slate-800">Ir a la Tienda</button></div>`;
+                } else {
+                    setTimeout(() => {
+                        if(window.orderTimerInterval) clearInterval(window.orderTimerInterval);
+                        window.orderTimerInterval = setInterval(() => {
+                            const timers = document.querySelectorAll('.order-timer');
+                            if(timers.length === 0) return;
+                            timers.forEach(el => {
+                                const expire = parseInt(el.dataset.expire);
+                                const diff = expire - Date.now();
+                                if(diff <= 0) {
+                                    el.innerHTML = "Tiempo Agotado";
+                                    el.parentElement.className = "mt-2 text-xs font-bold text-red-500 bg-red-50 px-3 py-1 rounded inline-block border border-red-100";
+                                } else {
+                                    const m = Math.floor(diff / 60000);
+                                    const s = Math.floor((diff % 60000) / 1000);
+                                    el.innerText = `${m}:${s < 10 ? '0' : ''}${s} min para validar pago`;
+                                }
+                            });
+                        }, 1000);
+                    }, 100);
+
+                    contentHTML = `<div class="space-y-4">${state.orders.map((o, idx) => {
+                        let timerHTML = '';
+                        if(o.status === 'Pendiente de Validación' && o.expireAt) {
+                            if(o.expireAt > Date.now()) {
+                                timerHTML = `<div class="mt-2 text-xs font-bold text-orange-600 bg-orange-50 px-3 py-1 rounded inline-block border border-orange-100"><i class="ph-bold ph-clock"></i> <span class="order-timer" data-expire="${o.expireAt}">Calculando...</span></div>`;
+                            } else {
+                                timerHTML = `<div class="mt-2 text-xs font-bold text-red-500 bg-red-50 px-3 py-1 rounded inline-block border border-red-100"><i class="ph-bold ph-warning"></i> Tiempo de reserva agotado</div>`;
+                            }
+                        }
+                        
+                        // Botón de Voucher (gris suave)
+                        const voucherBtn = `<button onclick="userActions.downloadVoucher('${o.id}')" class="w-full md:w-auto text-xs font-bold text-slate-500 hover:text-red-600 bg-slate-50 hover:bg-red-50 border border-slate-200 hover:border-red-200 px-4 py-2 rounded-lg transition flex items-center justify-center gap-2 mb-2 md:mb-0"><i class="ph-bold ph-file-pdf text-lg"></i> Voucher</button>`;
+
+                        let actionButtons = '';
+                        
+                        if (o.status === 'Aprobado') {
+                            actionButtons = `
+                            <div class="flex flex-col gap-2 w-full md:w-auto items-end">
+                                <span class="text-2xl font-bold text-slate-900">S/ ${o.total.toFixed(2)}</span>
+                                <div class="flex flex-col md:flex-row gap-2 w-full">
+                                    ${voucherBtn}
+                                    
+                                    <button onclick="userActions.showOrderDetails('${o.id}')" class="text-xs bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900 border border-slate-200 px-6 py-2 rounded-lg font-bold transition flex items-center justify-center gap-2 shadow-sm transform hover:-translate-y-0.5 whitespace-nowrap">
+                                        <i class="ph-fill ph-star text-yellow-500"></i> Calificar / Detalles
+                                    </button>
+                                </div>
+                            </div>`;
+                        } else {
+                            actionButtons = `
+                            <div class="flex flex-col items-end gap-2 w-full md:w-auto">
+                                <span class="text-2xl font-bold text-slate-900">S/ ${o.total.toFixed(2)}</span>
+                                <div class="flex flex-col md:flex-row gap-2 w-full">
+                                    ${voucherBtn}
+                                    <button onclick="userActions.showOrderDetails('${o.id}')" class="text-sm bg-slate-100 text-slate-700 hover:bg-slate-900 hover:text-white px-4 py-2 rounded-lg font-bold transition flex items-center justify-center gap-2 whitespace-nowrap"><i class="ph-bold ph-eye"></i> Ver Detalles</button>
+                                </div>
+                            </div>`;
+                        }
+
+                        // También cambié el borde al pasar el mouse (hover:border-[#FFA500]) para que salga Naranja en vez de turquesa
+                        return `<div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-[#FFA500] transition-colors duration-300">
+                            <div>
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="font-bold text-lg text-slate-900">Pedido #${o.id ? o.id.slice(-6) : (Date.now()-idx).toString().slice(-6)}</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full uppercase tracking-wider">${o.status}</span>
+                                </div>
+                                <div class="text-sm text-slate-500 mb-2"><i class="ph-bold ph-calendar-blank mr-1"></i> ${new Date(o.date).toLocaleDateString()} · ${new Date(o.date).toLocaleTimeString()}</div>
+                                <div class="text-sm text-slate-700 font-medium">${o.items ? o.items.length : 0} productos</div>
+                                ${timerHTML}
+                            </div>
+                            ${actionButtons}
+                        </div>`;
+                  
+                    }).join('')}</div>`;
+                }
+
+            // --- PESTAÑA FAVORITOS ---
+            } else if (tab === 'favorites') {
+                if (favProducts.length === 0) contentHTML = `<div class="bg-white rounded-2xl border border-slate-100 p-12 text-center"><div class="inline-block p-6 bg-slate-50 rounded-full mb-4"><i class="ph ph-heart-break text-4xl text-slate-400"></i></div><h3 class="text-xl font-bold text-slate-900">Sin favoritos</h3><p class="text-slate-500">Guarda lo que te gusta para comprarlo después.</p></div>`;
+                else contentHTML = `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">${favProducts.map(ProductCard).join('')}</div>`;
+            }
+
+            // --- HTML PRINCIPAL (ESTRUCTURA) ---
+            container.innerHTML = `
+                <div class="w-full max-w-[1440px] mx-auto bg-white min-h-[80vh]">
+                    <div class="relative w-full bg-gradient-to-b from-white to-slate-50 border-b border-slate-200 pt-12 pb-12 px-6 md:px-12 overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+                        <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 max-w-7xl mx-auto">
+                            <div class="w-24 h-24 md:w-32 md:h-32 rounded-full bg-slate-900 text-[#FFA500] flex items-center justify-center text-4xl md:text-5xl font-extrabold shadow-xl border-4 border-white">${userInitial}</div>
+                            <div class="text-center md:text-left">
+                                <h1 class="text-3xl md:text-5xl font-extrabold mb-2 text-slate-900">Hola, ${userName}</h1>
+                                <p class="text-slate-500 text-lg">${userEmail} · Miembro 2MTechPerú</p>
+                            </div>
+                            <div class="md:ml-auto">
+                                <button onclick="authManager.logout()" class="bg-white hover:bg-slate-50 text-slate-600 border border-slate-300 px-6 py-3 rounded-full font-bold transition flex items-center gap-2 shadow-sm hover:shadow-md hover:text-red-500">
+                                    <i class="ph-bold ph-sign-out"></i> Cerrar Sesión
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-4 md:px-8 -mt-8 pb-12 relative z-20">
+                        <div class="max-w-7xl mx-auto">
+                            <div class="flex flex-col lg:flex-row gap-8">
+                                <div class="w-full lg:w-72 flex-shrink-0">
+                                    <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-2 sticky top-24">
+                                        <nav class="space-y-1">
+                                            <button onclick="router.navigate('/profile', {tab: 'summary'})" class="w-full text-left px-4 py-3 rounded-xl transition flex items-center gap-3 font-bold ${tab==='summary' ? 'bg-[#FFA500] text-white shadow-md' : 'text-slate-600 hover:bg-slate-50'}">
+                                                <i class="ph-bold ph-user text-xl"></i> Resumen
+                                            </button>
+                                            <button onclick="router.navigate('/profile', {tab: 'orders'})" class="w-full text-left px-4 py-3 rounded-xl transition flex items-center gap-3 font-bold ${tab==='orders' ? 'bg-[#FFA500] text-white shadow-md' : 'text-slate-600 hover:bg-slate-50'}">
+                                                <i class="ph-bold ph-package text-xl"></i> Mis Pedidos
+                                            </button>
+                                            <button onclick="router.navigate('/profile', {tab: 'favorites'})" class="w-full text-left px-4 py-3 rounded-xl transition flex items-center gap-3 font-bold ${tab==='favorites' ? 'bg-[#FFA500] text-white shadow-md' : 'text-slate-600 hover:bg-slate-50'}">
+                                                <i class="ph-bold ph-heart text-xl"></i> Favoritos
+                                            </button>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="flex-1 fade-in">
+                                    <h2 class="text-2xl font-bold text-slate-900 mb-6 capitalize hidden lg:block">${tab === 'summary' ? 'Resumen de tu cuenta' : tab === 'orders' ? 'Historial de compras' : 'Tus productos favoritos'}</h2>
+                                    ${contentHTML}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+        }
+        window.togglePass = () => {
+            const input = document.getElementById('auth-pass');
+            const icon = document.getElementById('pass-icon');
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove('ph-eye-slash');
+                icon.classList.add('ph-eye');
+            } else {
+                input.type = "password";
+                icon.classList.remove('ph-eye');
+                icon.classList.add('ph-eye-slash');
+            }
+        };
+
+function renderLogin(container) {
+            const isReg = authManager.isRegistering;
+            container.innerHTML = `
+                <div class="flex min-h-screen w-full bg-white">
+                    <div class="hidden lg:flex w-1/2 relative bg-slate-900 items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1950&q=80" class="absolute inset-0 w-full h-full object-cover opacity-50">
+                        <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
+                        <div class="relative z-10 p-12 text-white max-w-lg">
+    
+<div class="flex items-center gap-4 mb-6">
+    <img src="https://qeoojbsrqlroajvdgrju.supabase.co/storage/v1/object/public/productos/bg-logo-2m.png"
+         class="h-16 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,151,157,0.3)]"
+         alt="Logotipo 2MTechPerú">
+    <h1 class="text-4xl font-extrabold tracking-tighter flex gap-2">
+        <span class="text-[#10c4c1]" style="text-shadow: 0 2px 4px rgba(0,0,0,0.3);">2M</span>
+        <span class="text-[#0ae4da]" style="text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Tech</span>
+        <span class="text-white" style="text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Perú</span>
+    </h1>
+</div>
+
+
+                            <h2 class="text-5xl font-bold leading-tight mb-6">Tu tienda virtual de confianza y a un buen precio.</h2>
+                            <p class="text-lg text-slate-300 mb-8">Únete a nuestra comunidad y accede a ofertas, puntos para canjear y mucho más.</p>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16 relative bg-white">
+                        <button onclick="router.navigate('/')" class="absolute top-8 left-8 text-slate-400 hover:text-slate-900 transition flex items-center gap-2 font-bold text-sm"><i class="ph-bold ph-arrow-left text-lg"></i> Volver al inicio</button>
+                        <div class="w-full max-w-md space-y-8">
+                            <div class="text-center lg:text-left"><h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">${isReg?'Crear Cuenta':'Bienvenido de nuevo'}</h2><p class="text-slate-500 mt-2 text-lg">${isReg?'Empieza tu viaje tecnológico hoy.':'Ingresa tus datos para continuar.'}</p></div>
+                            
+                            <form id="auth-form" class="space-y-5">
+                                ${isReg ? `<div class="space-y-2"><label class="text-sm font-bold text-slate-700 ml-1">Nombre Completo</label><div class="relative"><i class="ph-bold ph-user absolute left-4 top-4 text-slate-400 text-lg"></i><input type="text" id="reg-name" required placeholder="Ej. Saúl Perez" class="w-full pl-12 pr-4 py-4 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-slate-900 focus:bg-white outline-none transition font-medium text-slate-900"></div></div>` : ''}
+                                
+                                <div class="space-y-2"><label class="text-sm font-bold text-slate-700 ml-1">Correo Electrónico</label><div class="relative"><i class="ph-bold ph-envelope absolute left-4 top-4 text-slate-400 text-lg"></i><input type="email" id="auth-email" required placeholder="hola@correo.com" class="w-full pl-12 pr-4 py-4 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-slate-900 focus:bg-white outline-none transition font-medium text-slate-900"></div></div>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex justify-between ml-1"><label class="text-sm font-bold text-slate-700">Contraseña</label></div>
+                                    <div class="relative">
+                                        <i class="ph-bold ph-lock absolute left-4 top-4 text-slate-400 text-lg"></i>
+                                        <input type="password" id="auth-pass" required placeholder="••••••••" class="w-full pl-12 pr-12 py-4 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-slate-900 focus:bg-white outline-none transition font-medium text-slate-900">
+                                        <button type="button" onclick="togglePass()" class="absolute right-4 top-4 p-1 text-slate-400 hover:text-slate-900 transition z-10"><i id="pass-icon" class="ph-bold ph-eye-slash text-xl"></i></button>
+                                    </div>
+                                </div>
+
+                                ${isReg ? `
+                                <div class="space-y-2 animate-fade-in-up">
+                                    <div class="flex justify-between ml-1"><label class="text-sm font-bold text-slate-700">Repetir Contraseña</label></div>
+                                    <div class="relative">
+                                        <i class="ph-bold ph-lock-key absolute left-4 top-4 text-slate-400 text-lg"></i>
+                                        <input type="password" id="auth-pass-confirm" required placeholder="Confirma tu contraseña" class="w-full pl-12 pr-4 py-4 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-slate-900 focus:bg-white outline-none transition font-medium text-slate-900">
+                                    </div>
+                                </div>
+
+                                <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 flex gap-3 items-start animate-fade-in-up">
+                                    <i class="ph-fill ph-warning text-yellow-600 text-xl mt-0.5"></i>
+                                    <div class="text-xs text-yellow-800 leading-relaxed font-medium">
+                                        <strong>¡Importante!</strong> Anota tu contraseña en un lugar seguro y no la compartas con nadie.
+                                    </div>
+                                </div>
+                                ` : ''}
+
+                                <button type="submit" class="w-full py-4 rounded-xl bg-slate-900 text-white font-bold text-lg shadow-xl hover:bg-slate-800 hover:scale-[1.02] transition transform active:scale-95">${isReg?'Registrarme Gratis':'Iniciar Sesión'}</button>
+                            </form>
+                            <p class="text-center text-slate-600 font-medium mt-8">${isReg?'¿Ya eres miembro?':'¿No tienes cuenta?'} <button id="toggle-auth" class="text-slate-900 font-bold hover:underline ml-1">${isReg?'Inicia Sesión':'Regístrate ahora'}</button></p>
+                        </div>
+                    </div>
+                </div>`;
+            document.getElementById('auth-form').addEventListener('submit', authManager.handleForm);
+            document.getElementById('toggle-auth').onclick = () => { authManager.isRegistering = !isReg; renderLogin(container); };
+        }
+
+function renderFAQ(container) {
+            // Iconos asignados manualmente por índice para que coincidan con tu data actual
+            const icons = [
+                "ph-truck",         // Para Envíos
+                "ph-shield-check",  // Para Garantía
+                "ph-storefront",    // Para Tienda Física
+                "ph-credit-card"    // Para Pagos
+            ];
+
+            const faqHTML = FAQS.map((f, index) => {
+                const icon = icons[index] || "ph-question"; // Fallback si agregas más preguntas
+                
+                return `
+                <details class="group bg-white rounded-2xl border border-slate-100 shadow-sm open:shadow-md open:border-[#00979D] transition-all duration-300 overflow-hidden mb-4">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer select-none list-none bg-white group-open:bg-slate-50/50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-500 group-open:bg-[#00979D] group-open:text-slate-900 group-open:border-[#00979D] transition-all duration-300 shrink-0">
+                                <i class="ph-fill ${icon} text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-base md:text-lg group-hover:text-yellow-600 transition-colors">${f.q}</h3>
+                        </div>
+                        <div class="text-slate-400 group-open:text-[#26E4ED] transform group-open:rotate-180 transition-transform duration-300">
+                            <i class="ph-bold ph-caret-down text-xl"></i>
+                        </div>
+                    </summary>
+                    <div class="px-6 pb-6 pt-2 bg-slate-50/50">
+                        <div class="pl-14 text-slate-600 leading-relaxed text-sm md:text-base border-l-2 border-slate-200 ml-5">
+                            ${f.a}
+                        </div>
+                    </div>
+                </details>
+                `;
+            }).join('');
+
+            container.innerHTML = `
+                <div class="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-12 bg-slate-50/50 min-h-[80vh]">
+                    
+                    <div class="max-w-3xl mx-auto text-center mb-16">
+                        <span class="bg-yellow-100 text-cyan-800 border border-yellow-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Soporte 2MTP</span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">¿Cómo podemos ayudarte?</h1>
+                        <p class="text-slate-500 text-lg">Resolvemos tus dudas sobre envíos, garantías y métodos de pago al instante.</p>
+                    </div>
+
+                    <div class="max-w-3xl mx-auto">
+                        ${faqHTML}
+                    </div>
+
+                    <div class="max-w-3xl mx-auto mt-12">
+                        <div class="bg-slate-900 rounded-3xl p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left shadow-2xl">
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-[#00979D] rounded-full mix-blend-multiply filter blur-3xl opacity-10 pointer-events-none"></div>
+                            
+                            <div class="relative z-10">
+                                <h3 class="text-2xl font-bold text-white mb-2">¿No encuentras tu respuesta?</h3>
+                                <p class="text-slate-400">Nuestro equipo de expertos está listo para atenderte personalmente.</p>
+                            </div>
+                            
+                            <div class="relative z-10 shrink-0">
+                                <a href="https://wa.me/51960436357" target="_blank" class="bg-[#00979D] hover:bg-[#09BFED] text-slate-900 px-8 py-4 rounded-xl font-bold transition shadow-lg shadow-[#00979D]/20 flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+                                    <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                                    Chatear ahora
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-8">
+                            <p class="text-xs text-slate-400 font-medium">Tiempo de respuesta promedio: <span class="text-green-600 font-bold">Menos de 5 minutos</span></p>
+                        </div>
+                    </div>
+
+                </div>`;
+        }
+
+        // --- LÓGICA DEL BANNER DE PUNTOS (SIEMPRE APARECE) ---
+        window.closePointsBanner = () => {
+            const b = document.getElementById('points-promo-banner');
+            if(b) {
+                b.classList.add('translate-y-full'); 
+            }
+        };
+
+        setTimeout(() => {
+            const b = document.getElementById('points-promo-banner');
+            if(b) {
+                b.classList.remove('translate-y-full'); 
+            }
+        }, 3000);
+
+        window.addEventListener('popstate', router.handle);
+        window.addEventListener('DOMContentLoaded', () => { 
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                if(splash) {
+                    splash.classList.add('splash-fade-out'); 
+                    setTimeout(() => splash.remove(), 500);   
+                }
+            }, 2000); 
+            router.handle(); 
+
+
+       // --- LÓGICA DE BUSCADOR EN VIVO ---
+        const setupSearch = () => {
+            const input = document.getElementById('global-search');
+            const results = document.getElementById('search-results');
+            
+            if(!input || !results) return;
+
+// 1. Evento al Escribir (Live Search)
+            input.addEventListener('input', (e) => {
+                // LIMPIEZA: Convertir a minúsculas y quitar tildes
+                const term = e.target.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+                
+                // Si borra todo, ocultamos resultados
+                if(term.length < 1) {
+                    results.classList.add('hidden');
+                    return;
+                }
+
+                // Filtramos productos (Nombre o Categoría) usando los datos limpios
+                const matches = PRODUCTS.filter(p => {
+                    const cleanName = (p.name || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    const cleanCat = (p.category || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    return cleanName.includes(term) || cleanCat.includes(term);
+                }).slice(0, 5); // Mostramos máximo 5
+
+
+                if(matches.length === 0) {
+                    results.innerHTML = `<div class="p-4 text-center text-slate-500 text-xs font-bold">No encontramos coincidencias</div>`;
+                } else {
+                    results.innerHTML = matches.map(p => `
+                        <div onclick="router.navigate('product', {product: '${p.slug}'}); document.getElementById('global-search').value = ''; document.getElementById('search-results').classList.add('hidden');" class="flex items-center gap-3 p-3 hover:bg-slate-50 cursor-pointer border-b border-slate-50 last:border-0 transition group">
+                            <img src="${p.image}" class="w-10 h-10 object-cover rounded-lg border border-slate-100 group-hover:scale-105 transition">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="text-sm font-bold text-slate-800 truncate">${p.name}</h4>
+                                <div class="flex justify-between items-center mt-1">
+                                    <span class="text-[10px] uppercase tracking-wider text-slate-400 font-bold bg-slate-100 px-1.5 rounded">${p.category}</span>
+                                    <span class="text-xs font-bold text-slate-900">S/ ${p.isOffer ? p.offerPrice : p.price}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('') + `<div onclick="router.navigate('shop', {search: '${term}'}); document.getElementById('global-search').value = ''; document.getElementById('search-results').classList.add('hidden');" class="p-3 text-center text-xs font-bold text-blue-600 hover:bg-blue-50 cursor-pointer bg-slate-50 transition border-t border-slate-100">Ver todos los resultados <i class="ph-bold ph-arrow-right"></i></div>`;
+                }
+                results.classList.remove('hidden');
+            });
+
+            // 2. Evento Enter (Ir a la tienda y borrar texto)
+            input.addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') {
+                    const term = input.value.trim();
+                    if(term) {
+                        router.navigate('shop', { search: term }); // Enviamos búsqueda por URL
+                        input.value = ''; // Borramos texto visualmente
+                        results.classList.add('hidden'); // Ocultamos lista
+                        input.blur(); // Quitamos foco
+                    }
+                }
+            });
+
+            // 3. Ocultar al hacer click fuera
+            document.addEventListener('click', (e) => {
+                if (!input.contains(e.target) && !results.contains(e.target)) {
+                    results.classList.add('hidden');
+                }
+            });
+        };
+
+        // Inicializar buscador
+        setupSearch();
+
+
+        });
+
+
+
+
+    (function initUbigeoSimple() {
+        const deptSelect = document.getElementById('bill-dept');
+        
+        // Lista simple de Departamentos
+        const departamentos = [
+            "Amazonas", "Áncash", "Apurímac", "Arequipa", "Ayacucho", "Cajamarca", 
+            "Callao", "Cusco", "Huancavelica", "Huánuco", "Ica", "Junín", 
+            "La Libertad", "Lambayeque", "Lima", "Loreto", "Madre de Dios", 
+            "Moquegua", "Pasco", "Piura", "Puno", "San Martín", "Tacna", 
+            "Tumbes", "Ucayali"
+        ];
+
+        // Llenar el select automáticamente
+        deptSelect.innerHTML = '<option value="">Seleccione Departamento</option>';
+        departamentos.forEach(dept => {
+            deptSelect.innerHTML += `<option value="${dept}">${dept}</option>`;
+        });
+    })();
+
+function renderHowToBuy(container) {
+    container.innerHTML = `
+        <div class="w-full bg-slate-50 min-h-screen font-sans pb-32 overflow-hidden relative">
+            
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-white to-transparent"></div>
+                <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px] mix-blend-multiply"></div>
+                <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-cyan-100/40 rounded-full blur-[100px] mix-blend-multiply"></div>
+            </div>
+
+            <div class="relative z-10 pt-24 pb-20 px-6 text-center">
+                <span class="inline-block py-1 px-3 rounded-full bg-white border border-slate-200 text-[#00979D] text-xs font-bold tracking-[0.2em] uppercase mb-5 shadow-sm">
+                    Guía de Compra
+                </span>
+                <h1 class="text-5xl md:text-7xl font-black text-slate-900 mb-6 tracking-tight">
+                    Compra en <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00979D] to-blue-600">4 Pasos.</span>
+                </h1>
+                <p class="text-slate-500 text-lg max-w-2xl mx-auto font-medium leading-relaxed">
+                    Sin cajas negras. Sin registros eternos. Una experiencia de compra fluida y transparente.
+                </p>
+            </div>
+
+            <div class="max-w-[1440px] mx-auto px-6 relative z-10">
+                
+                <div class="hidden lg:block absolute top-[85px] left-[10%] right-[10%] h-[2px] bg-slate-200 z-0"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+                    
+                    <div onclick="router.navigate('/shop')" class="group cursor-pointer relative text-center pt-8">
+                        <div class="relative z-10 flex flex-col items-center">
+                            <div class="w-20 h-20 bg-white rounded-2xl border-2 border-slate-100 flex items-center justify-center text-4xl text-slate-400 mb-6 transition-all duration-500 group-hover:border-cyan-400 group-hover:text-cyan-500 group-hover:shadow-[0_10px_30px_-10px_rgba(6,182,212,0.5)] group-hover:-translate-y-2 relative z-20">
+                                <i class="ph-fill ph-magnifying-glass transform group-hover:scale-110 transition-transform"></i>
+                                <div class="absolute -top-3 -right-3 w-8 h-8 bg-slate-50 rounded-full flex items-center justify-center text-xs font-bold text-slate-400 border border-slate-200 group-hover:bg-cyan-500 group-hover:text-white group-hover:border-cyan-500 transition-all shadow-sm">1</div>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors">Elige tu producto</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed px-4 group-hover:text-slate-600 transition-colors">
+                                Explora nuestro catálogo y añade lo que necesites al carrito.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="group relative text-center pt-8">
+                        <div class="relative z-10 flex flex-col items-center">
+                            <div class="w-20 h-20 bg-white rounded-2xl border-2 border-slate-100 flex items-center justify-center text-4xl text-slate-400 mb-6 transition-all duration-500 group-hover:border-purple-400 group-hover:text-purple-500 group-hover:shadow-[0_10px_30px_-10px_rgba(168,85,247,0.5)] group-hover:-translate-y-2 relative z-20">
+                                <i class="ph-fill ph-note-pencil transform group-hover:scale-110 transition-transform"></i>
+                                <div class="absolute -top-3 -right-3 w-8 h-8 bg-slate-50 rounded-full flex items-center justify-center text-xs font-bold text-slate-400 border border-slate-200 group-hover:bg-purple-500 group-hover:text-white group-hover:border-purple-500 transition-all shadow-sm">2</div>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">Datos de Envío</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed px-4 group-hover:text-slate-600 transition-colors">
+                                Llena el formulario express en el checkout. Solo lo necesario.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="group relative text-center pt-8">
+                        <div class="relative z-10 flex flex-col items-center">
+                            <div class="w-20 h-20 bg-white rounded-2xl border-2 border-slate-100 flex items-center justify-center text-4xl text-slate-400 mb-6 transition-all duration-500 group-hover:border-amber-400 group-hover:text-amber-500 group-hover:shadow-[0_10px_30px_-10px_rgba(245,158,11,0.5)] group-hover:-translate-y-2 relative z-20">
+                                <i class="ph-fill ph-qr-code transform group-hover:scale-110 transition-transform"></i>
+                                <div class="absolute -top-3 -right-3 w-8 h-8 bg-slate-50 rounded-full flex items-center justify-center text-xs font-bold text-slate-400 border border-slate-200 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-500 transition-all shadow-sm">3</div>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors">Pago QR</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed px-4 group-hover:text-slate-600 transition-colors">
+                                Paga al instante con Yape/Plin e ingresa tu código de operación.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="group relative text-center pt-8">
+                        <div class="relative z-10 flex flex-col items-center">
+                            <div class="w-20 h-20 bg-white rounded-2xl border-2 border-slate-100 flex items-center justify-center text-4xl text-slate-400 mb-6 transition-all duration-500 group-hover:border-green-400 group-hover:text-green-500 group-hover:shadow-[0_10px_30px_-10px_rgba(34,197,94,0.5)] group-hover:-translate-y-2 relative z-20">
+                                <i class="ph-fill ph-whatsapp-logo transform group-hover:scale-110 transition-transform"></i>
+                                <div class="absolute -top-3 -right-3 w-8 h-8 bg-slate-50 rounded-full flex items-center justify-center text-xs font-bold text-slate-400 border border-slate-200 group-hover:bg-green-500 group-hover:text-white group-hover:border-green-500 transition-all shadow-sm">4</div>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-green-600 transition-colors">Confirmación</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed px-4 group-hover:text-slate-600 transition-colors">
+                                Envía la captura por WhatsApp y tu pedido sale en camino.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mt-20 text-center relative z-10 px-6">
+                <button onclick="router.navigate('/shop')" class="group bg-slate-900 text-white text-lg font-bold px-10 py-4 rounded-full hover:bg-[#00979D] hover:text-white transition-all duration-300 shadow-xl shadow-slate-900/10 hover:shadow-[#00979D]/30 flex items-center justify-center mx-auto gap-3">
+                    <span>Comenzar Ahora</span>
+                    <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <p class="mt-6 text-slate-400 text-sm font-medium">
+                    Soporte en tiempo real <a href="https://wa.me/51960436357" target="_blank" class="text-slate-900 hover:text-[#00979D] transition-colors font-bold underline decoration-2">aquí</a>
+                </p>
+            </div>
+            
+        </div>`;
+}
+
+
+function renderAbout(container) {
+    container.innerHTML = `
+        <div class="w-full bg-white min-h-screen font-sans selection:bg-[#00979D] selection:text-slate-900 pb-20">
+            
+            <div class="pt-32 pb-20 px-6 max-w-5xl mx-auto text-center fade-in">
+                <span class="text-[#26E4ED] font-bold tracking-[0.2em] text-xs uppercase mb-6 block">Nuestra Filosofía</span>
+                <h1 class="text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-tight tracking-tighter">
+                    Tecnología con <br><span class="text-slate-400">trato humano.</span>
+                </h1>
+                <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+                    En un mundo lleno de bots y respuestas automáticas, apostamos por volver a lo básico: escucharte, asesorarte y cumplir lo que prometemos.
+                </p>
+            </div>
+
+            <div class="relative w-full bg-slate-50 py-24 px-4 md:px-8">
+                
+                <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-50">
+                    <div class="absolute top-10 right-10 w-64 h-64 bg-[#00979D]/10 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-10 left-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
+                </div>
+
+                <div class="relative z-10 max-w-3xl mx-auto bg-white p-10 md:p-16 rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100">
+                    
+                    <div class="flex flex-col items-center text-center mb-10">
+                        <div class="w-20 h-20 bg-slate-900 rounded-full flex items-center justify-center text-[#00979D] text-3xl mb-6 shadow-lg">
+                            <i class="ph-fill ph-quotes"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-slate-900">¿Por qué 2MTechPerú?</h2>
+                        <span class="text-slate-400 text-sm font-medium mt-2 uppercase tracking-widest">Nota del Fundador</span>
+                    </div>
+
+                    <div class="prose prose-lg prose-slate mx-auto text-slate-600 leading-loose text-lg text-center md:text-left">
+                        <p class="mb-6">
+                            <span class="font-bold text-slate-900 text-2xl block mb-2">Hola, somos 2MTechPerú.</span>
+                            Como tú, soy un apasionado de la tecnología. Y como tú, me cansé de comprar online y recibir mala atención, demoras o productos que no eran lo que prometían.
+                        </p>
+                        <p class="mb-6">
+                            Decidí dejar de quejarme y empezar a construir la solución. <strong class="text-slate-900 bg-yellow-100 px-1">2MTechPerú nace hoy</strong> no para ser "una tienda más", sino para ser la tienda donde a mí me gustaría comprar.
+                        </p>
+                        <p class="mb-8">
+                            Quizás somos nuevos, pero nuestras ganas de hacer las cosas bien son gigantes. Te invito a ser parte de nuestros <strong>primeros clientes fundadores</strong> y vivir la experiencia TechPerú.
+                        </p>
+                        <p class="text-2xl font-black text-slate-900 italic">
+                            "No te vamos a fallar."
+                        </p>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="flex items-center gap-4">
+                            <div class="h-12 w-12 rounded-full bg-slate-200 overflow-hidden">
+                                <div class="w-full h-full bg-slate-300 flex items-center justify-center text-slate-500 font-bold">2MTP</div>
+                            </div>
+                            <div class="text-left">
+                                <div class="font-bold text-slate-900 font-handwriting text-xl">2MTechPerú</div>
+                                <div class="text-xs text-slate-400 uppercase font-bold tracking-wider">Fundador</div>
+                            </div>
+                        </div>
+                        
+                        <div class="opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                             <div class="h-10 px-4 border border-slate-300 rounded-full flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-widest">
+                                <i class="ph-fill ph-seal-check text-[#26E4ED] text-lg"></i> Compromiso con nuestros clientes.
+                             </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-6 py-24">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+                    
+                    <div class="group">
+                        <div class="text-slate-900 text-3xl mb-4 group-hover:-translate-y-1 transition-transform duration-300 inline-block">
+                            <i class="ph-fill ph-star"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Calidad Original</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Solo productos sellados y verificados. Sin imitaciones.</p>
+                    </div>
+
+                    <div class="group">
+                        <div class="text-slate-900 text-3xl mb-4 group-hover:-translate-y-1 transition-transform duration-300 inline-block">
+                            <i class="ph-fill ph-lightning"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Rapidez</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Tu tiempo vale. Procesamos tu pedido el mismo día.</p>
+                    </div>
+
+                    <div class="group">
+                        <div class="text-slate-900 text-3xl mb-4 group-hover:-translate-y-1 transition-transform duration-300 inline-block">
+                            <i class="ph-fill ph-heart"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Transparencia</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Hablamos claro. Sin letras chicas ni costos ocultos.</p>
+                    </div>
+
+                </div>
+
+                <div class="mt-20 text-center border-t border-slate-100 pt-16">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">¿Listo para probar algo diferente?</h3>
+                    <button onclick="router.navigate('/shop')" class="bg-slate-900 text-white px-10 py-4 rounded-full font-bold hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 transform hover:-translate-y-1">
+                        Ver Catálogo
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    `;
+}
+
+
+// --- FUNCIÓN PARA ABRIR GALERÍA DE SERVICIOS (AGREGAR ESTO) ---
+window.openServiceGallery = (serviceIndex, imgIndex) => {
+    // Verificamos que los datos existan
+    if (!SERVICES_DATA || !SERVICES_DATA.items) return;
+
+    const service = SERVICES_DATA.items[serviceIndex];
+    if (!service) return;
+
+    // Preparamos las imágenes para el visor
+    let images = [];
+    if (service.images && Array.isArray(service.images) && service.images.length > 0) {
+        images = service.images;
+    } else if (service.image) {
+        images = [service.image];
+    } else {
+        return; 
+    }
+
+    // Usamos el gestor de imágenes que ya tienes en la tienda
+    window.currentProdImages = images;
+    window.currentProdIdx = imgIndex;
+
+    // Abrimos el modal
+    if(window.imageModalManager) {
+        window.imageModalManager.open(images[imgIndex]);
+    }
+};
+
+// BUSCA LA FUNCIÓN renderServices Y REEMPLÁZALA POR ESTA:
+
+function renderServices(container) {
+    if (!SERVICES_DATA || !SERVICES_DATA.enabled) {
+        container.innerHTML = `<div class="min-h-screen flex items-center justify-center text-slate-400 font-bold">Sección no disponible</div>`;
+        return;
+    }
+
+    const { pageTitle, whatsapp, items } = SERVICES_DATA;
+    // Este es el número de respaldo (general)
+    const globalWhatsapp = whatsapp || '51960436357';
+
+    let servicesHTML = '';
+    
+if (items && Array.isArray(items) && items.length > 0) {
+        
+        // --- FILTRO DE VISIBILIDAD (NUEVO) ---
+        // Solo mostramos los servicios que NO tengan isVisible = false
+        const visibleItems = items.filter(item => item.isVisible !== false);
+
+        if (visibleItems.length === 0) {
+            servicesHTML = `<div class="text-center py-20 text-slate-400">Pronto publicaremos nuevos servicios.</div>`;
+        } else {
+            servicesHTML = visibleItems.map((item, index) => {
+                const isEven = index % 2 === 0;
+                
+                // --- LOGICA DE WHATSAPP INDEPENDIENTE ---
+                const itemPhone = (item.whatsapp && item.whatsapp.trim() !== '') ? item.whatsapp : globalWhatsapp;
+
+                // --- ESTILOS ROTATIVOS ---
+                let bgClass = '', textTitle = '', textBody = '', btnStyle = '';
+                
+                if (index % 3 === 0) { // Estilo Oscuro
+                    bgClass = 'bg-slate-900'; textTitle = 'text-white'; textBody = 'text-slate-300';
+                    btnStyle = 'bg-[#00979D] text-slate-900 hover:bg-white';
+                } else if (index % 3 === 1) { // Estilo Blanco
+                    bgClass = 'bg-white'; textTitle = 'text-slate-900'; textBody = 'text-slate-600';
+                    btnStyle = 'bg-slate-900 text-white hover:bg-[#00979D] hover:text-slate-900';
+                } else { // Estilo Gris
+                    bgClass = 'bg-slate-100'; textTitle = 'text-slate-800'; textBody = 'text-slate-500';
+                    btnStyle = 'bg-slate-900 text-white hover:bg-[#00979D]';
+                }
+
+                // --- EFECTO CORTE DE PAPEL ---
+                const isLast = index === visibleItems.length - 1; // Usamos visibleItems.length
+                const clipStyle = isLast ? '' : 'clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); padding-bottom: 8rem; margin-bottom: -4rem;';
+                const zIndex = `z-[${30 - index}]`; 
+
+                // --- IMÁGENES ---
+                let imagesArray = [];
+                if(item.images && Array.isArray(item.images) && item.images.length > 0) {
+                    imagesArray = item.images;
+                } else if (item.image) {
+                    imagesArray = [item.image];
+                } else {
+                    imagesArray = ['https://via.placeholder.com/800x600?text=TechPerú'];
+                }
+
+                const sliderId = `srv-slider-${index}`;
+                
+                const slidesHTML = imagesArray.map((img, i) => `
+                    <img src="${img}" 
+                         class="service-slide ${i === 0 ? 'active' : ''} object-cover w-full h-full cursor-zoom-in" 
+                         data-index="${i}"
+                         onclick="openServiceGallery(${index}, ${i})"> 
+                `).join('');
+                
+                const dotsHTML = imagesArray.length > 1 ? `
+                    <div class="slider-dots">
+                        ${imagesArray.map((_, i) => `<div class="slider-dot ${i === 0 ? 'active' : ''}"></div>`).join('')}
+                    </div>
+                ` : '';
+                const scriptInit = imagesArray.length > 1 ? `data-autoplay="true"` : '';
+
+                // --- ORDEN VISUAL ---
+                const orderImg = isEven ? 'lg:order-2' : 'lg:order-1';
+                const orderTxt = isEven ? 'lg:order-1' : 'lg:order-2';
+                const serviceNumber = (index + 1).toString().padStart(2, '0');
+
+                return `
+                <div class="relative w-full ${bgClass} ${zIndex} pt-20 px-6 md:px-12" style="${clipStyle}">
+                    <div class="max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                        
+                        <div class="w-full lg:w-1/2 ${orderTxt} text-center lg:text-left reveal-on-scroll">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-[#00979D] text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
+                                <span class="w-2 h-2 rounded-full bg-[#00979D] animate-pulse"></span>
+                                Servicio ${serviceNumber}
+                            </div>
+                            
+                            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black ${textTitle} mb-6 leading-tight tracking-tight">
+                                ${item.title || 'Sin Título'}
+                            </h2>
+                            
+                            <p class="text-xl md:text-2xl ${textBody} leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 whitespace-pre-line" 
+                               style="font-family: 'Josefin Sans', sans-serif; font-weight: 300;">
+                                ${item.desc || item.description || ''}
+                            </p>
+
+                            <a href="https://wa.me/${itemPhone}?text=Hola,%20me%20interesa%20el%20servicio%20de:%20${encodeURIComponent(item.title)}" target="_blank" 
+                               class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 group/btn ${btnStyle}">
+                                <span>Solicitar Cotización</span>
+                                <i class="ph-bold ph-whatsapp-logo text-xl group-hover/btn:animate-bounce"></i>
+                            </a>
+                        </div>
+
+                        <div class="w-full lg:w-1/2 ${orderImg} reveal-on-scroll">
+                            <div class="relative group">
+                                <div class="absolute inset-0 bg-[#00979D] blur-3xl opacity-20 rounded-full"></div>
+                                
+                                <div class="relative overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[4/3] bg-slate-800 service-slider-container border-4 border-white/10" id="${sliderId}" ${scriptInit}>
+                                    ${slidesHTML}
+                                    ${dotsHTML}
+                                </div>
+                                
+                                <div class="absolute -bottom-6 -right-6 z-50 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 hidden md:flex items-center justify-center animate-bounce" style="animation-duration: 4s;">
+                                    <div class="text-center leading-none">
+                                        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">REF</span>
+                                        <span class="block text-4xl font-black text-[#00979D] tracking-tighter">#${serviceNumber}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    ${isLast ? '<div class="h-24"></div>' : ''}
+                </div>
+                `;
+            }).join('');
+        }
+    } else {
+        servicesHTML = `<div class="text-center py-20 text-slate-400">No hay servicios registrados aún.</div>`;
+    }
+    container.innerHTML = `
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+        <div class="w-full bg-slate-900 min-h-screen font-sans overflow-x-hidden">
+            <div class="relative pt-32 pb-32 px-6 overflow-hidden">
+                <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(#00979D 1px, transparent 1px); background-size: 40px 40px;"></div>
+                <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00979D] rounded-full blur-[120px] opacity-20 mix-blend-screen pointer-events-none"></div>
+
+                <div class="max-w-5xl mx-auto text-center relative z-10 fade-in">
+                    <p class="text-[#00979D] font-bold tracking-[0.3em] text-xs uppercase mb-6 animate-pulse bg-slate-800/50 inline-block px-4 py-1 rounded-full border border-slate-700">Soluciones Profesionales</p>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-8 leading-[0.9]">
+                        ${pageTitle || 'Nuestros<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00979D] to-blue-500">Servicios</span>'}
+                    </h1>
+                    <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                        Soporte y proyectos a medida con la garantía de 2MTECHPERÚ.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col relative">
+                ${servicesHTML}
+            </div>
+        </div>
+        
+        <div id="product-zoom-modal" class="fixed inset-0 z-[200] bg-slate-900/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
+            <button onclick="imageModalManager.close()" class="absolute top-4 right-4 z-[60] p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition"><i class="ph-bold ph-x text-3xl"></i></button>
+            <button onclick="imageModalManager.prev()" class="absolute left-4 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition backdrop-blur-sm border border-white/10 hover:border-white/30"><i class="ph-bold ph-caret-left text-3xl"></i></button>
+            <button onclick="imageModalManager.next()" class="absolute right-4 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition backdrop-blur-sm border border-white/10 hover:border-white/30"><i class="ph-bold ph-caret-right text-3xl"></i></button>
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex gap-4 bg-slate-800/80 backdrop-blur px-6 py-3 rounded-full border border-slate-700 shadow-2xl">
+                <button onclick="imageModalManager.zoomOut()" class="text-white hover:text-[#00979D] transition" title="Alejar"><i class="ph-bold ph-minus"></i></button>
+                <div class="w-px h-4 bg-slate-600"></div>
+                <button onclick="imageModalManager.reset()" class="text-white hover:text-[#00979D] transition text-xs font-bold uppercase tracking-wider" title="Restablecer">Reset</button>
+                <div class="w-px h-4 bg-slate-600"></div>
+                <button onclick="imageModalManager.zoomIn()" class="text-white hover:text-[#00979D] transition" title="Acercar"><i class="ph-bold ph-plus"></i></button>
+            </div>
+            <div id="zoom-pan-container" class="w-full h-full flex items-center justify-center overflow-hidden cursor-move p-4">
+                <img id="zoom-modal-img" src="" class="max-w-full max-h-[90vh] object-contain select-none shadow-2xl origin-center transition-opacity duration-200">
+            </div>
+        </div>
+    `;
+
+    window.scrollTo(0,0);
+    setTimeout(() => {
+        if(window.initScrollAnimations) window.initScrollAnimations();
+        if(window.initServiceSliders) window.initServiceSliders(); 
+    }, 100);
+}
+// --- FUNCIÓN PARA ANIMAR SLIDERS DE SERVICIOS ---
+window.initServiceSliders = () => {
+    // Buscar todos los sliders que tengan autoplay activado
+    const sliders = document.querySelectorAll('.service-slider-container[data-autoplay="true"]');
+    
+    sliders.forEach(slider => {
+        let currentIndex = 0;
+        const slides = slider.querySelectorAll('.service-slide');
+        const dots = slider.querySelectorAll('.slider-dot');
+        const totalSlides = slides.length;
+
+        // Limpiar intervalo previo si existía (por seguridad)
+        if(slider.dataset.interval) clearInterval(slider.dataset.interval);
+
+        const nextSlide = () => {
+            // Ocultar actual
+            slides[currentIndex].classList.remove('active');
+            if(dots[currentIndex]) dots[currentIndex].classList.remove('active');
+
+            // Calcular siguiente
+            currentIndex = (currentIndex + 1) % totalSlides;
+
+            // Mostrar siguiente
+            slides[currentIndex].classList.add('active');
+            if(dots[currentIndex]) dots[currentIndex].classList.add('active');
+        };
+
+        // Configurar intervalo cada 4 segundos
+        const intervalId = setInterval(nextSlide, 4000);
+        slider.dataset.interval = intervalId; // Guardar ID para poder limpiarlo si hace falta
+    });
+};
+
+
+// --- FUNCIÓN TÉRMINOS Y CONDICIONES (MODAL) ---
+window.showTerms = () => {
+    Swal.fire({
+        title: '',
+        width: '800px', // Un poco más ancho para leer mejor
+        html: `
+            <div class="text-left font-sans">
+                <h2 class="text-2xl font-black text-slate-900 mb-6 text-center">Términos del Servicio</h2>
+                
+                <div class="space-y-6 text-sm text-slate-600 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+                    
+                    <div class="bg-cyan-50 p-4 rounded-xl border border-yellow-200 text-yellow-800 text-xs font-bold mb-4">
+                        <i class="ph-fill ph-info"></i> Última actualización
+                    </div>
+
+                    <section>
+                        <h3 class="font-bold text-slate-900 text-base mb-2">1. Generalidades</h3>
+                        <p>Bienvenido a <strong>2MTechPerú</strong>. Al realizar una compra con nosotros, aceptas estos términos. Nos especializamos en la venta de hardware, componentes y gadgets tecnológicos con garantía oficial.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="font-bold text-slate-900 text-base mb-2">2. Proceso de Compra y Pagos</h3>
+                        <ul class="list-disc ml-4 space-y-1">
+                            <li>Todos los pedidos realizados en la web están sujetos a <strong>validación de stock</strong> y pago.</li>
+                            <li>Aceptamos Yape, Plin y Transferencias Bancarias.</li>
+                            <li>Una vez generado el pedido, tienes un plazo máximo de <strong>30 minutos</strong> para enviar la constancia de pago vía WhatsApp.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="font-bold text-slate-900 text-base mb-2">3. Envíos y Entregas</h3>
+                        <p class="mb-2">Realizamos envíos a todo el Perú mediante Olva Courier, Shalom o motorizado privado (solo Huánuco).</p>
+                        <ul class="list-disc ml-4 space-y-1">
+                            <li><strong>Huánuco:</strong> Entrega en 24 a 48 horas hábiles.</li>
+                            <li><strong>Provincias:</strong> Entrega entre 2 a 4 días hábiles dependiendo del destino.</li>
+                            <li>2MTechPerú no se responsabiliza por demoras ocasionadas por la empresa de transporte (huelgas, desastres naturales, etc.), pero brindaremos soporte para el seguimiento.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="font-bold text-slate-900 text-base mb-2">4. Política de Garantía (IMPORTANTE)</h3>
+                        <p class="mb-2">Todos nuestros productos cuentan con <strong>12 meses de garantía</strong> por defectos de fábrica.</p>
+                        <div class="bg-slate-100 p-3 rounded-lg border border-slate-200">
+                            <strong>La garantía NO cubre:</strong>
+                            <ul class="list-disc ml-4 mt-1 text-xs">
+                                <li>Daños físicos (golpes, caídas, quiñes).</li>
+                                <li>Daños por líquidos o humedad.</li>
+                                <li>Manipulación indebida de hardware (pines doblados).</li>
+                                <li>Sobrecargas eléctricas o uso de fuentes de poder genéricas inadecuadas.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="font-bold text-slate-900 text-base mb-2">5. Cambios y Devoluciones</h3>
+                        <p>Solo se aceptan cambios dentro de los primeros 7 días calendario si el producto presenta fallas de fábrica confirmadas por nuestro servicio técnico. El producto debe estar con su caja y accesorios originales en perfecto estado.</p>
+                        <p class="mt-2 text-xs italic">*No realizamos devoluciones de dinero por "arrepentimiento de compra" una vez abierto el producto, debido a la naturaleza de los componentes tecnológicos.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="font-bold text-slate-900 text-base mb-2">6. Privacidad de Datos</h3>
+                        <p>Tus datos personales (Nombre, DNI, Dirección) son utilizados únicamente para procesar el envío y emitir tu comprobante de pago. No compartimos tu información con terceros ajenos a la logística de entrega.</p>
+                    </section>
+
+                </div>
+            </div>
+        `,
+        showCloseButton: true,
+        showConfirmButton: true,
+        confirmButtonText: 'He leído y acepto',
+        confirmButtonColor: '#0f172a', // Color Slate-900
+        focusConfirm: false,
+        background: '#ffffff',
+        backdrop: `rgba(15, 23, 42, 0.8)`
+    });
+};
+
+// --- FUNCIÓN PARA ENVIAR EL FORMULARIO A WHATSAPP ---
+window.handleContactSubmit = (e) => {
+    e.preventDefault(); // Evita que la página se recargue
+
+    // 1. Capturar los valores
+    const name = document.getElementById('contact-name').value.trim();
+    const subject = document.getElementById('contact-subject').value;
+    const msg = document.getElementById('contact-msg').value.trim();
+
+    if (!name || !msg) return Swal.fire('Faltan datos', 'Por favor completa tu nombre y mensaje.', 'warning');
+
+    // 2. Construir el mensaje formateado
+    // Usamos %0A para saltos de línea
+    const fullMessage = `Hola TechPerú, soy *${name}*.\n\n` +
+                        `📌 *Asunto:* ${subject}\n` +
+                        `📝 *Mensaje:* ${msg}\n\n` +
+                        `Espero su respuesta.`;
+
+    // 3. Crear el enlace de WhatsApp
+    // EncodeURIComponent asegura que los espacios y tildes funcionen bien
+    const phoneNumber = "51960436357";
+    const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`;
+
+    // 4. Abrir en nueva pestaña (abre App o WhatsApp Web)
+    window.open(waLink, '_blank');
+
+    // Opcional: Limpiar el formulario o mostrar éxito
+    Swal.fire({
+        icon: 'success',
+        title: '¡Redirigiendo!',
+        text: 'Abriendo WhatsApp para enviar tu mensaje...',
+        timer: 2000,
+        showConfirmButton: false
+    });
+    
+    document.getElementById('contact-name').value = '';
+    document.getElementById('contact-msg').value = '';
+};
+
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const messages = [
+            "🟢 Estamos en línea", 
+            "👋 ¿En qué podemos ayudarte?", 
+            "🔍 ¿Conseguiste lo que estabas buscando?"
+        ];
+        
+        let msgIndex = 0;
+        const labelContainer = document.getElementById('wa-rotating-label');
+        const labelText = document.getElementById('wa-rotating-text');
+        
+        // Función para mostrar el mensaje
+        const showMessage = () => {
+            if(!labelContainer || !labelText) return;
+            
+            // 1. Actualizar texto
+            labelText.innerText = messages[msgIndex];
+            
+            // 2. Mostrar (Quitar clases de oculto)
+            labelContainer.classList.remove('opacity-0', 'translate-x-4');
+            
+            // 3. Esperar 5 segundos para que lo lean y luego ocultar
+            setTimeout(() => {
+                labelContainer.classList.add('opacity-0', 'translate-x-4');
+                
+                // Cambiar al siguiente mensaje para la próxima vuelta
+                msgIndex = (msgIndex + 1) % messages.length;
+            }, 5000); 
+        };
+
+        // INICIO DEL CICLO
+        // Esperamos 3 segundos al cargar la página para el primer saludo
+        setTimeout(() => {
+            showMessage();
+            
+            // Luego programamos que se repita cada 2 minutos (120,000 milisegundos)
+            // Esto evita que sea molesto
+            setInterval(showMessage, 120000); 
+            
+        }, 3000);
+    });
+
+
+// Variables para controlar el scroll
+    let lastScrollTop = 0;
+    const mainHeader = document.getElementById('main-header');
+
+    window.addEventListener('scroll', function() {
+        // Detectar la posición actual del scroll
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Si bajamos más de 100px (para no ocultarlo apenas mueves el dedo)
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // BAJANDO: Ocultamos el menú moviéndolo hacia arriba (-100%)
+            mainHeader.classList.add('-translate-y-full');
+        } else {
+            // SUBIENDO: Mostramos el menú (quitamos el desplazamiento)
+            mainHeader.classList.remove('-translate-y-full');
+        }
+        
+        // Actualizamos la última posición
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+    }, false);
+
+
+// Lógica para mostrar/ocultar el botón al hacer scroll
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+
+    window.addEventListener('scroll', () => {
+        // Si bajamos más de 400px, aparece el botón
+        if (window.scrollY > 400) {
+            scrollBtn.classList.remove('opacity-0', 'invisible', 'translate-y-10');
+        } else {
+            // Si estamos arriba, se oculta
+            scrollBtn.classList.add('opacity-0', 'invisible', 'translate-y-10');
+        }
+    });
+
+    // --- PROTECCIÓN CONTRA COPIA DE IMÁGENES ---
+
+// 1. Bloquear Clic Derecho (Menú contextual) solo en imágenes
+document.addEventListener('contextmenu', function(e) {
+    // Si el elemento donde hiciste clic es una imagen (IMG)
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault(); // Bloquea el menú
+        return false;
+    }
+}, false);
+
+// 2. Bloquear el arrastrar imágenes (Drag & Drop)
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault(); // Bloquea el arrastre
+        return false;
+    }
+}, false);
+
+// --- PROTECCIÓN AVANZADA DEL CÓDIGO ---
+
+// 1. Bloquear teclas de acceso a DevTools (F12, Ctrl+Shift+I, Ctrl+U, etc.)
+document.addEventListener('keydown', function(e) {
+    // Bloquear F12
+    if(e.key === 'F12') {
+        e.preventDefault();
+        return false;
+    }
+    // Bloquear Ctrl+Shift+I (Inspector)
+    if(e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        return false;
+    }
+    // Bloquear Ctrl+Shift+J (Consola)
+    if(e.ctrlKey && e.shiftKey && e.key === 'J') {
+        e.preventDefault();
+        return false;
+    }
+    // Bloquear Ctrl+Shift+C (Selector de elementos)
+    if(e.ctrlKey && e.shiftKey && e.key === 'C') {
+        e.preventDefault();
+        return false;
+    }
+    // Bloquear Ctrl+U (Ver código fuente)
+    if(e.ctrlKey && e.key === 'U') {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// 2. Trampa del Depurador (Congela el inspector si se abre)
+(function() {
+    const devtools = function() {
+        // Esta función detecta si la consola está abierta midiendo tiempos de ejecución
+        // o simplemente lanzando el 'debugger' constantemente.
+        function detect() {
+            try {
+                // Esta línea detiene el código si la consola está abierta
+                (function() {}.constructor("debugger")());
+            } catch (e) {}
+        }
+        
+        // Ejecutar la detección repetidamente
+        setInterval(detect, 100);
+    };
+    devtools();
+})();
+
+// 3. Limpiar consola constantemente por si escriben algo
+setInterval(function() {
+    console.clear();
+    console.log("%c¡Detente! %cEsta es una función del navegador para desarrolladores.", "color: red; font-size: 30px; font-weight: bold;", "color: black; font-size: 14px;");
+}, 1000);
